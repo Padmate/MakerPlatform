@@ -169,6 +169,7 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\agency.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\creative.css" />
@@ -180,6 +181,42 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\about\1.jpg" />
+    <Content Include="img\about\2.jpg" />
+    <Content Include="img\about\3.jpg" />
+    <Content Include="img\about\4.jpg" />
+    <Content Include="img\header-bg.jpg" />
+    <Content Include="img\login-bg.jpg" />
+    <Content Include="img\logos\aetuts.jpg" />
+    <Content Include="img\logos\creative-market.jpg" />
+    <Content Include="img\logos\designmodo.jpg" />
+    <Content Include="img\logos\envato.jpg" />
+    <Content Include="img\logos\microlancer.jpg" />
+    <Content Include="img\logos\themeforest.jpg" />
+    <Content Include="img\logos\wordpress.jpg" />
+    <Content Include="img\map-image.png" />
+    <Content Include="img\portfolio\1.jpg" />
+    <Content Include="img\portfolio\2.jpg" />
+    <Content Include="img\portfolio\3.jpg" />
+    <Content Include="img\portfolio\4.jpg" />
+    <Content Include="img\portfolio\5.jpg" />
+    <Content Include="img\portfolio\6.jpg" />
+    <Content Include="img\portfolio\dreams-preview.png" />
+    <Content Include="img\portfolio\dreams.png" />
+    <Content Include="img\portfolio\escape-preview.png" />
+    <Content Include="img\portfolio\escape.png" />
+    <Content Include="img\portfolio\golden-preview.png" />
+    <Content Include="img\portfolio\golden.png" />
+    <Content Include="img\portfolio\roundicons-free.png" />
+    <Content Include="img\portfolio\roundicons.png" />
+    <Content Include="img\portfolio\shop.jpg" />
+    <Content Include="img\portfolio\startup-framework-preview.png" />
+    <Content Include="img\portfolio\startup-framework.png" />
+    <Content Include="img\portfolio\treehouse-preview.png" />
+    <Content Include="img\portfolio\treehouse.png" />
+    <Content Include="img\team\1.jpg" />
+    <Content Include="img\team\2.jpg" />
+    <Content Include="img\team\3.jpg" />
     <Content Include="Scripts\agency.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -189,7 +226,6 @@
     <Content Include="fonts\font-awesome\fonts\FontAwesome.otf" />
     <Content Include="fonts\font-awesome\less\bordered-pulled.less" />
     <Content Include="fonts\font-awesome\less\core.less" />
-    <Content Include="fonts\font-awesome\less\fixed-width.less" />
     <Content Include="fonts\font-awesome\less\font-awesome.less" />
     <Content Include="fonts\font-awesome\less\icons.less" />
     <Content Include="fonts\font-awesome\less\larger.less" />
@@ -203,7 +239,6 @@
     <Content Include="fonts\font-awesome\scss\font-awesome.scss" />
     <Content Include="fonts\font-awesome\scss\_bordered-pulled.scss" />
     <Content Include="fonts\font-awesome\scss\_core.scss" />
-    <Content Include="fonts\font-awesome\scss\_fixed-width.scss" />
     <Content Include="fonts\font-awesome\scss\_icons.scss" />
     <Content Include="fonts\font-awesome\scss\_larger.scss" />
     <Content Include="fonts\font-awesome\scss\_list.scss" />
@@ -213,7 +248,12 @@
     <Content Include="fonts\font-awesome\scss\_spinning.scss" />
     <Content Include="fonts\font-awesome\scss\_stacked.scss" />
     <Content Include="fonts\font-awesome\scss\_variables.scss" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="Properties\PublishProfiles\serviceplatform - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\serviceplatform - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cbpAnimatedHeader.js" />
     <Content Include="Scripts\cbpAnimatedHeader.min.js" />
@@ -261,12 +301,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fonts\glyphicons-halflings-regular.woff" />
-    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
-    <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
