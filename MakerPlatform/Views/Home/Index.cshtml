@@ -1,31 +1,69 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-}
-
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="http://asp.net" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-</div>
+﻿<style>
+    .nav-tabs > li {
+        margin-bottom: -1px;
+        clear: both;
+        width: 100%;
+    }
+    #service-content > .container {
+        width: 100%;
+    }
+</style>
 
 <div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+
+    <div class="col-md-3">
+        <p class="lead">SERVICE</p>
+        <ul class="nav nav-tabs" id="serviceTab">
+            <li class="active"><a id="MarketPlatform" href="#service-content">市场平台</a></li>
+            <li><a id="BrandPlatform" href="#service-content">品牌平台</a></li>
+            <li><a id="SellPlatform" href="#service-content">销售平台</a></li>
+            <li><a id="MakePlatform" href="#service-content">制造平台</a></li>
+            <li><a id="ProjectPlatform" href="#service-content">工程平台</a></li>
+            <li><a id="ProductPlatform" href="#service-content">产品平台</a></li>
+            <li><a id="SupplyManagement" href="#service-content">供应链管理</a></li>
+            <li><a id="TutorPlatform" href="#service-content">导师平台</a></li>
+            <li><a id="FundPlatform" href="#service-content">资金平台</a></li>
+
+        </ul>
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
+
+    <div class="col-md-9">
+        <div class="tab-content">
+            <div class="tab-pane active" id="service-content" style="width:100%"> </div>
+
+        </div>
+
     </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="http://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
+
 </div>
+<script>
+
+    var current_nav = '@Request.QueryString["nav"]';
+
+    $(document).ready(function () {
+        
+
+        LoadTab("/Service/" + current_nav);
+        $('#' + current_nav).tab('show');//初始化显示哪个tab
+
+        $('#serviceTab a').click(function (e) {
+
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+            //加载链接内容
+            var aId = this.id;
+            var tabUrl = "/Service/" + aId;
+            LoadTab(tabUrl);
+
+
+        })
+
+    });
+
+    function LoadTab(url) {
+        //加载两次，否则右上角的下拉会无效？
+        //$("#divContent").load(url);
+        $("#service-content").load(url);
+    }
+
+</script>
