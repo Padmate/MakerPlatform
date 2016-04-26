@@ -1,0 +1,50 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+/* nav-float */
+.nav-float {
+    width: 160px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1999;
+    background: transparent;
+    border: 1px solid #ccc;
+    margin: 10% 0 0 10px;
+    -webkit-border-radius: 6px;
+    -moz-border-radius: 6px;
+    border-radius: 6px;
+    -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-float li {
+    height: 36px;
+    line-height: 36px;
+    border-bottom: 1px solid #d3d3d3;
+    text-align: center;
+    cursor: pointer;
+}
+
+.nav-float li:last-child {
+    border-bottom: none;
+}
+
+.nav-float li a {
+    display: block;
+    width: 98%;
+    height: 34px;
+    font-size: 16px;
+}
+
+.nav-float li a:hover {
+    background: #f9f9f9;
+    text-decoration: none;
+}
+
+.nav-float li a.cur {
+    background: #ffc;
+}

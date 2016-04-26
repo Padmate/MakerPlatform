@@ -42,8 +42,13 @@
 
     $(document).ready(function () {
         
+        var firstLoadUrl = "/Service/MarketPlatform";
+        if(current_nav !="")
+        {
+            firstLoadUrl = "/Service/" + current_nav;
+        }
 
-        LoadTab("/Service/" + current_nav);
+        LoadTab(firstLoadUrl);
         $('#' + current_nav).tab('show');//初始化显示哪个tab
 
         $('#serviceTab a').click(function (e) {
@@ -61,9 +66,10 @@
     });
 
     function LoadTab(url) {
-        //加载两次，否则右上角的下拉会无效？
-        //$("#divContent").load(url);
-        $("#service-content").load(url);
+        $("#service-content").load(url, function () {
+            //重新加载js,下拉框才有用
+            $.getScript("../Scripts/bootstrap.min.js");
+        });
     }
 
 </script>
