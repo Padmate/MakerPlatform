@@ -8,6 +8,11 @@ namespace MakerPlatform.Controllers
 {
     public class ServiceController:Controller
     {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         //市场平台
         public ActionResult MarketPlatform()
         {
