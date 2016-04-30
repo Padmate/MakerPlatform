@@ -1,0 +1,64 @@
+﻿@model MakerPlatform.Models.ServiceViewModel
+<div>
+    @using (Html.BeginForm("ServiceManage", "Service", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <h1>Login Form</h1>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.ServiceType, new { @placeholder = "ServiceType"})
+                <br />
+                @Html.ValidationMessageFor(m => m.ServiceType)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-10">
+                @Html.PasswordFor(m => m.ServiceModule, new { @placeholder = "ServerModule"})
+                <br />
+                @Html.ValidationMessageFor(m => m.ServiceModule, null)
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10 left">
+                <div class="checkbox">
+                    @Html.TextAreaFor(m => m.ServiceContent)
+                </div>
+            </div>
+            <div style="clear:both"></div>
+
+        </div>
+        <div class="form-group">
+            <input type="submit" value="保存" />
+        </div>
+    }
+</div>
+
+
+
+
+@section scripts{
+    <script src="~/ckfinder/ckfinder.js"></script>
+    <script src="~/ckeditor/ckeditor.js"></script>
+    <script>
+        var editor = CKEDITOR.instances["ServiceContent"];
+        if (editor) { editor.distory(true); }
+        CKEDITOR.replace("ServiceContent", {
+            enterMode: CKEDITOR.ENTER_BR
+        });
+        CKFinder.setupCKEditor(null,'@Url.Content("~/ckfinder/")');
+    </script>
+}
+<script>
+
+    $(document).ready(function () {
+
+        //重新加载js,下拉框才有用
+        $.getScript("../Scripts/bootstrap.min.js");
+
+    });
+
+
+</script>

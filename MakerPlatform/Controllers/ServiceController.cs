@@ -1,6 +1,8 @@
-﻿using System;
+﻿using MakerPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -12,6 +14,25 @@ namespace MakerPlatform.Controllers
         {
             return View();
         }
+
+        public ActionResult ServiceManagement()
+        {
+            return View();
+        }
+
+        // POST: /Account/Login
+        [HttpPost]
+        [ValidateInput(false)]
+        public ActionResult ServiceManage(ServiceViewModel model, string returnUrl)
+        {
+            if (ModelState.IsValid)
+            {
+                return View();
+            }
+
+            // 如果我们进行到这一步时某个地方出错，则重新显示表单
+            return View(model);
+        } 
 
         //市场平台
         public ActionResult MarketPlatform()

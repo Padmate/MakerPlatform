@@ -31,5 +31,11 @@ namespace MakerPlatform.Controllers
 
             return View();
         }
+
+        public ActionResult ContentManage()
+        {
+           
+            return View();
+        }
     }
 }
