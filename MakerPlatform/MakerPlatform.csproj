@@ -163,13 +163,23 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201604301213166_Initial.cs" />
+    <Compile Include="Migrations\201604301213166_Initial.Designer.cs">
+      <DependentUpon>201604301213166_Initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\MakerDBContext.cs" />
+    <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\ModelConfiguration\ServiceModuleConfiguration.cs" />
+    <Compile Include="Models\ModelConfiguration\ServiceTypeConfiguration.cs" />
+    <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -1299,6 +1309,15 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\layer\extend\layer.ext.js" />
+    <Content Include="Scripts\layer\layer.js" />
+    <Content Include="Scripts\layer\skin\default\icon-ext.png" />
+    <Content Include="Scripts\layer\skin\default\icon.png" />
+    <Content Include="Scripts\layer\skin\default\loading-0.gif" />
+    <Content Include="Scripts\layer\skin\default\loading-1.gif" />
+    <Content Include="Scripts\layer\skin\default\loading-2.gif" />
+    <Content Include="Scripts\layer\skin\layer.css" />
+    <Content Include="Scripts\layer\skin\layer.ext.css" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -1314,9 +1333,6 @@
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\Home\About.cshtml" />
-    <Content Include="Views\Home\Contact.cshtml" />
-    <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Scripts\jquery-1.10.2.min.map" />
     <Content Include="Views\Account\_ChangePasswordPartial.cshtml" />
     <Content Include="Views\Account\_ExternalLoginsListPartial.cshtml" />
@@ -1328,19 +1344,14 @@
     <Content Include="Views\Account\Manage.cshtml" />
     <Content Include="Views\Account\Register.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
-    <Content Include="Views\Home\Default.cshtml" />
-    <Content Include="Views\Service\MarketPlatform.cshtml" />
-    <Content Include="Views\Service\BrandPlatform.cshtml" />
-    <Content Include="Views\Service\SellPlatform.cshtml" />
-    <Content Include="Views\Service\MakePlatform.cshtml" />
-    <Content Include="Views\Service\ProjectPlatform.cshtml" />
-    <Content Include="Views\Service\ProductPlatform.cshtml" />
-    <Content Include="Views\Service\SupplyManagement.cshtml" />
-    <Content Include="Views\Service\TutorPlatform.cshtml" />
-    <Content Include="Views\Service\FundPlatform.cshtml" />
     <Content Include="Views\Service\Index.cshtml" />
-    <Content Include="Views\Home\ContentManage.cshtml" />
-    <Content Include="Views\Service\ServiceManagement.cshtml" />
+    <Content Include="Views\Service\ServiceManage.cshtml" />
+    <Content Include="Views\Service\ServiceContent.cshtml" />
+    <Content Include="Views\Home\About.cshtml" />
+    <Content Include="Views\Home\Contact.cshtml" />
+    <Content Include="Views\Home\SystemManage.cshtml" />
+    <Content Include="Views\Home\Default.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1349,6 +1360,11 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201604301213166_Initial.resx">
+      <DependentUpon>201604301213166_Initial.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -8,92 +8,111 @@ using System.Web.Mvc;
 
 namespace MakerPlatform.Controllers
 {
-    public class ServiceController:Controller
+    [Authorize]
+    public class ServiceController:BaseController
     {
+        private MakerDBContext _dbContext = new MakerDBContext();
+
+        
         public ActionResult Index()
         {
+            var serviceTypes = _dbContext.ServiceTypes
+                .Include("ServiceModules")
+                .ToList();
+
+            ViewData["ServiceTypes"] = serviceTypes;
             return View();
         }
 
-        public ActionResult ServiceManagement()
+        public ActionResult ServiceManage()
         {
+            var serviceTypes = _dbContext.ServiceTypes
+               .Include("ServiceModules")
+               .ToList();
+
+            ViewData["ServiceTypes"] = serviceTypes;
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetServiceModuleByServiceType(string TypeCode)
+        {
+            List<ServiceModuleModel> serviceModules = new List<ServiceModuleModel>();
+            var serviceType = _dbContext.ServiceTypes.FirstOrDefault(s => s.TypeCode == TypeCode);
+            if(serviceType !=null)
+            {
+                serviceModules = _dbContext.ServiceModules
+                    .Where(s => s.ServiceTypeId == serviceType.Id)
+                    .Select(s => new ServiceModuleModel() { 
+                        Id = s.Id,
+                        ModuleCode = s.ModuleCode,
+                        ModuleName = s.ModuleName,
+                        ModuleContent = s.ModuleContent
+                    })
+                    .ToList();
+
+            }
+
+            return Json(serviceModules);
+
+        }
+
+        [HttpPost]
+        public ActionResult GetServiceModuleByModuleCode(string ModuleCode)
+        {
+            var serviceModule = _dbContext.ServiceModules
+                .Select(s => new ServiceModuleModel() {
+                    Id = s.Id,
+                    ModuleCode = s.ModuleCode,
+                    ModuleName = s.ModuleName,
+                    ModuleContent = s.ModuleContent
+                })
+                .FirstOrDefault(s => s.ModuleCode == ModuleCode);
+
+            return Json(serviceModule);
+
         }
 
         // POST: /Account/Login
         [HttpPost]
         [ValidateInput(false)]
-        public ActionResult ServiceManage(ServiceViewModel model, string returnUrl)
+        public ActionResult SaveServiceContent(ServiceViewModel model)
         {
+            Message message = new Message();
+            message.Success = true;
+            message.Content = "保存成功";
             if (ModelState.IsValid)
             {
-                return View();
+                var serviceModule = _dbContext.ServiceModules.FirstOrDefault(s => s.ModuleCode == model.ServiceModuleCode);
+                serviceModule.ModuleContent = model.ServiceModuleContent;
+                _dbContext.SaveChanges();
             }
-
-            // 如果我们进行到这一步时某个地方出错，则重新显示表单
-            return View(model);
+            else
+            {
+                message.Success = false;
+                message.Content = ModelStateError();
+                return Json(message);
+            }
+            return Json(message);
         } 
 
-        //市场平台
-        public ActionResult MarketPlatform()
+        /// <summary>
+        /// Display ServiceContent
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult ServiceContent(string typeCode)
         {
-            return View();
-        }
+            var serviceType = _dbContext.ServiceTypes
+               .Include("ServiceModules")
+               .FirstOrDefault(s => s.TypeCode == typeCode)
+;
 
-        //品牌平台
-        public ActionResult BrandPlatform()
-        {
-
-            return View();
-        }
-
-        //销售平台
-        public ActionResult SellPlatform()
-        {
+            ViewData["ServiceType"] = serviceType;
 
             return View();
+
         }
 
-        //制造平台
-        public ActionResult MakePlatform()
-        {
-
-            return View();
-        }
-
-        //工程平台
-        public ActionResult ProjectPlatform()
-        {
-
-            return View();
-        }
-
-        //产品平台
-        public ActionResult ProductPlatform()
-        {
-
-            return View();
-        }
-
-        //供应链管理
-        public ActionResult SupplyManagement()
-        {
-
-            return View();
-        }
-
-        //导师平台
-        public ActionResult TutorPlatform()
-        {
-
-            return View();
-        }
-
-        //资金平台
-        public ActionResult FundPlatform()
-        {
-
-            return View();
-        }
+        
     }
 }

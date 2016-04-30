@@ -1,4 +1,6 @@
-﻿<style>
+﻿@using MakerPlatform.Models;
+
+<style>
     .nav-tabs > li {
         margin-bottom: -1px;
         clear: both;
@@ -43,178 +45,28 @@
     <div class="col-md-3">
         <p class="lead">SERVICE</p>
         <ul class="nav nav-tabs list-nav" id="serviceTab">
-            <li class="active">
-                <a id="MarketPlatform" href="#service-content">市场平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="market-scdy" name="MarketPlatform" href="#service-content" class="list-child-a">市场调研</a>
+            @{
+                List<ServiceType> serviceTypes = (List<ServiceType>)ViewData["ServiceTypes"];
+                foreach (var serviceType in serviceTypes)
+                {
+                    var serviceModules = serviceType.ServiceModules;
+                    
+                    <li>
+                        <a id="@serviceType.TypeCode" href="#service-content">@serviceType.TypeName</a>
+                        @if(serviceModules.Count >0)
+                        {
+                            <ul class="list-child">
+                                @foreach(var serviceModule in serviceModules){
+                                    <li class="list-child-li">
+                                        <a id="@serviceModule.ModuleCode" name="@serviceType.TypeCode" href="#service-content" class="list-child-a">@serviceModule.ModuleName</a>
+                                    </li>
+                                }
+                                
+                            </ul>
+                        }
                     </li>
-                    <li class="list-child-li">
-                        <a id="market-ltjz" name="MarketPlatform" href="#service-content" class="list-child-a">论坛讲座</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="market-ckds" name="MarketPlatform" href="#service-content" class="list-child-a">创客大赛</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="market-mtgg" name="MarketPlatform" href="#service-content" class="list-child-a">媒体广告</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="market-gjzh" name="MarketPlatform" href="#service-content" class="list-child-a">国际展会</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="market-gnzh" name="MarketPlatform" href="#service-content" class="list-child-a">国内展会</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="BrandPlatform" href="#service-content">品牌平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="brand-ppch" name="BrandPlatform" href="#service-content" class="list-child-a">品牌策划</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="brand-ppgl" name="BrandPlatform" href="#service-content" class="list-child-a">品牌管理</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="brand-ppkf" name="BrandPlatform" href="#service-content" class="list-child-a">品牌开发</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="SellPlatform" href="#service-content">销售平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="sell-ctqd" name="SellPlatform" href="#service-content" class="list-child-a">传统渠道</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="sell-gnds" name="SellPlatform" href="#service-content" class="list-child-a">国内电商</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="sell-kjds" name="SellPlatform" href="#service-content" class="list-child-a">跨境电商</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="sell-b2b" name="SellPlatform" href="#service-content" class="list-child-a">B2B</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="sell-b2c" name="SellPlatform" href="#service-content" class="list-child-a">B2C</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="MakePlatform" href="#service-content">制造平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="make-dplsc" name="MakePlatform" href="#service-content" class="list-child-a">大批量生产</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="make-zyhzz" name="MakePlatform" href="#service-content" class="list-child-a">专业化制造</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="ProjectPlatform" href="#service-content">工程平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="project-ybzz" name="ProjectPlatform" href="#service-content" class="list-child-a">样板制作</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="project-mzjl" name="ProjectPlatform" href="#service-content" class="list-child-a">模治检量</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="project-gjzz" name="ProjectPlatform" href="#service-content" class="list-child-a">工具制作</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="project-szsc" name="ProjectPlatform" href="#service-content" class="list-child-a">试做试产</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="ProductPlatform" href="#service-content">产品平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="product-zcxm" name="ProductPlatform" href="#service-content" class="list-child-a">众创项目</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="product-cxyy" name="ProductPlatform" href="#service-content" class="list-child-a">产学研用</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="product-whcy" name="ProductPlatform" href="#service-content" class="list-child-a">文化创意</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="product-sjfa" name="ProductPlatform" href="#service-content" class="list-child-a">设计-方案</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="product-khxq" name="ProductPlatform" href="#service-content" class="list-child-a">客户需求</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="product-cpzc" name="ProductPlatform" href="#service-content" class="list-child-a">产品众筹</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="product-odmoem" name="ProductPlatform" href="#service-content" class="list-child-a">ODM/OEM</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="SupplyManagement" href="#service-content">供应链管理</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="supply-ccwl" name="SupplyManagement" href="#service-content" class="list-child-a">仓储物流</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="supply-ffps" name="SupplyManagement" href="#service-content" class="list-child-a">分发配送</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="supply-cgwf" name="SupplyManagement" href="#service-content" class="list-child-a">采购外发</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="supply-jygl" name="SupplyManagement" href="#service-content" class="list-child-a">精益管理</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="TutorPlatform" href="#service-content">导师平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="tutor-zlgh" name="TutorPlatform" href="#service-content" class="list-child-a">战略规划</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="tutor-qyjl" name="TutorPlatform" href="#service-content" class="list-child-a">企业教练</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="tutor-gwpx" name="TutorPlatform" href="#service-content" class="list-child-a">顾问培训</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="tutor-cxy" name="TutorPlatform" href="#service-content" class="list-child-a">产学研</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="tutor-xh" name="TutorPlatform" href="#service-content" class="list-child-a">协会</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="tutor-rlzy" name="TutorPlatform" href="#service-content" class="list-child-a">人力资源开发</a>
-                    </li>
-                </ul>
-            </li>
-            <li>
-                <a id="FundPlatform" href="#service-content">资金平台</a>
-                <ul class="list-child">
-                    <li class="list-child-li">
-                        <a id="fund-zc" name="FundPlatform" href="#service-content" class="list-child-a">众筹</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="fund-jj" name="FundPlatform" href="#service-content" class="list-child-a"> 基金、PE、VC</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="fund-gqjy" name="FundPlatform" href="#service-content" class="list-child-a">股权交易</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="fund-bx" name="FundPlatform" href="#service-content" class="list-child-a">保险</a>
-                    </li>
-                    <li class="list-child-li">
-                        <a id="fund-yh" name="FundPlatform" href="#service-content" class="list-child-a">银行</a>
-                    </li>
-                </ul>
-            </li>
-
+                }
+            }
         </ul>
     </div>
 
@@ -233,12 +85,12 @@
 
     $(document).ready(function () {
 
-        var firstLoadUrl = "/Service/MarketPlatform";
+        //默认显示第一列
+        var serviceTypeCode = $('#serviceTab a:first').attr("id");
         if(current_nav !="")
-        {
-            firstLoadUrl = "/Service/" + current_nav;
-        }
+            serviceTypeCode = current_nav;
 
+        var firstLoadUrl = "/Service/ServiceContent?typeCode="+serviceTypeCode;
         LoadTab(firstLoadUrl);
         $('#' + current_nav).tab('show');//初始化显示哪个tab
         //初始化自动展开列表菜单
@@ -249,13 +101,14 @@
             e.preventDefault();//阻止a链接的跳转行为
             $(this).tab('show');//显示当前选中的链接及关联的content
             //加载链接内容
-            var aId = this.id; debugger
+            var aId = this.id; 
             var aName = this.name;
-            var tabUrl = "/Service/" + aId;
+            var tabUrl = "/Service/ServiceContent?typeCode=" + aId;
             //过滤ID
-            if(aName !="")
-                tabUrl = "/Service/" + aName + " #" + aId; //过滤ID为aId的返回内容
-
+            if (aName != "")
+                //如果name不为空，则表示为二级菜单
+                tabUrl = "/Service/ServiceContent?typeCode=" + aName + " #" + aId; //过滤ID为aId的返回内容
+            
             LoadTab(tabUrl);
 
 

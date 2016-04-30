@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakerPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,8 @@ namespace MakerPlatform.Controllers
 {
     public class HomeController : Controller
     {
+        private MakerDBContext _dbContext = new MakerDBContext();
+
         public ActionResult Index()
         {
             return View();
@@ -15,6 +18,10 @@ namespace MakerPlatform.Controllers
 
         public ActionResult Default()
         {
+            var serviceTypes = _dbContext.ServiceTypes
+                .ToList();
+
+            ViewData["ServiceTypes"] = serviceTypes;
             return View();
         }
 
@@ -32,7 +39,7 @@ namespace MakerPlatform.Controllers
             return View();
         }
 
-        public ActionResult ContentManage()
+        public ActionResult SystemManage()
         {
            
             return View();

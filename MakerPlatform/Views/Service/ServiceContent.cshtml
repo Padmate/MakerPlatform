@@ -1,0 +1,33 @@
+﻿@using MakerPlatform.Models;
+
+<style>
+    .content-style
+    {
+        margin:50px 0px;
+    }
+</style>
+@{
+    ServiceType serviceType = (ServiceType)ViewData["ServiceType"];
+    if (serviceType != null)
+    {
+        var serviceModules = serviceType.ServiceModules;
+        int a = 34;
+        foreach (var module in serviceModules)
+        {
+            a = a + 1;
+            <div id="@module.ModuleCode" class="content-style">@Html.Raw(@module.ModuleContent)</div>
+        }
+    }
+}
+
+<script>
+
+    $(document).ready(function () {
+
+        //重新加载js,下拉框才有用
+        $.getScript("../Scripts/bootstrap.min.js");
+
+    });
+
+
+</script>
