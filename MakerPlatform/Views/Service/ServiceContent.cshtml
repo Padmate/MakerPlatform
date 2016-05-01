@@ -1,33 +1,48 @@
-﻿@using MakerPlatform.Models;
+﻿
+@using MakerPlatform.Models;
 
-<style>
-    .content-style
-    {
-        margin:50px 0px;
-    }
-</style>
 @{
     ServiceType serviceType = (ServiceType)ViewData["ServiceType"];
+    
+}
+<style>
+    .areaStyle {
+        min-height: 800px;
+        padding-top: 150px;
+    }
+</style>
+<nav class="navbar navbar-default navbar-fixed-top" style="top: 98px; z-index: 99; background-color: white;">
+    <div class="container">
+        <ul class="nav nav-tabs navbar-right" style="border-bottom:none;">
+            @{
+                if (serviceType != null)
+                {
+                    var serviceModules = serviceType.ServiceModules;
+                    foreach (var module in serviceModules)
+                    {
+                        <li><a href="#@module.ModuleCode"><strong>@module.ModuleName</strong></a></li>
+                    }
+                }
+            }
+
+            
+        </ul>
+    </div>
+</nav>
+
+@{
     if (serviceType != null)
     {
         var serviceModules = serviceType.ServiceModules;
-        int a = 34;
         foreach (var module in serviceModules)
         {
-            a = a + 1;
-            <div id="@module.ModuleCode" class="content-style">@Html.Raw(@module.ModuleContent)</div>
+            <a name="@module.ModuleCode"></a>
+    <div id="@module.ModuleCode" class="areaStyle">@Html.Raw(@module.ModuleContent)</div>
         }
     }
 }
 
 <script>
-
-    $(document).ready(function () {
-
-        //重新加载js,下拉框才有用
-        $.getScript("../Scripts/bootstrap.min.js");
-
-    });
 
 
 </script>

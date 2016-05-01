@@ -1,19 +1,156 @@
-﻿
-<script src="~/ckeditor/ckeditor.js"></script>
-<div class="row">
-    <form>
-        <div>
-            <textarea id="test"></textarea>
-        </div>
-    </form>
+﻿@using MakerPlatform.Models;
 
+<style>
+    .nav-tabs > li {
+        margin-bottom: -1px;
+        clear: both;
+        width: 100%;
+    }
+
+    #service-content > .container {
+        width: 100%;
+    }
+
+    .list-child {
+        display: none;
+        padding-left: 20px;
+    }
+
+        .list-child > li {
+            padding: 10px 15px;
+            list-style: none;
+        }
+
+    a.list-child-a {
+        display: block;
+    }
+
+        a.list-child-a:hover,
+        a.list-child-a:focus {
+            color: #555;
+            text-decoration: none;
+            display: block;
+        }
+
+    li.list-child-li:hover,
+    li.list-child-li:focus {
+        color: #555;
+        background-color: lightblue;
+    }
+</style>
+
+<div class="row">
+
+    <div class="col-md-3">
+        <p class="lead">SERVICE</p>
+        <ul class="nav nav-tabs list-nav" id="serviceTab">
+            @{
+                List<ServiceType> serviceTypes = (List<ServiceType>)ViewData["ServiceTypes"];
+                foreach (var serviceType in serviceTypes)
+                {
+                    var serviceModules = serviceType.ServiceModules;
+
+                    <li>
+                        <a id="@serviceType.TypeCode" href="#service-content">@serviceType.TypeName</a>
+                        @if (serviceModules.Count > 0)
+                        {
+                            <ul class="list-child">
+                                @foreach (var serviceModule in serviceModules)
+                                {
+                                    <li class="list-child-li">
+                                        <a id="@serviceModule.ModuleCode" name="@serviceType.TypeCode" href="#service-content" class="list-child-a">@serviceModule.ModuleName</a>
+                                    </li>
+                                }
+
+                            </ul>
+                        }
+                    </li>
+                }
+            }
+        </ul>
+    </div>
+
+    <div class="col-md-9">
+        <div class="tab-content">
+            <div class="tab-pane active" id="service-content" style="width:100%;min-height:800px;"> </div>
+
+        </div>
+
+    </div>
 
 </div>
 <script>
-    var editor = CKEDITOR.instances["TEST"];
-    if (editor) { editor.distory(true); }
-    CKEDITOR.replace("test", {
-        enterMode:CKEDITOR.ENTER_BR
+
+    var current_nav = '@Request.QueryString["nav"]';
+
+    $(document).ready(function () {
+
+        //默认显示第一列
+        var serviceTypeCode = $('#serviceTab a:first').attr("id");
+        if(current_nav !="")
+            serviceTypeCode = current_nav;
+
+        var firstLoadUrl = "/Service/ServiceContent?typeCode="+serviceTypeCode;
+        LoadTab(firstLoadUrl);
+        $('#' + current_nav).tab('show');//初始化显示哪个tab
+        //初始化自动展开列表菜单
+        var aa = $("#" + current_nav).next().attr("style","display:block");
+
+        $('#serviceTab a').click(function (e) {
+
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+            //加载链接内容
+            var aId = this.id;
+            var aName = this.name;
+            var tabUrl = "/Service/ServiceContent?typeCode=" + aId;
+            //过滤ID
+            if (aName != "")
+                //如果name不为空，则表示为二级菜单
+                tabUrl = "/Service/ServiceContent?typeCode=" + aName + " #" + aId; //过滤ID为aId的返回内容
+
+            LoadTab(tabUrl);
+
+
+        });
+
+        InitDropdownList();
+
     });
+
+    function LoadTab(url) {
+        $("#service-content").load(url, function () {
+            //重新加载js,下拉框才有用
+           // $.getScript("../Scripts/bootstrap.min.js");
+        });
+    }
+
+    //初始化下拉菜单
+    function InitDropdownList() {
+
+        //说明 所有的元素以ul li ul li ul li的循环格式嵌套 如果没有下级分类 就用li a结束嵌套
+        //$(".nav ul li").children("ul").hide();
+
+        $(".list-nav").find("li:has(ul)").children("a").css({ background: "url(images/statu_close.gif) no-repeat left top;" })
+          .click(function () {
+              if ($(this).next("ul").is(":hidden")) {
+                  $(this).next("ul").slideDown("slow");
+                  if ($(this).parent("li").siblings("li").children("ul").is(":visible")) {
+                      $(this).parent("li").siblings("li").find("ul").slideUp("1000");
+                      $(this).parent("li").siblings("li:has(ul)").children("a").css({ background: "url(images/statu_close.gif) no-repeat left top;" })
+                        .end().find("li:has(ul)").children("a").css({ background: "url(images/statu_close.gif) no-repeat left top;" });
+                  }
+                  $(this).css({ background: "url(images/statu_open.gif) no-repeat left top;" });
+                  return false;
+              } else {
+                  $(this).next("ul").slideUp("normal");
+                  //不用toggle()的原因是为了在收缩菜单的时候同时也将该菜单的下级菜单以后的所有元素都隐藏
+                  $(this).css({ background: "url(images/statu_close.gif) no-repeat left top;" });
+                  $(this).next("ul").children("li").find("ul").fadeOut("normal");
+                  $(this).next("ul").find("li:has(ul)").children("a").css({ background: "url(images/statu_close.gif) no-repeat left top;" });
+                  return false;
+              }
+          });
+    }
 
 </script>

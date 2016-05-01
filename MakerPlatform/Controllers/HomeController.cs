@@ -13,6 +13,11 @@ namespace MakerPlatform.Controllers
 
         public ActionResult Index()
         {
+            var serviceTypes = _dbContext.ServiceTypes
+                .Include("ServiceModules")
+                .ToList();
+
+            ViewData["ServiceTypes"] = serviceTypes;
             return View();
         }
 

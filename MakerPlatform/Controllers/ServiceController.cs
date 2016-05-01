@@ -8,7 +8,7 @@ using System.Web.Mvc;
 
 namespace MakerPlatform.Controllers
 {
-    [Authorize]
+    
     public class ServiceController:BaseController
     {
         private MakerDBContext _dbContext = new MakerDBContext();
@@ -24,6 +24,7 @@ namespace MakerPlatform.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult ServiceManage()
         {
             var serviceTypes = _dbContext.ServiceTypes
@@ -34,6 +35,7 @@ namespace MakerPlatform.Controllers
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult GetServiceModuleByServiceType(string TypeCode)
         {
@@ -57,6 +59,7 @@ namespace MakerPlatform.Controllers
 
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult GetServiceModuleByModuleCode(string ModuleCode)
         {
@@ -74,6 +77,7 @@ namespace MakerPlatform.Controllers
         }
 
         // POST: /Account/Login
+        [Authorize]
         [HttpPost]
         [ValidateInput(false)]
         public ActionResult SaveServiceContent(ServiceViewModel model)
