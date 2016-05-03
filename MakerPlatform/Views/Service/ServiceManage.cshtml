@@ -1,4 +1,7 @@
-﻿@using MakerPlatform.Models;
+﻿@{
+    Layout = null;
+}
+@using MakerPlatform.Models;
 
 <style>
     .ServiceContent-SaveBtn {
@@ -56,24 +59,19 @@
 
 
 
-@section scripts{
-    <script src="~/ckfinder/ckfinder.js"></script>
-    <script src="~/ckeditor/ckeditor.js"></script>
-    <script>
-        var editor = CKEDITOR.instances["ServiceModuleContent"];
-        if (editor) { editor.distory(true); }
-        CKEDITOR.replace("ServiceModuleContent", {
-            enterMode: CKEDITOR.ENTER_BR
-        });
-        CKFinder.setupCKEditor(null,'@Url.Content("~/ckfinder/")');
-    </script>
-}
+<script src="~/ckfinder/ckfinder.js"></script>
+<script src="~/ckeditor/ckeditor.js"></script>
+
 <script>
 
-    $(document).ready(function () {
+    var editor = CKEDITOR.instances["ServiceModuleContent"];
+    if (editor) { editor.distory(true); }
+    CKEDITOR.replace("ServiceModuleContent", {
+        enterMode: CKEDITOR.ENTER_BR
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder/")');
 
-        //重新加载js,下拉框才有用
-        $.getScript("../Scripts/bootstrap.min.js");
+    $(document).ready(function () {
 
         InitServiceTypeSelect();
         InitServiceModuleSelect();

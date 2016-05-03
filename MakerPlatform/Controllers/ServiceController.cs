@@ -14,13 +14,30 @@ namespace MakerPlatform.Controllers
         private MakerDBContext _dbContext = new MakerDBContext();
 
         
-        public ActionResult Index()
+        public ActionResult Index(string typeCode)
         {
-            var serviceTypes = _dbContext.ServiceTypes
-                .Include("ServiceModules")
-                .ToList();
+            if(string.IsNullOrEmpty(typeCode))
+            {
+                return RedirectToAction("Default", "Home");
+            }
 
-            ViewData["ServiceTypes"] = serviceTypes;
+            var serviceType = _dbContext.ServiceTypes
+              .Include("ServiceModules")
+              .FirstOrDefault(s => s.TypeCode == typeCode)
+;           
+            //构造模块菜单按钮
+            List<TopNavMenuModel> topNavMenus = null;
+            if(serviceType !=null)
+            {
+                topNavMenus = serviceType.ServiceModules.Select(s => new TopNavMenuModel()
+                {
+                    Href = s.ModuleCode,
+                    Name = s.ModuleName
+                }).ToList();
+            }
+
+            ViewData["ServiceType"] = serviceType;
+            ViewData["TopNavMenus"] = topNavMenus;
             return View();
         }
 
@@ -100,22 +117,6 @@ namespace MakerPlatform.Controllers
             return Json(message);
         } 
 
-        /// <summary>
-        /// Display ServiceContent
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult ServiceContent(string typeCode)
-        {
-            var serviceType = _dbContext.ServiceTypes
-               .Include("ServiceModules")
-               .FirstOrDefault(s => s.TypeCode == typeCode)
-;
-
-            ViewData["ServiceType"] = serviceType;
-
-            return View();
-
-        }
 
         
     }

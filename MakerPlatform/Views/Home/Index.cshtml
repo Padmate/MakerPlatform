@@ -1,66 +1,78 @@
-﻿@{
-    Layout = null;
-}
-<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
-<head>
-    <title>Dock and Stack Examples</title>
-    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
-    <link rel="stylesheet" type="text/css" media="screen" href="~/Content/SuspendedNavMac.css">
-    <noscript>
-        <style type="text/css">
-            #dock {
-                top: 0;
-                left: 100px;
-            }
-
-            a.dock-item {
-                position: relative;
-                float: left;
-                margin-right: 10px;
-            }
-
-            .dock-item span {
-                display: block;
-            }
-
-            .stack {
-                top: 0;
-            }
-
-                .stack ul li {
-                    position: relative;
+﻿
+<!--Mac Menu-->
+<div>
+    @*<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+    <html>
+    <head>
+        <title>Dock and Stack Examples</title>
+        <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8">
+        <link rel="stylesheet" type="text/css" media="screen" href="~/Content/SuspendedNavMac.css">
+        <noscript>
+            <style type="text/css">
+                #dock {
+                    top: 0;
+                    left: 100px;
                 }
-        </style>
-    </noscript>
-    <script type="text/javascript" src="~/Scripts/SuspendedNavMac/jquery.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/SuspendedNavMac/fisheye-iutil.min.js"></script>
-    <script type="text/javascript" src="~/Scripts/SuspendedNavMac/dock-stack.js"></script>
-    <script type="text/javascript" src="~/Scripts/SuspendedNavMac/jquery.jqDock.min.js"></script>
 
-    <script type="text/javascript">
+                a.dock-item {
+                    position: relative;
+                    float: left;
+                    margin-right: 10px;
+                }
+
+                .dock-item span {
+                    display: block;
+                }
+
+                .stack {
+                    top: 0;
+                }
+
+                    .stack ul li {
+                        position: relative;
+                    }
+            </style>
+        </noscript>
+        <script type="text/javascript" src="~/Scripts/SuspendedNavMac/jquery.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/SuspendedNavMac/fisheye-iutil.min.js"></script>
+        <script type="text/javascript" src="~/Scripts/SuspendedNavMac/dock-stack.js"></script>
+        <script type="text/javascript" src="~/Scripts/SuspendedNavMac/jquery.jqDock.min.js"></script>
+
+        <script type="text/javascript">
         $(function () {
             var jqDockOpts = { align: 'left', duration: 200, labels: 'tc', size: 48, distance: 85 };
             $('#jqDock').jqDock(jqDockOpts);
         });
-    </script>
-</head>
-<body>
+        </script>
+    </head>
+    <body>
 
-    <!-- BEGIN DOCK 2 ============================================================ -->
-    <div id="dockContainer">
-        <ul id="jqDock">
-            <li><a class="dockItem" href="index.html"><img src="~/img/dock/home-sm.png" alt="Home" title="Example&nbsp;1" /></a></li>
-            <li><a class="dockItem" href="example2.html"><img src="~/img/dock/email-sm.png" alt="Contact" title="Example&nbsp;2" /></a></li>
-            <li><a class="dockItem" href="example3.html"><img src="~/img/dock/portfolio-sm.png" alt="portfolio" title="Example&nbsp;3" /></a></li>
-            <li><a class="dockItem" href="all-examples.html"><img src="~/img/dock/music-sm.png" alt="music" title="All&nbsp;Examples" /></a></li>
-            <li><a class="dockItem" href="#"><img src="~/img/dock/video-sm.png" alt="video" title="Video" /></a></li>
-            <li><a class="dockItem" href="#"><img src="~/img/dock/history-sm.png" alt="history" title="History" /></a></li>
-            <li><a class="dockItem" href="#"><img src="~/img/dock/calendar-sm.png" alt="calendar" title="Calendar" /></a></li>
-            <li><a class="dockItem" href="#"><img src="~/img/dock/link-sm.png" alt="links" title="Links" /></a></li>
-            <li><a class="dockItem" href="#"><img src="~/img/dock/rss-sm.png" alt="rss" title="RSS" /></a></li>
-            <li><a class="dockItem" href="#"><img src="~/img/dock/rss2-sm.png" alt="rss" title="RSS" /></a></li>
-        </ul>
-    </div><!-- end div #dockContainer -->
-</body>
-</html>
+        <!-- BEGIN DOCK 2 ============================================================ -->
+        <div id="dockContainer">
+            <ul id="jqDock">
+                <li><a class="dockItem" href="index.html"><img src="~/img/dock/home-sm.png" alt="Home" title="Example&nbsp;1" /></a></li>
+                <li><a class="dockItem" href="example2.html"><img src="~/img/dock/email-sm.png" alt="Contact" title="Example&nbsp;2" /></a></li>
+                <li><a class="dockItem" href="example3.html"><img src="~/img/dock/portfolio-sm.png" alt="portfolio" title="Example&nbsp;3" /></a></li>
+                <li><a class="dockItem" href="all-examples.html"><img src="~/img/dock/music-sm.png" alt="music" title="All&nbsp;Examples" /></a></li>
+                <li><a class="dockItem" href="#"><img src="~/img/dock/video-sm.png" alt="video" title="Video" /></a></li>
+                <li><a class="dockItem" href="#"><img src="~/img/dock/history-sm.png" alt="history" title="History" /></a></li>
+                <li><a class="dockItem" href="#"><img src="~/img/dock/calendar-sm.png" alt="calendar" title="Calendar" /></a></li>
+                <li><a class="dockItem" href="#"><img src="~/img/dock/link-sm.png" alt="links" title="Links" /></a></li>
+                <li><a class="dockItem" href="#"><img src="~/img/dock/rss-sm.png" alt="rss" title="RSS" /></a></li>
+                <li><a class="dockItem" href="#"><img src="~/img/dock/rss2-sm.png" alt="rss" title="RSS" /></a></li>
+            </ul>
+        </div><!-- end div #dockContainer -->
+    </body>
+</html>*@
+</div>
+
+<!-- Header -->
+<header>
+    <div class="container">
+        <div class="intro-text">
+            <div class="intro-lead-in">欢迎来到众创服务平台</div>
+            <div class="intro-heading">It's Nice To Meet You</div>
+            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+        </div>
+    </div>
+</header>

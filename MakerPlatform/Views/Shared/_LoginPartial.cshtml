@@ -9,7 +9,7 @@
     }
     .login-box
     {
-        margin-left:100px;
+        margin-left:50px;
     }
 </style>
 @if (Request.IsAuthenticated)
@@ -41,6 +41,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right login-box">
-        <li>@Html.ActionLink("登录", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink", style = "color: white;" })</li>
+        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl =Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", style = "color: white;" })</li>
     </ul>
 }

@@ -1,0 +1,33 @@
+﻿@using MakerPlatform.Models;
+
+@{
+    List<TopNavMenuModel> topNavMenus = (List<TopNavMenuModel>)ViewData["TopNavMenus"];
+
+}
+@{
+    if (topNavMenus != null && topNavMenus.Count > 0)
+    {
+        foreach (var menu in topNavMenus)
+        {
+            <li><a class="page-scroll" href="#@menu.Href">@menu.Name</a></li>
+        }
+    }
+    else
+    {
+        <li>
+            <a class="page-scroll" href="#services">服务</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="#activity">活动</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="#information">资讯</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="#shop">商城</a>
+        </li>
+        <li>
+            <a class="page-scroll" href="#about">关于我们</a>
+        </li>
+    }
+}
