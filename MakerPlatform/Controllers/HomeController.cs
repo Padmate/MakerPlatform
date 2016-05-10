@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MakerPlatform.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +9,7 @@ namespace MakerPlatform.Controllers
 {
     public class HomeController : Controller
     {
+
         public ActionResult Index()
         {
             return View();
@@ -15,6 +17,7 @@ namespace MakerPlatform.Controllers
 
         public ActionResult Default()
         {
+            ViewBag.From = "Default";
             return View();
         }
 
@@ -29,6 +32,12 @@ namespace MakerPlatform.Controllers
         {
             ViewBag.Message = "Your contact page.";
 
+            return View();
+        }
+
+        public ActionResult SystemManage()
+        {
+           
             return View();
         }
     }

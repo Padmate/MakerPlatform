@@ -1,37 +1,97 @@
-﻿
-<div id="project-ybzz">
-    <h3>样板制作</h3>
-    <ul>
-        <li>提供外观手板、功能结构手板的3D打印</li>
-        <li>提供客户产品的PCB快板制作，钢网制作，小批量贴片服务</li>
-    </ul>
+﻿@Html.Partial("_CommonHeader")
+<style>
     
-</div>
+</style>
+<section style="padding:100px;">
 
-<div id="project-mzjl">
-    <h3>模治检量</h3>
-    <p>提供产品的部件检测，材料检测，可靠性试验，电性能检测</p>
-    
-</div>
+    <div class="container">
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseOne">
+                            样板制作
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse in">
+                    <div class="panel-body">
+                        <ul>
+                            <li><span class="customerFont">提供外观手板、功能结构手板的3D打印</span></li>
+                            <li><span class="customerFont">提供客户产品的PCB快板制作、钢网制作、小批量贴片服务</span></li>
 
-<div id="project-gjzz">
-    <h3>工具制作</h3>
-    <p>Fonts, color schemes, layouts and stylesheets are all 100% customizable so you can turn MarkdownPad into your perfect editor.</p>
-    
-</div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseTwo">
+                            模治检量工具
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <span class="customerFont">设计制造模具、工装治具、量具、检具、工具等</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseThree">
+                            试做试产
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul>
+                            <li><span class="customerFont">提供产品的部件检测、材料检测、可靠性试验、电性能检测</span></li>
+                            <li><span class="customerFont">提供试模、试加工、试组装及小批量试生产</span></li>
+                            <li><span class="customerFont">作业指导书及检验规范制作</span></li>
 
-<div id="project-szsc">
-    <h3>试做试产</h3>
-    <p>提供功能样机组装服务</p>
-</div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="panel panel-warning">
+                <div class="panel-heading">
+                    <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordion"
+                           href="#collapseFour">
+                            产品认证
+                        </a>
+                    </h4>
+                </div>
+                <div id="collapseFour" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <span class="customerFont">提供产品相关的认证检测</span>
+                        <ul>
+                            <li><span class="customerFont">可提供多国能效认证：ELI、MEPS、DOE、DLC、LDL、CEC、NRCan、ErP、EST、HK Energy Label、IDA等认证项目</span></li>
+                            <li><span class="customerFont">可提供多国安规认证：CE、GS、CSA、UL、ETL、RCM、PSE、FDA、PSB、CB、PSE、KC、SASO、SONCAP、GOST等认证项目</span></li>
+                            <li><span class="customerFont">可提供多国EMC认证：CE、FCC、IC、VCCI、MIC、KCC、NCC、A-Tick、C-Tick、BSMI等认证项目</span></li>
+
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <script>
+    $(function () {
+        //选中“服务”
+        $('ul.nav > li:eq(2)').addClass('active');
 
-    $(document).ready(function () {
-
-        //重新加载js,下拉框才有用
-        $.getScript("../Scripts/bootstrap.min.js");
-
+        $('#collapseFour').collapse({ toggle: true });
+        $('#collapseTwo').collapse('show');
+        $('#collapseThree').collapse('toggle');
+        $('#collapseOne').collapse('show');
     });
-
-
 </script>

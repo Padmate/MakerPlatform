@@ -9,7 +9,7 @@
     }
     .login-box
     {
-        margin-left:100px;
+        margin-left:50px;
     }
 </style>
 @if (Request.IsAuthenticated)
@@ -20,11 +20,14 @@
 
     <ul class="nav navbar-nav navbar-right login-box">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="background-color:transparent;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;background-color:transparent;">
                 @User.Identity.GetUserName()
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu login-li-bg">
+                <li>
+                    @Html.ActionLink("系统管理", "SystemManage", "Home")
+                </li>
                 <li>
                     @Html.ActionLink("密码管理", "Manage", "Account")
                 </li>
@@ -38,6 +41,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right login-box">
-        <li>@Html.ActionLink("登录", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })</li>
+        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl =Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", style = "color: white;" })</li>
     </ul>
 }

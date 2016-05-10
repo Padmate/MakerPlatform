@@ -1,30 +1,23 @@
-﻿
-<div id="make-dplsc">
-    <h3>大批量生产</h3>
-    <p>承接开发产品所需的组装生产。</p>
-    <p>Give them a try:</p>
-    <ul>
-        <li><strong>Bold</strong> (<code>Ctrl+B</code>) and <em>Italic</em> (<code>Ctrl+I</code>)</li>
-        <li>Quotes (<code>Ctrl+Q</code>)</li>
-        <li>Code blocks (<code>Ctrl+K</code>)</li>
-        <li>Headings 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
-        <li>Lists (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
-    </ul>
+﻿@Html.Partial("_CommonHeader")
+<style>
+    .desbg {
+        background-color: rgba(234, 232, 229, 0.37);
+        height: 150px;
+        padding: 50px 50px;
+        margin-top: 70px;
+    }
+</style>
+<div class="row desbg text-center">
+    <h2>大批量生产：承接已开发产品大批量生产、出货</h2>
 </div>
 
-
-<div id="make-zyhzz">
-    <h3>专业化制造</h3>
-    <p>承接开发产品所需的模具制作。</p>
+<div class="row desbg text-center">
+    <h2> 专业化制造：承接已开发产品专业化制造</h2>
 </div>
 <script>
-
-    $(document).ready(function () {
-
-        //重新加载js,下拉框才有用
-        $.getScript("../Scripts/bootstrap.min.js");
+    $(function () {
+        //选中“服务”
+        $('ul.nav > li:eq(2)').addClass('active');
 
     });
-
-
 </script>

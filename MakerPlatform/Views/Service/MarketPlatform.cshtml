@@ -1,53 +1,108 @@
-﻿
-<div id="market-scdy">
-    <h3>市场调研</h3>
-    <p>Enjoy first-class Markdown support with easy access to  Markdown syntax and convenient keyboard shortcuts.</p>
-    <p>Give them a try:</p>
-    <ul>
-        <li><strong>Bold</strong> (<code>Ctrl+B</code>) and <em>Italic</em> (<code>Ctrl+I</code>)</li>
-        <li>Quotes (<code>Ctrl+Q</code>)</li>
-        <li>Code blocks (<code>Ctrl+K</code>)</li>
-        <li>Headings 1, 2, 3 (<code>Ctrl+1</code>, <code>Ctrl+2</code>, <code>Ctrl+3</code>)</li>
-        <li>Lists (<code>Ctrl+U</code> and <code>Ctrl+Shift+O</code>)</li>
-    </ul>
-</div>
-<div id="market-ltjz">
-    <h3>论坛讲座</h3>
-    <p>Don't guess if your <a href="http://markdownpad.com">hyperlink syntax</a> is correct; LivePreview will show you exactly what your document looks like every time you press a key.</p>
+﻿<style>
+    .rowStyle{padding:20px 0px;}
+</style>
 
-</div>
-<div id="market-ckds">
-    <h3>创客大赛</h3>
-    <p>Fonts, color schemes, layouts and stylesheets are all 100% customizable so you can turn MarkdownPad into your perfect editor.</p>
+@Html.Partial("_CommonHeader")
 
-</div>
-<div id="market-mtgg">
-    <h3>媒体广告</h3>
-    <p>MarkdownPad supports multiple Markdown processing engines, including standard Markdown, Markdown Extra (with Table support) and GitHub Flavored Markdown.</p>
-    <p>With a tabbed document interface, PDF export, a built-in image uploader, session management, spell check, auto-save, syntax highlighting and a built-in CSS management interface, there's no limit to what you can do with MarkdownPad.</p>
+<section class="bg-light-gray" style="padding:100px;">
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2 class="titleWord"></h2>
 
-</div>
-<div id="market-gjzh">
-    <h3>国际展会</h3>
-    <p>MarkdownPad supports multiple Markdown processing engines, including standard Markdown, Markdown Extra (with Table support) and GitHub Flavored Markdown.</p>
-    <p>With a tabbed document interface, PDF export, a built-in image uploader, session management, spell check, auto-save, syntax highlighting and a built-in CSS management interface, there's no limit to what you can do with MarkdownPad.</p>
+            </div>
+        </div>
+        
+        <div class="row rowStyle">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
 
-</div>
-<div id="market-gnzh">
-    <h3>国内展会</h3>
-    <p>MarkdownPad supports multiple Markdown processing engines, including standard Markdown, Markdown Extra (with Table support) and GitHub Flavored Markdown.</p>
-    <p>With a tabbed document interface, PDF export, a built-in image uploader, session management, spell check, auto-save, syntax highlighting and a built-in CSS management interface, there's no limit to what you can do with MarkdownPad.</p>
+                    <img src="~/img/Service/MarketPlatform/2016.1American_CES_Show-1.jpg" class="img-responsive" style="height:250px" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>2016.1美国CES展-1</h4>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
 
-</div>
+                    <img src="~/img/Service/MarketPlatform/2016.1American_CES_Show-2.jpg" class="img-responsive" style="height:250px" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>2016.1美国CES展-2</h4>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+
+                    <img src="~/img/Service/MarketPlatform/2016.1American_CES_Show-3.jpg" class="img-responsive" style="height:250px" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>2016.1美国CES展-3</h4>
+                </div>
+            </div>
+
+        </div>
+        <div class="row rowStyle">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+
+                    <img src="/img/Service/MarketPlatform/2015.5.23海西创客论坛1.JPG" class="img-responsive" style="height:250px" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>2015.5.23海西创客论坛</h4>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+
+                    <img src="~/img/Service/MarketPlatform/2015.5.23海西创客论坛2.JPG" class="img-responsive" style="height:250px" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>2015.5.23海西创客论坛</h4>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+
+                    <img src="~/img/portfolio/5.jpg" class="img-responsive" style="height:250px" alt="尽情期待。。。">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>更多活动</h4>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<script src="~/Scripts/l-by-l.min.js"></script>
 <script>
+    $(function () {
+        //选中“服务”
+        $('ul.nav > li:eq(2)').addClass('active');
 
-    $(document).ready(function () {
 
-        //重新加载js,下拉框才有用
-        $.getScript("../Scripts/bootstrap.min.js");
+        $(".titleWord").lbyl({
+            content: "进行市场调研、举办论坛讲座和创意创新创业大赛，在国内外知名媒体进行广告宣传、参加国内国际一流展会",
+            speed: 100,
+            type: 'show',
+            finished: function () {
 
+            } // Finished Callback
+        });
     });
-
-
 </script>
+
+
+
+
+
+
+
+
+
+
 
