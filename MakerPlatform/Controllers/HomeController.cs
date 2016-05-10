@@ -9,24 +9,15 @@ namespace MakerPlatform.Controllers
 {
     public class HomeController : Controller
     {
-        private MakerDBContext _dbContext = new MakerDBContext();
 
         public ActionResult Index()
         {
-            var serviceTypes = _dbContext.ServiceTypes
-                .Include("ServiceModules")
-                .ToList();
-
-            ViewData["ServiceTypes"] = serviceTypes;
             return View();
         }
 
         public ActionResult Default()
         {
-            var serviceTypes = _dbContext.ServiceTypes
-                .ToList();
-
-            ViewData["ServiceTypes"] = serviceTypes;
+            ViewBag.From = "Default";
             return View();
         }
 

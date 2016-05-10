@@ -163,22 +163,26 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ActivityController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InformationController.cs" />
     <Compile Include="Controllers\ServiceController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201604301213166_Initial.cs" />
-    <Compile Include="Migrations\201604301213166_Initial.Designer.cs">
-      <DependentUpon>201604301213166_Initial.cs</DependentUpon>
+    <Compile Include="Migrations\201605090456342_initial.cs" />
+    <Compile Include="Migrations\201605090456342_initial.Designer.cs">
+      <DependentUpon>201605090456342_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\MakerDBContext.cs" />
     <Compile Include="Models\Message.cs" />
+    <Compile Include="Models\ModelConfiguration\ModuleConfiguration.cs" />
     <Compile Include="Models\ModelConfiguration\ServiceModuleConfiguration.cs" />
     <Compile Include="Models\ModelConfiguration\ServiceTypeConfiguration.cs" />
+    <Compile Include="Models\Module.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\ServiceViewModel.cs" />
     <Compile Include="Models\TopNavMenuModel.cs" />
@@ -1242,6 +1246,8 @@
     <Content Include="img\dock\video-sm.png" />
     <Content Include="img\dock\video.png" />
     <Content Include="img\header-bg.jpg" />
+    <Content Include="img\header-bg1.jpg" />
+    <Content Include="img\header-bg2.jpg" />
     <Content Include="img\login-bg.jpg" />
     <Content Include="img\logos\aetuts.jpg" />
     <Content Include="img\logos\creative-market.jpg" />
@@ -1270,6 +1276,44 @@
     <Content Include="img\portfolio\startup-framework.png" />
     <Content Include="img\portfolio\treehouse-preview.png" />
     <Content Include="img\portfolio\treehouse.png" />
+    <Content Include="img\Service\BrandPlatform\MakerLabel.jpg" />
+    <Content Include="img\Service\BrandPlatform\partner.png" />
+    <Content Include="img\Service\FundPlatform\goldegg.jpg" />
+    <Content Include="img\Service\MarketPlatform\2015.5.23海西创客论坛1.JPG" />
+    <Content Include="img\Service\MarketPlatform\2015.5.23海西创客论坛2.JPG" />
+    <Content Include="img\Service\MarketPlatform\2016.1American_CES_Show-1.jpg" />
+    <Content Include="img\Service\MarketPlatform\2016.1American_CES_Show-2.jpg" />
+    <Content Include="img\Service\MarketPlatform\2016.1American_CES_Show-3.jpg" />
+    <Content Include="img\Service\MarketPlatform\2016.1美国CES展-1.JPG" />
+    <Content Include="img\Service\MarketPlatform\2016.1美国CES展-2.JPG" />
+    <Content Include="img\Service\MarketPlatform\2016.1美国CES展-3.JPG" />
+    <Content Include="img\Service\SellPlatform\alibaba.jpg" />
+    <Content Include="img\Service\SellPlatform\Amazon.png" />
+    <Content Include="img\Service\SellPlatform\CES-Asia-logo.jpg" />
+    <Content Include="img\Service\SellPlatform\CES-Logo.jpg" />
+    <Content Include="img\Service\SellPlatform\chinasourcingfair_Logo.jpg" />
+    <Content Include="img\Service\SellPlatform\ctqd.png" />
+    <Content Include="img\Service\SellPlatform\hsn.jpg" />
+    <Content Include="img\Service\SellPlatform\Indiegogo_logo.png" />
+    <Content Include="img\Service\SellPlatform\jd_logo.png" />
+    <Content Include="img\Service\SellPlatform\kickstarter-logo-20010.png" />
+    <Content Include="img\Service\SellPlatform\qvc-logo.jpg" />
+    <Content Include="img\Service\SellPlatform\tb_logo.png" />
+    <Content Include="img\Service\SellPlatform\tm_logo.png" />
+    <Content Include="img\Service\SellPlatform\爪蛙卡卡\242dd42a2834349b825497abceea15ce36d3be4a.png" />
+    <Content Include="img\Service\SellPlatform\爪蛙卡卡\e824b899a9014c082569d18b0d7b02087bf4f44a.jpg" />
+    <Content Include="img\Service\SellPlatform\爪蛙卡卡\爪蛙卡卡.png" />
+    <Content Include="img\Service\SellPlatform\美承\b58f8c5494eef01f3ffba721e6fe9925bd317d62.jpg" />
+    <Content Include="img\Service\SellPlatform\美承\d439b6003af33a8724e6bffec05c10385243b54f.jpg" />
+    <Content Include="img\Service\SellPlatform\零号门\IMG_20151227_102821.jpg" />
+    <Content Include="img\Service\SellPlatform\零号门\IMG_20151227_102825.jpg" />
+    <Content Include="img\Service\SellPlatform\零号门\IMG_20151227_103915.jpg" />
+    <Content Include="img\Service\SellPlatform\龙翔\IMG_20160421_131527.jpg" />
+    <Content Include="img\Service\SellPlatform\龙翔\IMG_20160421_131535.jpg" />
+    <Content Include="img\Service\SellPlatform\龙翔\IMG_20160421_131623.jpg" />
+    <Content Include="img\Service\TutorPlatform\11gy_head.jpg" />
+    <Content Include="img\Service\TutorPlatform\厦门市众创空间产业协会.JPG" />
+    <Content Include="img\Service\TutorPlatform\硅谷高创会.png" />
     <Content Include="img\stacks\aperture.png" />
     <Content Include="img\stacks\coda.png" />
     <Content Include="img\stacks\finder.png" />
@@ -1336,6 +1380,7 @@
     <Content Include="Scripts\cbpHorizontalMenu.min.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\contact_me.js" />
+    <Content Include="Scripts\l-by-l.min.js" />
     <Content Include="Scripts\SuspendedNavMac\dock-stack.js" />
     <Content Include="Scripts\dropdownlist.js" />
     <Content Include="Scripts\jqBootstrapValidation.js" />
@@ -1364,7 +1409,9 @@
     <Content Include="Scripts\SuspendedNavMac\jquery.jqDock.min.js" />
     <Content Include="Scripts\SuspendedNavMac\jquery.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -1394,18 +1441,33 @@
     <Content Include="Views\Home\Default.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_TopNavMenus.cshtml" />
+    <Content Include="Views\Service\MarketPlatform.cshtml" />
+    <Content Include="Views\Service\BrandPlatform.cshtml" />
+    <Content Include="Views\Activity\Index.cshtml" />
+    <Content Include="Views\Activity\ShowContent.cshtml" />
+    <Content Include="Views\Shared\_CommonHeader.cshtml" />
+    <Content Include="Views\Information\Index.cshtml" />
+    <Content Include="Views\Information\ShowContent.cshtml" />
+    <Content Include="Views\Service\FundPlatform.cshtml" />
+    <Content Include="Views\Service\SellPlatform.cshtml" />
+    <Content Include="Views\Service\MakePlatform.cshtml" />
+    <Content Include="Views\Service\ProjectPlatform.cshtml" />
+    <Content Include="Views\Service\ProductPlatform.cshtml" />
+    <Content Include="Views\Service\SupplyManagement.cshtml" />
+    <Content Include="Views\Service\TutorPlatform.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="ckfinder\UploadFiles\ServiceFiles\" />
+    <Folder Include="ckfinder\UploadFiles\" />
+    <Folder Include="img\Activity\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201604301213166_Initial.resx">
-      <DependentUpon>201604301213166_Initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605090456342_initial.resx">
+      <DependentUpon>201605090456342_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

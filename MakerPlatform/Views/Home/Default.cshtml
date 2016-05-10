@@ -1,4 +1,5 @@
-﻿<link href="~/Content/SuspendedNav.css" rel="stylesheet">
+﻿
+<link href="~/Content/SuspendedNav.css" rel="stylesheet">
 
 <style>
     .service-row {
@@ -10,10 +11,15 @@
         padding-top: 0px;
         padding-bottom: 0px;
     }
+    .customerA a,a:hover, a:focus, a:active, a.active
+    {
+        text-decoration:none;
+        color:black;
+    }
 </style>
 
 <ul class="nav-float">
-    <li><a href="/Service/Index?typeCode=MarketPlatform"><strong>市场平台</strong></a></li>
+    @*<li><a href="/Service/Index?typeCode=MarketPlatform"><strong>市场平台</strong></a></li>
     <li><a href="/Service/Index?typeCode=BrandPlatform"><strong>品牌经营</strong></a></li>
     <li><a href="/Service/Index?typeCode=SellPlatform"><strong>销售平台</strong></a></li>
     <li><a href="/Service/Index?typeCode=MakePlatform"><strong>制造平台</strong></a></li>
@@ -21,14 +27,23 @@
     <li><a href="/Service/Index?typeCode=ProductPlatform"><strong>产品平台</strong></a></li>
     <li><a href="/Service/Index?typeCode=SupplyManagement"><strong>供应链管理</strong></a></li>
     <li><a href="/Service/Index?typeCode=TutorPlatform"><strong>导师平台</strong></a></li>
-    <li><a href="/Service/Index?typeCode=FundPlatform"><strong>资金平台</strong></a></li>
+    <li><a href="/Service/Index?typeCode=FundPlatform"><strong>资金平台</strong></a></li>*@
+    <li><a href="/Service/MarketPlatform"><strong>市场平台</strong></a></li>
+    <li><a href="/Service/BrandPlatform"><strong>品牌经营</strong></a></li>
+    <li><a href="/Service/SellPlatform"><strong>销售平台</strong></a></li>
+    <li><a href="/Service/MakePlatform"><strong>制造平台</strong></a></li>
+    <li><a href="/Service/ProjectPlatform"><strong>工程平台</strong></a></li>
+    <li><a href="/Service/ProductPlatform"><strong>产品平台</strong></a></li>
+    <li><a href="/Service/SupplyManagement"><strong>供应链管理</strong></a></li>
+    <li><a href="/Service/TutorPlatform"><strong>导师平台</strong></a></li>
+    <li><a href="/Service/FundPlatform"><strong>资金平台</strong></a></li>
 </ul>
 <!-- Header -->
 <header>
     <div class="container">
         <div class="intro-text">
             <div class="intro-lead-in">欢迎来到众创服务平台</div>
-            <div class="intro-heading">It's Nice To Meet You</div>
+            <div class="intro-heading">Intelligent Plus</div>
             <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
         </div>
     </div>
@@ -45,97 +60,102 @@
         <div class="row text-center service-row">
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=MarketPlatform">
+                    <a href="/Service/MarketPlatform">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">市场平台</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/MarketPlatform"> 市场平台</a></h4>
+                <p class="text-muted">
+                进行市场调研、举办论坛讲座和创意创新创业大赛，在<br />国内外知名媒体进行广告宣传、参加国内国际一流展会
+                </p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=BrandPlatform">
+                    <a href="/Service/BrandPlatform">
                         <i class="fa fa-circle fa-stack-2x text-danger"></i>
                         <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">品牌经营</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/BrandPlatform">品牌经营</a></h4>
+                <p class="text-muted text-left">进行品牌策划、品牌管理、品牌开发、品牌规划等</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=SellPlatform">
+                    <a href="/Service/SellPlatform">
                         <i class="fa fa-circle fa-stack-2x text-danger"></i>
                         <i class="fa fa-tasks fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">销售平台</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/SellPlatform">销售平台</a></h4>
+                <p class="text-muted">整合、利用传统渠道、有行业影响力的客户、<br/>国内电商、跨境电商、B2B、B2C等进行销售</p>
             </div>
         </div>
         <div class="row text-center service-row">
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=MakePlatform">
+                    <a href="/Service/MakePlatform">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">制造平台</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/MakePlatform">制造平台</a></h4>
+                <p class="text-muted">
+                    大批量生产：承接已开发产品大批量生产、出<br />货
+                    专业化制造：承接已开发产品专业化制造
+                </p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=ProjectPlatform">
+                    <a href="/Service/ProjectPlatform">
                         <i class="fa fa-circle fa-stack-2x text-success"></i>
                         <i class="fa fa-wordpress fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">工程平台</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/ProjectPlatform">工程平台</a></h4>
+                <p class="text-muted"> 样板制作、模治检量工具、试做试产、产品认证</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=ProductPlatform">
+                    <a href="/Service/ProductPlatform">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-cubes fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">产品平台</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/ProductPlatform">产品平台</a></h4>
+                <p class="text-muted">众创项目、产学研用、文化创意、<br />设计-方案、客户需求、产品众筹、ODM/OEM</p>
             </div>
         </div>
         <div class="row text-center service-row">
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=SupplyManagement">
+                    <a href="/Service/SupplyManagement">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-line-chart  fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">供应链管理</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/SupplyManagement">供应链管理</a></h4>
+                <p class="text-muted">仓储物流、分发配送、采购外发、精益管理</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=TutorPlatform">
+                    <a href="/Service/TutorPlatform">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-users fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
-                <h4 class="service-heading">导师平台</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <h4 class="service-heading customerA"><a href="/Service/TutorPlatform">导师平台</a></h4>
+                <p class="text-muted"> 战略规划、企业教练、顾问培训、<br/>产学研、协会、人力资源开发</p>
             </div>
             <div class="col-md-4">
                 <span class="fa-stack fa-4x">
-                    <a href="/Service/Index?typeCode=FundPlatform">
+                    <a href="/Service/FundPlatform">
                         <i class="fa fa-circle fa-stack-2x text-primary"></i>
                         <i class="fa fa-money fa-stack-1x fa-inverse"></i>
                     </a>
                 </span>
                 <h4 class="service-heading">资金平台</h4>
-                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+                <p class="text-muted">发起种子基金、进行股权投资、对接股权众筹、基金、PE、VC、股权交易结构和保险、银行等金融机构</p>
             </div>
         </div>
     </div>
@@ -147,36 +167,45 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">Activity</h2>
-                <h3 class="section-subheading text-muted">丰富多彩的活动</h3>
+                <h3 class="section-subheading text-muted">丰富多彩的活动<a href="/Activity/Index" style="cursor:pointer">了解更多...</a></h3>
+                
             </div>
         </div>
         <div class="row">
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-diamond wow bounceIn text-primary"></i>
-                    <h3>Sturdy Templates</h3>
-                    <p class="text-muted">Our templates are updated regularly so they don't break.</p>
+                    <a href="/Activity/ShowContent?nav=cxjsfw">
+                        <i class="fa fa-4x fa-gears wow bounceIn text-primary"></i>
+                    </a>
+                    <h3>创新加速服务</h3>
+                    <p class="text-muted">厦门科技局领导和英特尔众创加速器负责人莅临参观考察</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-paper-plane wow bounceIn text-primary" data-wow-delay=".1s"></i>
-                    <h3>Ready to Ship</h3>
-                    <p class="text-muted">You can use this theme as is, or you can make changes!</p>
+                    <a href="/Activity/ShowContent?nav=cxjsfw">
+                        <i class="fa fa-4x fa-gears wow bounceIn text-primary"></i>
+                    </a>
+                    <h3>创新加速服务</h3>
+                    <p class="text-muted">厦门科技局领导和英特尔众创加速器负责人莅临参观考察</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-newspaper-o wow bounceIn text-primary" data-wow-delay=".2s"></i>
-                    <h3>Up to Date</h3>
-                    <p class="text-muted">We update dependencies to keep things fresh.</p>
+                    <a href="/Activity/ShowContent?nav=cxjsfw">
+                        <i class="fa fa-4x fa-gears wow bounceIn text-primary"></i>
+                    </a>
+                    <h3>创新加速服务</h3>
+                    <p class="text-muted">厦门科技局领导和英特尔众创加速器负责人莅临参观考察</p>
                 </div>
             </div>
             <div class="col-lg-3 col-md-6 text-center">
                 <div class="service-box">
-                    <i class="fa fa-4x fa-heart wow bounceIn text-primary" data-wow-delay=".3s"></i>
-                    <h3>Made with Love</h3>
-                    <p class="text-muted">You have to make your websites with love these days!</p>
+                    <a href="/Activity/ShowContent?nav=cxjsfw">
+                        <i class="fa fa-4x fa-gears wow bounceIn text-primary"></i>
+                    </a>
+                    <h3>创新加速服务</h3>
+                    <p class="text-muted">厦门科技局领导和英特尔众创加速器负责人莅临参观考察</p>
                 </div>
             </div>
         </div>
@@ -187,95 +216,95 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <h2 class="section-heading">Information</h2>
-            <h3 class="section-subheading text-muted">最新资讯随时分享</h3>
+            <h3 class="section-subheading text-muted">最新资讯随时分享<a href="/Information/Index" style="cursor:pointer">了解更多...</a></h3>
         </div>
     </div>
     <div class="row no-gutter">
         <div class="col-lg-4 col-sm-6">
-            <a href="#" class="information-box">
+            <a href="/Information/ShowContent?nav=zxqyhd" class="information-box">
                 <img src="~/img/portfolio/1.jpg" class="img-responsive" alt="">
                 <div class="information-box-caption">
                     <div class="information-box-caption-content">
                         <div class="project-category text-faded">
-                            Category
+                            2016-04-18
                         </div>
                         <div class="project-name">
-                            Project Name
+                           中小企业活动月
                         </div>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-            <a href="#" class="information-box">
-                <img src="~/img/portfolio/2.jpg" class="img-responsive" alt="">
+            <a href="/Information/ShowContent?nav=zxqyhd" class="information-box">
+                <img src="~/img/portfolio/1.jpg" class="img-responsive" alt="">
                 <div class="information-box-caption">
                     <div class="information-box-caption-content">
                         <div class="project-category text-faded">
-                            Category
+                            2016-04-18
                         </div>
                         <div class="project-name">
-                            Project Name
+                            中小企业活动月
                         </div>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-            <a href="#" class="information-box">
-                <img src="~/img/portfolio/3.jpg" class="img-responsive" alt="">
+            <a href="/Information/ShowContent?nav=zxqyhd" class="information-box">
+                <img src="~/img/portfolio/1.jpg" class="img-responsive" alt="">
                 <div class="information-box-caption">
                     <div class="information-box-caption-content">
                         <div class="project-category text-faded">
-                            Category
+                            2016-04-18
                         </div>
                         <div class="project-name">
-                            Project Name
+                            中小企业活动月
                         </div>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-            <a href="#" class="information-box">
-                <img src="~/img/portfolio/4.jpg" class="img-responsive" alt="">
+            <a href="/Information/ShowContent?nav=zxqyhd" class="information-box">
+                <img src="~/img/portfolio/1.jpg" class="img-responsive" alt="">
                 <div class="information-box-caption">
                     <div class="information-box-caption-content">
                         <div class="project-category text-faded">
-                            Category
+                            2016-04-18
                         </div>
                         <div class="project-name">
-                            Project Name
+                            中小企业活动月
                         </div>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-            <a href="#" class="information-box">
-                <img src="~/img/portfolio/5.jpg" class="img-responsive" alt="">
+            <a href="/Information/ShowContent?nav=zxqyhd" class="information-box">
+                <img src="~/img/portfolio/1.jpg" class="img-responsive" alt="">
                 <div class="information-box-caption">
                     <div class="information-box-caption-content">
                         <div class="project-category text-faded">
-                            Category
+                            2016-04-18
                         </div>
                         <div class="project-name">
-                            Project Name
+                            中小企业活动月
                         </div>
                     </div>
                 </div>
             </a>
         </div>
         <div class="col-lg-4 col-sm-6">
-            <a href="#" class="information-box">
-                <img src="~/img/portfolio/6.jpg" class="img-responsive" alt="">
+            <a href="/Information/ShowContent?nav=zxqyhd" class="information-box">
+                <img src="~/img/portfolio/1.jpg" class="img-responsive" alt="">
                 <div class="information-box-caption">
                     <div class="information-box-caption-content">
                         <div class="project-category text-faded">
-                            Category
+                            2016-04-18
                         </div>
                         <div class="project-name">
-                            Project Name
+                            中小企业活动月
                         </div>
                     </div>
                 </div>
@@ -306,7 +335,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h2 class="section-heading">About</h2>
-                <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+                <h3 class="section-subheading text-muted">&nbsp;</h3>
             </div>
         </div>
         <div class="row">
@@ -314,71 +343,55 @@
                 <ul class="timeline">
                     <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="~/img/about/1.jpg" alt="">
+                            <img class="img-circle img-responsive" src="~/img/about/introduce.jpg" alt="">
                         </div>
                         <div class="timeline-panel">
                             <div class="timeline-heading">
                                 <h4>平台简介</h4>
-                                <h4 class="subheading">Our Humble Beginnings</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted">厦门智能+创新创业公共服务平台由厦门产业技术研究院与英特尔、硅谷高创会、厦门市派美特科技有限公司等共建。平台定位于为各众创空间助力传统产业升级转型和创新创业团队的智能产品项目提供高效的转化支撑综合服务，可以在创新创业各阶段弥补他们的不足和短板并提高项目成功率。平台将创意、创新、创业、市场、资本、孵化和产业化相结合，进行嫁接磨合，快速低成本地验证创新创业产品的市场、完善制造技术（工程化）、管控供应链和成本、对接资本市场等，加速项目的市场化与产业化，同时也为各个众创空间、高校及孵化器、科研院所提供一个低门槛、低成本、专业化、全要素、全流程、开放式的智能产品和智能制造协同创新一站式服务平台。</p>
                             </div>
                         </div>
                     </li>
-                    <li class="timeline-inverted">
+                    <li>
                         <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="~/img/about/2.jpg" alt="">
+                            <img class="img-circle img-responsive" src="~/img/about/3.jpg" alt="">
                         </div>
-                        <div class="timeline-panel">
+                        <div class="timeline-panel" style="padding-right:0px;">
                             <div class="timeline-heading">
                                 <h4>加入平台</h4>
-                                <h4 class="subheading">An Agency is Born</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted text-center">
+
+                                    如果，你有一个好的创意，却无力实现，<br />
+                                    加入我们，让你理想照进现实；<br />
+                                    如果，你的项目已初具雏形，却遭受阻力，无法继续向前，<br />
+                                    加入我们，协助你创造完整的产品；<br />
+                                    如果，你已拥有完整的产品，却苦于没有渠道推向市场；<br />
+                                    加入我们，让你的产品迅速打通市场；<br />
+                                    理想还是要有的，万一见鬼了呢！
+                                </p>
                             </div>
                         </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="~/img/about/3.jpg" alt="">
-                        </div>
-                        <div class="timeline-panel">
+                        <div class="timeline-panel" style="float:right;padding-left:0px;">
                             <div class="timeline-heading">
-                                <h4>活动资讯</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
+                                <h4>&nbsp;</h4>
                             </div>
                             <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="timeline-inverted">
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="~/img/about/4.jpg" alt="">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>双创政策</h4>
-                                <h4 class="subheading">Phase Two Expansion</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
-                            </div>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="timeline-image">
-                            <img class="img-circle img-responsive" src="~/img/about/3.jpg" alt="">
-                        </div>
-                        <div class="timeline-panel">
-                            <div class="timeline-heading">
-                                <h4>活动预告</h4>
-                                <h4 class="subheading">Transition to Full Service</h4>
-                            </div>
-                            <div class="timeline-body">
-                                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+                                <p class="text-muted text-center">
+                                    
+                                    爱创新，充满奇思妙想？<br />
+                                    爱发明，致力于爱创新，充满奇思妙想？<br />
+                                    爱发明，致力于将想法变成行动？<br />
+                                    厦门智能+创新创业公共服务平台，等你来！<br />
+                                    这是一个创客们的大本营。在这里，你可以：<br />
+                                    向志同道合的伙伴们展示自己的作品，分享创作的快乐；<br />
+                                    和全世界的创客大神们一起煮酒论英雄；<br />
+                                    更有创客教父李大维、高磊等创客大神亲临现场，与你分享点滴感悟。<br />
+                                    现在就马上加入我们的团队，与大家分享你的创意和奇思妙想，加入创客大狂欢！
+                                </p>
                             </div>
                         </div>
                     </li>
@@ -396,196 +409,5 @@
         </div>
     </div>
 </section>
-<!-- Clients Aside -->
-<aside class="clients">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6">
-                <a href="#">
-                    <img src="~/img/logos/envato.jpg" class="img-responsive img-centered" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href="#">
-                    <img src="~/img/logos/designmodo.jpg" class="img-responsive img-centered" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href="#">
-                    <img src="~/img/logos/themeforest.jpg" class="img-responsive img-centered" alt="">
-                </a>
-            </div>
-            <div class="col-md-3 col-sm-6">
-                <a href="#">
-                    <img src="~/img/logos/creative-market.jpg" class="img-responsive img-centered" alt="">
-                </a>
-            </div>
-        </div>
-    </div>
-</aside>
 
-<!-- Portfolio Modals -->
-<!-- Use the modals below to showcase details about your portfolio projects! -->
-<!-- Portfolio Modal 1 -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="~/img/portfolio/roundicons-free.png" alt="">
-                        <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                        <p>
-                            <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-                        </p>
-                        <ul class="list-inline">
-                            <li>Date: July 2014</li>
-                            <li>Client: Round Icons</li>
-                            <li>Category: Graphic Design</li>
-                        </ul>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio Modal 2 -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Heading</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="~/img/portfolio/startup-framework-preview.png" alt="">
-                        <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
-                        <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio Modal 3 -->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="~/img/portfolio/treehouse-preview.png" alt="">
-                        <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio Modal 4 -->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="~/img/portfolio/golden-preview.png" alt="">
-                        <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio Modal 5 -->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="~/img/portfolio/escape-preview.png" alt="">
-                        <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Portfolio Modal 6 -->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="~/img/portfolio/dreams-preview.png" alt="">
-                        <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
 

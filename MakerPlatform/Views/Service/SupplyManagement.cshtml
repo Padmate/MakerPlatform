@@ -1,0 +1,89 @@
+﻿@Html.Partial("_CommonHeader")
+
+
+<section style="padding:100px;">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="timeline">
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <h3>
+                                <br/>供应<br/>链<br />管理
+                            </h3>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="~/img/about/1.jpg" alt="">
+
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>仓储物流</h4>
+                                <h4 class="subheading">&nbsp;</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <span class="customerFont">产品仓储、物流</span>
+                                <img src="~/img/about/1.jpg" style="height:300px;width:100%" />
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="~/img/about/2.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>分发配送</h4>
+                                <h4 class="subheading">&nbsp;</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <span class="customerFont">产品分发配送</span>
+                                <img src="~/img/about/2.jpg" style="height:300px;width:100%" />
+
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="~/img/about/3.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>采购外发</h4>
+                                <h4 class="subheading">&nbsp;</h4>
+                            </div>
+                            <div class="timeline-body text-left">
+                               <span class="customerFont">承接开发产品所需物料、器件采购</span><br/>
+                                <span class="customerFont">承接开发产品零部件加工制造</span>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-inverted">
+                        <div class="timeline-image">
+                            <img class="img-circle img-responsive" src="~/img/about/4.jpg" alt="">
+                        </div>
+                        <div class="timeline-panel">
+                            <div class="timeline-heading">
+                                <h4>精益管理</h4>
+                                <h4 class="subheading">&nbsp;</h4>
+                            </div>
+                            <div class="timeline-body">
+                                <span class="customerFont">整合供应链、流程再造、ERP等</span>
+                            </div>
+                        </div>
+                    </li>
+                   
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(function () {
+        //选中“服务”
+        $('ul.nav > li:eq(2)').addClass('active');
+
+    });
+</script>
