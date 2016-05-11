@@ -1206,6 +1206,7 @@
     <Content Include="ckfinder\_samples\standalone.html" />
     <Content Include="ckfinder\_samples\standalone_v1.html" />
     <Content Include="Content\agency.css" />
+    <Content Include="Content\animate.css" />
     <Content Include="Content\SuspendedNavMac.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -1248,6 +1249,7 @@
     <Content Include="img\header-bg.jpg" />
     <Content Include="img\header-bg1.jpg" />
     <Content Include="img\header-bg2.jpg" />
+    <Content Include="img\header.jpg" />
     <Content Include="img\login-bg.jpg" />
     <Content Include="img\logos\aetuts.jpg" />
     <Content Include="img\logos\creative-market.jpg" />
@@ -1279,14 +1281,14 @@
     <Content Include="img\Service\BrandPlatform\MakerLabel.jpg" />
     <Content Include="img\Service\BrandPlatform\partner.png" />
     <Content Include="img\Service\FundPlatform\goldegg.jpg" />
+    <Content Include="img\Service\image1.png" />
+    <Content Include="img\Service\image2.png" />
+    <Content Include="img\Service\image3.png" />
     <Content Include="img\Service\MarketPlatform\2015.5.23海西创客论坛1.JPG" />
     <Content Include="img\Service\MarketPlatform\2015.5.23海西创客论坛2.JPG" />
     <Content Include="img\Service\MarketPlatform\2016.1American_CES_Show-1.jpg" />
     <Content Include="img\Service\MarketPlatform\2016.1American_CES_Show-2.jpg" />
     <Content Include="img\Service\MarketPlatform\2016.1American_CES_Show-3.jpg" />
-    <Content Include="img\Service\MarketPlatform\2016.1美国CES展-1.JPG" />
-    <Content Include="img\Service\MarketPlatform\2016.1美国CES展-2.JPG" />
-    <Content Include="img\Service\MarketPlatform\2016.1美国CES展-3.JPG" />
     <Content Include="img\Service\SellPlatform\alibaba.jpg" />
     <Content Include="img\Service\SellPlatform\Amazon.png" />
     <Content Include="img\Service\SellPlatform\CES-Asia-logo.jpg" />
@@ -1408,6 +1410,7 @@
     <Content Include="Scripts\SuspendedNavMac\fisheye-iutil.min.js" />
     <Content Include="Scripts\SuspendedNavMac\jquery.jqDock.min.js" />
     <Content Include="Scripts\SuspendedNavMac\jquery.min.js" />
+    <Content Include="Scripts\wow.min.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>

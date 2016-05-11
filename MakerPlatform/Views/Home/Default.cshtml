@@ -14,8 +14,110 @@
     .customerA a,a:hover, a:focus, a:active, a.active
     {
         text-decoration:none;
-        color:black;
+        color:yellow;
     }
+    .service-section{
+        padding-top:100px;
+        padding-bottom:50px;
+    }
+    .service-section-halfcolumn {
+        padding: 0px 50px;
+    }
+    .logoStyle {
+        height: 100px;
+        margin:10px auto;
+    }
+    .panel-row {
+        padding-bottom: 50px;
+    }
+
+    #team {
+        float: left;
+        display: inline;
+        width: 100%;
+        padding: 80px 0px;
+    }
+
+    .team_area {
+        float: left;
+        display: inline;
+        width: 100%;
+    }
+
+    .team_slider {
+        float: left;
+        display: inline;
+        width: 100%;
+    }
+
+        .team_slider .slick-next, .team_slider .slick-prev {
+            height: 40px;
+        }
+
+    .single_team {
+        border: 2px solid #ccc;
+        border-radius: 5px;
+        display: inline;
+        float: left;
+        padding: 25px 15px;
+        text-align: center;
+        width: 100%;
+    }
+
+    .team_img {
+        float: left;
+        display: block;
+        width: 100%;
+    }
+
+        .team_img > img {
+            border-radius: 100%;
+            height: 150px;
+            margin: 0 auto 15px;
+            width: 150px;
+        }
+
+    .single_team h5 {
+        color: #555;
+        font-weight: bold;
+        margin-bottom: 0;
+        margin-top: 18px;
+        text-transform: uppercase;
+        font-size: 17px;
+    }
+
+    .single_team span {
+        display: inline-block;
+        font-size: 15px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        text-transform: uppercase;
+    }
+
+    .single_team p {
+        line-height: 26px;
+    }
+
+    .team_social {
+        float: left;
+        display: inline;
+        width: 100%;
+        margin-top: 10px;
+    }
+
+        .team_social a {
+            color: #fff;
+            font-size: 18px;
+            display: inline-block;
+            background: #ccc;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            border-radius: 50%;
+            -webkit-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            transition: all 0.5s;
+        }
 </style>
 
 <ul class="nav-float">
@@ -28,15 +130,15 @@
     <li><a href="/Service/Index?typeCode=SupplyManagement"><strong>供应链管理</strong></a></li>
     <li><a href="/Service/Index?typeCode=TutorPlatform"><strong>导师平台</strong></a></li>
     <li><a href="/Service/Index?typeCode=FundPlatform"><strong>资金平台</strong></a></li>*@
-    <li><a href="/Service/MarketPlatform"><strong>市场平台</strong></a></li>
-    <li><a href="/Service/BrandPlatform"><strong>品牌经营</strong></a></li>
-    <li><a href="/Service/SellPlatform"><strong>销售平台</strong></a></li>
-    <li><a href="/Service/MakePlatform"><strong>制造平台</strong></a></li>
-    <li><a href="/Service/ProjectPlatform"><strong>工程平台</strong></a></li>
-    <li><a href="/Service/ProductPlatform"><strong>产品平台</strong></a></li>
-    <li><a href="/Service/SupplyManagement"><strong>供应链管理</strong></a></li>
-    <li><a href="/Service/TutorPlatform"><strong>导师平台</strong></a></li>
-    <li><a href="/Service/FundPlatform"><strong>资金平台</strong></a></li>
+    <li><a class="page-scroll" href="#services-marketplatform"><strong>市场平台</strong></a></li>
+    <li><a class="page-scroll" href="#services-brandpaltform"><strong>品牌经营</strong></a></li>
+    <li><a class="page-scroll" href="#services-sellplatform"><strong>销售平台</strong></a></li>
+    <li><a class="page-scroll" href="#services-makeplatform"><strong>制造平台</strong></a></li>
+    <li><a class="page-scroll" href="#services-projectplatform"><strong>工程平台</strong></a></li>
+    <li><a class="page-scroll" href="#services-productplatform"><strong>产品平台</strong></a></li>
+    <li><a class="page-scroll" href="#services-supplymanagement"><strong>供应链管理</strong></a></li>
+    <li><a class="page-scroll" href="#services-tutorplatform"><strong>导师平台</strong></a></li>
+    <li><a class="page-scroll" href="#services-fundplatform"><strong>资金平台</strong></a></li>
 </ul>
 <!-- Header -->
 <header>
@@ -48,119 +150,615 @@
         </div>
     </div>
 </header>
-<!-- Services Section -->
-<section id="services" class="bg-light-gray">
+<!-- #eregion Services Section -->
+<section id="services" style="padding-bottom:0px;">
+    <div class="row" style="background-image:url(../img/tour-bg.png);">
+        <div class="col-lg-12 text-center" style="margin:30px auto;">
+            <h2 class="section-heading">Service</h2>
+            <h3 class="section-subheading text-muted" style="margin-bottom:0px;"> 丰富的服务种类尽在其中</h3>
+        </div>
+    </div>
+</section>
+<!--市场平台-->
+<section id="services-marketplatform" class="service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 service-section-halfcolumn">
+                <img src="/img/Service/MarketPlatform/2015.5.23海西创客论坛1.jpg" style="height:200px;width:100%;" />
+            </div>
+            <div class="col-md-7 service-section-halfcolumn">
+                <h3 class="service-heading">市场平台</h3>
+                <span class="customerFont">
+                    进行市场调研、举办论坛讲座和创意创新创业大赛，在国内外知名媒体进行广告宣传、参加国内国际一流展会
+                </span>
+            </div>
+        </div>
+    </div>
+</section>
+<!--品牌经营-->
+<section id="services-brandpaltform" class="bg-light-gray service-section">
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2 class="section-heading">Service</h2>
-                <h3 class="section-subheading text-muted"> 丰富的服务种类尽在其中</h3>
+                <h3 class="section-heading">品牌经营</h3>
+                <span class="customerFont"> 进行品牌策划、品牌管理、品牌开发、品牌规划等</span>
             </div>
         </div>
-        <div class="row text-center service-row">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/MarketPlatform">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-shopping-cart fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/MarketPlatform"> 市场平台</a></h4>
+        <div class="row">
+            <div class="col-md-6 service-section-halfcolumn">
+                <a class="information-box">
+                    <img src="~/img/Service/BrandPlatform/partner.png" class="img-responsive" style="height:500px;width:100%" />
+                    <div class="information-box-caption">
+                        <div class="information-box-caption-content">
+                            
+                            <div class="project-name">
+                                创 客
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-6 service-section-halfcolumn">
+                <a class="information-box">
+                    <img src="~/img/Service/BrandPlatform/MakerLabel.jpg" class="img-responsive" style="height:500px;width:100%" />
+                    <div class="information-box-caption">
+                        <div class="information-box-caption-content">
+
+                            <div class="project-name">
+                                合作伙伴
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!--销售平台-->
+<section id="services-sellplatform" class="service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">销售平台</h3>
+                <span class="customerFont"> 整合、利用传统渠道、有行业影响力的客户、国内电商、跨境电商、B2B、B2C等进行销售</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 service-section-halfcolumn">
+                <ul class="nav nav-tabs" id="sellplatformTab">
+                    <li><a href="#sellplatform-ctqd"><strong>传统渠道</strong></a></li>
+                    <li><a href="#sellplatform-gnds"><strong>国内电商</strong></a></li>
+                    <li class="active"><a href="#sellplatform-kjds"><strong>跨境电商</strong></a></li>
+                </ul>
+
+                <div class="tab-content">
+                    <div class="tab-pane" id="sellplatform-ctqd">
+                        <div class="row panel-row">
+                            <div class="col-md-6">
+                                <div id="zerodoor" class="carousel slide">
+                                    <!-- 轮播（Carousel）指标 -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#zerodoor" data-slide-to="0" class="active"></li>
+                                        <li data-target="#zerodoor" data-slide-to="1"></li>
+                                        <li data-target="#zerodoor" data-slide-to="2"></li>
+                                    </ol>
+                                    <!-- 轮播（Carousel）项目 -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="~/img/Service/SellPlatform/零号门/IMG_20151227_103915.jpg" style="height:300px; width:100%" alt="Second slide">
+
+                                        </div>
+                                        <div class="item">
+                                            <img src="~/img/Service/SellPlatform/零号门/IMG_20151227_102821.jpg" style="height:300px;width:100%" alt="First slide">
+
+                                        </div>
+                                        <div class="item">
+                                            <img src="~/img/Service/SellPlatform/零号门/IMG_20151227_102825.jpg" style="height:300px;width:100%;" alt="Third slide">
+                                        </div>
+                                    </div>
+                                    <!-- 轮播（Carousel）导航 -->
+                                    <a class="carousel-control left" href="#zerodoor"
+                                       data-slide="prev">&lsaquo;</a>
+                                    <a class="carousel-control right" href="#zerodoor"
+                                       data-slide="next">&rsaquo;</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>
+                                    <span style="font-size:20px;">零号门</span>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <div class="row panel-row">
+                            <div class="col-md-6">
+                                <h2>
+                                    <span style="font-size:20px;">龙翔</span>
+                                </h2>
+
+                            </div>
+                            <div class="col-md-6">
+
+                                <div id="longxiang" class="carousel slide">
+                                    <!-- 轮播（Carousel）指标 -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#longxiang" data-slide-to="0" class="active"></li>
+                                        <li data-target="#longxiang" data-slide-to="1"></li>
+                                        <li data-target="#longxiang" data-slide-to="2"></li>
+                                    </ol>
+                                    <!-- 轮播（Carousel）项目 -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="~/img/Service/SellPlatform/龙翔/IMG_20160421_131623.jpg" style="height:300px; width:100%" alt="Second slide">
+
+                                        </div>
+                                        <div class="item">
+                                            <img src="~/img/Service/SellPlatform/龙翔/IMG_20160421_131535.jpg" style="height:300px;width:100%" alt="First slide">
+
+                                        </div>
+                                        <div class="item">
+                                            <img src="~/img/Service/SellPlatform/龙翔/IMG_20160421_131527.jpg" style="height:300px;width:100%;" alt="Third slide">
+                                        </div>
+                                    </div>
+                                    <!-- 轮播（Carousel）导航 -->
+                                    <a class="carousel-control left" href="#longxiang"
+                                       data-slide="prev">&lsaquo;</a>
+                                    <a class="carousel-control right" href="#longxiang"
+                                       data-slide="next">&rsaquo;</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="row panel-row">
+                            <div class="col-md-6">
+                                <div id="meicheng" class="carousel slide">
+                                    <!-- 轮播（Carousel）指标 -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#meicheng" data-slide-to="0" class="active"></li>
+                                        <li data-target="#meicheng" data-slide-to="1"></li>
+                                    </ol>
+                                    <!-- 轮播（Carousel）项目 -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="~/img/Service/SellPlatform/美承/b58f8c5494eef01f3ffba721e6fe9925bd317d62.jpg" style="height:300px; width:100%" alt="Second slide">
+
+                                        </div>
+                                        <div class="item">
+                                            <img src="~/img/Service/SellPlatform/美承/d439b6003af33a8724e6bffec05c10385243b54f.jpg" style="height:300px;width:100%" alt="First slide">
+
+                                        </div>
+
+                                    </div>
+                                    <!-- 轮播（Carousel）导航 -->
+                                    <a class="carousel-control left" href="#meicheng"
+                                       data-slide="prev">&lsaquo;</a>
+                                    <a class="carousel-control right" href="#meicheng"
+                                       data-slide="next">&rsaquo;</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>
+                                    <span style="font-size:20px;">美承</span>
+                                </h2>
+
+                            </div>
+                        </div>
+                        <div class="row panel-row">
+                            <div class="col-md-6">
+                                <div id="jwkk" class="carousel slide">
+                                    <!-- 轮播（Carousel）指标 -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#jwkk" data-slide-to="0" class="active"></li>
+                                        <li data-target="#jwkk" data-slide-to="1"></li>
+                                    </ol>
+                                    <!-- 轮播（Carousel）项目 -->
+                                    <div class="carousel-inner">
+                                        <div class="item active">
+                                            <img src="~/img/Service/SellPlatform/爪蛙卡卡/242dd42a2834349b825497abceea15ce36d3be4a.png" style="height:300px; width:100%" alt="Second slide">
+
+                                        </div>
+                                        <div class="item">
+                                            <img src="~/img/Service/SellPlatform/爪蛙卡卡/e824b899a9014c082569d18b0d7b02087bf4f44a.jpg" style="height:300px;width:100%" alt="First slide">
+
+                                        </div>
+                                        <div class="item">
+                                            <img src="~/img/Service/SellPlatform/爪蛙卡卡/爪蛙卡卡.png" style="height:300px;width:100%" alt="First slide">
+
+                                        </div>
+                                    </div>
+                                    <!-- 轮播（Carousel）导航 -->
+                                    <a class="carousel-control left" href="#jwkk"
+                                       data-slide="prev">&lsaquo;</a>
+                                    <a class="carousel-control right" href="#jwkk"
+                                       data-slide="next">&rsaquo;</a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h2>
+                                    <span style="font-size:20px;">爪蛙卡卡</span>
+                                </h2>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="sellplatform-gnds">
+                        <div class="row" style="margin-right:30px;">
+                            <div class="row" style="margin-right:30px;">
+                                <div class="col-md-4 col-sm-4">
+                                    <a href="#">
+                                        <img src="~/img/Service/SellPlatform/tb_logo.png" class="img-responsive logoStyle" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <a href="#">
+                                        <img src="~/img/Service/SellPlatform/tm_logo.png" class="img-responsive logoStyle" alt="">
+                                    </a>
+                                </div>
+                                <div class="col-md-4 col-sm-4">
+                                    <a href="#">
+                                        <img src="~/img/Service/SellPlatform/jd_logo.png" class="img-responsive logoStyle" alt="">
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
+                        <span class="customerFont">作为公司立体化、全渠道销售战略的重要一环，我们积极建立、打通、拓展电子商务领域的流通渠道。目前分别在天猫、京东和淘宝开设了品牌旗舰店，同时也和部分平台的众筹渠道有着深度良好的商务合作关系。在深耕已有平台的经营之外，我们也将积极开拓其他重点平台上的入驻合作。</span>
+
+                    </div>
+                    <div class="tab-pane active" id="sellplatform-kjds">
+                        <div class="row" style="margin-right:30px;">
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/alibaba.jpg" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/Amazon.png" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/CES-Asia-logo.jpg" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/CES-Logo.jpg" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-right:30px;">
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/chinasourcingfair_Logo.jpg" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/hsn.jpg" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/Indiegogo_logo.png" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/kickstarter-logo-20010.png" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-right:30px;">
+                            <div class="col-md-3 col-sm-6">
+                                <a href="#">
+                                    <img src="~/img/Service/SellPlatform/qvc-logo.jpg" class="img-responsive logoStyle" alt="">
+                                </a>
+                            </div>
+
+                        </div>
+                        <p>
+                            <span class="customerFont">
+                                通过多年的国际主流消费电子展会推广、行业网站开发、国际媒体发布以及全球众筹平台战略合作等，国际销售部整合了1000+优质客户资源渠道，包括跨国零售商、品牌商、分销商、跨境电商、机场免税店和知名进口商等，他们遍布在北美，欧盟，英国，大洋洲，日本，韩国，中东等区域，行业涵盖了个人消费电子产品，创新类消费电子产品，手机和电脑周边配件产品以及智能产品等。对于每一款产品，我们均会安排对应的行业渠道推广，并充分向客户讲解产品的背景和市场需求，对产品的需求进行二次挖掘！
+                            </span>
+                        </p>
+                        <p><span class="customerFont">产品主要合作、推广渠道：</span></p>
+                        <ul>
+
+                            <li><span class="customerFont">&nbsp;&nbsp;&nbsp;&nbsp;全球最大的消费电子展CES和CES Asia</span></li>
+                            <li><span class="customerFont">&nbsp;&nbsp;&nbsp;&nbsp;全球最大的手机和配件电子展会 香港环球资源采购交易会（CSF）</span></li>
+                            <li><span class="customerFont">&nbsp;&nbsp;&nbsp;&nbsp;全球最大的电子商务B2B Alibaba</span></li>
+                            <li><span class="customerFont">&nbsp;&nbsp;&nbsp;&nbsp;全球最大的消费电子产品B2C平台 Amazon</span></li>
+                            <li><span class="customerFont">&nbsp;&nbsp;&nbsp;&nbsp;全球TOP3众创平台INDIEGOGO和KICKSTARTERS</span></li>
+                            <li><span class="customerFont">&nbsp;&nbsp;&nbsp;&nbsp;北美最大的电视购物渠道HSN和QVC</span></li>
+                            <li><span class="customerFont">&nbsp;&nbsp;&nbsp;&nbsp;国际品牌商</span></li>
+                        </ul>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</section>
+<!--制造平台-->
+<section id="services-makeplatform" class="bg-light-gray service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">制造平台</h3>
+                <span class="customerFont"> 大批量生产：承接已开发产品大批量生产、出货<br/>专业化制造：承接已开发产品专业化制造</span>
+            </div>
+        </div>
+        <div class="row">
+            
+            
+
+        </div>
+    </div>
+</section>
+<!--工程平台-->
+<section id="services-projectplatform" class="service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">工程平台</h3>
+                <span class="customerFont"> &nbsp;</span>
+            </div>
+        </div>
+        <div class="row panel-row">
+            <div class="col-md-5 service-section-halfcolumn">
+                <img src="/img/Service/image1.png" class="img-responsive" alt="" />
+            </div>
+            <div class="col-md-7 service-section-halfcolumn">
+                <h4 class="service-heading">样板制作</h4>
+                <ul>
+                    <li><span class="customerFont">提供外观手板、功能结构手板的3D打印</span></li>
+                    <li><span class="customerFont">提供客户产品的PCB快板制作、钢网制作、小批量贴片服务</span></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row panel-row">
+            <div class="col-md-7 service-section-halfcolumn text-right">
+                <h4 class="service-heading">模治检量工具</h4>
+                <span class="customerFont">设计制造模具、工装治具、量具、检具、工具等</span>
+
+            </div>
+            <div class="col-md-5 service-section-halfcolumn">
+                <img src="/img/Service/image2.png" class="img-responsive" alt="" />
+            </div>
+        </div>
+        <div class="row panel-row">
+            <div class="col-md-5 service-section-halfcolumn">
+                <img src="/img/Service/image3.png" class="img-responsive" alt="" />
+            </div>
+            <div class="col-md-7 service-section-halfcolumn">
+                <h4 class="service-heading">试做试产</h4>
+                <ul>
+                    <li><span class="customerFont">提供产品的部件检测、材料检测、可靠性试验、电性能检测</span></li>
+                    <li><span class="customerFont">提供试模、试加工、试组装及小批量试生产</span></li>
+                    <li><span class="customerFont">作业指导书及检验规范制作</span></li>
+
+                </ul>
+            </div>
+        </div>
+        <div class="row panel-row">
+            <div class="col-md-5 service-section-halfcolumn">
+                <img src="/img/Service/image1.png" class="img-responsive" alt="" />
+            </div>
+            <div class="col-md-7 service-section-halfcolumn">
+                <h4 class="service-heading">产品认证</h4>
+                <span class="customerFont">提供产品相关的认证检测</span>
+                <ul>
+                    <li><span class="customerFont">可提供多国能效认证：ELI、MEPS、DOE、DLC、LDL、CEC、NRCan、ErP、EST、HK Energy Label、IDA等认证项目</span></li>
+                    <li><span class="customerFont">可提供多国安规认证：CE、GS、CSA、UL、ETL、RCM、PSE、FDA、PSB、CB、PSE、KC、SASO、SONCAP、GOST等认证项目</span></li>
+                    <li><span class="customerFont">可提供多国EMC认证：CE、FCC、IC、VCCI、MIC、KCC、NCC、A-Tick、C-Tick、BSMI等认证项目</span></li>
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+<!--产品平台-->
+<section id="services-productplatform" class="bg-light-gray service-section portfolioContainer">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">产品平台</h3>
+                <span class="customerFont"> &nbsp;</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/roundicons.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>众创项目</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/startup-framework.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>产学研用</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/treehouse.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>设计-方案</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/golden.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>客户需求</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/escape.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>产品众筹</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            <i class="fa fa-plus fa-3x"></i>
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/dreams.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>ODM/OEM</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--供应链管理-->
+<section id="services-supplymanagement" class="service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">供应链管理</h3>
+                <span class="customerFont"> &nbsp;</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-3">
+                <img src="~/img/about/1.jpg" style="height:300px;width:100%" />
+                <h4 class="service-heading">仓储物流</h4>
+                <p class="text-muted">产品仓储、物流</p>
+            </div>
+            <div class="col-md-3">
+                <img src="~/img/about/1.jpg" style="height:300px;width:100%" />
+                <h4 class="service-heading">分发配送</h4>
+                <p class="text-muted">产品分发配送</p>
+            </div>
+            <div class="col-md-3">
+                <img src="~/img/about/1.jpg" style="height:300px;width:100%" />
+                <h4 class="service-heading">采购外发</h4>
                 <p class="text-muted">
-                进行市场调研、举办论坛讲座和创意创新创业大赛，在<br />国内外知名媒体进行广告宣传、参加国内国际一流展会
-                </p>
+                    承接开发产品所需物料、器件采购<br/>
+                    承接开发产品零部件加工制造</p>
             </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/BrandPlatform">
-                        <i class="fa fa-circle fa-stack-2x text-danger"></i>
-                        <i class="fa fa-briefcase fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/BrandPlatform">品牌经营</a></h4>
-                <p class="text-muted text-left">进行品牌策划、品牌管理、品牌开发、品牌规划等</p>
+            <div class="col-md-3">
+                <img src="~/img/about/1.jpg" style="height:300px;width:100%" />
+                <h4 class="service-heading">精益管理</h4>
+                <p class="text-muted">整合供应链、流程再造、ERP等</p>
             </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/SellPlatform">
-                        <i class="fa fa-circle fa-stack-2x text-danger"></i>
-                        <i class="fa fa-tasks fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/SellPlatform">销售平台</a></h4>
-                <p class="text-muted">整合、利用传统渠道、有行业影响力的客户、<br/>国内电商、跨境电商、B2B、B2C等进行销售</p>
+
+        </div>
+    </div>
+</section>
+<!--导师平台-->
+<section id="services-tutorplatform" class="service-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading">导师平台</h3>
+                <span class="customerFont"> &nbsp;</span>
             </div>
         </div>
-        <div class="row text-center service-row">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/MakePlatform">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-wrench fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/MakePlatform">制造平台</a></h4>
-                <p class="text-muted">
-                    大批量生产：承接已开发产品大批量生产、出<br />货
-                    专业化制造：承接已开发产品专业化制造
-                </p>
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="~/img/team/1.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Kay Garland</h4>
+                    <p class="text-muted">导师资料介绍</p>
+
+                </div>
             </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/ProjectPlatform">
-                        <i class="fa fa-circle fa-stack-2x text-success"></i>
-                        <i class="fa fa-wordpress fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/ProjectPlatform">工程平台</a></h4>
-                <p class="text-muted"> 样板制作、模治检量工具、试做试产、产品认证</p>
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="~/img/team/2.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Larry Parker</h4>
+                    <p class="text-muted">导师资料介绍</p>
+
+                </div>
             </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/ProductPlatform">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-cubes fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/ProductPlatform">产品平台</a></h4>
-                <p class="text-muted">众创项目、产学研用、文化创意、<br />设计-方案、客户需求、产品众筹、ODM/OEM</p>
-            </div>
-        </div>
-        <div class="row text-center service-row">
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/SupplyManagement">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-line-chart  fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/SupplyManagement">供应链管理</a></h4>
-                <p class="text-muted">仓储物流、分发配送、采购外发、精益管理</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/TutorPlatform">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-users fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading customerA"><a href="/Service/TutorPlatform">导师平台</a></h4>
-                <p class="text-muted"> 战略规划、企业教练、顾问培训、<br/>产学研、协会、人力资源开发</p>
-            </div>
-            <div class="col-md-4">
-                <span class="fa-stack fa-4x">
-                    <a href="/Service/FundPlatform">
-                        <i class="fa fa-circle fa-stack-2x text-primary"></i>
-                        <i class="fa fa-money fa-stack-1x fa-inverse"></i>
-                    </a>
-                </span>
-                <h4 class="service-heading">资金平台</h4>
-                <p class="text-muted">发起种子基金、进行股权投资、对接股权众筹、基金、PE、VC、股权交易结构和保险、银行等金融机构</p>
+            <div class="col-sm-4">
+                <div class="team-member">
+                    <img src="~/img/team/3.jpg" class="img-responsive img-circle" alt="">
+                    <h4>Diana Pertersen</h4>
+                    <p class="text-muted">导师资料介绍</p>
+
+                </div>
             </div>
         </div>
     </div>
 </section>
 
+<!--资金平台-->
+<section id="services-fundplatform" class="service-section" style="background-color: rgba(0, 0, 0, 0.86);">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="section-heading" style="color:white">资金平台</h3>
+                <span class="customerFont"> &nbsp;</span>
+                
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-7 service-section-halfcolumn">
+                <div class="well well-sm">
+                    <img alt="" src="~/img/Service/FundPlatform/goldegg.jpg" style="width: 100%; height: 300px" />
+
+                </div>
+
+            </div>
+            <div class="col-md-5 service-section-halfcolumn">
+                <span class="customerFont" style="color:white">我们旗下有配套的天使投资基金，与券商、律师事务所、会计师事务所等机构密切合作，为创业团队和小微企业量身定制国内外众筹、财务规划、战略规划和股权结构设计等系列服务,后续提供企业包装、商业计划书撰写、路演辅导、融资协助等对接各类创投基金的投融资服务</span>
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<!--#endregion Service-->
 <!--Activity Section-->
 <section id="activity" class="bg-light-gray">
     <div class="container">
@@ -411,3 +1009,199 @@
 </section>
 
 
+<!-- Portfolio Modals -->
+<!-- Use the modals below to showcase details about your portfolio projects! -->
+<!-- Portfolio Modal 1 -->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/roundicons-free.png" alt="">
+                        <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
+                        <p>
+                            <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
+                        </p>
+                        <ul class="list-inline">
+                            <li>Date: July 2014</li>
+                            <li>Client: Round Icons</li>
+                            <li>Category: Graphic Design</li>
+                        </ul>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 2 -->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>Project Heading</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/startup-framework-preview.png" alt="">
+                        <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
+                        <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 3 -->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/treehouse-preview.png" alt="">
+                        <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
+                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 4 -->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/golden-preview.png" alt="">
+                        <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
+                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 5 -->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/escape-preview.png" alt="">
+                        <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
+                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Portfolio Modal 6 -->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>Project Name</h2>
+                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
+                        <img class="img-responsive img-centered" src="img/portfolio/dreams-preview.png" alt="">
+                        <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
+                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(function () {
+        $('#sellplatformTab a:last').tab('show');//初始化显示哪个tab 
+
+        $('#sellplatformTab a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为 
+            $(this).tab('show');//显示当前选中的链接及关联的content 
+        });
+
+        $('#zerodoor').carousel({
+            interval: 2000,
+            pause: 'cycle'
+        });
+        $('#longxiang').carousel({
+            interval: 2500,
+            pause: 'cycle'
+        });
+        $('#meicheng').carousel({
+            interval: 2000,
+            pause: 'cycle'
+        });
+        $('#jwkk').carousel({
+            interval: 2500,
+            pause: 'cycle'
+        });
+    })
+</script>
