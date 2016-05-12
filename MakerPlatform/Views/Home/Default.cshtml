@@ -30,36 +30,45 @@
     .panel-row {
         padding-bottom: 50px;
     }
-
+    .seprateHLine-lightBlue {
+        border: double rgba(0, 255, 184, 0.28) 2px;
+    }
+    .seprateHLine-blue {
+        border: double rgba(255, 0, 24, 0.35) 2px;
+    }
+    
 </style>
 
-<ul class="nav-float">
-    @*<li><a href="/Service/Index?typeCode=MarketPlatform"><strong>市场平台</strong></a></li>
-    <li><a href="/Service/Index?typeCode=BrandPlatform"><strong>品牌经营</strong></a></li>
-    <li><a href="/Service/Index?typeCode=SellPlatform"><strong>销售平台</strong></a></li>
-    <li><a href="/Service/Index?typeCode=MakePlatform"><strong>制造平台</strong></a></li>
-    <li><a href="/Service/Index?typeCode=ProjectPlatform"><strong>工程平台</strong></a></li>
-    <li><a href="/Service/Index?typeCode=ProductPlatform"><strong>产品平台</strong></a></li>
-    <li><a href="/Service/Index?typeCode=SupplyManagement"><strong>供应链管理</strong></a></li>
-    <li><a href="/Service/Index?typeCode=TutorPlatform"><strong>导师平台</strong></a></li>
-    <li><a href="/Service/Index?typeCode=FundPlatform"><strong>资金平台</strong></a></li>*@
-    <li><a class="page-scroll" href="#services-marketplatform"><strong>市场平台</strong></a></li>
-    <li><a class="page-scroll" href="#services-brandpaltform"><strong>品牌经营</strong></a></li>
-    <li><a class="page-scroll" href="#services-sellplatform"><strong>销售平台</strong></a></li>
-    <li><a class="page-scroll" href="#services-makeplatform"><strong>制造平台</strong></a></li>
-    <li><a class="page-scroll" href="#services-projectplatform"><strong>工程平台</strong></a></li>
-    <li><a class="page-scroll" href="#services-productplatform"><strong>产品平台</strong></a></li>
-    <li><a class="page-scroll" href="#services-supplymanagement"><strong>供应链管理</strong></a></li>
-    <li><a class="page-scroll" href="#services-tutorplatform"><strong>导师平台</strong></a></li>
-    <li><a class="page-scroll" href="#services-fundplatform"><strong>资金平台</strong></a></li>
-</ul>
+<!--侧边栏-->
+<div class="nav-float suspendedList">
+    <h4 class="panel-title" style="width:158px;">
+        <a href="javaScript:void(0)" class="suspendedBtn">
+            <i class="fa fa-cog"></i>
+        </a>
+    </h4>
+    <ul>
+        <li><a class="page-scroll" href="#services-marketplatform"><strong>市场平台</strong></a></li>
+        <li><a class="page-scroll" href="#services-brandpaltform"><strong>品牌经营</strong></a></li>
+        <li><a class="page-scroll" href="#services-sellplatform"><strong>销售平台</strong></a></li>
+        <li><a class="page-scroll" href="#services-makeplatform"><strong>制造平台</strong></a></li>
+        <li><a class="page-scroll" href="#services-projectplatform"><strong>工程平台</strong></a></li>
+        <li><a class="page-scroll" href="#services-productplatform"><strong>产品平台</strong></a></li>
+        <li><a class="page-scroll" href="#services-supplymanagement"><strong>供应链管理</strong></a></li>
+        <li><a class="page-scroll" href="#services-tutorplatform"><strong>导师平台</strong></a></li>
+        <li><a class="page-scroll" href="#services-fundplatform"><strong>资金平台</strong></a></li>
+    </ul>
+</div>
+
+<!--返回顶部-->
+<a class="scrollToTop page-scroll" href="#page-top" style="display: block; background-color: rgba(52, 152, 219, 0.67);"><i class="fa fa-angle-up"></i></a>
+
 <!-- Header -->
 <header>
     <div class="container">
         <div class="intro-text">
-            <div class="intro-lead-in wow slideInLeft" data-wow-duration="2s">欢迎来到众创服务平台</div>
-            <div class="intro-heading wow slideInRight" data-wow-duration="2s">Intelligent Plus</div>
-            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+            <div class="intro-lead-in">欢迎来到众创服务平台</div>
+            <div class="intro-heading">Intelligent Plus</div>
+            <a href="#services" class="page-scroll btn btn-xl wow slideInDown">Tell Me More</a>
         </div>
     </div>
 </header>
@@ -77,7 +86,34 @@
     <div class="container">
         <div class="row">
             <div class="col-md-5 service-section-halfcolumn wow slideInLeft">
-                <img src="/img/Service/MarketPlatform/2015.5.23海西创客论坛1.jpg" style="height:200px;width:100%;" />
+                <div id="service-scpt-img" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#service-scpt-img" data-slide-to="0" class="active"></li>
+                        <li data-target="#service-scpt-img" data-slide-to="1"></li>
+                        <li data-target="#service-scpt-img" data-slide-to="2"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="~/img/Service/MarketPlatform/2015.5.23海西创客论坛1.jpg" style="height:200px; width:100%" alt="Second slide">
+
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/MarketPlatform/2015.5.23海西创客论坛2.jpg" style="height: 200px; width: 100%" alt="First slide">
+
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/MarketPlatform/2016.1American_CES_Show-1.jpg" style="height: 200px; width: 100%;" alt="Third slide">
+                        </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="carousel-control left" href="#service-scpt-img"
+                       data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#service-scpt-img"
+                       data-slide="next">&rsaquo;</a>
+                </div>
+
             </div>
             <div class="col-md-7 service-section-halfcolumn wow slideInRight">
                 <h3 class="service-heading">市场平台</h3>
@@ -299,17 +335,17 @@
                         <div class="row" style="margin-right:30px;">
                             <div class="row" style="margin-right:30px;">
                                 <div class="col-md-4 col-sm-4">
-                                    <a href="#">
+                                    <a href="https://shop149606032.taobao.com/" target="_blank">
                                         <img src="~/img/Service/SellPlatform/tb_logo.png" class="img-responsive logoStyle" alt="">
                                     </a>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
-                                    <a href="#">
+                                    <a href="https://padmate.tmall.com/" target="_blank">
                                         <img src="~/img/Service/SellPlatform/tm_logo.png" class="img-responsive logoStyle" alt="">
                                     </a>
                                 </div>
                                 <div class="col-md-4 col-sm-4">
-                                    <a href="#">
+                                    <a href="http://padmate.jd.com/" target="_blank">
                                         <img src="~/img/Service/SellPlatform/jd_logo.png" class="img-responsive logoStyle" alt="">
                                     </a>
                                 </div>
@@ -322,51 +358,51 @@
                     <div class="tab-pane active" id="sellplatform-kjds">
                         <div class="row" style="margin-right:30px;">
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/alibaba.jpg" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/Amazon.png" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/CES-Asia-logo.jpg" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/CES-Logo.jpg" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="row" style="margin-right:30px;">
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/chinasourcingfair_Logo.jpg" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/hsn.jpg" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/Indiegogo_logo.png" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/kickstarter-logo-20010.png" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
                         </div>
                         <div class="row" style="margin-right:30px;">
                             <div class="col-md-3 col-sm-6">
-                                <a href="#">
+                                <a href="javaScript:void(0)">
                                     <img src="~/img/Service/SellPlatform/qvc-logo.jpg" class="img-responsive logoStyle" alt="">
                                 </a>
                             </div>
@@ -421,16 +457,51 @@
         </div>
         <div class="row panel-row">
             <div class="col-md-5 service-section-halfcolumn wow slideInLeft">
-                <img src="/img/Service/image1.png" class="img-responsive" alt="" />
+                <img src="~/img/Service/ProjectPlatform/sb1.png" class="img-responsive" alt="" />
             </div>
             <div class="col-md-7 service-section-halfcolumn wow slideInRight">
-                <h4 class="service-heading">样板制作</h4>
+                <h4 class="service-heading">样板制作<i class="fa fa-long-arrow-right" aria-hidden="true"></i>提供外观手板、功能结构手板的3D打印</h4>
                 <ul>
-                    <li><span class="customerFont">提供外观手板、功能结构手板的3D打印</span></li>
-                    <li><span class="customerFont">提供客户产品的PCB快板制作、钢网制作、小批量贴片服务</span></li>
+                    <li><span class="customerFont" style="font-style:italic;"> 工业3D打印机</span></li>
+                    <li><span class="customerFont">用于功能样机结构部件的制作，以验证产品的功能和结构设计。Projet3500 HD 工业3D打印机能够打印高精细树脂模型。方便产品开发阶段的功能测试，设计交流，降低产品开发的成本和周期，缩短新品上市的时间</span></li>
 
                 </ul>
             </div>
+            
+        </div>
+        <div class="row panel-row">
+            <div class="col-md-7 service-section-halfcolumn text-right wow slideInLeft">
+                <h4 class="service-heading">&nbsp;</h4>
+                <span class="customerFont" style="font-style:italic;"> 桌面型3D打印机</span><br/>
+                <span class="customerFont">
+                    用于产品外观手板的快速制作，配合工业设计进行产品形态的快速定型。
+                    UP BOX特点是能够快速打印手板，无噪音，不产生异味。
+                </span>
+
+            </div>
+            <div class="col-md-5 service-section-halfcolumn wow slideInRight">
+                <img src="~/img/Service/ProjectPlatform/sb2.png" class="img-responsive" alt="" />
+            </div>
+        </div>
+        <div class="row panel-row">
+            <div class="col-md-7 service-section-halfcolumn text-right wow slideInLeft">
+                <h4 class="service-heading">样板制作<i class="fa fa-long-arrow-right" aria-hidden="true"></i>提供客户产品的PCB快板制作，钢网制作，小批量贴片服务</h4>
+                <span class="customerFont" style="font-style:italic;"> 桌面型飞行对中贴片机</span><br />
+                <span class="customerFont">
+                    用于产品研发阶段电路板的小批量贴片。具有高精确度、灵活性强、多元化自选配件的特点。针对小型或小批量生产而开发的，能够贴0.6mm x0.3mm(0201)至16mm x 14mm 元件。
+                </span>
+
+            </div>
+            <div class="col-md-5 service-section-halfcolumn wow slideInRight">
+                <img src="~/img/Service/ProjectPlatform/sb3.png" class="img-responsive" alt="" />
+            </div>
+        </div>
+        <!--分割线-->
+        <div class="row panel-row wow slideInLeft">
+            <div class="col-md-4"></div>
+            <div class="col-md-4 seprateHLine-lightBlue"></div>
+            <div class="col-md-4"></div>
+
         </div>
         <div class="row panel-row">
             <div class="col-md-7 service-section-halfcolumn text-right wow slideInLeft">
@@ -439,14 +510,123 @@
 
             </div>
             <div class="col-md-5 service-section-halfcolumn wow slideInRight">
-                <img src="/img/Service/image2.png" class="img-responsive" alt="" />
+                <div id="project-mzjl-img" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#project-mzjl-img" data-slide-to="0" class="active"></li>
+                        <li data-target="#project-mzjl-img" data-slide-to="1"></li>
+                        <li data-target="#project-mzjl-img" data-slide-to="2"></li>
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="~/img/Service/ProjectPlatform/13-模具车间.jpg" style="height:200px; width:100%" alt="Second slide">
+                            <div class="carousel-caption">模具车间</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/13-模具车间-火花机.jpg" style="height: 200px; width: 100%" alt="First slide">
+                            <div class="carousel-caption">模具车间-火花机</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/13-模具车间-慢走丝.jpg" style="height: 200px; width: 100%;" alt="Third slide">
+                            <div class="carousel-caption">模具车间-慢走丝</div>
+                         </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="carousel-control left" href="#project-mzjl-img"
+                       data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#project-mzjl-img"
+                       data-slide="next">&rsaquo;</a>
+                </div>
+                
             </div>
         </div>
+        <!--分割线-->
+        <div class="row panel-row wow slideInLeft">
+            <div class="col-md-3"></div>
+            <div class="col-md-6 seprateHLine-lightBlue"></div>
+            <div class="col-md-3"></div>
+
+        </div>
+
         <div class="row panel-row">
-            <div class="col-md-5 service-section-halfcolumn wow slideInLeft">
-                <img src="/img/Service/image3.png" class="img-responsive" alt="" />
+            <div class="col-md-7 service-section-halfcolumn wow slideInLeft">
+                <div id="project-szsc-img" class="carousel slide">
+                    <!-- 轮播（Carousel）指标 -->
+                    <ol class="carousel-indicators">
+                        <li data-target="#project-szsc-img" data-slide-to="0" class="active"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="1"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="2"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="3"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="4"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="5"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="6"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="7"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="8"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="9"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="10"></li>
+                        <li data-target="#project-szsc-img" data-slide-to="11"></li>
+
+                    </ol>
+                    <!-- 轮播（Carousel）项目 -->
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="~/img/Service/ProjectPlatform/14-喷涂车间-喷涂设备1.png" style="height:300px; width:100%" alt="Second slide">
+                            <div class="carousel-caption">喷涂设备</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-3坐标测量仪1.png" style="height: 300px; width: 100%" alt="First slide">
+                            <div class="carousel-caption">坐标测量仪</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-材料成分检测设备1.png" style="height: 300px; width: 100%;" alt="Third slide">
+                            <div class="carousel-caption">材料成分检测设备</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-恒温恒湿实验机1.png" style="height: 300px; width: 100%" alt="First slide">
+                            <div class="carousel-caption">恒温恒湿实验机</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-蓝牙测试仪.png" style="height: 300px; width: 100%;" alt="Third slide">
+                            <div class="carousel-caption">蓝牙测试仪</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-冷热循环实验机.png" style="height: 300px; width: 100%" alt="First slide">
+                            <div class="carousel-caption">冷热循环实验机</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-网络分析仪.png" style="height: 300px; width: 100%;" alt="Third slide">
+                            <div class="carousel-caption">网络分析仪</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-示波器.png" style="height: 300px; width: 100%" alt="First slide">
+                            <div class="carousel-caption">示波器</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-实验室-盐雾实验机.png" style="height: 300px; width: 100%;" alt="Third slide">
+                            <div class="carousel-caption">盐雾实验机</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-注塑车间-注塑设备2.png" style="height: 300px; width: 100%;" alt="Third slide">
+                            <div class="carousel-caption">注塑设备</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-组装车间-流水线1.png" style="height: 300px; width: 100%" alt="First slide">
+                            <div class="carousel-caption">生产流水线</div>
+                        </div>
+                        <div class="item">
+                            <img src="~/img/Service/ProjectPlatform/14-组装车间-生产流水线.jpg" style="height: 300px; width: 100%;" alt="Third slide">
+                            <div class="carousel-caption">生产流水线</div>
+                        </div>
+                    </div>
+                    <!-- 轮播（Carousel）导航 -->
+                    <a class="carousel-control left" href="#project-szsc-img"
+                       data-slide="prev">&lsaquo;</a>
+                    <a class="carousel-control right" href="#project-szsc-img"
+                       data-slide="next">&rsaquo;</a>
+                </div>
             </div>
-            <div class="col-md-7 service-section-halfcolumn wow slideInRight">
+            <div class="col-md-5 service-section-halfcolumn wow slideInRight">
                 <h4 class="service-heading">试做试产</h4>
                 <ul>
                     <li><span class="customerFont">提供产品的部件检测、材料检测、可靠性试验、电性能检测</span></li>
@@ -456,17 +636,23 @@
                 </ul>
             </div>
         </div>
+        <!--分割线-->
+        <div class="row panel-row wow slideInLeft">
+            <div class="col-md-2"></div>
+            <div class="col-md-8 seprateHLine-lightBlue"></div>
+            <div class="col-md-2"></div>
+
+        </div>
+
         <div class="row panel-row">
-            <div class="col-md-5 service-section-halfcolumn wow slideInLeft">
-                <img src="/img/Service/image1.png" class="img-responsive" alt="" />
-            </div>
-            <div class="col-md-7 service-section-halfcolumn wow slideInRight">
-                <h4 class="service-heading">产品认证</h4>
-                <span class="customerFont">提供产品相关的认证检测</span>
+            
+            <div class="col-md-12 service-section-halfcolumn wow slideInRight">
+                <h4 class="service-heading text-center">产品认证</h4>
+                <span class="customerFont text-center">提供产品相关的认证检测</span>
                 <ul>
-                    <li><span class="customerFont">可提供多国能效认证：ELI、MEPS、DOE、DLC、LDL、CEC、NRCan、ErP、EST、HK Energy Label、IDA等认证项目</span></li>
-                    <li><span class="customerFont">可提供多国安规认证：CE、GS、CSA、UL、ETL、RCM、PSE、FDA、PSB、CB、PSE、KC、SASO、SONCAP、GOST等认证项目</span></li>
-                    <li><span class="customerFont">可提供多国EMC认证：CE、FCC、IC、VCCI、MIC、KCC、NCC、A-Tick、C-Tick、BSMI等认证项目</span></li>
+                    <li><span class="customerFont">可提供多国能效认证：ELI, MEPS, DOE, DLC, LDL, CEC, NRCan, ErP, EST, HK Energy Label, IDA等认证项目</span></li>
+                    <li><span class="customerFont">可提供多国安规认证：CE, GS, CSA, UL, ETL, RCM, PSE, FDA, PSB, CB, PSE, KC, SASO, SONCAP, GOST等认证项目</span></li>
+                    <li><span class="customerFont">可提供多国EMC认证：CE, FCC, IC, VCCI, MIC, KCC, NCC, A-Tick, C-Tick, BSMI等认证项目</span></li>
 
                 </ul>
             </div>
@@ -485,10 +671,10 @@
         </div>
         <div class="row">
             <div class="col-md-4 col-sm-6 portfolio-item wow slideInLeft">
-                <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+                <a href="#product-zzxm" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                            点击查看更多
                         </div>
                     </div>
                     <img src="~/img/portfolio/roundicons.png" class="img-responsive" alt="">
@@ -499,10 +685,10 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+                <a href="#product-cxyy" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                            点击查看更多
                         </div>
                     </div>
                     <img src="~/img/portfolio/startup-framework.png" class="img-responsive" alt="">
@@ -513,24 +699,66 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item wow slideInRight">
-                <a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+                <a href="#product-whcy" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                            点击查看更多
                         </div>
                     </div>
                     <img src="~/img/portfolio/treehouse.png" class="img-responsive" alt="">
                 </a>
                 <div class="portfolio-caption">
-                    <h4>设计-方案</h4>
+                    <h4>文化创意</h4>
                     <p class="text-muted"></p>
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item  wow slideInLeft">
-                <a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+                <a href="#product-idmd" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                            点击查看更多
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/golden.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>IDMD</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item">
+                <a href="#product-yjsj" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            点击查看更多
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/escape.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>硬件设计</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item  wow slideInRight">
+                <a href="#product-rjkf" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            点击查看更多
+                        </div>
+                    </div>
+                    <img src="~/img/portfolio/dreams.png" class="img-responsive" alt="">
+                </a>
+                <div class="portfolio-caption">
+                    <h4>软件开发</h4>
+                    <p class="text-muted"></p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 portfolio-item  wow slideInLeft">
+                <a href="#product-khxq" class="portfolio-link" data-toggle="modal">
+                    <div class="portfolio-hover">
+                        <div class="portfolio-hover-content">
+                            点击查看更多
                         </div>
                     </div>
                     <img src="~/img/portfolio/golden.png" class="img-responsive" alt="">
@@ -541,10 +769,10 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item">
-                <a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+                <a href="#product-cpzc" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                            点击查看更多
                         </div>
                     </div>
                     <img src="~/img/portfolio/escape.png" class="img-responsive" alt="">
@@ -555,10 +783,10 @@
                 </div>
             </div>
             <div class="col-md-4 col-sm-6 portfolio-item  wow slideInRight">
-                <a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+                <a href="#product-odmoem" class="portfolio-link" data-toggle="modal">
                     <div class="portfolio-hover">
                         <div class="portfolio-hover-content">
-                            <i class="fa fa-plus fa-3x"></i>
+                            点击查看更多
                         </div>
                     </div>
                     <img src="~/img/portfolio/dreams.png" class="img-responsive" alt="">
@@ -1071,10 +1299,9 @@
 </section>
 
 
-<!-- Portfolio Modals -->
-<!-- Use the modals below to showcase details about your portfolio projects! -->
-<!-- Portfolio Modal 1 -->
-<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" role="dialog" aria-hidden="true">
+<!--产品平台-->
+<!-- 众创项目-->
+<div class="portfolio-modal modal fade" id="product-zzxm" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <div class="lr">
@@ -1087,19 +1314,323 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
                         <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="img/portfolio/roundicons-free.png" alt="">
-                        <p>Use this area to describe your project. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est blanditiis dolorem culpa incidunt minus dignissimos deserunt repellat aperiam quasi sunt officia expedita beatae cupiditate, maiores repudiandae, nostrum, reiciendis facere nemo!</p>
-                        <p>
-                            <strong>Want these icons in this portfolio item sample?</strong>You can download 60 of them for free, courtesy of <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">RoundIcons.com</a>, or you can purchase the 1500 icon set <a href="https://getdpd.com/cart/hoplink/18076?referrer=bvbo4kax5k8ogc">here</a>.
-                        </p>
-                        <ul class="list-inline">
-                            <li>Date: July 2014</li>
-                            <li>Client: Round Icons</li>
-                            <li>Category: Graphic Design</li>
+                        <h2>众创空间项目</h2>
+                        <p class="item-intro text-muted">派美特618活动展会产品</p>
+                        
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-3 wow slideInLeft">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/hotwatch.png" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    Hot Watch通过蓝牙与手机建立连接，用户可使用Hot Watch直接拨打电话，而无需从口袋或背包里拿出手机，配备了一块投射式多点触控屏，拥有加速计、陀螺仪并支持Bluetooth 4.0及第三方APP，该产品在Kickstarter众筹平台上共获得61.6万美金。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> HOT WATCH</h4>
+                </div>
+                <div class="col-md-3 wow slideInLeft">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/M6.png" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    这是我们精心为客户打造的一款精致、造型感强的床头智能”伴侣“，音箱顶置灯箱。采用蓝牙4.0双喇叭立体声音箱，内置电池4000mA聚合物锂电池，通过APP+蓝牙控制灯箱单色、多色循环变换效果，营造一种温馨柔和的格调。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> M6</h4>
+                </div>
+                <div class="col-md-3 wow slideInRight">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/nut.jpg" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    由2015年中美青年创客大赛一等奖得主“坚果健身”团队开发了一款可以轻易贴在杠铃、哑铃等运动器械上的智能贴片，并将该产品命名为“坚果健身“。这一智能贴片不仅可以记录器械运动的次数和组数，还能够通过一套独特的算法及时给出反馈，手机AP端上会显示评估健身者当前的体质状态，有效地帮助运动者设定健身计划。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 坚果健身</h4>
+                </div>
+                <div class="col-md-3 wow slideInRight">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/breath1.png" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    赛客易呼吸智能呼吸训练器是全球第一款便携式呼吸功能检测及呼吸训练一体化的智能硬件，是一款专业的医疗级电子医疗器械，可被广泛应用于医疗机构对慢性阻塞性肺疾病（COPD)、哮喘病患等进行呼吸功能检测、呼吸康复训练及监测；也对有氧运动如游泳、跑步、骑单车等进行辅助性呼吸功能改善锻炼，并提供量化数据测评；对于久坐办公室缺少运动处于亚健康的群体，本产品也可以帮助辅助呼吸锻炼，并提升运动机能。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 赛客易呼吸智能呼吸训练器</h4>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3 wow slideInLeft">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/robot.jpg" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    手机机器人JOCO是一款协助实体店手机销售的智能服务机器人。JOCO直接将智能手机作为自己的大脑控制系统，具备语音问答、客户人脸追踪、个性互动推广等功能，可服务于手机门店、营销推广活动等场合，帮助吸引、引导客户，回答客户问题，促进手机销售，提升品牌形象。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 手机机器人</h4>
+                </div>
+                <div class="col-md-3 wow slideInLeft">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/solidwriter.png" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    【书沙台】是创意科技装置团队“SeeekLab”所打造的的首款电子产品，主打“慢社交”的交互方式，配合app应用，把用户的书写笔迹转化为智能硬件设备的书写笔迹，在沙子上进行书写。书沙台给异地的情感交流，增加了一种新的沟通方式，以笔迹传心迹，见字如见人。
+                                    书沙台也可以作为创意时钟、日历来使用。时间在沙子上被不断擦除和“书写”出来。
+
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 书沙台</h4>
+                </div>
+                <div class="col-md-3 wow slideInRight">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/pillow.jpg" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    厦门理工学院颜爱国教授研发了一款针对学生、旅客、白领使用的“午睡神器”，主要研究内容：（1）开发健康趴睡枕及其专用材料；（2）开发健康坐睡枕及其专用材料。着力于解决大部分群体午睡难的问题，推广健康的午睡方式并保护颈椎健康。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 午睡枕</h4>
+                </div>
+                <div class="col-md-3 wow slideInRight">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/moonlight.png" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    这是一套可编程的灯光秀，整套智能音响灯采用触控及手机APP控制，无线联动多个灯球，灯光同步音乐，营造出浪漫温馨的氛围，可在餐厅、卧室、户外等场所随意布置。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 悦亮灯</h4>
+                </div>
+
+            </div>
+            <div class="row">
+                <div class="col-md-3 wow slideInLeft">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/intell-jade.png" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    创始人Anna拥有广泛的中医养生理论基础，加之对中国传统的中医理论及传统文化有着非常深的情感，一直致力于研发一款传统文化和中医理论相结合的智能硬件产品。产品外形采用中国最古老的玉石，寓意吉祥如意。通过子午流注原理记录睡眠，随时监测肺腑功能，再辅助食疗、穴位按摩、锻炼等方式来改善人体的内循环。
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 智能玉Mychi</h4>
+                </div>
+                <div class="col-md-3 wow slideInLeft">
+                    <a class="information-box">
+                        <img src="~/img/Service/ProductPlatform/photorobot.png" class="img-responsive" style="height:300px;width:100%" />
+                        <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
+                            <div class="information-box-caption-content">
+
+                                <p>
+                                    这是一款使用智能软件+红外线追踪+手持无线遥控技术全方位上下左右环绕追踪，不用任何指令就能自动判断您的状态而启动自拍的机器人；可制作个人专属绚丽写真集，与好友分享，神奇背景切换，让你身临其境。
+
+                                </p>
+                            </div>
+                        </div>
+                    </a>
+                    <h4> 自拍机器人</h4>
+                </div>
+
+            </div>
+
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>合作项目</h2>
+                        <p class="item-intro text-muted">暂无更新。。。</p>
+                        
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal">
+                            <i class="fa fa-times"></i> 关 闭
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 产学研用-->
+<div class="portfolio-modal modal fade" id="product-cxyy" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <h2>暂无更新</h2>
+                        
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal">
+                            <i class="fa fa-times"></i> 关 闭
+                        </button>
+                    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 文化创意 -->
+<div class="portfolio-modal modal fade" id="product-whcy" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>暂无更新</h2>
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal"><i class="fa fa-times"></i> 关 闭</button>
+                   
+                     </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- IDMD -->
+<div class="portfolio-modal modal fade" id="product-idmd" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>IDMD</h2>
+                        <span class="customerFont">
+                            对客户提供的产品ID和结构设计，进行材料、工艺的优化，以简化工艺、降低成本、提供可制造性
+
+                        </span>
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal">
+                            <i class="fa fa-times"></i>关 闭
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- 硬件设计 -->
+<div class="portfolio-modal modal fade" id="product-yjsj" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>硬件设计</h2>
+                        <ul class="text-left">
+                            <li>
+                                <span class="customerFont">
+                                    根据产品的需求，进行硬件的原理图设计，器件选型，堆叠设计，PCB板layout设计
+                                </span>
+                            </li>
+                            <li>
+                                <span class="customerFont">
+                                    对客户的硬件功能模块，进行产品硬件设计的优化
+                                </span>
+                            </li>
+
                         </ul>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        <div id="product-yjsj-img" class="carousel slide">
+                            <!-- 轮播（Carousel）指标 -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#product-yjsj-img" data-slide-to="0" class="active"></li>
+                                <li data-target="#product-yjsj-img" data-slide-to="1"></li>
+                                <li data-target="#product-yjsj-img" data-slide-to="2"></li>
+                            </ol>
+                            <!-- 轮播（Carousel）项目 -->
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <img src="~/img/Service/ProductPlatform/09-喷雾仪 Padmate-MS-01.bmp" style="height:300px; width:100%" alt="Second slide">
+                                </div>
+                                <div class="item">
+                                    <img src="~/img/Service/ProductPlatform/09-书沙台 P-M01.bmp" style="height: 300px; width: 100%" alt="First slide">
+                                </div>
+                                <div class="item">
+                                    <img src="~/img/Service/ProductPlatform/09-智能雨伞 Padmate-SUN-01.bmp" style="height: 300px; width: 100%;" alt="Third slide">
+                                </div>
+                            </div>
+                            <!-- 轮播（Carousel）导航 -->
+                            <a class="carousel-control left" href="#product-yjsj-img"
+                               data-slide="prev">&lsaquo;</a>
+                            <a class="carousel-control right" href="#product-yjsj-img"
+                               data-slide="next">&rsaquo;</a>
+                            <!-- 控制按钮 -->
+                            <div style="text-align:center;">
+                                <input type="button" class="btn slide-one" value="喷雾仪">
+                                <input type="button" class="btn slide-two" value="书沙台">
+                                <input type="button" class="btn slide-three" value="智能雨伞">
+                            </div>
+                        </div>
+
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal"><i class="fa fa-times"></i>关 闭</button>
                     </div>
                 </div>
             </div>
@@ -1107,61 +1638,8 @@
     </div>
 </div>
 
-<!-- Portfolio Modal 2 -->
-<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <h2>Project Heading</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="img/portfolio/startup-framework-preview.png" alt="">
-                        <p><a href="http://designmodo.com/startup/?u=787">Startup Framework</a> is a website builder for professionals. Startup Framework contains components and complex blocks (PSD+HTML Bootstrap themes and templates) which can easily be integrated into almost any design. All of these components are made in the same style, and can easily be integrated into projects, allowing you to create hundreds of solutions for your future projects.</p>
-                        <p>You can preview Startup Framework <a href="http://designmodo.com/startup/?u=787">here</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Portfolio Modal 3 -->
-<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-    <div class="modal-content">
-        <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-                <div class="rl">
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2">
-                    <div class="modal-body">
-                        <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="img/portfolio/treehouse-preview.png" alt="">
-                        <p>Treehouse is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. This is bright and spacious design perfect for people or startup companies looking to showcase their apps or other projects.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/treehouse-free-psd-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Portfolio Modal 4 -->
-<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- 软件开发 -->
+<div class="portfolio-modal modal fade" id="product-rjkf" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <div class="lr">
@@ -1174,12 +1652,53 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
                         <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="img/portfolio/golden-preview.png" alt="">
-                        <p>Start Bootstrap's Agency theme is based on Golden, a free PSD website template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Golden is a modern and clean one page web template that was made exclusively for Best PSD Freebies. This template has a great portfolio, timeline, and meet your team sections that can be easily modified to fit your needs.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/golden-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        <h2>软件开发</h2>
+                        
+                        <ul class="text-left">
+                            <li>
+                                <span class="customerFont">
+                                    <strong> 嵌入式软件开发：</strong><br />
+                                    由资深嵌入式软件工程师组队，精通
+                                </span>
+                            </li>
+                            <li>
+                                <span class="customerFont">
+                                    1、MCU技术平台， 如stm、pic, 高通、TI、csr
+                                </span>
+                            </li>
+                            <li>
+                                <span class="customerFont">
+                                    2、linux平台和各种rtos   
+                                </span>
+                            </li>
+                            <li>
+                                <span class="customerFont">
+                                    3、通讯技术，如蓝牙、ZigBee、Wifi等等
+                                </span>
+                            </li>
+                            <li>
+                                <span class="customerFont">
+                                    4、各类感应器使用
+                                </span>
+                            </li>
+                        </ul>
+                        <ul class="text-left">
+                            <li>
+                                <span class="customerFont">
+                                    <strong> 网站开发：</strong><br />
+                                    为用户提供一站式的网站建设规划、策划、设计服务
+                                </span>
+                            </li>
+                        </ul>
+                        <ul class="text-left">
+                            <li>
+                                <span class="customerFont">
+                                    <strong> APP开发：</strong><br />
+                                    承接各类移动终端APP开发，包括独立APP或与硬件通讯集成系统。
+                                </span>
+                            </li>
+                        </ul>
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal"><i class="fa fa-times"></i> 关 闭</button>
                     </div>
                 </div>
             </div>
@@ -1187,8 +1706,8 @@
     </div>
 </div>
 
-<!-- Portfolio Modal 5 -->
-<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- 客户需求 -->
+<div class="portfolio-modal modal fade" id="product-khxq" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <div class="lr">
@@ -1201,12 +1720,10 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
                         <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="img/portfolio/escape-preview.png" alt="">
-                        <p>Escape is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Escape is a one page web template that was designed with agencies in mind. This template is ideal for those looking for a simple one page solution to describe your business and offer your services.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/escape-one-page-psd-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        <h2>根据客户诉求进行产品及包装设计</h2>
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal">
+                            <i class="fa fa-times"></i>关 闭
+                        </button>
                     </div>
                 </div>
             </div>
@@ -1214,8 +1731,8 @@
     </div>
 </div>
 
-<!-- Portfolio Modal 6 -->
-<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" role="dialog" aria-hidden="true">
+<!-- 产品众筹 -->
+<div class="portfolio-modal modal fade" id="product-cpzc" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-content">
         <div class="close-modal" data-dismiss="modal">
             <div class="lr">
@@ -1228,12 +1745,31 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <div class="modal-body">
                         <!-- Project Details Go Here -->
-                        <h2>Project Name</h2>
-                        <p class="item-intro text-muted">Lorem ipsum dolor sit amet consectetur.</p>
-                        <img class="img-responsive img-centered" src="img/portfolio/dreams-preview.png" alt="">
-                        <p>Dreams is a free PSD web template built by <a href="https://www.behance.net/MathavanJaya">Mathavan Jaya</a>. Dreams is a modern one page web template designed for almost any purpose. It’s a beautiful template that’s designed with the Bootstrap framework in mind.</p>
-                        <p>You can download the PSD template in this portfolio sample item at <a href="http://freebiesxpress.com/gallery/dreams-free-one-page-web-template/">FreebiesXpress.com</a>.</p>
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                        <h2>帮助项目进行国内国际产品众筹</h2>
+                        <button type="button" class="btn btn-primary modalClose" data-dismiss="modal"><i class="fa fa-times"></i> Close Project</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- ODM/OEM -->
+<div class="portfolio-modal modal fade" id="product-odmoem" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-content">
+        <div class="close-modal" data-dismiss="modal">
+            <div class="lr">
+                <div class="rl">
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <div class="modal-body">
+                        <!-- Project Details Go Here -->
+                        <h2>暂无更新</h2>
+                       <button type="button" class="btn btn-primary modalClose" data-dismiss="modal"><i class="fa fa-times"></i> 关 闭</button>
                     </div>
                 </div>
             </div>
@@ -1242,36 +1778,114 @@
 </div>
 <script>
     $(function () {
+
+        
+        //初始化wow动画
         new WOW().init();
 
-        $('#sellplatformTab a:last').tab('show');//初始化显示哪个tab 
+        InitSuspendedBtn();
+        InitCarousel();
+        InitCollapse();
+        InitSlick();
+        InitTabPanel();
+        
+    })
 
-        $('#sellplatformTab a').click(function (e) {
-            e.preventDefault();//阻止a链接的跳转行为 
-            $(this).tab('show');//显示当前选中的链接及关联的content 
+    //初始化侧边栏收缩按钮
+    function InitSuspendedBtn() {
+        $(".suspendedBtn").click(function () {
+
+            var leftPosition = $(".suspendedList").position().left;
+            if (leftPosition < 0) {
+                $(".suspendedList").animate({ left: "0px" }, 500);
+            } else {
+                $(".suspendedList").animate({ left: "-130px" }, 500);
+            }
+        });
+    }
+    //初始化轮播图片
+    function InitCarousel()
+    {
+        $('#service-scpt-img').carousel({
+            interval: 2000,
+            pause: 'hover'
+        });
+
+        //工程平台-模治检量
+        $('#project-mzjl-img').carousel({
+            interval: 2000,
+            pause: 'hover'
+        });
+        //工程平台-试做试产
+        $('#project-szsc-img').carousel({
+            interval: 2000,
+            pause: 'hover'
         });
 
         $('#zerodoor').carousel({
             interval: 2000,
-            pause: 'cycle'
+            pause: 'hover'
         });
         $('#longxiang').carousel({
             interval: 2500,
-            pause: 'cycle'
+            pause: 'hover'
         });
         $('#meicheng').carousel({
             interval: 2000,
-            pause: 'cycle'
+            pause: 'hover'
         });
         $('#jwkk').carousel({
             interval: 2500,
             pause: 'cycle'
         });
 
+        //modal
+        //产品平台-硬件设计
+        $('#product-yjsj-img').carousel({
+            interval: 2000,
+            pause: 'hover'
+        });
+        // 循环轮播到某个特定的帧 
+        $(".slide-one").click(function () {
+            $("#product-yjsj-img").carousel(0);
+        });
+        $(".slide-two").click(function () {
+            $("#product-yjsj-img").carousel(1);
+        });
+        $(".slide-three").click(function () {
+            $("#product-yjsj-img").carousel(2);
+        });
+    }
+
+    //初始化收缩面板
+    function InitCollapse()
+    {
+        $('#collapseTwo').collapse('show');
+        $('#collapseThree').collapse('show');
+        $('#collapseOne').collapse('show');
+        $('#collapseFour').collapse('show');
+        $('#collapseFive').collapse('show');
+    }
+
+    //初始化可切换Tab面板
+    function InitTabPanel()
+    {
+        //region 初始化Tab
+        $('#sellplatformTab a:last').tab('show');//初始化显示哪个tab 
+        $('#sellplatformTab a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为 
+            $(this).tab('show');//显示当前选中的链接及关联的content 
+        });
+        // #endregion
+    }
+
+    //初始化旋转效果
+    function InitSlick()
+    {
         $('.responsive').slick({
             dots: true,
             infinite: false,
-            speed: 300,
+            speed: 100,
             slidesToShow: 3,
             slidesToScroll: 3,
             responsive: [
@@ -1301,11 +1915,6 @@
             ]
         });
 
-        $('#collapseTwo').collapse('show');
-        $('#collapseThree').collapse('show');
-        $('#collapseOne').collapse('show');
-        $('#collapseFour').collapse('show');
-        $('#collapseFive').collapse('show');
-
-    })
+        
+    }
 </script>

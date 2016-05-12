@@ -16,6 +16,7 @@
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
     border-radius: 20px;
+    border-top-right-radius:5px;
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
@@ -47,4 +48,49 @@
 
 .nav-float li a.cur {
     background: #ffc;
+}
+
+.suspendedBtn{
+    float: right;
+    width: 40px; 
+    height: 40px; 
+    line-height: 40px; 
+    border-radius: 0px 5px 5px 0; 
+    text-align: center; 
+    background-color: rgba(52, 152, 219, 0.67);
+}
+/*scrol to top*/
+
+.scrollToTop {
+    bottom: 60px;
+    display: none;
+    font-size: 32px;
+    font-weight: bold;
+    height: 50px;
+    position: fixed;
+    right: 50px;
+    text-align: center;
+    text-decoration: none;
+    width: 50px;
+    z-index: 9999;
+    color: yellow;
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+}
+
+.scrollToTop:hover, .scrollToTop:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+/*modal close button*/
+.modalClose
+{
+    position:fixed;
+    right:50px;
+    bottom:20px;
+    z-index:9999
 }
