@@ -164,6 +164,8 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AtricleController.cs" />
+    <Compile Include="Controllers\AtricleMController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1493,6 +1495,14 @@
     <Content Include="Scripts\slick\slick\fonts\slick.ttf" />
     <Content Include="Scripts\slick\slick\fonts\slick.woff" />
     <Content Include="Scripts\slick\slick\slick.scss" />
+    <Content Include="Views\Atricle\Index.cshtml" />
+    <Content Include="Views\Atricle\Add.cshtml" />
+    <Content Include="Views\Atricle\Edit.cshtml" />
+    <Content Include="Views\AtricleM\Create.cshtml" />
+    <Content Include="Views\AtricleM\Delete.cshtml" />
+    <Content Include="Views\AtricleM\Details.cshtml" />
+    <Content Include="Views\AtricleM\Edit.cshtml" />
+    <Content Include="Views\AtricleM\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
