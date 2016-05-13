@@ -35,7 +35,11 @@ namespace MakerPlatform.Controllers
             return View();
         }
 
-        public ActionResult SystemManage()
+        /// <summary>
+        /// 文章管理
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult SystemManagement()
         {
            
             return View();

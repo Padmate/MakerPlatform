@@ -8,18 +8,19 @@ namespace MakerPlatform.Migrations
         public override void Up()
         {
             CreateTable(
-                "dbo.Modules",
+                "dbo.Atricles",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        ParentId = c.Int(nullable: false),
-                        Code = c.String(nullable: false, maxLength: 50),
-                        Name = c.String(nullable: false, maxLength: 200),
+                        Title = c.String(),
                         Description = c.String(),
                         Type = c.Int(nullable: false),
                         Content = c.String(storeType: "ntext"),
+                        ImageUrl = c.String(),
                         IconCss = c.String(),
-                        Order = c.Int(nullable: false),
+                        Creator = c.String(),
+                        CreateDate = c.DateTime(nullable: false),
+                        Sequence = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -29,30 +30,6 @@ namespace MakerPlatform.Migrations
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Name = c.String(nullable: false),
-                    })
-                .PrimaryKey(t => t.Id);
-            
-            CreateTable(
-                "dbo.ServiceModules",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        ServiceTypeId = c.Int(nullable: false),
-                        ModuleCode = c.String(),
-                        ModuleName = c.String(),
-                        ModuleContent = c.String(storeType: "ntext"),
-                    })
-                .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.ServiceTypes", t => t.ServiceTypeId, cascadeDelete: true)
-                .Index(t => t.ServiceTypeId);
-            
-            CreateTable(
-                "dbo.ServiceTypes",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        TypeCode = c.String(),
-                        TypeName = c.String(nullable: false, maxLength: 256),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -114,20 +91,16 @@ namespace MakerPlatform.Migrations
             DropForeignKey("dbo.AspNetUserRoles", "UserId", "dbo.AspNetUsers");
             DropForeignKey("dbo.AspNetUserRoles", "RoleId", "dbo.AspNetRoles");
             DropForeignKey("dbo.AspNetUserLogins", "UserId", "dbo.AspNetUsers");
-            DropForeignKey("dbo.ServiceModules", "ServiceTypeId", "dbo.ServiceTypes");
             DropIndex("dbo.AspNetUserClaims", new[] { "User_Id" });
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetUserRoles", new[] { "RoleId" });
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
-            DropIndex("dbo.ServiceModules", new[] { "ServiceTypeId" });
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetUserLogins");
             DropTable("dbo.AspNetUserClaims");
             DropTable("dbo.AspNetUsers");
-            DropTable("dbo.ServiceTypes");
-            DropTable("dbo.ServiceModules");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.Modules");
+            DropTable("dbo.Atricles");
         }
     }
 }

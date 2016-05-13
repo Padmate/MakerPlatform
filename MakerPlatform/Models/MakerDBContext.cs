@@ -18,17 +18,13 @@ namespace MakerPlatform.Models
             : base("MarkerPlatform")
         {
         }
-        public DbSet<ServiceType> ServiceTypes { get; set; }
-        public DbSet<ServiceModule> ServiceModules { get; set; }
 
-        public DbSet<Module> Modules { get; set; }
+        public DbSet<Atricle> Atricles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-            modelBuilder.Configurations.Add(new ServiceTypeConfiguration());
-            modelBuilder.Configurations.Add(new ServiceModuleConfiguration());
-            modelBuilder.Configurations.Add(new ModuleConfiguration());
+            modelBuilder.Configurations.Add(new AtricleConfiguration());
 
         }
     }

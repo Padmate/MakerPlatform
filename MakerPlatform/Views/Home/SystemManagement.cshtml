@@ -1,0 +1,281 @@
+﻿
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>智能创新创业公共服务平台</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap-table.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+
+    <script src="~/Scripts/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap-table.js"></script>
+
+    <script src="~/Scripts/layer/layer.js"></script>
+
+    <style>
+        .nav-tabs > li {
+            margin-bottom: -1px;
+            clear: both;
+            width: 100%;
+        }
+
+    </style>
+</head>
+
+
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("智能创新创业公共服务平台", "Default", "Home", null, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("主页", "Index", "Home")</li>
+                    <li>@Html.ActionLink("关于", "About", "Home")</li>
+                    <li>@Html.ActionLink("联系方式", "Contact", "Home")</li>*@
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content" style="margin-top:100px;">
+        <div class="row">
+
+            <div class="col-md-3">
+                <p class="lead">系统管理</p>
+                <ul class="nav nav-tabs list-nav" id="manageTab">
+                    <li class="active">
+                        <a href="#activityManagement">活动管理</a>
+                    </li>
+                    <li>
+                        <a href="#informationManagement">资讯管理</a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-9">
+                <div class="tab-content">
+                    <!--活动管理-->
+                    <div class="tab-pane active" id="activityManagement">
+
+                        <div id="activityToolbar">
+                            <a class="btn btn-primary" href='#ActivityAddModel' data-toggle='modal'>
+                                <span class="iconfa-book">Add</span>
+                            </a>
+                            <button id="btnActivityEdit" class="btn btn-success">
+                                <i class="glyphicon glyphicon-plus"></i>Edit
+                            </button>
+                            <button id="btnActivityDelete" class="btn btn-danger">
+                                <i class="glyphicon glyphicon-remove"></i> Delete
+                            </button>
+
+                        </div>
+                        <table id="ActivityTable"></table>
+
+                        
+
+                    </div>
+                    <div class="tab-pane" id="informationManagement">Information</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <!--ActivityAddModel-->
+    <div aria-hidden="false" aria-labelledby="myModalLabel" data-backdrop="static" role="dialog" tabindex="-1" class="modal hide fade in" id="ActivityAddModel" style="width:500px;">
+        <div class="modal-header">
+            <button aria-hidden="true" data-dismiss="modal" class="close" type="button">&times;</button>
+            <h3 id="myModalLabel">Add Roles</h3>
+        </div>
+        <div class="modal-body" style="height:200px;">
+            <form action="forms.html" method="post">
+                <div>
+                    <div class="span4">
+                        <label class="modallabel">Name</label>
+                        <span class="field">
+                            <input type="text" id="tbAddName" class="input-large">
+                        </span>
+                        <br />
+
+
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button data-dismiss="modal" class="btn">取消</button>
+            <button class="btn btn-primary" id="btnAdd">保存</button>
+        </div>
+    </div>
+    <!--#myModal-->
+</body>
+</html>
+<script>
+
+
+    $(document).ready(function () {
+        $('#manageTab a:first').tab('show');//初始化显示哪个tab
+
+        $('#manageTab a').click(function (e) {
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+        })
+
+    });
+
+
+    $(document).ready(function () {
+        InitTable();
+        InitToolBarButton();
+    });
+
+    function InitTable() {
+        $('#ActivityTable').bootstrapTable({
+            height: $(document.body).height() - $("#activityToolbar").height(),
+            method: 'post',                 //The method type to request remote data.
+            url: '/Activity/GetActivityPageData',
+            dataType: "json",               //The type of data that you are expecting back from the server.
+            contentType: 'application/json',
+            pagination: true,               //True to show a pagination toolbar on table bottom.
+            pageSize: 10,                   //初始化每页显示几条
+            pageNumber: 1,                   //初始化在第几页
+            pageList: [10, 25, 50, 100, 200, 'All'],
+            sidePagination: "server",       //服务端请求
+            idField: 'Id',
+            toolbar: '#activityToolbar',
+            showRefresh: true,
+            search: true,
+            queryParams: ConstructQueryParams,
+            //queryParamsType: "limit",
+            locale: 'en-US',
+            columns: [{
+                checkbox: true
+            },
+            {
+                field: 'Id',
+                title: 'Id',
+                visible: false,
+            },
+            {
+                field: 'Title',
+                title: 'Title',
+                sortable: true
+
+            }
+            ]
+        });
+    }
+
+    function ConstructQueryParams(param) {
+        var params = {
+            limit: param.limit, //页面大小
+            offset: param.offset,//偏移数量
+            page: param.offset / param.limit, //页码
+
+        };
+        return params;
+    }
+
+    function InitToolBarButton() {
+   
+        $("#btnActivityEdit").click(function () {
+            layer.alert("Edit is not enabled", {
+                skin: 'layui-layer-molv'
+                           , closeBtn: 0
+                           , shift: 5 //动画类型
+            });
+        });
+
+        $("#btnActivityDelete").click(function () {
+
+            var selections = $('#table').bootstrapTable('getSelections');
+            if (selections.length == 0) {
+                layer.alert("Please select records", {
+                    skin: 'layui-layer-molv'
+                            , closeBtn: 0
+                            , shift: 5 //动画类型
+                });
+                return;
+            }
+
+            var userIds = [];
+            for (var i = 0; i < selections.length; i++) {
+                var id = selections[i].Id;
+                userIds.push(id);
+            }
+
+            //delete records
+            var jsonUserId = JSON.stringify(userIds);
+            $.ajax({
+                type: "get",//使用get方法访问后台
+                dataType: "json",//返回json格式的数据
+                url: "/Manage/BachDeleteByUserId",
+                data: { "UserIds": jsonUserId },
+                async: false,
+                success: function (message) {
+                    if (message.Success) {
+                        location.href = "/Manage/IndexForUser";
+                    } else {
+                        layer.alert(message.Content, {
+                            skin: 'layui-layer-molv'
+                            , closeBtn: 0
+                            , shift: 5 //动画类型
+                        });
+                    }
+
+                }
+            });
+        });
+    }
+
+    function ConstructRolesByUserName(userName) {
+
+        var roleNames = '';
+        $.ajax({
+            type: "get",//使用get方法访问后台
+            dataType: "json",//返回json格式的数据
+            url: "/Manage/GetRolesByUserName",
+            data: { "UserName": userName },
+            async: false,
+            success: function (data) {
+
+                for (var i = 0; i < data.length; i++) {
+                    if (i == 0) {
+                        roleNames += data[i];
+
+                    } else {
+                        roleNames += "、" + data[i];
+
+                    }
+                }
+
+            }
+        });
+        return roleNames;
+
+    }
+</script>
+
