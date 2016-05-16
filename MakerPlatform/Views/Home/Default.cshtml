@@ -905,7 +905,37 @@
             </div>
             <div class="row">
                 <div class="col-md-3 wow slideInLeft">
-                    <img src="~/img/about/1.jpg" style="height:300px;width:100%" />
+                    <div id="supplymanagement-ccwl-img" class="carousel slide">
+                        <!-- 轮播（Carousel）指标 -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#supplymanagement-ccwl-img" data-slide-to="0" class="active"></li>
+                            <li data-target="#supplymanagement-ccwl-img" data-slide-to="1"></li>
+                            <li data-target="#supplymanagement-ccwl-img" data-slide-to="2"></li>
+                            <li data-target="#supplymanagement-ccwl-img" data-slide-to="3"></li>
+
+                        </ol>
+                        <!-- 轮播（Carousel）项目 -->
+                        <div class="carousel-inner">
+                            <div class="item active">
+                                <img src="~/img/Service/SupplyManagement/ccwl1.jpg" style="height: 300px; width: 100%" alt="Second slide">
+                            </div>
+                            <div class="item">
+                                <img src="~/img/Service/SupplyManagement/ccwl2.jpg" style="height: 300px; width: 100%" alt="First slide">
+                            </div>
+                            <div class="item">
+                                <img src="~/img/Service/SupplyManagement/ccwl3.jpg" style="height: 300px; width: 100%;" alt="Third slide">
+                            </div>
+                            <div class="item">
+                                <img src="~/img/Service/SupplyManagement/ccwl4.jpg" style="height: 300px; width: 100%;" alt="Third slide">
+                            </div>
+                        </div>
+                        <!-- 轮播（Carousel）导航 -->
+                        <a class="carousel-control left" href="#supplymanagement-ccwl-img"
+                           data-slide="prev">&lsaquo;</a>
+                        <a class="carousel-control right" href="#supplymanagement-ccwl-img"
+                           data-slide="next">&rsaquo;</a>
+                    </div>
+
                     <h4 class="service-heading">仓储物流</h4>
                     <p class="text-muted">产品仓储、物流</p>
                 </div>
@@ -2716,7 +2746,7 @@
                                 对客户提供的产品ID和结构设计，进行材料、工艺的优化，以简化工艺、降低成本、提供可制造性
 
                             </span>
-
+                            <img src="~/img/Service/ProductPlatform/idmd1.jpg" class="img-responsive" style="margin:0 auto;"/>
                         </div>
                     </div>
                 </div>
@@ -2814,7 +2844,8 @@
                                 </li>
                                 <li>
                                     <span class="customerFont">
-                                        1、MCU技术平台， 如stm、pic, 高通、TI、csr
+                                        1、MCU技术平台，如ST、pic、dialog、TI、csr、高通、ARM
+
                                     </span>
                                 </li>
                                 <li>
@@ -3018,6 +3049,12 @@
             $('#project-szsc-img').carousel({
                 interval: 2000,
                 pause: 'hover'
+            });
+
+            //供应链管理-仓储物流
+            $('#supplymanagement-ccwl-img').carousel({
+                interval: 2000,
+                pause: 'cycle'
             });
 
             $('#zerodoor').carousel({

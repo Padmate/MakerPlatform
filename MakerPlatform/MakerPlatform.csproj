@@ -164,8 +164,6 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
-    <Compile Include="Controllers\AtricleController.cs" />
-    <Compile Include="Controllers\AtricleMController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -1300,6 +1298,7 @@
     <Content Include="img\Service\ProductPlatform\breath1.png" />
     <Content Include="img\Service\ProductPlatform\breath2.jpg" />
     <Content Include="img\Service\ProductPlatform\hotwatch.png" />
+    <Content Include="img\Service\ProductPlatform\idmd1.jpg" />
     <Content Include="img\Service\ProductPlatform\intell-jade.png" />
     <Content Include="img\Service\ProductPlatform\M6.png" />
     <Content Include="img\Service\ProductPlatform\moonlight.png" />
@@ -1359,6 +1358,10 @@
     <Content Include="img\Service\SellPlatform\龙翔\IMG_20160421_131527.jpg" />
     <Content Include="img\Service\SellPlatform\龙翔\IMG_20160421_131535.jpg" />
     <Content Include="img\Service\SellPlatform\龙翔\IMG_20160421_131623.jpg" />
+    <Content Include="img\Service\SupplyManagement\ccwl1.jpg" />
+    <Content Include="img\Service\SupplyManagement\ccwl2.jpg" />
+    <Content Include="img\Service\SupplyManagement\ccwl3.jpg" />
+    <Content Include="img\Service\SupplyManagement\ccwl4.jpg" />
     <Content Include="img\Service\TutorPlatform\11gy_head.jpg" />
     <Content Include="img\Service\TutorPlatform\zlgh.jpg" />
     <Content Include="img\Service\TutorPlatform\厦门市众创空间产业协会.JPG" />
@@ -1495,14 +1498,6 @@
     <Content Include="Scripts\slick\slick\fonts\slick.ttf" />
     <Content Include="Scripts\slick\slick\fonts\slick.woff" />
     <Content Include="Scripts\slick\slick\slick.scss" />
-    <Content Include="Views\Atricle\Index.cshtml" />
-    <Content Include="Views\Atricle\Add.cshtml" />
-    <Content Include="Views\Atricle\Edit.cshtml" />
-    <Content Include="Views\AtricleM\Create.cshtml" />
-    <Content Include="Views\AtricleM\Delete.cshtml" />
-    <Content Include="Views\AtricleM\Details.cshtml" />
-    <Content Include="Views\AtricleM\Edit.cshtml" />
-    <Content Include="Views\AtricleM\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
