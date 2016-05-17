@@ -1282,7 +1282,9 @@
     <Content Include="img\portfolio\treehouse-preview.png" />
     <Content Include="img\portfolio\treehouse.png" />
     <Content Include="img\Service\BrandPlatform\MakerLabel.jpg" />
+    <Content Include="img\Service\BrandPlatform\MakerLabel1.jpg" />
     <Content Include="img\Service\BrandPlatform\partner.png" />
+    <Content Include="img\Service\BrandPlatform\partner1.jpg" />
     <Content Include="img\Service\FundPlatform\goldegg.jpg" />
     <Content Include="img\Service\image1.png" />
     <Content Include="img\Service\image2.png" />
@@ -1369,6 +1371,10 @@
     <Content Include="img\team\1.jpg" />
     <Content Include="img\team\2.jpg" />
     <Content Include="img\team\3.jpg" />
+    <Content Include="img\team\gl.jpg" />
+    <Content Include="img\team\lidawei.jpg" />
+    <Content Include="img\team\zzx.jpg" />
+    <Content Include="img\tour-bg.png" />
     <Content Include="Scripts\agency.js" />
     <Content Include="Scripts\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.js" />
