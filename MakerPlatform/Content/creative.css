@@ -17,7 +17,7 @@
     text-align: center;
     color: #fff;
     opacity: 0;
-    background: rgba(240,95,64,.9);
+    background: rgba(85, 85, 85, 0.69);
     -webkit-transition: all .35s;
     -moz-transition: all .35s;
     transition: all .35s;
