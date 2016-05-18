@@ -1312,7 +1312,7 @@
     <Content Include="img\Service\ProductPlatform\nut.jpg" />
     <Content Include="img\Service\ProductPlatform\photorobot.png" />
     <Content Include="img\Service\ProductPlatform\pillow.jpg" />
-    <Content Include="img\Service\ProductPlatform\rjkf-bg.png" />
+    <Content Include="img\Service\ProductPlatform\rjkf-bg.jpg" />
     <Content Include="img\Service\ProductPlatform\rjkf.jpg" />
     <Content Include="img\Service\ProductPlatform\robot.jpg" />
     <Content Include="img\Service\ProductPlatform\solidwriter.png" />
@@ -1428,9 +1428,7 @@
     <Content Include="fonts\fontawesome.eot" />
     <Content Include="fonts\fontawesome.ttf" />
     <Content Include="fonts\fontawesome.woff" />
-    <None Include="Properties\PublishProfiles\serviceplatform - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\serviceplatform - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\serviceplatform - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\serviceplatform - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cbpAnimatedHeader.js" />
