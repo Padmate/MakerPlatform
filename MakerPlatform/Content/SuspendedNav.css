@@ -60,16 +60,32 @@
     background-color:rgba(131, 206, 31, 0.68);
     /*background-color: rgba(52, 152, 219, 0.67);*/
 }
-/*scrol to top*/
 
-.scrollToTop {
-    bottom: 60px;
+/*modal close button*/
+.modalClose
+{
+    position:fixed;
+    right:50px;
+    bottom:20px;
+    z-index:9999
+}
+
+/*contact us*/
+.nav-right-float {
+    width: 60px;
+    position: fixed;
+    top: 100px;
+    right: 0;
+    z-index: 1999;
+    background-color:transparent;
+    margin: 10% 0 0 10px;
+}
+
+.rightSection {
     display: none;
     font-size: 32px;
     font-weight: bold;
     height: 50px;
-    position: fixed;
-    right: 50px;
     text-align: center;
     text-decoration: none;
     width: 50px;
@@ -81,17 +97,7 @@
     -o-transition: all 0.5s;
     transition: all 0.5s;
 }
-
-.scrollToTop:hover, .scrollToTop:focus {
+.rightSection:hover, .rightSection:focus {
     text-decoration: none;
     outline: none;
-}
-
-/*modal close button*/
-.modalClose
-{
-    position:fixed;
-    right:50px;
-    bottom:20px;
-    z-index:9999
 }

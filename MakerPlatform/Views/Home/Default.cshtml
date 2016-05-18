@@ -12,8 +12,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>厦门智能+创新创业公共服务平台</title>
-
+    <title>厦门智能﹢创新创业公共服务平台</title>
+    <link rel="shortcut icon" href="~/img/logos/favicon.ico" /> 
     <!-- Bootstrap Core CSS -->
     <link href="~/Content/bootstrap.min.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -37,7 +37,7 @@
         }
 
         .bg-shop {
-            background-color: red;
+            background-color:transparent;
             padding-top: 0px;
             padding-bottom: 0px;
         }
@@ -138,6 +138,7 @@
     <script src="~/Scripts/layer/layer.js"></script>
     <script src="~/Scripts/wow.min.js"></script>
     <script src="~/Scripts/slick/slick/slick.min.js"></script>
+    <script src="~/Scripts/l-by-l.min.js"></script>
 
     <!--侧边栏-->
     <div class="nav-float suspendedList">
@@ -158,9 +159,44 @@
             <li><a class="page-scroll" href="#services-fundplatform"><strong>资金平台</strong></a></li>
         </ul>
     </div>
+    <!--右侧边栏-->
+    <div class="nav-right-float">
+       
+        <ul>
+            <!--联系我们-->
+            <li>
+                <a class="rightSection page-scroll information-box" href="#contactus" style="display: block; background-color: rgba(52, 152, 219, 0.78);">
+                    <i class=" fa fa-phone-square">
+                    </i>
+                    <div class="information-box-caption">
+                        <div class="information-box-caption-content">
 
-    <!--返回顶部-->
-    <a class="scrollToTop page-scroll" href="#page-top" style="display: block; background-color: rgba(131, 206, 31, 0.68); "><i class="fa fa-angle-up"></i></a>
+                            <div style="font-size:medium;height:50px;">
+                                 联系<br/>我们
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </li>
+            <!--返回顶部-->
+            <li>
+                <a class="rightSection page-scroll information-box" href="#page-top" style="display: block; background-color: rgba(131, 206, 31, 0.68);">
+                    <i class=" fa fa-angle-up">
+                    </i>
+                    <div class="information-box-caption">
+                        <div class="information-box-caption-content">
+
+                            <div style="font-size:medium;height:50px;">
+                                返回<br />顶部
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+            </li>
+        </ul>
+    </div>
 
     <!-- Header -->
     <header>
@@ -284,7 +320,7 @@
                                 点击查看更多
                             </div>
                         </div>
-                        <img src="~/img/Service/ProductPlatform/idmd1.jpg" style="height:260px;width:100%;" alt="">
+                        <img src="~/img/Service/ProductPlatform/idmd.jpg" style="height:260px;width:100%;" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>ID & MD</h4>
@@ -312,7 +348,7 @@
                                 点击查看更多
                             </div>
                         </div>
-                        <img src="~/img/portfolio/dreams.png" class="img-responsive" alt="">
+                        <img src="~/img/Service/ProductPlatform/rjkf-bg.png" style="height:260px;width:100%;" alt="">
                     </a>
                     <div class="portfolio-caption">
                         <h4>软件开发</h4>
@@ -875,10 +911,6 @@
             </div>
         </div>
     </section>
-    
-    
-    
-    
     <!--导师平台-->
     <section id="services-tutorplatform" class="service-section">
         <div class="container">
@@ -2532,6 +2564,55 @@
         </div>
     </section>
 
+    <section id="contactus">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <h2 class="section-heading">How to Reach Us?</h2>
+                    <h3 class="section-subheading text-muted">联系我们</h3>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">
+                    <div class="contactus-section">
+                        <h4>产品开发</h4>
+                        <p class="contactusFont">	陈先生，邮箱：cwm@hardagroup.com</p>
+                    </div>
+                    <div class="contactus-section">
+                        <h4>供应链</h4>
+                        <p class="contactusFont">杜先生，邮箱：dxb@hardagroup.com</p>
+                    </div>
+                    <div class="contactus-section">
+                        <h4>投融资</h4>
+                        <p class="contactusFont">
+                            黄先生，邮箱：hxh@padmate.cn，联系电话：15160022892<br />
+                            陈先生，邮箱：cyc@padmate.cn，联系电话：15805915836
+                        </p>
+
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contactus-section">
+                        <h4>工程制作、检测</h4>
+                        <p class="contactusFont">郑先生，邮箱：zhe@padmate.cn</p>
+                    </div>
+                    <div class="contactus-section">
+                        <h4>市场</h4>
+                        <p class="contactusFont">
+                            董先生，邮箱：dongliang@padmate.cn（国内线下）<br />
+                            柯先生，邮箱：knj@padmate.cn（国内电商）<br />
+                            李小姐，邮箱：plum@hardagroup.com（国内大客户）<br />
+                            熊先生，邮箱：rickey@padmate.cn（国际贸易）
+                        </p>
+
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!--#region 产品平台-->
     <!-- 众创项目-->
     <div class="portfolio-modal modal fade" id="product-zzxm" tabindex="-1" role="dialog" aria-hidden="true">
@@ -2775,14 +2856,20 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-12">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
                             <h2>ID & MD</h2>
-                            <span class="customerFont">
-                                对客户提供的产品ID和结构设计，进行材料、工艺的优化，以简化工艺、降低成本、提供可制造性
+                            <div class="col-md-7 wow slideInLeft" >
+                                <img src="~/img/Service/ProductPlatform/idmd-MH315.jpg" class="img-responsive"/>
+                            </div>
+                            <div class="col-md-5 wow slideInRight">
+                                <span class="customerFont">
+                                    对客户提供的产品ID和结构设计，进行材料、工艺的优化，以简化工艺、降低成本、提供可制造性
+                                </span>
+                            </div>
 
-                            </span>
+                            
                         </div>
                     </div>
                 </div>
@@ -2857,56 +2944,64 @@
             </div>
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-8 col-lg-offset-2">
+                    <div class="col-lg-12">
                         <div class="modal-body">
                             <!-- Project Details Go Here -->
                             <h2>软件开发</h2>
 
-                            <ul class="text-left">
-                                <li>
-                                    <span class="customerFont">
-                                        <strong> 嵌入式软件开发：</strong><br />
-                                        由资深嵌入式软件工程师组队，精通
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="customerFont">
-                                        1、MCU技术平台，如ST、pic、dialog、TI、csr、高通、ARM
+                            <div class="col-md-4">
+                                <img src="~/img/Service/ProductPlatform/rjkf.jpg" style="height:300px;width:100%;">
+                                <p class="customerFont">
+                                </p>
+                            </div>
+                            <div class="col-md-8">
+                                <ul class="text-left">
+                                    <li>
+                                        <span class="customerFont">
+                                            <strong> 嵌入式软件开发：</strong><br />
+                                            由资深嵌入式软件工程师组队，精通
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="customerFont">
+                                            1、MCU技术平台，如ST、pic、dialog、TI、csr、高通、ARM
 
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="customerFont">
-                                        2、linux平台和各种rtos
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="customerFont">
-                                        3、通讯技术，如蓝牙、ZigBee、Wifi等等
-                                    </span>
-                                </li>
-                                <li>
-                                    <span class="customerFont">
-                                        4、各类感应器使用
-                                    </span>
-                                </li>
-                            </ul>
-                            <ul class="text-left">
-                                <li>
-                                    <span class="customerFont">
-                                        <strong> 网站开发：</strong><br />
-                                        为用户提供一站式的网站建设规划、策划、设计服务
-                                    </span>
-                                </li>
-                            </ul>
-                            <ul class="text-left">
-                                <li>
-                                    <span class="customerFont">
-                                        <strong> APP开发：</strong><br />
-                                        承接各类移动终端APP开发，包括独立APP或与硬件通讯集成系统。
-                                    </span>
-                                </li>
-                            </ul>
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="customerFont">
+                                            2、linux平台和各种rtos
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="customerFont">
+                                            3、通讯技术，如蓝牙、ZigBee、Wifi等等
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <span class="customerFont">
+                                            4、各类感应器使用
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="text-left">
+                                    <li>
+                                        <span class="customerFont">
+                                            <strong> 网站开发：</strong><br />
+                                            为用户提供一站式的网站建设规划、策划、设计服务
+                                        </span>
+                                    </li>
+                                </ul>
+                                <ul class="text-left">
+                                    <li>
+                                        <span class="customerFont">
+                                            <strong> APP开发：</strong><br />
+                                            承接各类移动终端APP开发，包括独立APP或与硬件通讯集成系统。
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                            
                         </div>
                     </div>
                 </div>
@@ -2979,7 +3074,7 @@
     </div>
     <!--#endregion 产品平台-->
 
-    <footer style="padding-top:100px;">
+    <footer style="background-color:black;">
         <div class="container">
             <div class="row">
                 <div class="col-md-4">
@@ -3022,15 +3117,16 @@
             //模态宽显示时，隐藏侧边栏和返回顶部按钮
             $('.modal').on('show.bs.modal', function () {
                 $(".suspendedList").hide();
-                $(".scrollToTop").hide();
+                $(".nav-right-float").hide();
             })
 
             //模态框关闭时，恢复侧边栏和返回顶部按钮
             $('.modal').on('hide.bs.modal', function () {
                 $(".suspendedList").show();
-                $(".scrollToTop").show();
+                $(".nav-right-float").show();
 
             })
+
         }
 
 
