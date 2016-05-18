@@ -76,6 +76,7 @@
             position: absolute;
             display: none;
         }
+        
     </style>
 </head>
 <body id="page-top" class="index">
@@ -142,7 +143,7 @@
     <div class="nav-float suspendedList">
         <h4 class="panel-title" style="width:158px;">
             <a href="javaScript:void(0)" class="suspendedBtn">
-                <i class="fa fa-cog"></i>
+                <i class="fa fa-cog" style="color:white;"></i>
             </a>
         </h4>
         <ul>
@@ -159,13 +160,13 @@
     </div>
 
     <!--返回顶部-->
-    <a class="scrollToTop page-scroll" href="#page-top" style="display: block; background-color: rgba(52, 152, 219, 0.67);"><i class="fa fa-angle-up"></i></a>
+    <a class="scrollToTop page-scroll" href="#page-top" style="display: block; background-color: rgba(131, 206, 31, 0.68); "><i class="fa fa-angle-up"></i></a>
 
     <!-- Header -->
     <header>
         <div class="container">
             <div class="intro-text">
-                <div class="intro-lead-in">欢迎来到智能+创新创业公共服务平台</div>
+                <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
                 <div class="intro-heading">Intelligent Plus</div>
                 <a href="#services" class="page-scroll btn btn-xl wow slideInDown">Tell Me More</a>
             </div>
@@ -859,13 +860,13 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-9 service-section-halfcolumn wow slideInLeft enlarge-img">
+                <div class="col-md-9 service-section-halfcolumn wow slideInLeft enlarge-left-img">
                     <img src="~/img/Service/BrandPlatform/partner1.jpg" style="height:400px;width:100%;" />
                     <h4 class="text-center">合作伙伴</h4>
 
 
                 </div>
-                <div class="col-md-3 service-section-halfcolumn wow slideInRight enlarge-img">
+                <div class="col-md-3 service-section-halfcolumn wow slideInRight enlarge-right-img">
                     <img src="~/img/Service/BrandPlatform/MakerLabel1.jpg" style="height:400px;width:100%;" />
                     <h4 class="text-center">创 客</h4>
 
@@ -3156,10 +3157,11 @@
 
         function EnLargeImg()
         {
-            xOffset = 10;
+            xOffset = 200;
             yOffset = 30;
-            $(".enlarge-img").find("img").hover(function (e) {
-                $("<img id='imgshow' src='" + this.src + "' />").appendTo("body");
+            $(".enlarge-left-img").find("img").hover(function (e) {
+                
+                $("<img id='imgshow' class='img-responsive' src='" + this.src + "' />").appendTo("body");
                 $("#imgshow")
                     .css("top", (e.pageY - xOffset) + "px")
                 	.css("left", (e.pageX + yOffset) + "px")
@@ -3168,10 +3170,27 @@
                 $("#imgshow").remove();
             });
 
-            $(".enlarge-img").find("img").mousemove(function (e) {
+            $(".enlarge-left-img").find("img").mousemove(function (e) {
                 $("#imgshow")
                    .css("top", (e.pageY - xOffset) + "px")
 		           .css("left", (e.pageX + yOffset) + "px")
+            });
+
+            $(".enlarge-right-img").find("img").hover(function (e) {
+                
+                $("<img id='imgshow' class='img-responsive' src='" + this.src + "' />").appendTo("body");
+                $("#imgshow")
+                    .css("top", (e.pageY - xOffset) + "px")
+                	.css("right", (window.screen.width - e.pageX + yOffset) + "px")
+			        .fadeIn("fast");
+            }, function () {
+                $("#imgshow").remove();
+            });
+
+            $(".enlarge-right-img").find("img").mousemove(function (e) {
+                $("#imgshow")
+                   .css("top", (e.pageY - xOffset) + "px")
+		           .css("right", (window.screen.width - e.pageX + yOffset) + "px")
             });
         }
     </script>

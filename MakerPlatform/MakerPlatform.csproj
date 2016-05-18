@@ -1421,10 +1421,6 @@
     <Content Include="fonts\fontawesome.eot" />
     <Content Include="fonts\fontawesome.ttf" />
     <Content Include="fonts\fontawesome.woff" />
-    <None Include="Properties\PublishProfiles\serviceplatform - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\serviceplatform - Web Deploy.pubxml" />
-    <None Include="Properties\PublishProfiles\serviceplatformnew - FTP.pubxml" />
-    <None Include="Properties\PublishProfiles\serviceplatformnew - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\cbpAnimatedHeader.js" />
     <Content Include="Scripts\cbpAnimatedHeader.min.js" />

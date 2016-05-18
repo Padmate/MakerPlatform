@@ -2,7 +2,7 @@
 
 <style>
     .login-li-bg {
-        background-color: #999;
+        background-color:transparent;
     }
     .login-li-font {
         color: #fed136;
@@ -20,7 +20,7 @@
 
     <ul class="nav navbar-nav navbar-right login-box">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: white;background-color:transparent;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #8ece1f; background-color: transparent;">
                 @User.Identity.GetUserName()
                 <b class="caret"></b>
             </a>
@@ -45,6 +45,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right login-box">
-        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl =Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", style = "color: white;" })</li>
+        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl = Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", style = "color: #8ece1f;" })</li>
     </ul>
 }
