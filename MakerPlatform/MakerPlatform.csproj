@@ -164,6 +164,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
@@ -207,6 +208,8 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="img\404-bg.png" />
+    <Content Include="img\404.png" />
     <Content Include="img\about\1.jpg" />
     <Content Include="img\about\2.jpg" />
     <Content Include="img\about\3.jpg" />
@@ -489,6 +492,9 @@
     <Content Include="Scripts\slick\slick\fonts\slick.ttf" />
     <Content Include="Scripts\slick\slick\fonts\slick.woff" />
     <Content Include="Scripts\slick\slick\slick.scss" />
+    <Content Include="Views\Article\Index.cshtml" />
+    <Content Include="Views\Article\ShowContent.cshtml" />
+    <Content Include="Views\Home\Error.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

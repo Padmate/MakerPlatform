@@ -1,0 +1,46 @@
+﻿@{
+    string type = (string)ViewData["type"];
+}
+
+<div class="container">
+    @{
+        if (type == "activity")
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>活动预告</h1>
+                </div>
+                <div class="col-md-12">
+                    <a href="/Article/ShowContent?type=activity&articletype=zxqyhd">关于举办2016厦门市中小企业服务月系列活动之
+                            “中小企业如何借助双创实现产业升级”培训论坛的通知</a>
+                    <br />
+                   
+                </div>
+            </div>
+        
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>精彩活动</h1>
+                </div>
+                <div class="col-md-12">
+                    <a href="/Article/ShowContent?type=activity&articletype=cxjs">创新加速服务-厦门科技局领导和英特尔众创加速器负责人莅临参观考察</a>
+                </div>
+            </div>
+        }
+        else if(type=="information")
+        {
+            <div class="row">
+                <div class="col-md-12">
+                    <h1>资 讯</h1>
+                </div>
+                <div class="col-md-12">
+                    <h2>暂无资讯</h2>
+                </div>
+            </div>
+        }
+        else
+        {
+            Response.Redirect("/Home/Error");
+        }
+    }
+</div>
