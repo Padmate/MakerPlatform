@@ -1253,6 +1253,7 @@
     <Content Include="img\header-bg1.jpg" />
     <Content Include="img\header-bg2.jpg" />
     <Content Include="img\header.jpg" />
+    <Content Include="img\Loading\loading-red.gif" />
     <Content Include="img\login-bg.jpg" />
     <Content Include="img\logos\16X16.jpg" />
     <Content Include="img\logos\32X32.jpg" />
@@ -1304,6 +1305,7 @@
     <Content Include="img\Service\ProductPlatform\breath1.png" />
     <Content Include="img\Service\ProductPlatform\breath2.jpg" />
     <Content Include="img\Service\ProductPlatform\hotwatch.png" />
+    <Content Include="img\Service\ProductPlatform\idmd-bg.jpg" />
     <Content Include="img\Service\ProductPlatform\idmd-MH315.jpg" />
     <Content Include="img\Service\ProductPlatform\idmd.jpg" />
     <Content Include="img\Service\ProductPlatform\intell-jade.png" />
@@ -1316,13 +1318,10 @@
     <Content Include="img\Service\ProductPlatform\rjkf.jpg" />
     <Content Include="img\Service\ProductPlatform\robot.jpg" />
     <Content Include="img\Service\ProductPlatform\solidwriter.png" />
-    <Content Include="img\Service\ProjectPlatform\13-模具车间-cnc1.png" />
-    <Content Include="img\Service\ProjectPlatform\13-模具车间-cnc2.png" />
     <Content Include="img\Service\ProjectPlatform\13-模具车间-慢走丝.jpg" />
     <Content Include="img\Service\ProjectPlatform\13-模具车间-慢走丝1.png" />
     <Content Include="img\Service\ProjectPlatform\13-模具车间-慢走丝2.png" />
     <Content Include="img\Service\ProjectPlatform\13-模具车间-火花机.jpg" />
-    <Content Include="img\Service\ProjectPlatform\13-模具车间-火花机1.png" />
     <Content Include="img\Service\ProjectPlatform\13-模具车间.jpg" />
     <Content Include="img\Service\ProjectPlatform\14-喷涂车间-喷涂设备1.png" />
     <Content Include="img\Service\ProjectPlatform\14-实验室-3坐标测量仪1.png" />
@@ -1436,7 +1435,10 @@
     <Content Include="Scripts\cbpHorizontalMenu.min.js" />
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\contact_me.js" />
+    <Content Include="Scripts\jail\jail.min.js" />
     <Content Include="Scripts\l-by-l.min.js" />
+    <Content Include="Scripts\lazyload\jquery.lazyload.js" />
+    <Content Include="Scripts\lazyload\jquery.lazyload.min.js" />
     <Content Include="Scripts\slick\css\pacifico.svg" />
     <Content Include="Scripts\slick\css\style.css" />
     <Content Include="Scripts\slick\slick\ajax-loader.gif" />
