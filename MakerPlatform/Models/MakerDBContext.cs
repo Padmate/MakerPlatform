@@ -10,6 +10,7 @@ namespace MakerPlatform.Models
 {
     public class ApplicationUser : IdentityUser
     {
+        public string Email { get; set; }
     }
 
     public class MakerDBContext : IdentityDbContext<ApplicationUser>
