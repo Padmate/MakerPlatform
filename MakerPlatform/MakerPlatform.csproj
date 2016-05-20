@@ -276,6 +276,8 @@
     <Content Include="img\portfolio\treehouse.png" />
     <Content Include="img\Service\BrandPlatform\MakerLabel.jpg" />
     <Content Include="img\Service\BrandPlatform\MakerLabel1.jpg" />
+    <Content Include="img\Service\BrandPlatform\MakerLabelBig.jpg" />
+    <Content Include="img\Service\BrandPlatform\MakerLabelSmall.jpg" />
     <Content Include="img\Service\BrandPlatform\partner.png" />
     <Content Include="img\Service\BrandPlatform\partner1.jpg" />
     <Content Include="img\Service\FundPlatform\goldegg.jpg" />
@@ -428,6 +430,10 @@
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\contact_me.js" />
     <Content Include="Scripts\jail\jail.min.js" />
+    <Content Include="Scripts\jqzoom-2.3\css\jquery.jqzoom.css" />
+    <Content Include="Scripts\jqzoom-2.3\js\jquery-1.6.js" />
+    <Content Include="Scripts\jqzoom-2.3\js\jquery.jqzoom-core-pack.js" />
+    <Content Include="Scripts\jqzoom-2.3\js\jquery.jqzoom-core.js" />
     <Content Include="Scripts\l-by-l.min.js" />
     <Content Include="Scripts\lazyload\jquery.lazyload.js" />
     <Content Include="Scripts\lazyload\jquery.lazyload.min.js" />

@@ -23,6 +23,7 @@
     <link href="~/Content/creative.css" rel="stylesheet">
     <link href="~/Content/agency.css" rel="stylesheet">
     <link href="~/Content/SuspendedNav.css" rel="stylesheet">
+    <link href="~/Scripts/jqzoom-2.3/css/jquery.jqzoom.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
@@ -78,6 +79,7 @@
         <!-- /.container-fluid -->
     </nav>
 
+
     <!-- jQuery -->
     <script src="~/Scripts/jquery.js"></script>
     <!-- Bootstrap Core JavaScript -->
@@ -97,6 +99,13 @@
     <script src="~/Scripts/slick/slick/slick.min.js"></script>
     <!--Print font-->
     <script src="~/Scripts/l-by-l.min.js"></script>
+    <!--鼠标悬停放大-->
+    <script src="~/Scripts/jqzoom-2.3/js/jquery-1.6.js"></script>
+    <script src="~/Scripts/jqzoom-2.3/js/jquery.jqzoom-core.js"></script>
+    <script>
+        //1.6版本jquery
+        var $160 = $.noConflict();
+    </script>
 
     <!--左侧边栏-->
     <div class="nav-float suspendedList">
@@ -882,7 +891,12 @@
                         </div>
                     </a>
                 </div>
-                <div class="col-md-12 service-section-halfcolumn wow slideInRight">
+                <div class="col-md-12 col-sm-12 service-section-halfcolumn wow slideInRight">
+                 
+                    @*<a href="~/img/Service/BrandPlatform/MakerLabelBig.jpg" class="jqzoom" rel='gal1' title="创客">
+                        <img src="~/img/Service/BrandPlatform/MakerLabelSmall.jpg" title="创客">
+                    </a>*@
+
                     <a class="information-box">
                         <img class="imgHeight-200" src="../img/Service/BrandPlatform/MakerLabel1.jpg" />
 
@@ -2045,7 +2059,6 @@
             InitSlick();
             InitTabPanel();
             InitialModal();
-            EnLargeImg();
         })
 
         //初始化模态框事件
@@ -2220,6 +2233,18 @@
             });
         }
 
+        //初始化鼠标悬停放大
+        function ZoomImg()
+        {
+            $160('.jqzoom').jqzoom({
+                zoomType: 'reverse',
+                zoomWidth: 200,
+                zoomHeight: 200,
+                position: 'right'
+
+            });
+
+        }
 
     </script>
 </body>
