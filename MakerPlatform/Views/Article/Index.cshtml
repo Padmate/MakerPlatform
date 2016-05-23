@@ -1,7 +1,12 @@
 ﻿@{
     string type = (string)ViewData["type"];
 }
-
+<style>
+    .titleFont{
+        font-size:20px;
+        color:black;
+    }    
+</style>>
 <div class="container">
     @{
         if (type == "activity")
@@ -11,8 +16,10 @@
                     <h1>活动预告</h1>
                 </div>
                 <div class="col-md-12">
-                    <a href="/Article/ShowContent?type=activity&articletype=zxqyhd">关于举办2016厦门市中小企业服务月系列活动之
-                            “中小企业如何借助双创实现产业升级”培训论坛的通知</a>
+                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=zxqyhd">
+                        关于举办2016厦门市中小企业服务月系列活动之
+                        “中小企业如何借助双创实现产业升级”培训论坛的通知
+                    </a>
                     <br />
                    
                 </div>
@@ -23,7 +30,15 @@
                     <h1>精彩活动</h1>
                 </div>
                 <div class="col-md-12">
-                    <a href="/Article/ShowContent?type=activity&articletype=cxjs">创新加速服务-厦门科技局领导和英特尔众创加速器负责人莅临参观考察</a>
+                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=zxqycxsj">厦门智能<sup>+</sup>创新创业公共服务平台正式启动</a>
+                    <br/>
+                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=zxzxbd">“中小企业如何借助双创实现产业升级”暨厦门智能<sup>+</sup>创新创业公共服务平台启动仪式</a>
+                    <br />
+                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=xmrb">福建首个英特尔来厦设众创空间</a>
+                    <br />
+                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=xmwb">英特尔福建首个全要素众创空间落户我市</a>
+                    <br />
+                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=cxjs">创新加速服务-厦门科技局领导和英特尔众创加速器负责人莅临参观考察</a>
                 </div>
             </div>
         }
