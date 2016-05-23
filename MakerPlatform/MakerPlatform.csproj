@@ -220,6 +220,10 @@
     <Content Include="img\Activity\520-10.png" />
     <Content Include="img\Activity\520-11.png" />
     <Content Include="img\Activity\520-12.png" />
+    <Content Include="img\Activity\520-13.png" />
+    <Content Include="img\Activity\520-14.png" />
+    <Content Include="img\Activity\520-15.png" />
+    <Content Include="img\Activity\520-16.png" />
     <Content Include="img\Activity\520-2.png" />
     <Content Include="img\Activity\520-3.png" />
     <Content Include="img\Activity\520-4.png" />
@@ -249,6 +253,11 @@
     <Content Include="img\Activity\a7.png" />
     <Content Include="img\Activity\a8.png" />
     <Content Include="img\Activity\a9.png" />
+    <Content Include="img\Activity\xmrb.png" />
+    <Content Include="img\Activity\xmwb.png" />
+    <Content Include="img\Activity\zxbd-1.jpg" />
+    <Content Include="img\Activity\zxbd-2.jpg" />
+    <Content Include="img\Activity\zxbd-3.jpg" />
     <Content Include="img\header-bg.jpg" />
     <Content Include="img\header-bg1.jpg" />
     <Content Include="img\header-bg2.jpg" />
