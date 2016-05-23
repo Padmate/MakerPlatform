@@ -99,13 +99,7 @@
     <script src="~/Scripts/slick/slick/slick.min.js"></script>
     <!--Print font-->
     <script src="~/Scripts/l-by-l.min.js"></script>
-    <!--鼠标悬停放大-->
-    <script src="~/Scripts/jqzoom-2.3/js/jquery-1.6.js"></script>
-    <script src="~/Scripts/jqzoom-2.3/js/jquery.jqzoom-core.js"></script>
-    <script>
-        //1.6版本jquery
-        var $160 = $.noConflict();
-    </script>
+    
 
     <!--左侧边栏-->
     <div class="nav-float suspendedList">
@@ -2234,18 +2228,6 @@
             });
         }
 
-        //初始化鼠标悬停放大
-        function ZoomImg()
-        {
-            $160('.jqzoom').jqzoom({
-                zoomType: 'reverse',
-                zoomWidth: 200,
-                zoomHeight: 200,
-                position: 'right'
-
-            });
-
-        }
 
     </script>
 </body>
