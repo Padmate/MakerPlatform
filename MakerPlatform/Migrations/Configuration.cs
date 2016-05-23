@@ -1,5 +1,8 @@
 namespace MakerPlatform.Migrations
 {
+    using MakerPlatform.Models;
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -26,6 +29,47 @@ namespace MakerPlatform.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            #region Add Admin Role
+            string adminRoleId = string.Empty;
+            string admin = "Admin";
+            var adminRole = context.Roles.FirstOrDefault(r => r.Name == admin);
+            if (adminRole == null)
+            {
+                var adminModel = new IdentityRole
+                {
+                    Name = admin
+                };
+                context.Roles.Add(adminModel);
+                adminRoleId = adminModel.Id;
+            }
+            else
+            {
+                adminRoleId = adminRole.Id;
+            }
+
+            #endregion
+            #region Init Admin User
+            string userName = "Admin";
+            string password = "admin123";
+            var user = context.Users.FirstOrDefault(u => u.UserName == userName);
+            if (user == null)
+            {
+                // Hash password
+                var passwordHash = new PasswordHasher().HashPassword(password);
+
+                var userModel = new ApplicationUser
+                {
+                    UserName = userName,
+                    PasswordHash = passwordHash
+                };
+
+                context.Users.Add(userModel);
+                //Add User to Admin
+                var relation = new IdentityUserRole() { UserId = userModel.Id, RoleId = adminRoleId };
+                userModel.Roles.Add(relation);
+            }
+            #endregion
+            context.SaveChanges();
         }
     }
 }
