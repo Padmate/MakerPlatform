@@ -1,78 +1,76 @@
-﻿@{
+﻿@using MakerPlatform.Utility;
+@using MakerPlatform.Models;
+@{
     string type = (string)ViewData["type"];
+    List<Article> activityForecastArticles = (List<Article>)ViewData["activityForecastArticles"];
+    List<Article> wonderfulActivityArticles = (List<Article>)ViewData["wonderfulActivityArticles"];
+    
 }
+
 <style>
-    .titleFont{
+
+    .section{
+        min-height:300px;
+    }
+    .titleStyle{
         font-size:20px;
         color:black;
+        margin:20px auto;
+    }
+    .contentStyle{
+        font-size:18px;
+        color:black;
+        margin-top:10px;
     }
     .hspace {
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    
 </style>
 <div class="container">
-    <div class="row">
+    <div class="row section">
         <div class="col-md-12">
-            <h2>活动预告</h2>
+            <h3>活动预告</h3>
         </div>
-        <div class="col-md-12 hspace">
-            <a href="/Article/Add" class="btn btn-default">新增活动</a>
+
+        <div class="col-md-8 titleStyle">
+            <a href="/Article/Add?articletype=@Common.ActivityForecast" class="btn btn-default">发布活动</a>
         </div>
-        <div class="col-md-8">文章标题</div>
-        <div class="col-md-2">发表日期</div>
-        <div class="col-md-2"><a href="/Atricle/Edit?id=">编辑</a></div>
+        <div class="col-md-2 titleStyle">发布时间</div>
+        <div class="col-md-2 titleStyle">操作</div>
+
+        @{
+    foreach (var article in activityForecastArticles)
+    {
+                <div class="col-md-8 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
+                <div class="col-md-2 contentStyle">@article.Pubtime</div>
+                <div class="col-md-2 contentStyle"><a href="/Article/Edit?id=@article.Id">编辑</a></div>
+    }
+}
+
 
     </div>
+    
+    <div class="row section">
+        <div class="col-md-12">
+            <h3>精彩活动</h3>
+        </div>
+        <div class="col-md-8 titleStyle">
+            <a href="/Article/Add?articletype=@Common.WonderfulActivity" class="btn btn-default">发布活动</a>
+        </div>
+        <div class="col-md-2 titleStyle">发布时间</div>
+        <div class="col-md-2 titleStyle">操作</div>
 
-    @{
-        if (type == "activity")
-        {
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>活动预告</h1>
-                </div>
-                <div class="col-md-12">
-                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=zxqyhd">
-                        关于举办2016厦门市中小企业服务月系列活动之
-                        “中小企业如何借助双创实现产业升级”培训论坛的通知
-                    </a>
-                    <br />
-                   
-                </div>
-            </div>
-        
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>精彩活动</h1>
-                </div>
-                <div class="col-md-12">
-                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=zxqycxsj">厦门智能<sup>+</sup>创新创业公共服务平台正式启动</a>
-                    <br/>
-                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=zxzxbd">“中小企业如何借助双创实现产业升级”暨厦门智能<sup>+</sup>创新创业公共服务平台启动仪式</a>
-                    <br />
-                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=xmrb">福建首个英特尔来厦设众创空间</a>
-                    <br />
-                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=xmwb">英特尔福建首个全要素众创空间落户我市</a>
-                    <br />
-                    <a class="titleFont" href="/Article/ShowContent?type=activity&articletype=cxjs">创新加速服务-厦门科技局领导和英特尔众创加速器负责人莅临参观考察</a>
-                </div>
-            </div>
-        }
-        else if(type=="information")
-        {
-            <div class="row">
-                <div class="col-md-12">
-                    <h1>资 讯</h1>
-                </div>
-                <div class="col-md-12">
-                    <h2>暂无资讯</h2>
-                </div>
-            </div>
-        }
-        else
-        {
-            Response.Redirect("/Home/Error");
-        }
+        @{
+    foreach (var article in wonderfulActivityArticles)
+    {
+                <div class="col-md-8 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
+                <div class="col-md-2 contentStyle">@article.Pubtime</div>
+                <div class="col-md-2 contentStyle"><a href="/Article/Edit?id=@article.Id">编辑</a></div>
     }
+}
+    </div>
+
+    
 </div>

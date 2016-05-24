@@ -1,1 +1,100 @@
-﻿<div class="container">Edit</div>
+﻿@using MakerPlatform.Models;
+@model MakerPlatform.Models.ArticleViewModel
+@{
+    Article article = (Article)ViewData["article"];
+}
+
+<style>
+    .inputS {
+        width: 50%;
+        max-width: 50%;
+        line-height: 35px;
+        height: 35px;
+    }
+    .imgSize-250{
+        height:250px;
+        width:100%;
+    }
+</style>
+<div class="container">
+    @using (Html.BeginForm("Edit", "Article", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <h2>发布文章</h2>
+        @Html.ValidationSummary(true, null, new { @class = "login-tip" })
+        <hr />
+        <div class="form-group hidden">
+            <div class="col-md-12">
+                @Html.TextBoxFor(m => m.Id, new { @Value=article.Id})
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.Title, "一级标题：")
+                @Html.TextBoxFor(m => m.Title, new { @placeholder = "一级标题", @class = "inputS" ,@Value=article.Title})
+                @Html.ValidationMessageFor(m => m.Title)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.SubTitle, "二级标题：")
+                @Html.TextBoxFor(m => m.SubTitle, new { @placeholder = "二级标题", @class = "inputS", @Value = article.SubTitle })
+                @Html.ValidationMessageFor(m => m.SubTitle, null)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.Description, "文章描述：")
+                @Html.TextBoxFor(m => m.Description, new { @placeholder = "文章描述", @class = "inputS",@Value = article.Description })
+                @Html.ValidationMessageFor(m => m.Description, null)
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.ArticleImage, "文章图片：")
+                <input type="file" id="articleImage" name="articleImage" accept=".jpg,.png,.jpeg,.gif" />
+                @Html.ValidationMessageFor(m => m.ArticleImage, null)
+            </div>
+            <div class="col-lg-4 col-md-6" style="padding-right:25px;">
+                <img class="imgSize-250" src="@article.ArticleImage" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.LabelFor(m => m.Pubtime, "发布时间：")
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                @Html.ValidationMessageFor(m => m.Content, null)
+                <br />
+                <div class="checkbox">
+                    <textarea id="Content" name="Content">@article.Content</textarea>
+                </div>
+            </div>
+            <div style="clear:both"></div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-12">
+                <input type="submit" class="btn btn-danger" style="float:right;" value="发 布" />
+            </div>
+        </div>
+    }
+</div>
+
+<script src="~/ckfinder/ckfinder.js"></script>
+<script src="~/ckeditor/ckeditor.js"></script>
+<script>
+
+    var editor = CKEDITOR.instances["Content"];
+    if (editor) { editor.distory(true); }
+    CKEDITOR.replace("Content", {
+        enterMode: CKEDITOR.ENTER_BR
+    });
+    CKFinder.setupCKEditor(null, '@Url.Content("~/ckfinder/")');
+
+    $(document).ready(function () {
+        //初始化文章内容
+       // CKEDITOR.instances.Content.setData("<h2>asdf</h2>");
+    });
+</script> 

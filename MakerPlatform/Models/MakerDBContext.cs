@@ -20,7 +20,7 @@ namespace MakerPlatform.Models
         {
         }
 
-        public DbSet<Atricle> Atricles { get; set; }
+        public DbSet<Article> Atricles { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

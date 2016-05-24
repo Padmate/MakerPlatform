@@ -6,7 +6,7 @@ using System.Web;
 
 namespace MakerPlatform.Models.ModelConfiguration
 {
-    public class AtricleConfiguration : EntityTypeConfiguration<Atricle>
+    public class AtricleConfiguration : EntityTypeConfiguration<Article>
     {
         internal AtricleConfiguration()
         {

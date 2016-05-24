@@ -12,19 +12,19 @@ namespace MakerPlatform.Utility
         /// <summary>
         /// 活动预告
         /// </summary>
-        public const Int32 ActivityForecast = 1;
+        public const string ActivityForecast = "activityforecast";
 
         /// <summary>
         /// 精彩活动
         /// </summary>
-        public const Int32 WonderfulActivity = 2;
+        public const string WonderfulActivity = "wonderfulactivity";
 
         /// <summary>
         /// 资讯
         /// </summary>
-        public const Int32 Information = 3;
+        public const string Information = "information";
 
-        public static Dictionary<Int32, string> Dic_ArticleType = new Dictionary<int, string>(){
+        public static Dictionary<string, string> Dic_ArticleType = new Dictionary<string, string>(){
             {ActivityForecast,"活动预告"},
             {WonderfulActivity,"精彩活动"},
             {Information,"资讯"}
