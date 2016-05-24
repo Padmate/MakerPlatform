@@ -36,9 +36,10 @@ namespace MakerPlatform.Controllers
         }
 
         /// <summary>
-        /// 文章管理
+        /// 系统管理
         /// </summary>
         /// <returns></returns>
+        [Authorize(Roles = "Admin")]
         public ActionResult SystemManagement()
         {
            

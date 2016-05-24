@@ -17,6 +17,11 @@ namespace MakerPlatform.Models
         public string Title { get; set; }
 
         /// <summary>
+        /// 文章副标题
+        /// </summary>
+        public string SubTitle { get; set; }
+
+        /// <summary>
         /// 文章描述
         /// </summary>
         public string Description { get; set; }
@@ -37,10 +42,6 @@ namespace MakerPlatform.Models
         /// </summary>
         public string ImageUrl { get; set; }
 
-        /// <summary>
-        /// 文章图标CSS,多个用空格分开，eg: fa-text fa-fast
-        /// </summary>
-        public string IconCss{get;set;}
 
         /// <summary>
         /// 文章创建者
@@ -53,16 +54,12 @@ namespace MakerPlatform.Models
         public DateTime CreateDate { get; set; }
 
         /// <summary>
-        /// 文章顺序
+        /// 文章发表时间
         /// </summary>
-        public int Sequence { get; set; }
+        public DateTime Pubtime { get; set; }
+
     }
 
-    /// <summary>
-    /// 文章类型
-    /// </summary>
-    public enum AtricleType { 
-        Activity,       //活动
-        Information     //资讯
-    }
+
+
 }

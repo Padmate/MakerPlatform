@@ -21,5 +21,27 @@ namespace MakerPlatform.Controllers
             
             return View();
         }
+
+        [Authorize(Roles="Admin")]
+        public ActionResult Add(string articletype)
+        {
+            ViewData["articletype"] = articletype;
+
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Edit(string articleId)
+        {
+
+
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public ActionResult Delete(string id)
+        {
+            return View();
+        }
     }
 }

@@ -5,9 +5,26 @@
     .titleFont{
         font-size:20px;
         color:black;
-    }    
-</style>>
+    }
+    .hspace {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+</style>
 <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>活动预告</h2>
+        </div>
+        <div class="col-md-12 hspace">
+            <a href="/Article/Add" class="btn btn-default">新增活动</a>
+        </div>
+        <div class="col-md-8">文章标题</div>
+        <div class="col-md-2">发表日期</div>
+        <div class="col-md-2"><a href="/Atricle/Edit?id=">编辑</a></div>
+
+    </div>
+
     @{
         if (type == "activity")
         {

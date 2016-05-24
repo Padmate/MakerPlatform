@@ -13,14 +13,14 @@ namespace MakerPlatform.Migrations
                     {
                         Id = c.Int(nullable: false, identity: true),
                         Title = c.String(),
+                        SubTitle = c.String(),
                         Description = c.String(),
                         Type = c.Int(nullable: false),
                         Content = c.String(storeType: "ntext"),
                         ImageUrl = c.String(),
-                        IconCss = c.String(),
                         Creator = c.String(),
                         CreateDate = c.DateTime(nullable: false),
-                        Sequence = c.Int(nullable: false),
+                        Pubtime = c.DateTime(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
