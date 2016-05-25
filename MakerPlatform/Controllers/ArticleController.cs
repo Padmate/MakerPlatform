@@ -78,7 +78,7 @@ namespace MakerPlatform.Controllers
                     {
                         FileInfo articleImageFile = new FileInfo(articleImage.FileName);
                         string saveName = Guid.NewGuid().ToString() + articleImageFile.Extension;
-                        string virtualFloder = "../img/Articles/";
+                        string virtualFloder = "../img/Upload/";
                         virtualUrl = Path.Combine(virtualFloder, saveName);
                         string physicalUrl = Path.Combine(Server.MapPath(virtualFloder), saveName);
                         articleImage.SaveAs(physicalUrl);
@@ -160,7 +160,7 @@ namespace MakerPlatform.Controllers
                         //保存图片
                         FileInfo articleImageFile = new FileInfo(articleImage.FileName);
                         string saveName = Guid.NewGuid().ToString() + articleImageFile.Extension;
-                        string virtualFloder = "../img/Articles/";
+                        string virtualFloder = "../img/Upload/";
                         virtualUrl = Path.Combine(virtualFloder, saveName);
                         string physicalUrl = Path.Combine(Server.MapPath(virtualFloder), saveName);
                         articleImage.SaveAs(physicalUrl);
