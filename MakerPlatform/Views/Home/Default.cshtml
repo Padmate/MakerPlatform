@@ -2,7 +2,13 @@
     
     Layout = null;
 }
+@using MakerPlatform.Models;
+@{
+    string type = (string)ViewData["type"];
+    List<Article> activityForecastArticles = (List<Article>)ViewData["activityForecastArticles"];
+    List<Article> wonderfulActivityArticles = (List<Article>)ViewData["wonderfulActivityArticles"];
 
+}
 
 <!DOCTYPE html>
 <html lang="en">
@@ -1135,69 +1141,34 @@
                     <i class="fa fa-play" aria-hidden="true"></i>
                     活动预告
                 </h4>
-                <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
-                    <div class="service-box">
-                        <a href="/Article/ShowContent?type=activity&articletype=zxqyhd" class="information-box">
-                            <img class="imgSize-250" src="../img/portfolio/2.jpg" />
-                            <div class="information-box-caption">
-                                <div class="information-box-caption-content">
+                @{
+                    for (int i = 0; i < activityForecastArticles.Count; i++)
+                    {
+                        if (i >= 3) { break; };
+                        <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
+                            <div class="service-box">
+                                <a href="/Article/ShowContent?id=@activityForecastArticles[i].Id" class="information-box">
+                                    <img class="imgSize-250" src="@activityForecastArticles[i].ArticleImage" />
+                                    <div class="information-box-caption">
+                                        <div class="information-box-caption-content">
 
-                                    <div class="project-name">
-                                        查看详细
+                                            <div class="project-name">
+                                                查看详细
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
+
+                                <h4>
+                                    @activityForecastArticles[i].Title</h4>
+                                <p style="font-size:medium">
+                                    @activityForecastArticles[i].SubTitle
+                                </p>
                             </div>
-                        </a>
-
-                        <h4>中小企业活动月</h4>
-                        <p style="font-size:medium">
-                            关于举办2016厦门市中小企业服务月系列活动之
-                            “中小企业如何借助双创实现产业升级”培训论坛的通知
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
-                    <div class="service-box">
-                        <a href="/Article/ShowContent?type=activity&articletype=" class="information-box">
-                            <img class="imgSize-250" src="../img/portfolio/2.jpg" />
-
-                            <div class="information-box-caption">
-                                <div class="information-box-caption-content">
-
-                                    <div class="project-name">
-                                        查看详细
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <h4>活动预告</h4>
-                        <p style="font-size:medium">
-                            暂无活动预告
-                        </p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
-                    <div class="service-box">
-                        <a href="/Article/ShowContent?type=activity&articletype=" class="information-box">
-                            <img class="imgSize-250" src="../img/portfolio/2.jpg" />
-
-                            <div class="information-box-caption">
-                                <div class="information-box-caption-content">
-
-                                    <div class="project-name">
-                                        查看详细
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-
-                        <h4>活动预告</h4>
-                        <p style="font-size:medium">
-                            暂无活动预告
-                        </p>
-                    </div>
-                </div>
+                        </div>
+                    }
+                }
+                
 
             </div>
             <div class="row">
@@ -1205,61 +1176,34 @@
                     <i class="fa fa-play" aria-hidden="true"></i>
                     精彩活动
                 </h4>
-                <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
-                    <div class="service-box">
-                        <a href="/Article/ShowContent?type=activity&articletype=zxqycxsj" class="information-box">
-                            <img class="imgSize-250" src="../img/portfolio/2.jpg" />
+                @{
+                    for (int i = 0; i < wonderfulActivityArticles.Count; i++)
+                    {
+                        if (i >= 3) { break; };
+                        <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
+                            <div class="service-box">
+                                <a href="/Article/ShowContent?id=@wonderfulActivityArticles[i].Id" class="information-box">
+                                    <img class="imgSize-250" src="@wonderfulActivityArticles[i].ArticleImage" />
+                                    <div class="information-box-caption">
+                                        <div class="information-box-caption-content">
 
-                            <div class="information-box-caption">
-                                <div class="information-box-caption-content">
-
-                                    <div class="project-name">
-                                        查看详细
+                                            <div class="project-name">
+                                                查看详细
+                                            </div>
+                                        </div>
                                     </div>
-                                </div>
+                                </a>
+
+                                <h4>
+                                    @wonderfulActivityArticles[i].Title
+                                </h4>
+                                <p style="font-size:medium">
+                                    @wonderfulActivityArticles[i].SubTitle
+                                </p>
                             </div>
-                        </a>
-                        <h3></h3>
-                        <p style="font-size:medium">厦门智能<sup>+</sup>创新创业公共服务平台正式启动</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
-                    <div class="service-box">
-                        <a href="/Article/ShowContent?type=activity&articletype=zxzxbd" class="information-box">
-                            <img class="imgSize-250" src="../img/portfolio/2.jpg" />
-
-                            <div class="information-box-caption">
-                                <div class="information-box-caption-content">
-
-                                    <div class="project-name">
-                                        查看详细
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <h3></h3>
-                        <p style="font-size:medium">“中小企业如何借助双创实现产业升级”暨厦门智能+创新创业公共服务平台启动仪式</p>
-                    </div>
-
-                </div>
-                <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
-                    <div class="service-box">
-                        <a href="/Article/ShowContent?type=activity&articletype=cxjs" class="information-box activity">
-                            <img class="imgSize-250" src="../img/portfolio/2.jpg" />
-
-                            <div class="information-box-caption">
-                                <div class="information-box-caption-content">
-
-                                    <div class="project-name">
-                                        查看详细
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
-                        <h3></h3>
-                        <p style="font-size:medium">创新加速服务-厦门科技局领导和英特尔众创加速器负责人莅临参观考察</p>
-                    </div>
-                </div>
+                        </div>
+                    }
+                }
                 
             </div>
             
@@ -1399,7 +1343,7 @@
             <div class="col-md-2 col-md-offset-10">
                 <h4>
                     <i class="fa fa-refresh" aria-hidden="true"></i>
-                    <a href="/Article/Index?type=information" style="cursor: pointer; color: #3498DB;" target="_blank">
+                    <a href="javaScript:void(0)" style="cursor: pointer; color: #3498DB;" target="_blank">
                         更多资讯...
                     </a>
                 </h4>

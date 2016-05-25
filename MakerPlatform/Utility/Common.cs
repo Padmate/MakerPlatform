@@ -26,8 +26,7 @@ namespace MakerPlatform.Utility
 
         public static Dictionary<string, string> Dic_ArticleType = new Dictionary<string, string>(){
             {ActivityForecast,"活动预告"},
-            {WonderfulActivity,"精彩活动"},
-            {Information,"资讯"}
+            {WonderfulActivity,"精彩活动"}
         };
         #endregion
     }

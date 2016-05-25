@@ -1,4 +1,5 @@
 ﻿using MakerPlatform.Models;
+using MakerPlatform.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,7 @@ namespace MakerPlatform.Controllers
 {
     public class HomeController : Controller
     {
+        MakerDBContext _dbContext = new MakerDBContext();
 
         public ActionResult Index()
         {
@@ -18,6 +20,22 @@ namespace MakerPlatform.Controllers
         public ActionResult Default()
         {
             ViewBag.From = "Default";
+            //活动预告
+            List<Article> activityForecastArticles = _dbContext.Atricles
+                .Where(a => a.Type == Common.ActivityForecast)
+                .OrderByDescending(a => a.Pubtime)
+                .Take(3)
+                .ToList();
+            //精彩活动
+            List<Article> wonderfulActivityArticles = _dbContext.Atricles
+                .Where(a => a.Type == Common.WonderfulActivity)
+                .OrderByDescending(a => a.Pubtime)
+                .Take(3)
+                .ToList();
+
+            ViewData["activityForecastArticles"] = activityForecastArticles;
+            ViewData["wonderfulActivityArticles"] = wonderfulActivityArticles;
+
             return View();
         }
 

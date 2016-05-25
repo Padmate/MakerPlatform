@@ -57,13 +57,8 @@ namespace MakerPlatform.Controllers
 
         [HttpGet]
         [Authorize(Roles="Admin")]
-        public ActionResult Add(string articletype)
+        public ActionResult Add()
         {
-            if (string.IsNullOrEmpty(articletype))
-                return RedirectToAction("Error","Home");
-
-            ViewData["articletype"] = articletype;
-
             return View();
         }
 
@@ -73,7 +68,6 @@ namespace MakerPlatform.Controllers
         [Authorize(Roles="Admin")]
         public ActionResult Add(ArticleViewModel model,HttpPostedFileBase articleImage,string returnUrl)
         {
-            ViewData["articletype"] = model.ArticleType;
 
             if (ModelState.IsValid)
             {
@@ -100,7 +94,7 @@ namespace MakerPlatform.Controllers
                         Content = model.Content,
                         CreateDate = DateTime.Now,
                         Creator = User.Identity.Name,
-                        Pubtime = DateTime.Now,
+                        Pubtime =model.Pubtime,
                         Type = model.ArticleType
                     };
 
@@ -208,9 +202,20 @@ namespace MakerPlatform.Controllers
         }  
 
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(string id)
+        public ActionResult Delete(Int32 id)
         {
-            return View();
+            var article = _dbContext.Atricles.FirstOrDefault(a => a.Id == id);
+            //删除图标
+            //删除原来图片
+            if (!string.IsNullOrEmpty(article.ArticleImage))
+            {
+                if (System.IO.File.Exists(Server.MapPath(article.ArticleImage)))
+                    System.IO.File.Delete(Server.MapPath(article.ArticleImage));
+            }
+
+            _dbContext.Atricles.Remove(article);
+            _dbContext.SaveChanges();
+            return RedirectToAction("Index","Article"); ;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿@using MakerPlatform.Utility;
+﻿@using Microsoft.AspNet.Identity
+@using MakerPlatform.Utility;
 @using MakerPlatform.Models;
 @{
     string type = (string)ViewData["type"];
@@ -16,6 +17,7 @@
         font-size:20px;
         color:black;
         margin:20px auto;
+        text-align:center;
     }
     .contentStyle{
         font-size:18px;
@@ -26,51 +28,128 @@
         padding-top: 10px;
         padding-bottom: 10px;
     }
+    .anodecoration {
+        text-decoration: none;
+    }
     
 </style>
 <div class="container">
-    <div class="row section">
-        <div class="col-md-12">
-            <h3>活动预告</h3>
-        </div>
 
-        <div class="col-md-8 titleStyle">
-            <a href="/Article/Add?articletype=@Common.ActivityForecast" class="btn btn-default">发布活动</a>
-        </div>
-        <div class="col-md-2 titleStyle">发布时间</div>
-        <div class="col-md-2 titleStyle">操作</div>
-
-        @{
-    foreach (var article in activityForecastArticles)
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
     {
-                <div class="col-md-8 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
-                <div class="col-md-2 contentStyle">@article.Pubtime</div>
-                <div class="col-md-2 contentStyle"><a href="/Article/Edit?id=@article.Id">编辑</a></div>
-    }
-}
+        <div class="row">
+            <div class="col-md-12">
+                <a href="/Article/Add" class="btn btn-success">发布活动</a>
+            </div>
+       
+        </div>
+        <div class="row section">
+            <div class="col-md-12">
+                <h3>活动预告</h3>
+            </div>
+
+            <div class="col-md-8 titleStyle"></div>
+            <div class="col-md-2 titleStyle">发布时间</div>
+            <div class="col-md-2 titleStyle">操作</div>
+
+            @{
+        foreach (var article in activityForecastArticles)
+        {
+                    <div class="col-md-8 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
+                    <div class="col-md-2 contentStyle">@article.Pubtime</div>
+                    <div class="col-md-2 contentStyle text-center">
+                        <ul style="list-style:none;padding-left:0px;">
+                            <li class="dropdown">
+                                <a href="javaScript:void(0)" class="dropdown-toggle anodecoration" data-toggle="dropdown">
+                                    编 辑
+                                    <b class=" caret">
+                                    </b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="anodecoration" href="/Article/Edit?id=@article.Id">修改</a></li>
+                                    <li><a class="anodecoration" href="/Article/Delete?id=@article.Id">删除</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                        
+
+                    </div>
+        }
+        }
 
 
-    </div>
+        </div>
     
-    <div class="row section">
-        <div class="col-md-12">
-            <h3>精彩活动</h3>
-        </div>
-        <div class="col-md-8 titleStyle">
-            <a href="/Article/Add?articletype=@Common.WonderfulActivity" class="btn btn-default">发布活动</a>
-        </div>
-        <div class="col-md-2 titleStyle">发布时间</div>
-        <div class="col-md-2 titleStyle">操作</div>
+        <div class="row section">
+            <div class="col-md-12">
+                <h3>精彩活动</h3>
+            </div>
+            <div class="col-md-8 titleStyle"></div>
+            <div class="col-md-2 titleStyle">发布时间</div>
+            <div class="col-md-2 titleStyle">操作</div>
 
-        @{
-    foreach (var article in wonderfulActivityArticles)
-    {
-                <div class="col-md-8 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
-                <div class="col-md-2 contentStyle">@article.Pubtime</div>
-                <div class="col-md-2 contentStyle"><a href="/Article/Edit?id=@article.Id">编辑</a></div>
+            @{
+        foreach (var article in wonderfulActivityArticles)
+        {
+                    <div class="col-md-8 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
+                    <div class="col-md-2 contentStyle">@article.Pubtime</div>
+                    <div class="col-md-2 contentStyle text-center">
+                        <ul style="list-style:none;padding-left:0px;">
+                            <li class="dropdown">
+                                <a href="javaScript:void(0)" class="dropdown-toggle anodecoration" data-toggle="dropdown">
+                                    编 辑
+                                    <b class=" caret">
+                                    </b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="anodecoration" href="/Article/Edit?id=@article.Id">修改</a></li>
+                                    <li><a class="anodecoration" href="/Article/Delete?id=@article.Id">删除</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+        }
     }
-}
-    </div>
+        </div>
+    }
+    else
+    {
+        <div class="row section">
+            <div class="col-md-12">
+                <h3>活动预告</h3>
+            </div>
+
+            <div class="col-md-10 titleStyle"></div>
+            <div class="col-md-2 titleStyle">发布时间</div>
+
+            @{
+        foreach (var article in activityForecastArticles)
+        {
+                    <div class="col-md-10 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
+                    <div class="col-md-2 contentStyle">@article.Pubtime</div>
+        }
+        }
+
+
+        </div>
+    
+        <div class="row section">
+            <div class="col-md-12">
+                <h3>精彩活动</h3>
+            </div>
+            <div class="col-md-10 titleStyle"></div>
+            <div class="col-md-2 titleStyle">发布时间</div>
+
+            @{
+        foreach (var article in wonderfulActivityArticles)
+        {
+                    <div class="col-md-10 contentStyle"><a href="/Article/ShowContent?id=@article.Id">@article.SubTitle</a> </div>
+                    <div class="col-md-2 contentStyle">@article.Pubtime</div>
+        }
+    }
+        </div>
+    }
+    
 
     
 </div>

@@ -1254,6 +1254,8 @@
     <Content Include="ckfinder\_samples\standalone_v1.html" />
     <Content Include="Content\agency.css" />
     <Content Include="Content\animate.css" />
+    <Content Include="Content\bootstrap-datetimepicker.css" />
+    <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-table.css" />
     <Content Include="Content\SuspendedNavMac.css" />
     <Content Include="Content\bootstrap.css" />
@@ -1320,13 +1322,6 @@
     <Content Include="img\Activity\zxbd-1.jpg" />
     <Content Include="img\Activity\zxbd-2.jpg" />
     <Content Include="img\Activity\zxbd-3.jpg" />
-    <Content Include="img\Articles\26c5947b-886f-4273-904f-216a4a96393f.jpg" />
-    <Content Include="img\Articles\5ba895d3-128e-479c-9875-d2619498618d.jpg" />
-    <Content Include="img\Articles\5c48e831-52ad-4258-971b-57c965701fb2.jpg" />
-    <Content Include="img\Articles\f044a3aa-b4c7-45f6-bcc3-16b24a994258.jpg" />
-    <Content Include="img\Articles\f08ddd7d-0195-472d-96cb-d645a4ca2099.jpg" />
-    <Content Include="img\Articles\f216fe09-94d2-484a-937b-2b9630569439.jpg" />
-    <Content Include="img\Articles\images\big.jpg" />
     <Content Include="img\Articles\_thumbs\Images\big.jpg" />
     <Content Include="img\header-bg.jpg" />
     <Content Include="img\header-bg1.jpg" />
@@ -1519,6 +1514,7 @@
     <Content Include="ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="ckfinder\userfiles\.htaccess" />
+    <None Include="Properties\PublishProfiles\MakerPlatform.pubxml" />
     <None Include="Properties\PublishProfiles\serviceplatform - FTP.pubxml" />
     <None Include="Properties\PublishProfiles\serviceplatform - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -1532,6 +1528,9 @@
     <Content Include="Scripts\jqzoom-2.3\js\jquery-1.6.js" />
     <Content Include="Scripts\jqzoom-2.3\js\jquery.jqzoom-core-pack.js" />
     <Content Include="Scripts\jqzoom-2.3\js\jquery.jqzoom-core.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\bootstrap-datetimepicker.min.js" />
+    <Content Include="Scripts\bootstrap-datetimepicker\locales\bootstrap-datetimepicker.zh-CN.js" />
     <Content Include="Scripts\l-by-l.min.js" />
     <Content Include="Scripts\lazyload\jquery.lazyload.js" />
     <Content Include="Scripts\lazyload\jquery.lazyload.min.js" />
@@ -1615,6 +1614,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="img\Articles\images\" />
     <Folder Include="img\Upload\" />
   </ItemGroup>
   <ItemGroup>
