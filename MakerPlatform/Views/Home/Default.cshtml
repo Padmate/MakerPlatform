@@ -7,7 +7,9 @@
     string type = (string)ViewData["type"];
     List<Article> activityForecastArticles = (List<Article>)ViewData["activityForecastArticles"];
     List<Article> wonderfulActivityArticles = (List<Article>)ViewData["wonderfulActivityArticles"];
-
+    List<Article> informationArticles = (List<Article>)ViewData["informationArticles"];
+    
+    
 }
 
 <!DOCTYPE html>
@@ -1143,10 +1145,13 @@
                 @{
                     for (int i = 0; i < activityForecastArticles.Count; i++)
                     {
+                        var contentHref = "/Article/ShowContent?id="+activityForecastArticles[i].Id+"&returnUrl=/Home/Default&anchor=activity";
+                        var aHref = activityForecastArticles[i].IsHref ? activityForecastArticles[i].Href : contentHref;
+                        
                         if (i >= 3) { break; };
                         <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
                             <div class="service-box">
-                                <a href="/Article/ShowContent?id=@activityForecastArticles[i].Id&returnUrl=/Home/Default&anchor=activity" class="information-box">
+                                <a href="@aHref" class="information-box">
                                     <img class="imgSize-250" src="@activityForecastArticles[i].ArticleImage" />
                                     <div class="information-box-caption">
                                         <div class="information-box-caption-content">
@@ -1178,10 +1183,13 @@
                 @{
                     for (int i = 0; i < wonderfulActivityArticles.Count; i++)
                     {
+                        var contentHref = "/Article/ShowContent?id="+wonderfulActivityArticles[i].Id+"&returnUrl=/Home/Default&anchor=activity";
+                        var aHref = activityForecastArticles[i].IsHref ? activityForecastArticles[i].Href : contentHref;
+                        
                         if (i >= 3) { break; };
                         <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
                             <div class="service-box">
-                                <a href="/Article/ShowContent?id=@wonderfulActivityArticles[i].Id&returnUrl=/Home/Default&anchor=activity" class="information-box">
+                                <a href="@aHref" class="information-box">
                                     <img class="imgSize-250" src="@wonderfulActivityArticles[i].ArticleImage" />
                                     <div class="information-box-caption">
                                         <div class="information-box-caption-content">
@@ -1238,102 +1246,30 @@
             </div>
         </div>*@
         <div class="row no-gutter">
-            <div class="col-lg-4 col-sm-6">
-                <a href="http://www.baidu.com" class="information-box" target="_blank">
-                    <img class="imgSize-250" src="../img/portfolio/1.jpg" />
+            @{
+                for (int i = 0; i < informationArticles.Count; i++)
+                {
+                    var contentHref = "/Article/ShowContent?id=" + informationArticles[i].Id + "&returnUrl=/Home/Default&anchor=information";
+                    var aHref = informationArticles[i].IsHref ? informationArticles[i].Href : contentHref;
 
-                    <div class="information-box-caption">
-                        <div class="information-box-caption-content">
-                            <div class="project-category text-faded">
-                                &nbsp;
+                    if (i >= 6) { break; };
+                    <div class="col-lg-4 col-md-6">
+                        <a href="@aHref" class="information-box">
+                            <img class="imgSize-250" src="@informationArticles[i].ArticleImage" />
+                            <div class="information-box-caption">
+                                <div class="information-box-caption-content">
+                                    <div class="project-category text-faded">
+                                        &nbsp;
+                                    </div>
+                                    <div class="project-name">
+                                        了解更多
+                                    </div>
+                                </div>
                             </div>
-                            <div class="project-name">
-                                了解更多
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="http://www.baidu.com" class="information-box" target="_blank">
-                    <img class="imgSize-250" src="../img/portfolio/1.jpg" />
-
-                    <div class="information-box-caption">
-                        <div class="information-box-caption-content">
-                            <div class="project-category text-faded">
-                                &nbsp;
-                            </div>
-                            <div class="project-name">
-                                了解更多
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="http://www.baidu.com" class="information-box" target="_blank">
-                    <img class="imgSize-250" src="../img/portfolio/1.jpg" />
-
-                    <div class="information-box-caption">
-                        <div class="information-box-caption-content">
-                            <div class="project-category text-faded">
-                                &nbsp;
-                            </div>
-                            <div class="project-name">
-                                了解更多
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="http://www.baidu.com" class="information-box" target="_blank">
-                    <img class="imgSize-250" src="../img/portfolio/1.jpg" />
-
-                    <div class="information-box-caption">
-                        <div class="information-box-caption-content">
-                            <div class="project-category text-faded">
-                                &nbsp;
-                            </div>
-                            <div class="project-name">
-                                了解更多
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="http://www.baidu.com" class="information-box" target="_blank">
-                    <img class="imgSize-250" src="../img/portfolio/1.jpg" />
-
-                    <div class="information-box-caption">
-                        <div class="information-box-caption-content">
-                            <div class="project-category text-faded">
-                                &nbsp;
-                            </div>
-                            <div class="project-name">
-                                了解更多
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-4 col-sm-6">
-                <a href="http://www.baidu.com" class="information-box" target="_blank">
-                    <img class="imgSize-250" src="../img/portfolio/1.jpg" />
-
-                    <div class="information-box-caption">
-                        <div class="information-box-caption-content">
-                            <div class="project-category text-faded">
-                                &nbsp;
-                            </div>
-                            <div class="project-name">
-                                了解更多
-                            </div>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                }
+            }
         </div>
         <div class="row" style="padding-top:50px;">
             <div class="col-md-2 col-md-offset-10">

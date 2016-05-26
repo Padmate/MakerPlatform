@@ -1,4 +1,5 @@
-﻿@using MakerPlatform.Models;
+﻿
+@using MakerPlatform.Models;
 @{
     Article article = (Article)ViewData["article"];
     var returnUrl = @Request["returnUrl"];
@@ -20,9 +21,10 @@
         <div class="col-md-12">
             @if (article.IsHref)
             {
+                <h4><a href="@article.Href"><i class="fa fa-arrow-right"></i>文章链接</a></h4> 
                 <iframe src="@article.Href" id="iframepage" name="iframepage"
-                    frameborder=0  style="width:100%;min-height:600px;" ></iframe>
-            
+                        frameborder=0 style="width:100%; min-height:1000px" ></iframe>
+
             }
             else
             {
@@ -35,4 +37,17 @@
     
     
 </div>
+<script>
+    function resizeIframe(obj) {
+        obj.style.height = obj.contentWindow.document.body.scrollHeight + 'px';
+
+    }
+    function iframeAutoFit(iframeObj) {
+        setTimeout(function () {
+            if (!iframeObj) return; iframeObj.height = (iframeObj.Document ? iframeObj.Document.body.scrollHeight : iframeObj.contentDocument.body.offsetHeight);
+        }, 200)
+    }
+
+
+</script>
 
