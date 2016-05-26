@@ -1,5 +1,6 @@
 <%@ Control Language="C#" EnableViewState="false" AutoEventWireup="false" Inherits="CKFinder.Settings.ConfigFile" %>
 <%@ Import Namespace="CKFinder.Settings" %>
+<%@ Import Namespace="MakerPlatform.Utility" %>
 <script runat="server">
 
 	/**
@@ -12,12 +13,17 @@
 		// "anyone" to upload and list the files in your server. You must implement
 		// some kind of session validation here. Even something very simple as...
 		//
-		//		return ( Session[ "IsAuthorized" ] != null && (bool)Session[ "IsAuthorized" ] == true );
-		//
+		//return ( Session[ "IsAuthorized" ] != null && (bool)Session[ "IsAuthorized" ] == true );
 		// ... where Session[ "IsAuthorized" ] is set to "true" as soon as the
 		// user logs on your system.
 
-		return true;
+        var user = HttpContext.Current.User;
+        if (user.Identity.IsAuthenticated && user.IsInRole(SystemRole.Admin))
+        {
+            return true;
+        }
+        
+		return false;
 	}
 
 	/**
@@ -40,7 +46,7 @@
 		// Optional: enable extra plugins (remember to copy .dll files first).
 		Plugins = new string[] {
 			// "CKFinder.Plugins.FileEditor, CKFinder_FileEditor",
-			// "CKFinder.Plugins.ImageResize, CKFinder_ImageResize",
+			 "CKFinder.Plugins.ImageResize, CKFinder_ImageResize",
 			// "CKFinder.Plugins.Watermark, CKFinder_Watermark"
 		};
 		// Settings for extra plugins.

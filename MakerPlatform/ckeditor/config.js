@@ -10,4 +10,5 @@ CKEDITOR.editorConfig = function( config )
     // config.uiColor = '#AADC6E';
     // 设置宽高
     config.height = 400;
+    config.filebrowserImageUploadUrl = "/Article/CKEditorUpload";
 };

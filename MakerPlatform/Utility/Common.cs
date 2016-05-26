@@ -29,5 +29,12 @@ namespace MakerPlatform.Utility
             {WonderfulActivity,"精彩活动"}
         };
         #endregion
+
+        
+    }
+
+    public static class SystemRole
+    {
+        public const string Admin = "Admin";
     }
 }

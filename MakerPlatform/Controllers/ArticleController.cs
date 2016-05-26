@@ -217,5 +217,20 @@ namespace MakerPlatform.Controllers
             _dbContext.SaveChanges();
             return RedirectToAction("Index","Article"); ;
         }
+
+        [HttpPost]
+        public ActionResult CKEditorUpload(HttpPostedFileBase upload)
+        {
+            var fileName = System.IO.Path.GetFileName(upload.FileName);
+            var filePhysicalPath = Server.MapPath("~/img/Upload/images/" + fileName);//我把它保存在网站根目录的 upload 文件夹
+
+            upload.SaveAs(filePhysicalPath);
+
+            var url = "/img/Upload/images/" + fileName;
+            var CKEditorFuncNum = System.Web.HttpContext.Current.Request["CKEditorFuncNum"];
+
+            //上传成功后，我们还需要通过以下的一个脚本把图片返回到第一个tab选项
+            return Content("<script>window.parent.CKEDITOR.tools.callFunction(" + CKEditorFuncNum + ", \"" + url + "\");</script>");
+        }
     }
 }
