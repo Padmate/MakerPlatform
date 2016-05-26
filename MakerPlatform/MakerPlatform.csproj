@@ -1161,7 +1161,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="img\Upload\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

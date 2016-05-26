@@ -80,8 +80,14 @@ namespace MakerPlatform.Controllers
                         string saveName = Guid.NewGuid().ToString() + articleImageFile.Extension;
                         string virtualFloder = "../img/Upload/";
                         virtualUrl = Path.Combine(virtualFloder, saveName);
-                        string physicalUrl = Path.Combine(Server.MapPath(virtualFloder), saveName);
+                        string physicleDirectory = Server.MapPath(virtualFloder);
+                        string physicalUrl = Path.Combine(physicleDirectory, saveName);
+                        if(!System.IO.Directory.Exists(physicleDirectory))
+                        {
+                            System.IO.Directory.CreateDirectory(physicleDirectory);
+                        }
                         articleImage.SaveAs(physicalUrl);
+
                     }
                     
 
@@ -162,8 +168,14 @@ namespace MakerPlatform.Controllers
                         string saveName = Guid.NewGuid().ToString() + articleImageFile.Extension;
                         string virtualFloder = "../img/Upload/";
                         virtualUrl = Path.Combine(virtualFloder, saveName);
-                        string physicalUrl = Path.Combine(Server.MapPath(virtualFloder), saveName);
+                        string physicleDirectory = Server.MapPath(virtualFloder);
+                        string physicalUrl = Path.Combine(physicleDirectory, saveName);
+                        if (!System.IO.Directory.Exists(physicleDirectory))
+                        {
+                            System.IO.Directory.CreateDirectory(physicleDirectory);
+                        }
                         articleImage.SaveAs(physicalUrl);
+
 
                         //删除原来图片
                         if (!string.IsNullOrEmpty(article.ArticleImage))
@@ -222,7 +234,15 @@ namespace MakerPlatform.Controllers
         public ActionResult CKEditorUpload(HttpPostedFileBase upload)
         {
             var fileName = System.IO.Path.GetFileName(upload.FileName);
-            var filePhysicalPath = Server.MapPath("~/img/Upload/images/" + fileName);//我把它保存在网站根目录的 upload 文件夹
+            var filePhysicalDirectory =Server.MapPath("~/img/Upload/images/");
+            var filePhysicalPath = Path.Combine(filePhysicalDirectory,fileName); ;//我把它保存在网站根目录的 upload 文件夹
+
+            //如果没有文件夹，则先新建文件夹
+            if (!System.IO.Directory.Exists(filePhysicalDirectory))
+            {
+                System.IO.Directory.CreateDirectory(filePhysicalDirectory);
+
+            }
 
             upload.SaveAs(filePhysicalPath);
 
