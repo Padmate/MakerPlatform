@@ -1,20 +1,38 @@
 ﻿@using MakerPlatform.Models;
 @{
     Article article = (Article)ViewData["article"];
+    var returnUrl = @Request["returnUrl"];
+    var anchor = @Request["anchor"];
+
+    var returnUri = string.IsNullOrEmpty(anchor) ? returnUrl : returnUrl + "#" + anchor;
 }
 
 
 <div class="container">
     <div class="row">
         <div class="col-md-12">
-           <a href="/Article/Index" style="text-decoration:none;"><i class="fa fa-arrow-circle-left"></i> 返回活动列表</a>
+            <h3>
+                <a href='@returnUri' style="text-decoration:none;"><i class="fa fa-arrow-circle-left"></i> 返回</a>
+
+            </h3>
             
         </div>
         <div class="col-md-12">
-            @Html.Raw(article.Content)
+            @if (article.IsHref)
+            {
+                <iframe src="@article.Href" id="iframepage" name="iframepage"
+                    frameborder=0  style="width:100%;min-height:600px;" ></iframe>
+            
+            }
+            else
+            {
+                @Html.Raw(article.Content)
+                
+            }
 
         </div>
     </div>
     
     
 </div>
+

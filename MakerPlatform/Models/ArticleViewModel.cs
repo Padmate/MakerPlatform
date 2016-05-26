@@ -26,10 +26,13 @@ namespace MakerPlatform.Models
         /// </summary>
         public string Description { get; set; }
 
+        public bool IsHref { get; set; }
+
+        public string Href { get; set; }
+
         /// <summary>
         /// 文章内容
         /// </summary>
-        [Required(ErrorMessage = "内容不能为空")]
         public string Content { get; set; }
 
         /// <summary>

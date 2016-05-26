@@ -1,0 +1,95 @@
+﻿@using Microsoft.AspNet.Identity
+@using MakerPlatform.Utility;
+@using MakerPlatform.Models;
+@{
+    List<Article> informationArticles = (List<Article>)ViewData["informationArticles"];
+    var returnUrl = "/Article/Information";
+}
+
+<style>
+    .section {
+        min-height: 300px;
+    }
+
+    .titleStyle {
+        font-size: 20px;
+        color: black;
+        margin: 20px auto;
+    }
+
+    .contentStyle {
+        font-size: 18px;
+        color: black;
+        margin-top: 10px;
+    }
+
+    .hspace {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .anodecoration {
+        text-decoration: none;
+    }
+</style>
+<div class="container">
+
+    @if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div class="row section">
+                <div class="col-md-12">
+                    <h3>资 讯</h3>
+                </div>
+                <div class="col-md-8 titleStyle">
+                    <a href="/Article/Add?type=@Common.Information&returnUrl=@returnUrl" class="btn btn-success">发布资讯</a>
+                </div>
+                <div class="col-md-2 titleStyle text-center">发布时间</div>
+                <div class="col-md-2 titleStyle text-center">操作</div>
+
+                @{
+            foreach (var article in informationArticles)
+            {
+                <div class="col-md-8 contentStyle"><a href="/Article/ShowContent?id=@article.Id&returnUrl=@returnUrl">@article.SubTitle</a> </div>
+                    <div class="col-md-2 contentStyle">@article.Pubtime.ToString("yyyy/MM/dd hh:mm")</div>
+                    <div class="col-md-2 contentStyle text-center">
+                        <ul style="list-style:none;padding-left:0px;">
+                            <li class="dropdown">
+                                <a href="javaScript:void(0)" class="dropdown-toggle anodecoration" data-toggle="dropdown">
+                                    编 辑
+                                    <b class=" caret">
+                                    </b>
+                                </a>
+                                <ul class="dropdown-menu">
+                                    <li><a class="anodecoration" href="/Article/Edit?id=@article.Id&returnUrl=@returnUrl">修改</a></li>
+                                    <li><a class="anodecoration" href="/Article/Delete?id=@article.Id&returnUrl=@returnUrl">删除</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+            }
+                }
+            </div>
+    }
+    else
+    {
+        <div class="row section">
+                <div class="col-md-12">
+                    <h3>资 讯</h3>
+                </div>
+                <div class="col-md-10 titleStyle"></div>
+                <div class="col-md-2 titleStyle">发布时间</div>
+
+                @{
+            foreach (var article in informationArticles)
+            {
+                <div class="col-md-10 contentStyle"><a href="/Article/ShowContent?id=@article.Id&returnUrl=@returnUrl">@article.SubTitle</a> </div>
+                    <div class="col-md-2 contentStyle">@article.Pubtime.ToString("yyyy/MM/dd hh:mm")</div>
+            }
+                }
+            </div>
+
+    }
+
+
+
+</div>

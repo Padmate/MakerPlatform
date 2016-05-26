@@ -13,7 +13,12 @@ namespace MakerPlatform.Controllers
     {
         MakerDBContext _dbContext = new MakerDBContext();
 
-        public ActionResult Index()
+
+        /// <summary>
+        /// 活动
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Activity()
         {
             //活动预告
             List<Article> activityForecastArticles = _dbContext.Atricles
@@ -28,6 +33,23 @@ namespace MakerPlatform.Controllers
 
             ViewData["activityForecastArticles"] = activityForecastArticles;
             ViewData["wonderfulActivityArticles"] = wonderfulActivityArticles;
+
+            return View();
+        }
+
+        /// <summary>
+        /// 资讯
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult Information()
+        {
+            //资讯
+            List<Article> informationArticles = _dbContext.Atricles
+                .Where(a => a.Type == Common.Information)
+                .OrderByDescending(a => a.Pubtime)
+                .ToList();
+
+            ViewData["informationArticles"] = informationArticles;
 
             return View();
         }
@@ -66,10 +88,10 @@ namespace MakerPlatform.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [Authorize(Roles="Admin")]
-        public ActionResult Add(ArticleViewModel model,HttpPostedFileBase articleImage,string returnUrl)
+        public ActionResult Add(ArticleViewModel model, HttpPostedFileBase articleImage, string ReturnUrl)
         {
 
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && ValideData(model))
             {
                 try
                 {
@@ -101,13 +123,15 @@ namespace MakerPlatform.Controllers
                         CreateDate = DateTime.Now,
                         Creator = User.Identity.Name,
                         Pubtime =model.Pubtime,
-                        Type = model.ArticleType
+                        Type = model.ArticleType,
+                        IsHref = model.IsHref,
+                        Href=model.Href
                     };
 
                     _dbContext.Atricles.Add(article);
                     _dbContext.SaveChanges();
                     //返回文章显示页面
-                    return Redirect("/Article/ShowContent?id="+article.Id.ToString());
+                    return Redirect("/Article/ShowContent?id=" + article.Id.ToString() + "&returnUrl=" + ReturnUrl);
 
                 }catch(Exception e)
                 {
@@ -150,11 +174,11 @@ namespace MakerPlatform.Controllers
         [HttpPost]
         [ValidateInput(false)]
         [Authorize(Roles = "Admin")]
-        public ActionResult Edit(ArticleViewModel model, HttpPostedFileBase articleImage, string returnUrl)
+        public ActionResult Edit(ArticleViewModel model, HttpPostedFileBase articleImage, string ReturnUrl)
         {
             var article = _dbContext.Atricles.FirstOrDefault(a => a.Id == model.Id);
             ViewData["article"] = article;
-            if (ModelState.IsValid)
+            if (ModelState.IsValid && ValideData(model))
             {
                 try
                 {
@@ -194,12 +218,14 @@ namespace MakerPlatform.Controllers
                     article.Content = model.Content;
                     article.ModifiedDate = DateTime.Now;
                     article.Modifier = User.Identity.Name;
-                    article.Pubtime = DateTime.Now;
+                    article.Pubtime = model.Pubtime;
+                    article.IsHref = model.IsHref;
+                    article.Href = model.Href;
                     
 
                     _dbContext.SaveChanges();
                     //返回文章显示页面
-                    return Redirect("/Article/ShowContent?id=" + article.Id.ToString());
+                    return Redirect("/Article/ShowContent?id=" + article.Id.ToString() + "&returnUrl=" + ReturnUrl);
 
                 }
                 catch (Exception e)
@@ -211,10 +237,25 @@ namespace MakerPlatform.Controllers
             }
             // 如果我们进行到这一步时某个地方出错，则重新显示表单
             return View(model);
-        }  
+        }
+
+        private bool ValideData(ArticleViewModel model)
+        {
+            if (model.IsHref && string.IsNullOrEmpty(model.Href))
+            {
+                ModelState.AddModelError("", "文章链接不能为空");
+                return false;
+            }
+            else if (!model.IsHref && string.IsNullOrEmpty(model.Content))
+            {
+                ModelState.AddModelError("", "文章内容不能为空");
+                return false;
+            }
+            return true;
+        }
 
         [Authorize(Roles = "Admin")]
-        public ActionResult Delete(Int32 id)
+        public ActionResult Delete(Int32 id,string returnUrl)
         {
             var article = _dbContext.Atricles.FirstOrDefault(a => a.Id == id);
             //删除图标
@@ -227,7 +268,7 @@ namespace MakerPlatform.Controllers
 
             _dbContext.Atricles.Remove(article);
             _dbContext.SaveChanges();
-            return RedirectToAction("Index","Article"); ;
+            return Redirect(returnUrl); 
         }
 
         [HttpPost]

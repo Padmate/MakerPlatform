@@ -9,6 +9,8 @@ namespace MakerPlatform.Utility
     {
         #region 文章类型
 
+        public const string Activity = "activity";
+
         /// <summary>
         /// 活动预告
         /// </summary>
@@ -26,7 +28,8 @@ namespace MakerPlatform.Utility
 
         public static Dictionary<string, string> Dic_ArticleType = new Dictionary<string, string>(){
             {ActivityForecast,"活动预告"},
-            {WonderfulActivity,"精彩活动"}
+            {WonderfulActivity,"精彩活动"},
+            {Information,"资讯"}
         };
         #endregion
 

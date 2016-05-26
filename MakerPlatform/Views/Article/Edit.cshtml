@@ -2,6 +2,7 @@
 @model MakerPlatform.Models.ArticleViewModel
 @{
     Article article = (Article)ViewData["article"];
+    var returnUrl = @Request["returnUrl"]; 
 }
 
 <style>
@@ -17,14 +18,14 @@
     }
 </style>
 <div class="container">
-    @using (Html.BeginForm("Edit", "Article", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Edit", "Article", new { ReturnUrl = returnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
     {
         @Html.AntiForgeryToken()
         <h2>
-            <a href="/Article/Index" style="text-decoration:none;">
+            <a href='@returnUrl' style="text-decoration:none;">
                 <i class="fa fa-arrow-circle-left"></i>
             </a>
-            修改文章
+            修 改
         </h2>
         @Html.ValidationSummary(true, null, new { @class = "login-tip" })
         <hr />
@@ -66,17 +67,22 @@
             </div>
             <div class="col-md-10">
                 <input type="file" id="articleImage" name="articleImage" accept=".jpg,.png,.jpeg,.gif" />
-                @Html.ValidationMessageFor(m => m.ArticleImage, null)
             </div>
             <div class="col-lg-4 col-md-6" style="padding-right:25px;margin-top:10px;">
                 @{
                     string imgalt = string.Empty ;
                     if(string.IsNullOrEmpty(article.ArticleImage))
                     {
-                        imgalt = "无图标";
+                        
+                        <img class="imgSize-250" id="showUploadImage" src="~/img/upload_default.jpg" />
+                            
+                    }
+                    else
+                    {
+                        <img class="imgSize-250" id="showUploadImage" src="@article.ArticleImage" />
+                        
                     }
                 }
-                <img class="imgSize-250" id="showUploadImage" src="@article.ArticleImage" alt="@imgalt" />
 
             </div>
         </div>
@@ -93,16 +99,39 @@
                 <input type="hidden" id="PubTime" name="PubTime" value="@article.Pubtime.ToString("yyyy-MM-dd hh:mm:ss")" /><br />
             </div>
         </div>
+        
         <div class="form-group">
-            <div class="col-md-12">
-                @Html.ValidationMessageFor(m => m.Content, null)
-                <br />
-                <div class="checkbox">
-                    <textarea id="Content" name="Content">@article.Content</textarea>
-                </div>
+            <div class="col-md-2 control-label">
+                @Html.LabelFor(m => m.IsHref, "是否链接：")
             </div>
-            <div style="clear:both"></div>
+            <div class="col-md-10">
+              
+                <input type="radio" value="true" name="IsHref" /><label>是</label>
+                <input type="radio" value="false" checked="checked" name="IsHref" style="margin-left:50px;" /><label>否</label>
+                
+            </div>
         </div>
+        
+         <div class="form-group" id="divArticleHref" style="display:none;">
+            <div class="col-md-2 control-label">
+                @Html.LabelFor(m => m.Href, "文章链接：")
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Href, new { @placeholder = "文章链接", @class = "inputS", @Value = article.Href })
+                @Html.ValidationMessageFor(m => m.Href, null)
+            </div>
+        </div>
+
+    <div class="form-group" id="divArticleContent">
+        <div class="col-md-12">
+            @Html.ValidationMessageFor(m => m.Content, null)
+            <br />
+            <div class="checkbox">
+                <textarea id="Content" name="Content">@article.Content</textarea>
+            </div>
+        </div>
+        <div style="clear:both"></div>
+    </div>
         <div class="form-group">
             <div class="col-md-12">
                 <input type="submit" class="btn btn-danger" style="float:right;" value="发 布" />
@@ -141,34 +170,54 @@
             setImagePreview();
 
         });
+        
+
+        //文章是否链接事件
+        $("[name='IsHref']").change(function () {
+            ChangeHrefRadio();
+        });
+
+        //如果文章是链接，则选中链接选项
+        var isHref = '@article.IsHref';
+        if(isHref.toLowerCase() == "true")
+        {
+            $("input[type=radio][value=true]").attr("checked", 'checked');
+            ChangeHrefRadio();
+        }
     });
+
+    function ChangeHrefRadio()
+    {
+        var isHref = $("input[name='IsHref']:checked").val();
+
+        $("#divArticleHref").toggle();
+        $("#divArticleContent").toggle();
+
+        if (isHref == "true") {
+            //如果是链接，则隐藏并且清空内容编辑框,显示Href输入框
+            CKEDITOR.instances.Content.setData("");
+
+        } else {
+            //如果不是链接，则隐藏并且清空Href输入框,显示内容编辑框
+            $("#Href").val(" ");
+        }
+    }
 
     //下面用于图片上传预览功能
     function setImagePreview() {
         var docObj = document.getElementById("articleImage");
-
+        var imgSrc = "";
         if (docObj.files && docObj.files[0]) {
 
             //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
-            $("#showUploadImage").attr('src', window.URL.createObjectURL(docObj.files[0]));
+            imgSrc = window.URL.createObjectURL(docObj.files[0]);
         }
         else {
             //IE下，使用滤镜
             docObj.select();
-            var imgSrc = document.selection.createRange().text;
-            var localImagId = document.getElementById("articleImage");
-            //图片异常的捕捉，防止用户修改后缀来伪造图片
-            try {
-                localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
-                localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
-            }
-            catch (e) {
-                alert("您上传的图片格式不正确，请重新选择!");
-                return false;
-            }
-            imgObjPreview.style.display = 'none';
-            document.selection.empty();
+            imgSrc = document.selection.createRange().text;
+
         }
-        return true;
+        $("#showUploadImage").attr('src', imgSrc);
     }
 </script> 

@@ -1,5 +1,9 @@
 ﻿@using MakerPlatform.Utility;
 @model MakerPlatform.Models.ArticleViewModel
+@{
+  var type = @Request["type"];  
+  var returnUrl = @Request["returnUrl"];           
+}
  <style>
      .inputS{
          width:50%;
@@ -13,14 +17,15 @@
      }
  </style>
 <div class="container">
-    @using (Html.BeginForm("Add", "Article", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+    @using (Html.BeginForm("Add", "Article", new { ReturnUrl =returnUrl  }, FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
     {
+        
         @Html.AntiForgeryToken()
         <h2>
-            <a href="/Article/Index" style="text-decoration:none;">
+            <a href='@returnUrl' style="text-decoration:none;">
                 <i class="fa fa-arrow-circle-left"></i>
             </a>
-            发布文章
+            发 布
         </h2>
         @Html.ValidationSummary(true, null, new { @class = "login-tip" })
         <hr />
@@ -30,9 +35,16 @@
             </div>
             <div class="col-md-10">
                 <select class="form-control" id="ArticleType" name="ArticleType" required>
-                    @foreach (var key in Common.Dic_ArticleType.Keys)
+                   
+                    @if(!string.IsNullOrEmpty(type) && Common.Dic_ArticleType.ContainsKey(type))
                     {
-                        <option value="@key">@Common.Dic_ArticleType[key]</option>
+                        <option value="@type" selected="selected">@Common.Dic_ArticleType[type]</option>
+                        
+                    }else{
+                        foreach (var key in Common.Dic_ArticleType.Keys)
+                        {
+                           <option value="@key">@Common.Dic_ArticleType[key]</option> 
+                        }   
                     }
                 </select>
             </div>
@@ -71,11 +83,10 @@
             </div>
             <div class="col-md-10">
                 <input type="file" id="articleImage" name="articleImage" accept=".jpg,.png,.jpeg,.gif" />
-                @Html.ValidationMessageFor(m => m.ArticleImage, null)
             </div>
             <div class="col-lg-4 col-md-6" style="padding-right:25px;margin-top:10px;">
                 
-                <img class="imgSize-250" id="showUploadImage" src="" alt="无图标" />
+                <img class="imgSize-250" id="showUploadImage" src="~/img/upload_default.jpg" alt="无图标" />
 
             </div>
         </div>
@@ -95,6 +106,27 @@
             
         </div>
         <div class="form-group">
+            <div class="col-md-2 control-label">
+                @Html.LabelFor(m => m.IsHref, "是否链接：")
+            </div>
+            <div class="col-md-10">
+                <input type="radio" value="true" name="IsHref" /><label>是</label>
+                <input type="radio" value="false" checked="checked" name="IsHref" style="margin-left:50px;" /><label>否</label>
+                
+            </div>
+        </div>
+        
+         <div class="form-group" id="divArticleHref" style="display:none;">
+            <div class="col-md-2 control-label">
+                @Html.LabelFor(m => m.Href, "文章链接：")
+            </div>
+            <div class="col-md-10">
+                @Html.TextBoxFor(m => m.Href, new { @placeholder = "文章链接", @class = "inputS" })
+                @Html.ValidationMessageFor(m => m.Href, null)
+            </div>
+        </div>
+        
+        <div class="form-group" id="divArticleContent">
             <div class="col-md-12">
                 @Html.ValidationMessageFor(m => m.Content, null)
                 <br/>
@@ -138,6 +170,24 @@
         $("#articleImage").change(function (e) {
             setImagePreview();
              
+        });
+
+        //文章是否链接事件
+        $("[name='IsHref']").change(function () {
+            var isHref = $("input[name='IsHref']:checked").val();
+
+            $("#divArticleHref").toggle();
+            $("#divArticleContent").toggle();
+
+            if(isHref =="true")
+            {
+                //如果是链接，则隐藏并且清空内容编辑框,显示Href输入框
+                CKEDITOR.instances.Content.setData("");
+
+            }else{
+                //如果不是链接，则隐藏并且清空Href输入框,显示内容编辑框
+                $("#Href").val(" ");
+            }
         });
     });
 

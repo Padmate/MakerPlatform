@@ -1135,7 +1135,6 @@
                 </div>
                 
             </div>
-
             <div class="row">
                 <h4 class="panel-title customerA" style="padding:20px 0px;">
                     <i class="fa fa-play" aria-hidden="true"></i>
@@ -1147,7 +1146,7 @@
                         if (i >= 3) { break; };
                         <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
                             <div class="service-box">
-                                <a href="/Article/ShowContent?id=@activityForecastArticles[i].Id" class="information-box">
+                                <a href="/Article/ShowContent?id=@activityForecastArticles[i].Id&returnUrl=/Home/Default&anchor=activity" class="information-box">
                                     <img class="imgSize-250" src="@activityForecastArticles[i].ArticleImage" />
                                     <div class="information-box-caption">
                                         <div class="information-box-caption-content">
@@ -1182,7 +1181,7 @@
                         if (i >= 3) { break; };
                         <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
                             <div class="service-box">
-                                <a href="/Article/ShowContent?id=@wonderfulActivityArticles[i].Id" class="information-box">
+                                <a href="/Article/ShowContent?id=@wonderfulActivityArticles[i].Id&returnUrl=/Home/Default&anchor=activity" class="information-box">
                                     <img class="imgSize-250" src="@wonderfulActivityArticles[i].ArticleImage" />
                                     <div class="information-box-caption">
                                         <div class="information-box-caption-content">
@@ -1206,12 +1205,11 @@
                 }
                 
             </div>
-            
             <div class="row" style="padding-top:50px;">
                 <div class="col-md-2 col-md-offset-10">
                     <h4>
                         <i class="fa fa-refresh" aria-hidden="true"></i>
-                        <a href="/Article/Index" style="cursor: pointer; color: #3498DB;" target="_blank">
+                        <a href="/Article/Activity" style="cursor: pointer; color: #3498DB;" target="_blank">
                             更多活动...
                         </a>
                     </h4>
@@ -1237,9 +1235,7 @@
             </div>
             <div class="col-md-2">
                 <button type="submit" class="btn btn-lg btn-danger">Search</button>
-
             </div>
-
         </div>*@
         <div class="row no-gutter">
             <div class="col-lg-4 col-sm-6">
@@ -1343,7 +1339,7 @@
             <div class="col-md-2 col-md-offset-10">
                 <h4>
                     <i class="fa fa-refresh" aria-hidden="true"></i>
-                    <a href="javaScript:void(0)" style="cursor: pointer; color: #3498DB;" target="_blank">
+                    <a href="/Article/Information" style="cursor: pointer; color: #3498DB;" target="_blank">
                         更多资讯...
                     </a>
                 </h4>

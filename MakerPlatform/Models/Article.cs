@@ -32,6 +32,18 @@ namespace MakerPlatform.Models
         public string Type { get; set; }
 
         /// <summary>
+        /// 文章是否是链接：
+        /// 如果是链接则只Href
+        /// 如果不是，则有Content
+        /// </summary>
+        public bool IsHref { get; set; }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string Href { get; set; }
+
+        /// <summary>
         /// 文章内容
         /// </summary>
         [Column("Content", TypeName = "ntext")]

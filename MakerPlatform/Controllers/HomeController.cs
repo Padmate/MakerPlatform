@@ -33,8 +33,16 @@ namespace MakerPlatform.Controllers
                 .Take(3)
                 .ToList();
 
+            //资讯
+            List<Article> informationArticles = _dbContext.Atricles
+                .Where(a => a.Type == Common.Information)
+                .OrderByDescending(a => a.Pubtime)
+                .Take(6)
+                .ToList();
+
             ViewData["activityForecastArticles"] = activityForecastArticles;
             ViewData["wonderfulActivityArticles"] = wonderfulActivityArticles;
+            ViewData["informationArticles"] = informationArticles;
 
             return View();
         }
