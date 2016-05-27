@@ -889,6 +889,7 @@
     <Content Include="img\upload_default.jpg" />
     <Content Include="img\upload_default1.jpg" />
     <Content Include="Scripts\agency.js" />
+    <Content Include="Scripts\bootstrap-paginator.js" />
     <Content Include="Scripts\bootstrap-table.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -1027,12 +1028,11 @@
     <Content Include="Scripts\slick\slick\fonts\slick.ttf" />
     <Content Include="Scripts\slick\slick\fonts\slick.woff" />
     <Content Include="Scripts\slick\slick\slick.scss" />
-    <Content Include="Views\Article\Activity.cshtml" />
     <Content Include="Views\Article\ShowContent.cshtml" />
     <Content Include="Views\Home\Error.cshtml" />
     <Content Include="Views\Article\Add.cshtml" />
     <Content Include="Views\Article\Edit.cshtml" />
-    <Content Include="Views\Article\Information.cshtml" />
+    <Content Include="Views\Article\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

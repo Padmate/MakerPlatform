@@ -1,0 +1,312 @@
+﻿@using Microsoft.AspNet.Identity
+@using MakerPlatform.Utility;
+@using MakerPlatform.Models;
+@{
+    List<Article> activityForecastArticles = (List<Article>)ViewData["activityForecastArticles"];
+    List<Article> wonderfulActivityArticles = (List<Article>)ViewData["wonderfulActivityArticles"];
+    List<Article> informationArticles = (List<Article>)ViewData["informationArticles"];
+    var returnUrl = "/Article/Index";
+    bool isAdmin = Request.IsAuthenticated && User.IsInRole("Admin") ? true : false;
+}
+<style>
+    .search-section {
+        height: 250px;
+        padding-top: 100px;
+        background-color: rgba(33, 111, 35, 0.74);
+    }
+    .searchButton {
+        display: inline-block;
+        border-top-left-radius:0;
+        border-bottom-left-radius:0;
+    }
+    .searchInput {
+        display: inline-block;
+        width: 100%;
+        max-width: none;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+    /* The tags widget */
+    .tags {
+        list-style: none;
+        margin: 0;
+        padding-left: 0;
+    }
+
+    .tags li {
+        float: left;
+    }
+
+    .tags li a {
+        color:white;
+        font-weight:bold;
+        text-decoration:none;
+        padding: 10px 15px;
+        margin-right: 16px;
+        margin-bottom: 17px;
+        display: inline-block;
+        background: #505050;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+    }
+
+    .tags li a:focus,
+    .tags li a:hover {
+        background-color: rgba(0, 136, 204, 0.88);
+    }
+    .tags > li.active > a, .tags > li.active > a:hover, .tags > li.active > a:focus {
+        color: white;
+        cursor: default;
+        background-color: rgba(0, 136, 204, 0.88);
+    }
+    .pageBar{
+       text-align:center;
+    }
+    .articleBody
+    {
+        min-height:400px;
+    }
+    .article-row
+    {
+        padding:20px 0px;
+    }
+    .imgSizeW-280
+    {
+        height:200px;
+        width:280px;
+    }
+    .descriptionContent {
+       height:150px;
+       overflow:hidden;
+       font-size:18px;
+    }
+    .articleBtn{
+        margin:0 10px;
+    }    
+</style>
+
+<div class="search-section">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-2" style="padding-right:0px;">
+            <div class="form-group">
+
+                <input type="text" class="form-control input-lg searchInput" placeholder="Search">
+
+            </div>
+        </div>
+        <div class="col-md-2" style="padding-left:0px;">
+            <button type="submit" class="btn btn-lg btn-default searchButton"><i class="fa fa-search"></i></button>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="container" style="padding-top:50px;">
+    <div class="row">
+        <div class="col-md-10">
+            <div class="tab-content">
+                <div class="tab-pane active" id="activityforecast">
+                    @if (isAdmin)
+                    {
+                        <a href="/Article/Add?type=@Common.ActivityForecast&returnUrl=@returnUrl?anchor=activityforecast" 
+                           class="btn btn-lg btn-warning" >发布预告</a>
+                    }
+                    <div class="articleBody" id="activityforecastBody"></div>
+                    <div class="pageBar">
+                        <ul id="activityforecastPaginator"></ul>
+                    </div>
+                    
+                </div>
+                <div class="tab-pane" id="wonderfulactivity">
+                    @if (isAdmin)
+                    {
+                        <a href="/Article/Add?type=@Common.WonderfulActivity&returnUrl=@returnUrl?anchor=wonderfulactivity"
+                           class="btn btn-lg btn-warning">发布活动</a>
+                    }
+                    <div class="articleBody" id="wonderfulactivityBody"></div>
+                    <div class="pageBar">
+                        <ul id="wonderfulactivityPaginator"></ul>
+                    </div>
+                </div>
+                <div class="tab-pane" id="information">
+                    @if (isAdmin)
+                    {
+                        <a href="/Article/Add?type=@Common.Information&returnUrl=@returnUrl?anchor=information"
+                           class="btn btn-lg btn-warning">发布资讯</a>
+                    }
+                    <div class="articleBody" id="informationBody"></div>
+                    <div class="pageBar">
+                        <ul id="informationPaginator"></ul>
+
+                    </div>
+                </div>
+            </div> 
+
+        </div>
+        <div class="col-md-2">
+            <div>
+                <h3>Tags</h3>
+            </div>
+            <ul class="tags" id="tagTab">
+                <li class="active"><a name="activityforecast" href="#activityforecast">活动预告</a></li>
+                <li><a name="wonderfulactivity" href="#wonderfulactivity">精彩活动</a></li>
+                <li><a name="information" href="#information">资讯</a></li>
+            </ul> 
+        </div>
+    </div>
+    
+</div>
+<script>
+
+    var anchor = '@Request["anchor"]';
+    $(function () {
+        var atricleType = "";
+        //如果锚点标记不为空，则选中锚点对应的tab
+        if(anchor !=null && anchor !="")
+        {
+            $("a[name=" + anchor + "]").tab("show");
+            articleType = anchor;
+
+        } else {
+            //否则，初始化显示第一个tab
+            $('#tagTab a:first').tab('show');//初始化显示哪个tab 
+            articleType = "activityforecast";
+        }
+        InitialPaginator(articleType);
+        //加载第一页数据
+        LoadFirstPage(articleType);
+
+        $('#tagTab a').click(function (e) {
+
+            //切换时重新生成分页
+            var articleType = this.name;
+            InitialPaginator(articleType);
+            //加载第一页数据
+            LoadFirstPage(articleType);
+
+            e.preventDefault();//阻止a链接的跳转行为 
+            $(this).tab('show');//显示当前选中的链接及关联的content 
+        });
+
+    })
+
+
+    //初始化分页
+    function InitialPaginator(articleType)
+    {
+        //获取数据总页数
+        $.ajax({
+            type: "POST",
+            url: "/Article/GetTotalPage?articleType="+articleType,
+            dataType: "json",
+            async:false,
+            success: function (totalPages) {
+                //超过一页才显示分页
+                if(totalPages >1)
+                {
+                    ConfigPaginator(articleType,totalPages, null);
+                }
+            }
+        });
+
+    }
+
+    function ConfigPaginator(articleType,totalPages,pageUrl)
+    {
+        var options = {
+            size: 'large',            //指定分页条的大小
+            bootstrapMajorVersion: 3,  //指定bootstrap版本，为v3，则容器必须为ul;如果版本为v2，则容器必须为div
+            numberOfPages: 10,         //设置可选分页按钮个数，默认5
+            currentPage: 1,          //当前页
+            totalPages: totalPages,         //总页数（从服务端获取）
+            onPageClicked: function (e, originalEvent, type, page) {
+                //获取分页数据
+                GetPageData(articleType,page);
+            },
+            itemTexts: function (type, page, current) {
+                switch (type) {
+                    case "first":
+                        return "第一页";
+                    case "prev":
+                        return "前一页";
+                    case "next":
+                        return "下一页";
+                    case "last":
+                        return "最后一页";
+                    case "page":
+                        return page;
+                }
+            }
+        }
+
+        $('#' + articleType + "Paginator").bootstrapPaginator(options);
+    }
+
+    function LoadFirstPage(articleType)
+    {
+        GetPageData(articleType,1);
+    }
+
+    //获取分页数据
+    function GetPageData(articleType,currentPage)
+    {
+        //获取分页数据
+        $.ajax({
+            type: "POST",
+            url: "/Article/GetPageData?articleType=" + articleType + "&page=" + currentPage,
+            dataType: "json",
+            async: false,
+            success: function (pageData) {
+
+                //重新渲染articleBody
+                RenderArticleBody(articleType, pageData);
+            }
+        });
+    }
+
+    //重新生成Body
+    function RenderArticleBody(articleType,articles)
+    {
+        var dynamicHtml = "";
+        for (var i = 0; i < articles.length;i++)
+        {
+            
+            var pubTime = eval('new ' + eval(articles[i].Pubtime).source);
+            var pubTimeStr = pubTime.getFullYear() + "/" + pubTime.getMonth() + "/" + pubTime.getDay() + "/ "+
+                            pubTime.getHours()+":"+pubTime.getMinutes();
+            var contentHref ="/Article/ShowContent?id=" + articles[i].Id + "&returnUrl=@returnUrl?anchor="+ articleType;
+            var editHref = "/Article/Edit?id=" + articles[i].Id + "&returnUrl=@returnUrl?anchor=" + articleType;
+            var deleteHref = "/Article/Delete?id=" + articles[i].Id + "&returnUrl=@returnUrl?anchor=" + articleType;
+
+            dynamicHtml += '<div class="row article-row">';
+            dynamicHtml += '<div class="col-md-12">';
+            dynamicHtml += '<h3>' + articles[i].SubTitle+ '</h3>';
+            dynamicHtml += '<h4>' + pubTimeStr + '</h4>';
+            dynamicHtml += '</div>';
+            dynamicHtml += '<div class="col-md-4">';
+            dynamicHtml += '<a href="' + contentHref + '">';
+            dynamicHtml += '<img src="' + articles[i].ArticleImage + '" class="imgSizeW-280" />';
+            dynamicHtml += '</a>';
+            dynamicHtml += '</div>';
+            dynamicHtml += '<div class="col-md-8">';
+            dynamicHtml += '<div class="descriptionContent">';
+            dynamicHtml += articles[i].Description ==null ?"":articles[i].Description;
+            dynamicHtml += '</div>';
+            dynamicHtml += '<a class="btn btn-lg btn-success articleBtn" href="' + contentHref + '">了解更多</a>';
+            
+            var isadmin = '@isAdmin';
+            if(isadmin.toLowerCase() =='true')
+            {
+                dynamicHtml += '<a class="btn btn-lg btn-info articleBtn" href="' + editHref + '">修改</a>';
+                dynamicHtml += '<a class="btn btn-lg btn-danger articleBtn" href="' + deleteHref + '">删除</a>';
+            }
+            dynamicHtml += '</div>';
+            dynamicHtml += '</div>';
+        }
+        $("#" + articleType + "Body").html(dynamicHtml);
+
+    }
+
+</script>

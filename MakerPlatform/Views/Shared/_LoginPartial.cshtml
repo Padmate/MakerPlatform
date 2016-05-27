@@ -29,10 +29,7 @@
                     if (User.IsInRole("Admin"))
                     {
                         <li>
-                            @Html.ActionLink("活动管理", "Activity", "Article")
-                        </li>
-                        <li>
-                            @Html.ActionLink("资讯管理", "Information", "Article")
+                            @Html.ActionLink("文章管理", "Index", "Article")
                         </li>
                         @*<li>
                             @Html.ActionLink("系统管理", "SystemManagement", "Home")

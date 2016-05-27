@@ -13,17 +13,12 @@ namespace MakerPlatform.Controllers
     {
         MakerDBContext _dbContext = new MakerDBContext();
 
-
-        /// <summary>
-        /// 活动
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Activity()
+        public ActionResult Index()
         {
             //活动预告
             List<Article> activityForecastArticles = _dbContext.Atricles
                 .Where(a => a.Type == Common.ActivityForecast)
-                .OrderByDescending(a=>a.Pubtime)
+                .OrderByDescending(a => a.Pubtime)
                 .ToList();
             //精彩活动
             List<Article> wonderfulActivityArticles = _dbContext.Atricles
@@ -31,28 +26,65 @@ namespace MakerPlatform.Controllers
                 .OrderByDescending(a => a.Pubtime)
                 .ToList();
 
-            ViewData["activityForecastArticles"] = activityForecastArticles;
-            ViewData["wonderfulActivityArticles"] = wonderfulActivityArticles;
-
-            return View();
-        }
-
-        /// <summary>
-        /// 资讯
-        /// </summary>
-        /// <returns></returns>
-        public ActionResult Information()
-        {
             //资讯
             List<Article> informationArticles = _dbContext.Atricles
                 .Where(a => a.Type == Common.Information)
                 .OrderByDescending(a => a.Pubtime)
                 .ToList();
 
+
+            ViewData["activityForecastArticles"] = activityForecastArticles;
+            ViewData["wonderfulActivityArticles"] = wonderfulActivityArticles;
             ViewData["informationArticles"] = informationArticles;
+
 
             return View();
         }
+
+        /// <summary>
+        /// 每页显示5tiaoshuj 
+        /// </summary>
+        private int limits = 5;
+
+        /// <summary>
+        /// 获取总页数
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GetTotalPage(string articleType)
+        {
+            var totalCount = _dbContext.Atricles
+                .Where(a => a.Type == articleType).ToList().Count();
+
+            var totalPages = System.Convert.ToInt32(Math.Ceiling((double)totalCount/limits));
+
+            return Json(totalPages);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <param name="page">当前所在页数</param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult GetPageData(string articleType,int page)
+        {
+            //page:第一页表示从第0条数据开始索引
+            Int32 skip = System.Convert.ToInt32((page-1)*limits);
+
+            var pageData = _dbContext.Atricles
+                .Where(a => a.Type == articleType)
+                .OrderByDescending(a => a.Pubtime)
+                .Skip(skip)
+                .Take(limits)
+                .ToList();
+
+            
+            return Json(pageData);
+        }
+        
 
         public ActionResult ShowContent(string id)
         {

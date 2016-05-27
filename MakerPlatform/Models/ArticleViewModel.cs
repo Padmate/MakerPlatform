@@ -47,6 +47,7 @@ namespace MakerPlatform.Models
         [Required(ErrorMessage = "发布时间不能为空")]
         public DateTime Pubtime { get; set; }
 
+
         public string ArticleType { get; set; }
     }
 }

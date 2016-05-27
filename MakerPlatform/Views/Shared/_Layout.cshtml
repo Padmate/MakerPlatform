@@ -38,16 +38,18 @@
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/bootstrap-paginator.js"></script>
     <script src="~/Scripts/bootstrap-datetimepicker/bootstrap-datetimepicker.js"></script>
     <script src="~/Scripts/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
 
+    
     @RenderSection("scripts", required: false)
 
-    <div class="container body-content" style="margin-top:50px;">
-        <div style="min-height:600px;">
-            @RenderBody()
+    <div style="min-height: 600px;">
+        @RenderBody()
 
-        </div>
+    </div>
+    <div class="container" style="margin-top:50px;">
         <hr />
         <footer>
             <p>Copyright &copy; Intelligent Plus</p>
