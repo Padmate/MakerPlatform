@@ -1145,13 +1145,14 @@
                 @{
                     for (int i = 0; i < activityForecastArticles.Count; i++)
                     {
-                        var contentHref = "/Article/ShowContent?id="+activityForecastArticles[i].Id+"&returnUrl=/Home/Default&anchor=activity";
+                        var contentHref = "/Article/ShowContent?id="+activityForecastArticles[i].Id+"&returnUrl=/Home";
                         var aHref = activityForecastArticles[i].IsHref ? activityForecastArticles[i].Href : contentHref;
+                        var aTarget = activityForecastArticles[i].IsHref ? "_blank" : "_self";
                         
                         if (i >= 3) { break; };
                         <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
                             <div class="service-box">
-                                <a href="@aHref" class="information-box">
+                                <a href="@aHref" class="information-box" target="@aTarget">
                                     <img class="imgSize-250" src="@activityForecastArticles[i].ArticleImage" />
                                     <div class="information-box-caption">
                                         <div class="information-box-caption-content">
@@ -1183,13 +1184,14 @@
                 @{
                     for (int i = 0; i < wonderfulActivityArticles.Count; i++)
                     {
-                        var contentHref = "/Article/ShowContent?id="+wonderfulActivityArticles[i].Id+"&returnUrl=/Home/Default&anchor=activity";
-                        var aHref = activityForecastArticles[i].IsHref ? activityForecastArticles[i].Href : contentHref;
+                        var contentHref = "/Article/ShowContent?id="+wonderfulActivityArticles[i].Id+"&returnUrl=/Home";
+                        var aHref = wonderfulActivityArticles[i].IsHref ? wonderfulActivityArticles[i].Href : contentHref;
+                        var aTarget = wonderfulActivityArticles[i].IsHref ? "_blank" : "_self";
                         
                         if (i >= 3) { break; };
                         <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
                             <div class="service-box">
-                                <a href="@aHref" class="information-box">
+                                <a href="@aHref" class="information-box" target="@aTarget">
                                     <img class="imgSize-250" src="@wonderfulActivityArticles[i].ArticleImage" />
                                     <div class="information-box-caption">
                                         <div class="information-box-caption-content">
@@ -1217,7 +1219,7 @@
                 <div class="col-md-2 col-md-offset-10">
                     <h4>
                         <i class="fa fa-refresh" aria-hidden="true"></i>
-                        <a href="/Article/Activity" style="cursor: pointer; color: #3498DB;" target="_blank">
+                        <a href="/Article/Activity" style="cursor: pointer; color: #3498DB;">
                             更多活动...
                         </a>
                     </h4>
@@ -1235,26 +1237,17 @@
                 <h3 class="section-subheading text-muted">最新资讯随时分享</h3>
             </div>
         </div>
-        @*<div class="row" style="margin:50px auto;">
-            <div class="col-md-7 col-md-offset-2">
-                <div class="form-group">
-                    <input type="text" class="form-control input-lg" placeholder="查找你感兴趣的资讯">
-                </div>
-            </div>
-            <div class="col-md-2">
-                <button type="submit" class="btn btn-lg btn-danger">Search</button>
-            </div>
-        </div>*@
         <div class="row no-gutter">
             @{
                 for (int i = 0; i < informationArticles.Count; i++)
                 {
-                    var contentHref = "/Article/ShowContent?id=" + informationArticles[i].Id + "&returnUrl=/Home/Default&anchor=information";
+                    var contentHref = "/Article/ShowContent?id=" + informationArticles[i].Id + "&returnUrl=/Home";
                     var aHref = informationArticles[i].IsHref ? informationArticles[i].Href : contentHref;
-
+                    var aTarget = informationArticles[i].IsHref ? "_blank" : "_self";
+                    
                     if (i >= 6) { break; };
                     <div class="col-lg-4 col-md-6">
-                        <a href="@aHref" class="information-box">
+                        <a href="@aHref" class="information-box" target="@aTarget">
                             <img class="imgSize-250" src="@informationArticles[i].ArticleImage" />
                             <div class="information-box-caption">
                                 <div class="information-box-caption-content">
@@ -1275,7 +1268,7 @@
             <div class="col-md-2 col-md-offset-10">
                 <h4>
                     <i class="fa fa-refresh" aria-hidden="true"></i>
-                    <a href="/Article/Information" style="cursor: pointer; color: #3498DB;" target="_blank">
+                    <a href="/Article/Information" style="cursor: pointer; color: #3498DB;">
                         更多资讯...
                     </a>
                 </h4>

@@ -1,4 +1,5 @@
 ﻿@using MakerPlatform.Models;
+@using MakerPlatform.Utility;
 @model MakerPlatform.Models.ArticleViewModel
 @{
     Article article = (Article)ViewData["article"];
@@ -11,6 +12,11 @@
         max-width: 50%;
         line-height: 35px;
         height: 35px;
+    }
+    .textareaS {
+        height: 150px;
+        width: 50%;
+        max-width: 50%;
     }
     .imgSize-250{
         height:250px;
@@ -57,7 +63,7 @@
                 @Html.LabelFor(m => m.Description, "文章描述：")
             </div>
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Description, new { @placeholder = "文章描述", @class = "inputS",@Value = article.Description })
+                <textarea class="textareaS" id="Description" name="Description">@article.Description</textarea>
                 @Html.ValidationMessageFor(m => m.Description, null)
             </div>
         </div>
@@ -68,22 +74,28 @@
             <div class="col-md-10">
                 <input type="file" id="articleImage" name="articleImage" accept=".jpg,.png,.jpeg,.gif" />
             </div>
-            <div class="col-lg-4 col-md-6" style="padding-right:25px;margin-top:10px;">
-                @{
-                    string imgalt = string.Empty ;
-                    if(string.IsNullOrEmpty(article.ArticleImage))
-                    {
-                        
-                        <img class="imgSize-250" id="showUploadImage" src="~/img/upload_default.jpg" />
-                            
+          
+            <div class="col-lg-4 col-md-6" style="margin-top:10px;">
+                
+                
+                @if (!string.IsNullOrEmpty(article.Type) && article.Type == Common.Information)
+                {
+                    var imgSrc = "../img/upload_default1.jpg";
+                    if(!string.IsNullOrEmpty(article.ArticleImage)){
+                        imgSrc = article.ArticleImage;
                     }
-                    else
-                    {
-                        <img class="imgSize-250" id="showUploadImage" src="@article.ArticleImage" />
-                        
-                    }
+                    <img style="width:645px; height: 250px;" id="showUploadImage" src="@imgSrc" />
                 }
+                else
+                {
+                    var imgSrc = "../img/upload_default.jpg";
+                    if (!string.IsNullOrEmpty(article.ArticleImage))
+                    {
+                        imgSrc = article.ArticleImage;
+                    }
+                    <img style="width:350px;height:250px;" id="showUploadImage" src="@imgSrc" />
 
+                }
             </div>
         </div>
         <div class="form-group">

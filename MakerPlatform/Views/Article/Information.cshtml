@@ -54,13 +54,11 @@
                     <div class="col-md-2 contentStyle text-center">
                         <ul style="list-style:none;padding-left:0px;">
                             <li class="dropdown">
+                                <a class="anodecoration" href="/Article/Edit?id=@article.Id&returnUrl=@returnUrl">编辑</a>
                                 <a href="javaScript:void(0)" class="dropdown-toggle anodecoration" data-toggle="dropdown">
-                                    编 辑
-                                    <b class=" caret">
-                                    </b>
+                                    <i class="fa fa-caret-down"></i>
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="anodecoration" href="/Article/Edit?id=@article.Id&returnUrl=@returnUrl">修改</a></li>
                                     <li><a class="anodecoration" href="/Article/Delete?id=@article.Id&returnUrl=@returnUrl">删除</a></li>
                                 </ul>
                             </li>

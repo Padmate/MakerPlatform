@@ -11,6 +11,11 @@
          line-height:35px;
          height:35px;
      }
+     .textareaS {
+         height:150px;
+         width: 50%;
+         max-width: 50%;
+     }
      .imgSize-250 {
          height: 250px;
          width: 100%;
@@ -73,7 +78,7 @@
                 @Html.LabelFor(m => m.Description, "文章描述：")
             </div>
             <div class="col-md-10">
-                @Html.TextBoxFor(m => m.Description, new { @placeholder = "文章描述", @class = "inputS" })
+                @Html.TextAreaFor(m => m.Description, new { @class = "textareaS" })
                 @Html.ValidationMessageFor(m => m.Description, null)
             </div>
         </div>
