@@ -170,6 +170,8 @@
     <!-- Header -->
     <header>
         <div class="container">
+            
+
             <div class="intro-text">
                 <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
                 <div class="intro-heading">Intelligent Plus</div>
@@ -1912,7 +1914,22 @@
             InitTabPanel();
             InitialModal();
 
+            //SlideHeaderBG();
         })
+        
+        var bgNum = 0;
+        var bgImgArr = ["../img/header.jpg", "../img/header-bg.jpg", "../img/header-bg1.jpg"];
+        
+        function SlideHeaderBG()
+        {
+
+            if (!bgNum || bgNum > bgImgArr.length) { bgNum = 0; }
+            $("header").css("background-image", "url(" + bgImgArr[0] + ")");
+            $("header").css("opacity ", 1);
+            bgNum++;
+            setTimeout(SlideHeaderBG(), 4000);
+           
+        }
 
         function TOHref()
         {
