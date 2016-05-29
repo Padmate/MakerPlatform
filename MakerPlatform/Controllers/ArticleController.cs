@@ -41,26 +41,7 @@ namespace MakerPlatform.Controllers
             return View();
         }
 
-        /// <summary>
-        /// 每页显示5tiaoshuj 
-        /// </summary>
-        private int limits = 5;
 
-        /// <summary>
-        /// 获取总页数
-        /// </summary>
-        /// <param name="type"></param>
-        /// <returns></returns>
-        [HttpPost]
-        public ActionResult GetTotalPage(string articleType)
-        {
-            var totalCount = _dbContext.Atricles
-                .Where(a => a.Type == articleType).ToList().Count();
-
-            var totalPages = System.Convert.ToInt32(Math.Ceiling((double)totalCount/limits));
-
-            return Json(totalPages);
-        }
 
         /// <summary>
         /// 
@@ -69,20 +50,36 @@ namespace MakerPlatform.Controllers
         /// <param name="page">当前所在页数</param>
         /// <returns></returns>
         [HttpPost]
-        public ActionResult GetPageData(string articleType,int page)
+        public ActionResult GetPageData(AtricleSearchModel articleSearchModel)
         {
-            //page:第一页表示从第0条数据开始索引
-            Int32 skip = System.Convert.ToInt32((page-1)*limits);
+            //每页显示数据条数
+            int limits = 5;
+            var articleType = articleSearchModel.ArticleType;
+            var subTitle = articleSearchModel.SubTitle;
+            var currentPage = articleSearchModel.page;
 
-            var pageData = _dbContext.Atricles
-                .Where(a => a.Type == articleType)
-                .OrderByDescending(a => a.Pubtime)
-                .Skip(skip)
-                .Take(limits)
-                .ToList();
+            var query = _dbContext.Atricles
+                .Where(a => a.Type == articleType);
+
+            //过滤查询条件
+            if (!string.IsNullOrEmpty(subTitle))
+                query = query.Where(a=>a.SubTitle.Contains(subTitle));
+
+            //总条数
+            var totalCount = query.ToList().Count();
+            var totalPages = System.Convert.ToInt32(Math.Ceiling((double)totalCount / limits));
 
             
-            return Json(pageData);
+            //page:第一页表示从第0条数据开始索引
+            Int32 skip = System.Convert.ToInt32((currentPage - 1) * limits);
+            //当前分页条数
+            var pageData = query.OrderByDescending(a => a.Pubtime)
+            .Skip(skip)
+            .Take(limits)
+            .ToList();
+
+            PageResult<Article> result = new PageResult<Article>(totalPages, pageData);
+            return Json(result);
         }
         
 

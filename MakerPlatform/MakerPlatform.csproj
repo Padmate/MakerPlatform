@@ -182,9 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201605261130383_initial.cs" />
-    <Compile Include="Migrations\201605261130383_initial.Designer.cs">
-      <DependentUpon>201605261130383_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201605281242025_initial.cs" />
+    <Compile Include="Migrations\201605281242025_initial.Designer.cs">
+      <DependentUpon>201605281242025_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -718,6 +718,7 @@
     <Content Include="Content\bootstrap-datetimepicker.css" />
     <Content Include="Content\bootstrap-datetimepicker.min.css" />
     <Content Include="Content\bootstrap-table.css" />
+    <Content Include="Content\buttons.css" />
     <Content Include="Content\SuspendedNavMac.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -741,6 +742,7 @@
     <Content Include="img\about\4.jpg" />
     <Content Include="img\about\introduce.jpg" />
     <Content Include="img\about\introduce.png" />
+    <Content Include="img\bg-green.jpg" />
     <Content Include="img\header-bg.jpg" />
     <Content Include="img\header-bg1.jpg" />
     <Content Include="img\header-bg2.jpg" />
@@ -1042,8 +1044,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201605261130383_initial.resx">
-      <DependentUpon>201605261130383_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201605281242025_initial.resx">
+      <DependentUpon>201605281242025_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

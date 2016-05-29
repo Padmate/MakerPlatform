@@ -50,4 +50,10 @@ namespace MakerPlatform.Models
 
         public string ArticleType { get; set; }
     }
+
+    public class AtricleSearchModel : BaseModel
+    {
+        public string ArticleType { get; set; }
+        public string SubTitle { get; set; }
+    }
 }

@@ -8,14 +8,26 @@ namespace MakerPlatform.Models
     public class PageResult<T>
     {
         #region BootStrap Table
-        public int total { get; set; }
+        //public int total { get; set; }
 
-        public List<T> rows { get; set; }
+        //public List<T> rows { get; set; }
 
-        public PageResult(int totalCount, List<T> pageRows)
+        //public PageResult(int totalCount, List<T> pageRows)
+        //{
+        //    total = totalCount;
+        //    rows = pageRows;
+        //}
+        #endregion
+
+        #region BootStrap Paginator
+        public Int32 totalPages { get; set; }
+
+        public List<T> pageDatas { get; set; }
+
+        public PageResult(Int32 totalpages, List<T> pageResult)
         {
-            total = totalCount;
-            rows = pageRows;
+            totalPages = totalpages;
+            pageDatas = pageResult;
         }
         #endregion
     }

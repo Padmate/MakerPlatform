@@ -12,5 +12,13 @@ namespace MakerPlatform.Models
         //偏移量
         public int offset { get; set; }
         #endregion
+
+        #region BootStrap Paginator
+        
+        /// <summary>
+        /// 当前页码
+        /// </summary>
+        public int page { get; set; }
+        #endregion
     }
 }
