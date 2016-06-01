@@ -228,6 +228,10 @@ ul.social-buttons{margin-bottom:0}ul.social-buttons li a{display:block;backgroun
     height: 500px;
     width: 100%;
 }
+.imgSize-800 {
+    height: 800px;
+    width: 100%;
+}
 
 .customerFont 
 {

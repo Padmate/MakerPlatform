@@ -169,14 +169,52 @@
 
     <!-- Header -->
     <header>
-        <div class="container">
-            
-
-            <div class="intro-text">
-                <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
-                <div class="intro-heading">Intelligent Plus</div>
-                <a href="#services" class="page-scroll btn btn-xl wow slideInDown">Tell Me More</a>
+        <div id="headbg-img" class="carousel slide">
+            <!-- 轮播（Carousel）指标 -->
+            <ol class="carousel-indicators">
+                @*<li data-target="#headbg-img" data-slide-to="0" class="active"></li>
+                <li data-target="#headbg-img" data-slide-to="1"></li>
+                <li data-target="#headbg-img" data-slide-to="2"></li>*@
+            </ol>
+            <!-- 轮播（Carousel）项目 -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="../img/header.jpg" style="height:800px;width:100%;">
+                    <div class="carousel-caption">
+                        <div class="intro-text">
+                            <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
+                            <div class="intro-heading">Intelligent Plus</div>
+                            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../img/header-bg1.jpg" style="height:800px;width:100%;">
+                    <div class="carousel-caption">
+                        <div class="intro-text">
+                            <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
+                            <div class="intro-heading">Intelligent Plus</div>
+                            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../img/header-bg2.jpg" style="height:800px;width:100%;">
+                    <div class="carousel-caption">
+                        <div class="intro-text">
+                            <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
+                            <div class="intro-heading">Intelligent Plus</div>
+                            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                        </div>
+                    </div>
+                </div>
+                
             </div>
+            <!-- 轮播（Carousel）导航 -->
+            <a class="carousel-control left" href="#headbg-img"
+               data-slide="prev"><span class="icon-prev"></span></a>
+            <a class="carousel-control right" href="#headbg-img"
+               data-slide="next"><span class="icon-next"></span></a>
         </div>
     </header>
     <!-- #eregion Services Section -->
@@ -1901,7 +1939,12 @@
             </div>
         </div>
     </footer>
+
     <script>
+
+        var bgNum = 0;
+        var bgImgArr = ["../img/header-bg.jpg", "../img/header-bg1.jpg", "../img/header.jpg"];
+
         $(function () {
 
 
@@ -1914,22 +1957,9 @@
             InitTabPanel();
             InitialModal();
 
-            //SlideHeaderBG();
+           
         })
         
-        var bgNum = 0;
-        var bgImgArr = ["../img/header.jpg", "../img/header-bg.jpg", "../img/header-bg1.jpg"];
-        
-        function SlideHeaderBG()
-        {
-
-            if (!bgNum || bgNum > bgImgArr.length) { bgNum = 0; }
-            $("header").css("background-image", "url(" + bgImgArr[0] + ")");
-            $("header").css("opacity ", 1);
-            bgNum++;
-            setTimeout(SlideHeaderBG(), 4000);
-           
-        }
 
         function TOHref()
         {
@@ -1970,6 +2000,11 @@
 
         //初始化轮播图片
         function InitCarousel() {
+            $('#headbg-img').carousel({
+                interval: 6000,
+                pause: 'cycle'
+            });
+
             $('#service-scpt-img').carousel({
                 interval: 2000,
                 pause: 'hover'

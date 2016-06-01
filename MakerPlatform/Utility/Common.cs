@@ -33,7 +33,15 @@ namespace MakerPlatform.Utility
         };
         #endregion
 
-        
+        #region 图片类型
+
+        public const string Image_HomeBG = "homebg";
+
+
+        public static Dictionary<string, string> Dic_ImageType = new Dictionary<string, string>(){
+            {Image_HomeBG,"首页背景图片"}
+        };
+        #endregion
     }
 
     public static class SystemRole

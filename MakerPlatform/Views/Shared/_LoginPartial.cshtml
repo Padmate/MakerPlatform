@@ -29,6 +29,9 @@
                     if (User.IsInRole("Admin"))
                     {
                         <li>
+                            @Html.ActionLink("系统管理", "SystemManage", "Home")
+                        </li>
+                        <li>
                             @Html.ActionLink("文章管理", "Index", "Article")
                         </li>
                         @*<li>

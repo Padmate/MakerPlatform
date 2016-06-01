@@ -1,0 +1,75 @@
+﻿@using MakerPlatform.Utility;
+@{
+  var returnUrl = @Request["returnUrl"];
+}
+<style>
+    .nav-tabs > li {
+        margin-bottom: -1px;
+        clear: both;
+        width: 100%;
+    }
+</style>
+<div class="container" id="manageTab">
+    <div class="row">
+        <div class="col-md-2">
+            <p class="lead">系统管理</p>
+            <ul class="nav nav-tabs list-nav" id="manageTab">
+                <li class="active">
+                    <a href="#homebg-image">首页图片</a>
+                </li>
+                <li>
+                    <a href="#password">密码管理</a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-10">
+            <div class="tab-content">
+                <div class="tab-pane active" id="homebg-image" style="width:100%">
+                    
+                    
+
+                </div>
+                <div class="tab-pane" id="password" style="width:100%"> 
+                密码管理-暂无功能
+                
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+
+
+    $(document).ready(function () {
+
+        $('#manageTab a:first').tab('show');//初始化显示哪个tab
+        LoadHomeBGImage();
+
+        $('#manageTab a').click(function (e) {
+
+            e.preventDefault();//阻止a链接的跳转行为
+            $(this).tab('show');//显示当前选中的链接及关联的content
+
+
+        });
+
+    });
+
+    //加载首页背景图片
+    function LoadHomeBGImage()
+    {
+        $.ajax({
+            type: "POST",
+            url: "/Home/GetHomeBGImages",
+            dataType: "json",
+            async: false,   //同步
+            success: function (imageUrls) {
+
+                
+
+            }
+        });
+    }
+
+</script>
