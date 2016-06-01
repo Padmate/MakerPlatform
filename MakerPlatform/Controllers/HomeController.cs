@@ -114,16 +114,15 @@ namespace MakerPlatform.Controllers
         /// <returns></returns>
         [HttpPost]
         [Authorize(Roles = "Admin")]
-        public ActionResult UploadHomeBGImage(ImageViewModel model, HttpPostedFileBase bgImage)
+        public ActionResult UploadHomeBGImage(ImageViewModel model, string id, string name, string type, string lastModifiedDate, int size, HttpPostedFileBase file)
         {
-            if (ModelState.IsValid)
-            {
+                string virtualUrl = "";
+            
                 try
                 {
-                    string virtualUrl = "";
-                    if (bgImage != null)
+                    if (file != null)
                     {
-                        FileInfo articleImageFile = new FileInfo(bgImage.FileName);
+                        FileInfo articleImageFile = new FileInfo(file.FileName);
                         string saveName = Guid.NewGuid().ToString() + articleImageFile.Extension;
                         virtualUrl = Path.Combine(homebgVirtualFloader, saveName);
                         string physicleDirectory = Server.MapPath(homebgVirtualFloader);
@@ -132,32 +131,39 @@ namespace MakerPlatform.Controllers
                         {
                             System.IO.Directory.CreateDirectory(physicleDirectory);
                         }
-                        bgImage.SaveAs(physicalUrl);
+                        file.SaveAs(physicalUrl);
 
                     }
+                    //图片顺序
+                    var totalImages = _dbContext.Images.Where(i => i.Type == Common.Image_HomeBG).ToList();
+                    var sequence = totalImages.Count + 1;
 
                     var imageModel = new Image()
                     {
                         ImageUrl = virtualUrl,
-                        Sequence = model.Sequence,
+                        Sequence = sequence,
                         Type = Common.Image_HomeBG
                     };
 
                     _dbContext.Images.Add(imageModel);
                     _dbContext.SaveChanges();
 
-                    return View(model);
                     
                 }catch(Exception e){
-                    ModelState.AddModelError("", "上传失败:" + e.Message);
-                    return View(model);
+                    return Json(new { jsonrpc = 2.0, error = new { code = 102, message = "上传失败" }, id = id });
                 }
-                
-            }
 
-            return View(model);
+
+
+                return Json(new
+                {
+                    jsonrpc = "2.0",
+                    id = id,
+                    filePath = virtualUrl
+                });
             
         }
+
         #endregion
 
     }

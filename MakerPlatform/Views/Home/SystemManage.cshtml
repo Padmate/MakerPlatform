@@ -2,6 +2,10 @@
 @{
   var returnUrl = @Request["returnUrl"];
 }
+
+<link rel="stylesheet" type="text/css" href="~/Scripts/webuploader/webuploader.css">
+<script src="~/Scripts/webuploader/webuploader.js"></script>
+<script src="~/Scripts/webuploader/webuploaderdefault.js"></script>
 <style>
     .nav-tabs > li {
         margin-bottom: -1px;
@@ -26,7 +30,23 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="homebg-image" style="width:100%">
                     
-                    
+                    <div id="uploader" class="wu-example">
+                        <div class="queueList">
+                            <div id="dndArea" class="placeholder">
+                                <div id="filePicker"></div>
+                                <p>或将照片拖到这里，单次最多可选300张</p>
+                            </div>
+                        </div>
+                        <div class="statusBar" style="display:none;">
+                            <div class="progress">
+                                <span class="text">0%</span>
+                                <span class="percentage"></span>
+                            </div><div class="info"></div>
+                            <div class="btns">
+                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
+                            </div>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="tab-pane" id="password" style="width:100%"> 
@@ -54,7 +74,74 @@
 
         });
 
+        
+        //InitWebUploader();
+
     });
+
+    function InitWebUploader()
+    {
+        var obj = {
+            Type: "aaaa",
+            Sequence: 2
+        };
+
+        // 初始化Web Uploader
+        var uploader = WebUploader.create({
+            auto: false,   // 选完文件后，是否自动上传。
+            swf: '../Scripts/webuploader/Uploader.swf',
+            server: '/Home/UploadHomeBGImage',
+            formData: obj,  //额外参数传递
+            pick: {
+                id: '#filePicker',
+                label: '点击选择图片'
+            },
+            //pick: '#filePicker',  // 选择文件的按钮。可选。内部根据当前运行是创建，可能是input元素，也可能是flash.
+            accept: {           // 只允许选择图片文件。
+                title: 'Images',
+                extensions: 'gif,jpg,jpeg,bmp,png',
+                mimeTypes: 'image/*'
+            }
+        });
+
+        $list = $('#fileList'),
+        // 优化retina, 在retina下这个值是2
+        ratio = window.devicePixelRatio || 1,
+        // 缩略图大小
+        thumbnailWidth = 110 * ratio,
+        thumbnailHeight = 110 * ratio,
+
+        // 当有文件添加进来的时候
+        uploader.on('fileQueued', function (file) {
+            var $li = $(
+                    '<div id="' + file.id + '" class="file-item thumbnail">' +
+                        '<img>' +
+                    '</div>'
+                    ),
+                $img = $li.find('img');
+
+
+            // $list为容器jQuery实例
+            $list.append($li);
+
+            // 创建缩略图
+            // 如果为非图片文件，可以不用调用此方法。
+            // thumbnailWidth x thumbnailHeight 为 100 x 100
+            uploader.makeThumb(file, function (error, src) {
+                if (error) {
+                    $img.replaceWith('<span>不能预览</span>');
+                    return;
+                }
+
+                $img.attr('src', src);
+            }, thumbnailWidth, thumbnailHeight);
+        });
+    }
+
+    function test()
+    {
+
+    }
 
     //加载首页背景图片
     function LoadHomeBGImage()
