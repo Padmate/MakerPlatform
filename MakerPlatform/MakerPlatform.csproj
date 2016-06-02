@@ -1075,6 +1075,9 @@
     <Content Include="Scripts\l-by-l.min.js" />
     <Content Include="Scripts\lazyload\jquery.lazyload.js" />
     <Content Include="Scripts\lazyload\jquery.lazyload.min.js" />
+    <Content Include="Scripts\loading\jquery.showLoading.js" />
+    <Content Include="Scripts\loading\jquery.showLoading.min.js" />
+    <Content Include="Scripts\loading\showLoading.css" />
     <Content Include="Scripts\slick\css\pacifico.svg" />
     <Content Include="Scripts\slick\css\style.css" />
     <Content Include="Scripts\slick\slick\ajax-loader.gif" />

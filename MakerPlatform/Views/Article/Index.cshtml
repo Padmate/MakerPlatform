@@ -270,6 +270,8 @@
             "page": currentPage
         };
 
+        //添加遮罩
+        $(".search-section").showLoading();
         //获取数据总页数
         $.ajax({
             type: "POST",
@@ -281,7 +283,8 @@
 
                 resultData.totalPages = result.totalPages;
                 resultData.data = result.pageDatas;
-
+                //添加遮罩
+                $(".search-section").hideLoading();
             }
         });
 
