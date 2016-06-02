@@ -745,6 +745,7 @@
     <Content Include="img\about\4.jpg" />
     <Content Include="img\about\introduce.jpg" />
     <Content Include="img\about\introduce.png" />
+    <Content Include="img\addimage.jpg" />
     <Content Include="img\addimage.png" />
     <Content Include="img\bg-green.jpg" />
     <Content Include="img\header-bg.jpg" />
@@ -1051,7 +1052,9 @@
     <Content Include="ckfinder\skins\bootstrap\assets\fonts\glyphicons-halflings-regular.woff2" />
     <Content Include="ckfinder\userfiles\.htaccess" />
     <None Include="Properties\PublishProfiles\MakerPlatform.pubxml" />
+    <None Include="Properties\PublishProfiles\serviceplatform - FTP %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\serviceplatform - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\serviceplatform - Web Deploy %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\serviceplatform - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\wwwroot.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
