@@ -53,8 +53,8 @@
     .imageButtonDiv{
         position:absolute;
     }
-    .deleteImage{
-    }
+
+    
 </style>
 
 <div class="container" id="manageTab">
@@ -85,6 +85,7 @@
                     </div>
 
                     <div>
+                        <h3 class="text-center text-primary">拖动图片进行排序，图片顺序即为首页轮播顺序</h3>
                         <ul id="imageList">
                            
                         </ul>
@@ -261,7 +262,9 @@
                     dynamicHtml += '<div class="imageButtonPanel">';
                     dynamicHtml += '<a href="javaScript:void(0)" class="deleteImage"><i class="fa fa-lg fa-remove"></i></a>';
                     dynamicHtml += '</div>';
-                    dynamicHtml +='</li>';
+                    dynamicHtml += '</li>';
+
+                    
                        
                 }
                 $("#imageList").html(dynamicHtml);
