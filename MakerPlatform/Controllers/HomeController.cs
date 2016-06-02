@@ -45,6 +45,13 @@ namespace MakerPlatform.Controllers
             ViewData["wonderfulActivityArticles"] = wonderfulActivityArticles;
             ViewData["informationArticles"] = informationArticles;
 
+            //首页图片
+            List<Image> homebgImages = _dbContext.Images
+                .Where(i=>i.Type == Common.Image_HomeBG)
+                .OrderBy(i=>i.Sequence)
+                .ToList();
+            ViewData["homebgImages"] = homebgImages;
+
             return View();
         }
 
@@ -88,22 +95,69 @@ namespace MakerPlatform.Controllers
         /// <returns></returns>
         public ActionResult GetHomeBGImages()
         {
-            List<string> bgImageUrls = new List<string>();
-            string physicleDirectory = Server.MapPath(homebgVirtualFloader);
+            var bgImages = _dbContext.Images
+                .Where(i=>i.Type == Common.Image_HomeBG)
+                .OrderBy(i=>i.Sequence)
+                .ToList();
 
+            return Json(bgImages);
+           
+        }
 
-            string[] allFiles = System.IO.Directory.GetFiles(physicleDirectory);
-            foreach (string file in allFiles)
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="images"></param>
+        /// <returns></returns>
+        [HttpPost]
+        public ActionResult UpdateImageSequence()
+        {
+
+            StreamReader srRequest = new StreamReader(Request.InputStream);
+            String strReqStream = srRequest.ReadToEnd();
+            List<ImageViewModel> images = JsonHandler.DeserializeJsonToObject<List<ImageViewModel>>(strReqStream);
+
+            if(images !=null)
             {
-                System.IO.FileInfo fi = new System.IO.FileInfo(file);
-                if (AllowImageExtensions.Contains(fi.Extension.ToLower()))
+                 foreach(var image in images)
                 {
-                    var imageUrl = Path.Combine(homebgVirtualFloader, fi.Name);
-                    bgImageUrls.Add(imageUrl);
-
+                    var model = _dbContext.Images.Where(i=>i.Id == image.Id).FirstOrDefault();
+                    if (model != null)
+                    {
+                        model.Sequence = image.Sequence;
+                        _dbContext.SaveChanges();
+                    }
                 }
             }
-            return Json(bgImageUrls);
+           
+
+
+            return Json(true);
+        }
+
+        [HttpPost]
+        public ActionResult DeleteImage(int Id)
+        {
+            try{
+                var image = _dbContext.Images.Where(i => i.Id == Id).FirstOrDefault();
+                if (image != null)
+                {
+                    //删除原来图片
+                    if (!string.IsNullOrEmpty(image.ImageUrl))
+                    {
+                        if (System.IO.File.Exists(Server.MapPath(image.ImageUrl)))
+                            System.IO.File.Delete(Server.MapPath(image.ImageUrl));
+                    }
+
+
+                    _dbContext.Images.Remove(image);
+                    _dbContext.SaveChanges();
+                }
+
+            }catch{
+                return Json(false);
+            }
+            return Json(true);
         }
 
         /// <summary>
@@ -117,7 +171,9 @@ namespace MakerPlatform.Controllers
         public ActionResult UploadHomeBGImage(ImageViewModel model, string id, string name, string type, string lastModifiedDate, int size, HttpPostedFileBase file)
         {
                 string virtualUrl = "";
-            
+                Message message = new Message();
+                message.Success = true;
+
                 try
                 {
                     if (file != null)
@@ -150,17 +206,11 @@ namespace MakerPlatform.Controllers
 
                     
                 }catch(Exception e){
-                    return Json(new { jsonrpc = 2.0, error = new { code = 102, message = "上传失败" }, id = id });
+                    message.Success = false;
+                    message.Content = "上传失败，服务端出现异常";
                 }
 
-
-
-                return Json(new
-                {
-                    jsonrpc = "2.0",
-                    id = id,
-                    filePath = virtualUrl
-                });
+                return Json(message);
             
         }
 

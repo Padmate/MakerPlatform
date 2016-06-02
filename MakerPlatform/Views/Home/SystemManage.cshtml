@@ -3,16 +3,60 @@
   var returnUrl = @Request["returnUrl"];
 }
 
+<script>
+    jQuery.browser = {}; (function () { jQuery.browser.msie = false; jQuery.browser.version = 0; if (navigator.userAgent.match(/MSIE ([0-9]+)./)) { jQuery.browser.msie = true; jQuery.browser.version = RegExp.$1; } })();
+</script>
 <link rel="stylesheet" type="text/css" href="~/Scripts/webuploader/webuploader.css">
 <script src="~/Scripts/webuploader/webuploader.js"></script>
-<script src="~/Scripts/webuploader/webuploaderdefault.js"></script>
+<script src="~/Scripts/jquery.dragsort-0.5.1.js"></script>
+
 <style>
     .nav-tabs > li {
         margin-bottom: -1px;
         clear: both;
         width: 100%;
     }
+    #imageList {
+        list-style-type: none;
+        margin: 0px;
+        padding:0px;
+    }
+
+    #imageList li{
+        float: left;
+        padding: 5px;
+        width: 304px;
+        height: 200px;
+        position:relative;
+    }
+
+    /*1900*1250 比例缩小*/
+    .imageSmall {
+        width: 288px;
+        height: 190px;
+    }
+    .imageButtonPanel{
+        position:absolute;
+        width:100%;
+        top:0;
+        z-index:300;
+
+    }
+    .imageButtonPanel a{
+        height:40px;
+        line-height:40px;
+        width:40px;
+        float:right;
+        position:relative;
+        color:lightgray;
+    }
+    .imageButtonDiv{
+        position:absolute;
+    }
+    .deleteImage{
+    }
 </style>
+
 <div class="container" id="manageTab">
     <div class="row">
         <div class="col-md-2">
@@ -30,23 +74,22 @@
             <div class="tab-content">
                 <div class="tab-pane active" id="homebg-image" style="width:100%">
                     
-                    <div id="uploader" class="wu-example">
-                        <div class="queueList">
-                            <div id="dndArea" class="placeholder">
-                                <div id="filePicker"></div>
-                                <p>或将照片拖到这里，单次最多可选300张</p>
-                            </div>
-                        </div>
-                        <div class="statusBar" style="display:none;">
-                            <div class="progress">
-                                <span class="text">0%</span>
-                                <span class="percentage"></span>
-                            </div><div class="info"></div>
-                            <div class="btns">
-                                <div id="filePicker2"></div><div class="uploadBtn">开始上传</div>
-                            </div>
-                        </div>
+                    <div></div>
+                    <!--dom结构部分-->
+                    <div id="uploader-demo">
+                        <!--用来存放item-->
+                        <div id="fileList" class="uploader-list"></div>
+                        <img src="~/img/addimage.jpg" alt="添加图片" />
+                        <div id="filePicker">添加图片</div>
+                        <div id="status"></div>
                     </div>
+
+                    <div>
+                        <ul id="imageList">
+                           
+                        </ul>
+                    </div>
+                    
 
                 </div>
                 <div class="tab-pane" id="password" style="width:100%"> 
@@ -75,9 +118,63 @@
         });
 
         
-        //InitWebUploader();
+        InitWebUploader();
 
+        
+        $("#imageList").dragsort({
+            dragSelector: "li",
+            dragBetween: true,
+            dragEnd: saveOrder,
+            placeHolderTemplate: "<li></li>"
+        });
+
+        
     });
+
+    function BindDeleteImageFun()
+    {
+        $(".deleteImage").click(function () {
+            var imageId = $(this).parent().parent().attr("id");
+            $.ajax({
+                type: "POST",
+                url: "/Home/DeleteImage",
+                dataType: "json",
+                data: { Id: imageId },
+                async: false,   //同步
+                success: function (status) {
+                    //重新加载图片
+                    LoadHomeBGImage();
+                }
+            });
+        });
+    }
+
+    function saveOrder() {
+        
+        var imageListDic = [];
+        $('#imageList').find('li').each(function () {
+            var imgId = $(this).attr("id");
+            var imgSequence = $(this).index();
+            var obj = {
+                Id: imgId,
+                Sequence:imgSequence
+            };
+            imageListDic.push(obj);
+        })
+
+        var jsonParam = JSON.stringify(imageListDic); 
+        $.ajax({
+            type: "POST",
+            url: "/Home/UpdateImageSequence",
+            dataType: "json",
+            data: jsonParam,
+            async: false,   //同步
+            success: function (status) {
+                //图片更新后不做任何操作
+            }
+        });
+       
+    };
 
     function InitWebUploader()
     {
@@ -88,59 +185,52 @@
 
         // 初始化Web Uploader
         var uploader = WebUploader.create({
-            auto: false,   // 选完文件后，是否自动上传。
+            auto: true,   // 选完文件后，是否自动上传。
             swf: '../Scripts/webuploader/Uploader.swf',
             server: '/Home/UploadHomeBGImage',
             formData: obj,  //额外参数传递
-            pick: {
-                id: '#filePicker',
-                label: '点击选择图片'
-            },
+            duplicate:true, //可重复上传同一文件
+            pick: '#filePicker',
             //pick: '#filePicker',  // 选择文件的按钮。可选。内部根据当前运行是创建，可能是input元素，也可能是flash.
             accept: {           // 只允许选择图片文件。
                 title: 'Images',
                 extensions: 'gif,jpg,jpeg,bmp,png',
                 mimeTypes: 'image/*'
+            },
+            fileSingleSizeLimit: 1 * 1024 * 1024 // 单个文件最大不能超过1 M 
+        });
+
+        uploader.on('error', function (handler) {
+
+            if (handler == "Q_EXCEED_NUM_LIMIT") {
+                alert("超出最大张数");
+            }
+            if (handler == "F_DUPLICATE") {
+                alert("文件重复");
+            }
+            if (handler == "F_EXCEED_SIZE")
+            {
+                $("#status").html("<lable style='color:red;'>图片大小不能超过1M</lable>");
             }
         });
 
-        $list = $('#fileList'),
-        // 优化retina, 在retina下这个值是2
-        ratio = window.devicePixelRatio || 1,
-        // 缩略图大小
-        thumbnailWidth = 110 * ratio,
-        thumbnailHeight = 110 * ratio,
 
-        // 当有文件添加进来的时候
-        uploader.on('fileQueued', function (file) {
-            var $li = $(
-                    '<div id="' + file.id + '" class="file-item thumbnail">' +
-                        '<img>' +
-                    '</div>'
-                    ),
-                $img = $li.find('img');
-
-
-            // $list为容器jQuery实例
-            $list.append($li);
-
-            // 创建缩略图
-            // 如果为非图片文件，可以不用调用此方法。
-            // thumbnailWidth x thumbnailHeight 为 100 x 100
-            uploader.makeThumb(file, function (error, src) {
-                if (error) {
-                    $img.replaceWith('<span>不能预览</span>');
-                    return;
-                }
-
-                $img.attr('src', src);
-            }, thumbnailWidth, thumbnailHeight);
+        // 文件上传成功，给item添加成功class, 用样式标记上传成功。
+        uploader.on('uploadSuccess', function (file, response) {
+            if (response.Success =="false")
+            {
+                $("#status").html("<lable style='color:red;'>"+response.Content+"</lable>");
+            } else {
+                //上传成功，则重新加载图片
+                LoadHomeBGImage();
+            }
+            
         });
-    }
 
-    function test()
-    {
-
+        // 完成上传完了，成功或者失败，先删除进度条。
+        uploader.on('uploadComplete', function (file) {
+            //$('#' + file.id).find('.progress').remove();
+        });
     }
 
     //加载首页背景图片
@@ -151,10 +241,25 @@
             url: "/Home/GetHomeBGImages",
             dataType: "json",
             async: false,   //同步
-            success: function (imageUrls) {
+            success: function (bgImages) {
 
-                
-
+                $("#imageList").html("");
+                var dynamicHtml=""
+                for (var i = 0; i < bgImages.length;i++)
+                {
+                    dynamicHtml += '<li id="'+bgImages[i].Id+'">';
+                    dynamicHtml += '<img src="' + bgImages[i].ImageUrl + '" class="imageSmall">';
+                    dynamicHtml += '<div class="imageButtonPanel">';
+                    dynamicHtml += '<a href="javaScript:void(0)" class="deleteImage"><i class="fa fa-lg fa-remove"></i></a>';
+                    dynamicHtml += '</div>';
+                    dynamicHtml +='</li>';
+                       
+                }
+                $("#imageList").html(dynamicHtml);
+                //绑定删除事件
+                BindDeleteImageFun();
+                //清除状态
+                $("#status").html("");
             }
         });
     }

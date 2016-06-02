@@ -8,7 +8,8 @@
     List<Article> activityForecastArticles = (List<Article>)ViewData["activityForecastArticles"];
     List<Article> wonderfulActivityArticles = (List<Article>)ViewData["wonderfulActivityArticles"];
     List<Article> informationArticles = (List<Article>)ViewData["informationArticles"];
-    
+
+    List<Image> homebgImages = (List<Image>)ViewData["homebgImages"];
     
 }
 
@@ -172,49 +173,39 @@
         <div id="headbg-img" class="carousel slide">
             <!-- 轮播（Carousel）指标 -->
             <ol class="carousel-indicators">
-                @*<li data-target="#headbg-img" data-slide-to="0" class="active"></li>
-                <li data-target="#headbg-img" data-slide-to="1"></li>
-                <li data-target="#headbg-img" data-slide-to="2"></li>*@
             </ol>
             <!-- 轮播（Carousel）项目 -->
             <div class="carousel-inner">
-                <div class="item active">
-                    <img src="../img/header.jpg" style="height:800px;width:100%;">
-                    <div class="carousel-caption">
-                        <div class="intro-text">
-                            <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
-                            <div class="intro-heading">Intelligent Plus</div>
-                            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                @for (int i = 0; i < homebgImages.Count;i++ )
+                {
+                    var activeClass ="";
+                    if(i==0)
+                    {
+                        activeClass = "active";
+                    }
+                    <div class="item @activeClass">
+                        <img src="@homebgImages[i].ImageUrl" style="height:800px;width:100%;">
+                        <div class="carousel-caption">
+                            <div class="intro-text">
+                                <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
+                                <div class="intro-heading">Intelligent Plus</div>
+                                <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="item">
-                    <img src="../img/header-bg1.jpg" style="height:800px;width:100%;">
-                    <div class="carousel-caption">
-                        <div class="intro-text">
-                            <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
-                            <div class="intro-heading">Intelligent Plus</div>
-                            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="../img/header-bg2.jpg" style="height:800px;width:100%;">
-                    <div class="carousel-caption">
-                        <div class="intro-text">
-                            <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
-                            <div class="intro-heading">Intelligent Plus</div>
-                            <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
-                        </div>
-                    </div>
-                </div>
+                }
                 
             </div>
-            <!-- 轮播（Carousel）导航 -->
-            <a class="carousel-control left" href="#headbg-img"
-               data-slide="prev"><span class="icon-prev"></span></a>
-            <a class="carousel-control right" href="#headbg-img"
-               data-slide="next"><span class="icon-next"></span></a>
+            @if(homebgImages.Count >1)
+            {
+                //超过一张才需要轮播导航按钮
+                <!-- 轮播（Carousel）导航 -->
+                <a class="carousel-control left" href="#headbg-img"
+                   data-slide="prev"><span class="icon-prev"></span></a>
+                <a class="carousel-control right" href="#headbg-img"
+                   data-slide="next"><span class="icon-next"></span></a>
+            }
+            
         </div>
     </header>
     <!-- #eregion Services Section -->

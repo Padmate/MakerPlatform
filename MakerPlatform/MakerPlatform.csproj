@@ -182,9 +182,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201606011254053_initial.cs" />
-    <Compile Include="Migrations\201606011254053_initial.Designer.cs">
-      <DependentUpon>201606011254053_initial.cs</DependentUpon>
+    <Compile Include="Migrations\201606020620254_initial.cs" />
+    <Compile Include="Migrations\201606020620254_initial.Designer.cs">
+      <DependentUpon>201606020620254_initial.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -745,6 +745,7 @@
     <Content Include="img\about\4.jpg" />
     <Content Include="img\about\introduce.jpg" />
     <Content Include="img\about\introduce.png" />
+    <Content Include="img\addimage.png" />
     <Content Include="img\bg-green.jpg" />
     <Content Include="img\header-bg.jpg" />
     <Content Include="img\header-bg1.jpg" />
@@ -1060,6 +1061,7 @@
     <Content Include="Scripts\classie.js" />
     <Content Include="Scripts\contact_me.js" />
     <Content Include="Scripts\jail\jail.min.js" />
+    <Content Include="Scripts\jquery.dragsort-0.5.1.js" />
     <Content Include="Scripts\jqzoom-2.3\css\jquery.jqzoom.css" />
     <Content Include="Scripts\jqzoom-2.3\js\jquery-1.6.js" />
     <Content Include="Scripts\jqzoom-2.3\js\jquery.jqzoom-core-pack.js" />
@@ -1162,8 +1164,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201606011254053_initial.resx">
-      <DependentUpon>201606011254053_initial.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201606020620254_initial.resx">
+      <DependentUpon>201606020620254_initial.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

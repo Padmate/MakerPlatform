@@ -13,7 +13,7 @@ namespace MakerPlatform.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201606011254053_initial"; }
+            get { return "201606020620254_initial"; }
         }
         
         string IMigrationMetadata.Source
