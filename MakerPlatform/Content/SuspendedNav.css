@@ -11,7 +11,7 @@
     left: 0;
     z-index: 1999;
     background-color:transparent;
-    border: 1px solid #ccc;
+    border: 1px solid #8EC31E;
     margin: 10% 0 0 10px;
     -webkit-border-radius: 6px;
     -moz-border-radius: 6px;
@@ -20,6 +20,12 @@
     -webkit-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     -moz-box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.nav-float-title{
+    background-color: #8EC31E; 
+    border-radius: 20px 0px 0px; 
+    font-size: large;color:white;
 }
 
 .nav-float li {
@@ -52,9 +58,9 @@
 
 .suspendedBtn{
     float: right;
-    width: 40px; 
-    height: 40px; 
-    line-height: 40px; 
+    width: 25px; 
+    height: 60px; 
+    line-height: 60px; 
     border-radius: 0px 5px 5px 0; 
     text-align: center; 
     background-color:rgba(131, 206, 31, 0.68);

@@ -1,0 +1,121 @@
+﻿/*****鼠标移动到图片显示文字*****/
+.image-box {
+    display: block;
+    position: relative;
+    margin: 0 auto;
+}
+
+.image-box .image-box-caption {
+    display: block;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    color: #fff;
+    opacity: 0;
+    background: rgba(85, 85, 85, 0.69);
+    -webkit-transition: all .35s;
+    -moz-transition: all .35s;
+    transition: all .35s;
+}
+.image-box .image-box-caption .image-box-caption-content {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    text-align: center;
+    transform: translateY(-50%);
+}
+.image-box .image-box-caption .image-box-caption-content .project-category,
+.image-box .image-box-caption .image-box-caption-content .project-name {
+    padding: 0 15px;
+    font-family: 'Open Sans','Helvetica Neue',Arial,sans-serif;
+}
+
+.image-box .image-box-caption .image-box-caption-content .project-category {
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.image-box .image-box-caption .image-box-caption-content .project-name {
+    font-size: 18px;
+}
+
+.image-box:hover .image-box-caption {
+    opacity: 1;
+}
+
+@media(min-width:768px) {
+    .image-box .image-box-caption .image-box-caption-content .project-category {
+        font-size: 16px;
+    }
+
+    .image-box .image-box-caption .image-box-caption-content .project-name {
+        font-size: 22px;
+    }
+}
+/**********/
+/******字体随着屏幕宽度改变*******/
+@media(max-width:480px) {
+   
+}
+
+@media(max-width: 768px) {
+  
+     /*各模块大标题*/
+    section h2.section-heading{
+        font-size:30px;
+    }
+    section h3.section-subheading{
+        font-size:14px;
+    }
+    .service-heading{
+        font-size:16px;
+    }
+    .customerFont{font-size:16px;}
+}
+@media (min-width: 768px) and (max-width: 992px) {
+  
+
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+ 
+
+}
+/********************************/
+
+/****图片按比例****/
+.image-auto {
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+}
+.image-bigsize {
+    width: 1920px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    /*height:1080px;*/
+}
+.image-mediumsize{
+    width: 960px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    /*height:540px;*/
+}
+.image-smallsize {
+    width: 480px;
+    max-width: 100%;
+    height: auto;
+    margin: 0 auto;
+    /*height:270px;*/
+}
+
+/****导航条字体****/
+.nav-title {
+    /*text-shadow: 1px 1px #3c763d, 2px 2px #3c763d, 3px 3px #3c763d, 4px 4px #3c763d,5px 5px #3c763d;*/
+    font-weight:500;
+    font-size:larger;
+}

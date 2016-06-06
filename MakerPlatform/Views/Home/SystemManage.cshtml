@@ -79,7 +79,8 @@
                     <div id="uploader-demo">
                         <!--用来存放item-->
                         <div id="fileList" class="uploader-list"></div>
-                        <img src="~/img/addimage.jpg" alt="添加图片" />
+                        <div style="color: #31b0d5; ">图片分辨率大小：1920*1080</div>
+                        
                         <div id="filePicker">添加图片</div>
                         <div id="status"></div>
                     </div>
@@ -123,7 +124,7 @@
 
         
         $("#imageList").dragsort({
-            dragSelector: "li",
+            dragSelector: "img",
             dragBetween: true,
             dragEnd: saveOrder,
             placeHolderTemplate: "<li></li>"
@@ -192,6 +193,7 @@
             formData: obj,  //额外参数传递
             duplicate:true, //可重复上传同一文件
             pick: '#filePicker',
+            compress:false, //图片不压缩
             //pick: '#filePicker',  // 选择文件的按钮。可选。内部根据当前运行是创建，可能是input元素，也可能是flash.
             accept: {           // 只允许选择图片文件。
                 title: 'Images',

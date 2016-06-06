@@ -52,6 +52,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right login-box">
-        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl = Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", style = "color: #8ece1f;" })</li>
+        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl = Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", @class="nav-title", style = "color: #8ece1f;" })</li>
     </ul>
 }

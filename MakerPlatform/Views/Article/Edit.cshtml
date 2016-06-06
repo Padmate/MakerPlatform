@@ -80,20 +80,20 @@
                 
                 @if (!string.IsNullOrEmpty(article.Type) && article.Type == Common.Information)
                 {
-                    var imgSrc = "../img/upload_default1.jpg";
+                    var imgSrc = "../img/medium_model.jpg";
                     if(!string.IsNullOrEmpty(article.ArticleImage)){
                         imgSrc = article.ArticleImage;
                     }
-                    <img style="width:645px; height: 250px;" id="showUploadImage" src="@imgSrc" />
+                    <img class="image-mediumsize" id="showUploadImage" src="@imgSrc" />
                 }
                 else
                 {
-                    var imgSrc = "../img/upload_default.jpg";
+                    var imgSrc = "../img/small_model.jpg";
                     if (!string.IsNullOrEmpty(article.ArticleImage))
                     {
                         imgSrc = article.ArticleImage;
                     }
-                    <img style="width:350px;height:250px;" id="showUploadImage" src="@imgSrc" />
+                    <img class="image-smallsize" id="showUploadImage" src="@imgSrc" />
 
                 }
             </div>

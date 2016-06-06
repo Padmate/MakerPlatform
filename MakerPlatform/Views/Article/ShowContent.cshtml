@@ -3,7 +3,8 @@
 @{
     Article article = (Article)ViewData["article"];
     var returnUrl = @Request["returnUrl"];
-
+    var anchor = @Request["anchor"];
+    var returnRui = anchor != null && anchor != "" ? returnUrl + "#" + anchor : returnUrl;
 }
 
 
@@ -11,7 +12,7 @@
     <div class="row">
         <div class="col-md-12">
             <h3>
-                <a href='@returnUrl' style="text-decoration:none;"><i class="fa fa-arrow-circle-left"></i> 返回</a>
+                <a href='@returnRui' style="text-decoration:none;"><i class="fa fa-arrow-circle-left"></i> 返回</a>
 
             </h3>
             

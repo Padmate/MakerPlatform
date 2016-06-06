@@ -24,7 +24,7 @@
     <title>厦门智能﹢创新创业公共服务平台</title>
     <link rel="shortcut icon" href="~/img/logos/favicon.ico" /> 
     <!-- Bootstrap Core CSS -->
-    <link href="~/Content/bootstrap.min.css" rel="stylesheet">
+    <link href="~/Content/bootstrap.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="~/Scripts/slick/css/style.css" rel="stylesheet">
     <link href="~/Scripts/slick/slick/slick.css" rel="stylesheet">
@@ -33,6 +33,8 @@
     <link href="~/Content/agency.css" rel="stylesheet">
     <link href="~/Content/SuspendedNav.css" rel="stylesheet">
     <link href="~/Scripts/jqzoom-2.3/css/jquery.jqzoom.css" rel="stylesheet">
+    <link href="~/Content/system.css" rel="stylesheet">
+    <link href="~/Scripts/superslider/superslider.css" rel="stylesheet">
 
 
     <!-- Custom Fonts -->
@@ -57,7 +59,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand page-scroll" href="/Home">厦门智能<sup>+</sup> 创新创业公共服务平台</a>
+                <a class="navbar-brand page-scroll nav-title" href="/Home">厦门智能<sup>+</sup> 创新创业公共服务平台</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -67,19 +69,19 @@
                         <a href="#page-top">首页</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#services">服务</a>
+                        <a class="page-scroll nav-title" href="#services">服务</a>
                     </li>
                     <li>
-                        <a class="page-scroll" id="a-activity" href="#activity">活动</a>
+                        <a class="page-scroll nav-title" id="a-activity" href="#activity">活动</a>
                     </li>
                     <li>
-                        <a class="page-scroll" id="a-information" href="#information">资讯</a>
+                        <a class="page-scroll nav-title" id="a-information" href="#information">资讯</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#shop">商城</a>
+                        <a class="page-scroll nav-title" href="#shop">商城</a>
                     </li>
                     <li>
-                        <a class="page-scroll" href="#about">关于我们</a>
+                        <a class="page-scroll nav-title" href="#about">关于我们</a>
                     </li>
                 </ul>
             </div>
@@ -108,16 +110,19 @@
     <script src="~/Scripts/slick/slick/slick.min.js"></script>
     <!--Print font-->
     <script src="~/Scripts/l-by-l.min.js"></script>
+    <script src="~/Scripts/superslider/jquery.SuperSlide2.js"></script>
+
     
 
     <!--左侧边栏-->
     <div class="nav-float suspendedList">
-        <h4 class="panel-title" style="width:158px;">
+        <h4 class="panel-title" style="width:144px;">
             <a href="javaScript:void(0)" class="suspendedBtn">
-                <i class="fa fa-cog" style="color:white;"></i>
+                <i class="fa fa-lg fa-chevron-left" style="color:white;"></i>
             </a>
         </h4>
         <ul>
+            <li class="nav-float-title"><strong>平台服务</strong></li>
             <li><a class="page-scroll" href="#services-marketplatform"><strong>市场平台</strong></a></li>
             <li><a class="page-scroll" href="#services-productplatform"><strong>产品平台</strong></a></li>
             <li><a class="page-scroll" href="#services-projectplatform"><strong>工程平台</strong></a></li>
@@ -135,7 +140,8 @@
         <ul>
             <!--联系我们-->
             <li>
-                <a class="rightSection page-scroll information-box" href="#contactus" style="display: block; background-color: rgba(52, 152, 219, 0.78);">
+                <a class="rightSection page-scroll information-box" href="#contactus" 
+                   style="display: block; background-color: rgba(52, 152, 219, 0.78)">
                     <i class=" fa fa-phone-square">
                     </i>
                     <div class="information-box-caption">
@@ -151,7 +157,8 @@
             </li>
             <!--返回顶部-->
             <li>
-                <a class="rightSection page-scroll information-box" href="#page-top" style="display: block; background-color: rgba(131, 206, 31, 0.68);">
+                <a class="rightSection page-scroll information-box" href="#page-top" 
+                   style="display: block; background-color: rgba(131, 206, 31, 0.68)">
                     <i class=" fa fa-angle-up">
                     </i>
                     <div class="information-box-caption">
@@ -184,14 +191,14 @@
                         activeClass = "active";
                     }
                     <div class="item @activeClass">
-                        <img src="@homebgImages[i].ImageUrl" style="height:800px;width:100%;">
-                        <div class="carousel-caption">
+                        <img class="image-bigsize" src="@homebgImages[i].ImageUrl" >
+                        @*<div class="carousel-caption">
                             <div class="intro-text">
                                 <div class="intro-lead-in">欢迎来到智能<sup>+</sup> 创新创业公共服务平台</div>
                                 <div class="intro-heading">Intelligent Plus</div>
                                 <a href="#services" class="page-scroll btn btn-xl">Tell Me More</a>
                             </div>
-                        </div>
+                        </div>*@
                     </div>
                 }
                 
@@ -201,15 +208,37 @@
                 //超过一张才需要轮播导航按钮
                 <!-- 轮播（Carousel）导航 -->
                 <a class="carousel-control left" href="#headbg-img"
-                   data-slide="prev"><span class="icon-prev"></span></a>
+                   data-slide="prev"><span class="icon-prev" style="font-size: 50px; top: 70%;"></span></a>
                 <a class="carousel-control right" href="#headbg-img"
-                   data-slide="next"><span class="icon-next"></span></a>
+                   data-slide="next"><span class="icon-next" style="font-size: 50px; top: 70%;"></span></a>
             }
             
         </div>
+        
     </header>
+    <section class="service-section" style="padding-bottom:0px;">
+        
+        <div class="row">
+            <div class="col-md-12 service-section-halfcolumn wow slideInLeft">
+
+                <a class="information-box">
+                    <img class="image-bigsize" src="../img/Service/BrandPlatform/partner.png" />
+
+                    <div class="information-box-caption">
+                        <div class="information-box-caption-content">
+
+                            <div class="project-name">
+                                合作伙伴
+                            </div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        
+    </section>
     <!-- #eregion Services Section -->
-    <section id="services" style="padding-bottom:0px;">
+    <section id="services" style="padding-top:60px;padding-bottom:0px;">
         <div class="row" style="background-image:url(../img/tour-bg.png);">
             <div class="col-lg-12 text-center" style="margin:30px auto;">
                 <h2 class="section-heading">Service</h2>
@@ -221,7 +250,7 @@
     <section id="services-marketplatform" class="service-section">
         <div class="container">
             <div class="row">
-                <div class="col-md-5 service-section-halfcolumn wow slideInLeft" >
+                <div class="col-xs-12 col-is-12 col-sm-5 col-md-5 service-section-halfcolumn wow slideInLeft" >
                     <div id="service-scpt-img" class="carousel slide">
                         <!-- 轮播（Carousel）指标 -->
                         <ol class="carousel-indicators">
@@ -232,15 +261,15 @@
                         <!-- 轮播（Carousel）项目 -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img class="imgSize-200" src="~/img/Service/MarketPlatform/2015.5.23海西创客论坛1.jpg" >
+                                <img class="image-mediumsize" src="~/img/Service/MarketPlatform/2015.5.23海西创客论坛1.jpg" >
 
                             </div>
                             <div class="item">
-                                <img class="imgSize-200" src="~/img/Service/MarketPlatform/2015.5.23海西创客论坛2.jpg">
+                                <img class="image-mediumsize" src="~/img/Service/MarketPlatform/2015.5.23海西创客论坛2.jpg">
 
                             </div>
                             <div class="item">
-                                <img class="imgSize-200" src="~/img/Service/MarketPlatform/2016.1American_CES_Show-1.jpg">
+                                <img class="image-mediumsize" src="~/img/Service/MarketPlatform/2016.1American_CES_Show-1.jpg">
 
                            
                              </div>
@@ -253,7 +282,7 @@
                     </div>
 
                 </div>
-                <div class="col-md-7 service-section-halfcolumn wow slideInRight">
+                <div class="col-xs-12 col-is-12 col-sm-7 col-md-7 service-section-halfcolumn wow slideInRight">
                     <h3 class="service-heading">市场平台</h3>
                     <span class="customerFont">
                         进行市场调研、举办论坛讲座和创意创新创业大赛，在国内外知名媒体进行广告宣传、参加国内国际一流展会
@@ -268,19 +297,19 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">产品平台</h3>
+                    <h3 class="service-heading">产品平台</h3>
                     <span class="customerFont"> &nbsp;</span>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-4 col-sm-6 portfolio-item wow slideInLeft" >
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item wow slideInLeft">
                     <a href="#product-zzxm" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/zzxm.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/zzxm.jpg" />
 
                     </a>
                     <div class="portfolio-caption">
@@ -288,14 +317,14 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item">
                     <a href="#product-cxyy" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/cxyy-bg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/cxyy-bg.jpg" />
 
 
                     </a>
@@ -304,14 +333,14 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item wow slideInRight">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item wow slideInRight">
                     <a href="#product-whcy" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/whcy-bg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/whcy-bg.jpg" />
 
                     </a>
                     <div class="portfolio-caption">
@@ -319,14 +348,14 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item  wow slideInLeft">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item  wow slideInLeft">
                     <a href="#product-idmd" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/idmd-bg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/idmd-bg.jpg" />
 
                     </a>
                     <div class="portfolio-caption">
@@ -334,28 +363,28 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item">
                     <a href="#product-yjsj" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/yjsj-bg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/yjsj-bg.jpg" />
                     </a>
                     <div class="portfolio-caption">
                         <h4>硬件设计</h4>
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item  wow slideInRight">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item  wow slideInRight">
                     <a href="#product-rjkf" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/rjkf-bg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/rjkf-bg.jpg" />
 
 
                     </a>
@@ -364,14 +393,14 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item  wow slideInLeft">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item  wow slideInLeft">
                     <a href="#product-khxq" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/khxq-bg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/khxq-bg.jpg" />
 
                     </a>
                     <div class="portfolio-caption">
@@ -379,14 +408,14 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item">
                     <a href="#product-cpzc" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/cpzc-bg.png" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/cpzc-bg.png" />
 
                     </a>
                     <div class="portfolio-caption">
@@ -394,14 +423,14 @@
                         <p class="text-muted"></p>
                     </div>
                 </div>
-                <div class="col-md-4 col-sm-6 portfolio-item  wow slideInRight">
+                <div class="col-is-6 col-sm-4 col-md-4 portfolio-item  wow slideInRight">
                     <a href="#product-odmoem" class="portfolio-link" data-toggle="modal">
                         <div class="portfolio-hover">
                             <div class="portfolio-hover-content">
                                 点击查看更多
                             </div>
                         </div>
-                        <img class="imgSize-250" src="../img/Service/ProductPlatform/odmoem-bg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/ProductPlatform/odmoem-bg.jpg" />
 
                     </a>
                     <div class="portfolio-caption">
@@ -417,16 +446,16 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">工程平台</h3>
+                    <h3 class="service-heading">工程平台</h3>
                     <span class="customerFont"> &nbsp;</span>
                 </div>
             </div>
             <div class="row panel-row">
-                <div class="col-md-5 service-section-halfcolumn wow slideInLeft">
-                    <img class="imgSize-250" src="../img/Service/ProjectPlatform/sb1.png" />
+                <div class="col-xs-12 col-is-12 col-sm-5 col-md-5 service-section-halfcolumn wow slideInLeft">
+                    <img class="image-smallsize" src="../img/Service/ProjectPlatform/sb1.png" />
 
                 </div>
-                <div class="col-md-7 service-section-halfcolumn wow slideInRight">
+                <div class="col-xs-12 col-is-12 col-sm-7 col-md-7 service-section-halfcolumn wow slideInRight">
                     <h4 class="service-heading">样板制作<i class="fa fa-long-arrow-right" aria-hidden="true"></i>提供外观手板、功能结构手板的3D打印</h4>
                     <ul>
                         <li><span class="customerFont" style="font-style:italic;"> 工业3D打印机</span></li>
@@ -437,7 +466,7 @@
 
             </div>
             <div class="row panel-row">
-                <div class="col-md-7 service-section-halfcolumn text-right wow slideInLeft">
+                <div class="col-xs-12 col-is-12 col-sm-7 col-md-7 service-section-halfcolumn text-right wow slideInLeft">
                     <h4 class="service-heading">&nbsp;</h4>
                     <span class="customerFont" style="font-style:italic;"> 桌面型3D打印机</span><br />
                     <span class="customerFont">
@@ -446,13 +475,13 @@
                     </span>
 
                 </div>
-                <div class="col-md-5 service-section-halfcolumn wow slideInRight">
-                    <img class="imgSize-250" src="../img/Service/ProjectPlatform/sb2.png" />
+                <div class="col-xs-12 col-is-12 col-sm-5 col-md-5 service-section-halfcolumn wow slideInRight">
+                    <img class="image-smallsize" src="../img/Service/ProjectPlatform/sb2.png" />
 
                 </div>
             </div>
             <div class="row panel-row">
-                <div class="col-md-7 service-section-halfcolumn text-right wow slideInLeft">
+                <div class="col-xs-12 col-is-12 col-sm-7 col-md-7 service-section-halfcolumn text-right wow slideInLeft">
                     <h4 class="service-heading">样板制作<i class="fa fa-long-arrow-right" aria-hidden="true"></i>提供客户产品的PCB快板制作，钢网制作，小批量贴片服务</h4>
                     <span class="customerFont" style="font-style:italic;"> 桌面型飞行对中贴片机</span><br />
                     <span class="customerFont">
@@ -460,8 +489,8 @@
                     </span>
 
                 </div>
-                <div class="col-md-5 service-section-halfcolumn wow slideInRight">
-                    <img class="imgSize-200" src="../img/Service/ProjectPlatform/sb3.png" />
+                <div class="col-xs-12 col-is-12 col-sm-5 col-md-5 service-section-halfcolumn wow slideInRight">
+                    <img class="image-smallsize" src="../img/Service/ProjectPlatform/sb3.png" />
 
                 </div>
             </div>
@@ -473,12 +502,12 @@
 
             </div>
             <div class="row panel-row">
-                <div class="col-md-7 service-section-halfcolumn text-right wow slideInLeft">
+                <div class="col-xs-12 col-is-12 col-sm-7 col-md-7 service-section-halfcolumn text-right wow slideInLeft">
                     <h4 class="service-heading">模治检量工具</h4>
                     <span class="customerFont">设计制造模具、工装治具、量具、检具、工具等</span>
 
                 </div>
-                <div class="col-md-5 service-section-halfcolumn wow slideInRight">
+                <div class="col-xs-12 col-is-12 col-sm-5 col-md-5 service-section-halfcolumn wow slideInRight">
                     <div id="project-mzjl-img" class="carousel slide">
                         <!-- 轮播（Carousel）指标 -->
                         <ol class="carousel-indicators">
@@ -489,15 +518,15 @@
                         <!-- 轮播（Carousel）项目 -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="~/img/Service/ProjectPlatform/13-模具车间.jpg" style="height:200px; width:100%" alt="Second slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/13-模具车间.jpg">
                                 <div class="carousel-caption">模具车间</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/13-模具车间-火花机.jpg" style="height: 200px; width: 100%" alt="First slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/13-模具车间-火花机.jpg">
                                 <div class="carousel-caption">模具车间-火花机</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/13-模具车间-慢走丝.jpg" style="height: 200px; width: 100%;" alt="Third slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/13-模具车间-慢走丝.jpg">
                                 <div class="carousel-caption">模具车间-慢走丝</div>
                             </div>
                         </div>
@@ -519,7 +548,7 @@
             </div>
 
             <div class="row panel-row">
-                <div class="col-md-7 service-section-halfcolumn wow slideInLeft">
+                <div class="col-xs-12 col-is-12 col-sm-7 col-md-7 service-section-halfcolumn wow slideInLeft">
                     <div id="project-szsc-img" class="carousel slide">
                         <!-- 轮播（Carousel）指标 -->
                         <ol class="carousel-indicators">
@@ -540,51 +569,51 @@
                         <!-- 轮播（Carousel）项目 -->
                         <div class="carousel-inner">
                             <div class="item active">
-                                <img src="~/img/Service/ProjectPlatform/14-喷涂车间-喷涂设备1.png" style="height:300px; width:100%" alt="Second slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-喷涂车间-喷涂设备1.png">
                                 <div class="carousel-caption">喷涂设备</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-3坐标测量仪1.png" style="height: 300px; width: 100%" alt="First slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-3坐标测量仪1.png">
                                 <div class="carousel-caption">坐标测量仪</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-材料成分检测设备1.png" style="height: 300px; width: 100%;" alt="Third slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-材料成分检测设备1.png">
                                 <div class="carousel-caption">材料成分检测设备</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-恒温恒湿实验机1.png" style="height: 300px; width: 100%" alt="First slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-恒温恒湿实验机1.png">
                                 <div class="carousel-caption">恒温恒湿实验机</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-蓝牙测试仪.png" style="height: 300px; width: 100%;" alt="Third slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-蓝牙测试仪.png">
                                 <div class="carousel-caption">蓝牙测试仪</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-冷热循环实验机.png" style="height: 300px; width: 100%" alt="First slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-冷热循环实验机.png">
                                 <div class="carousel-caption">冷热循环实验机</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-网络分析仪.png" style="height: 300px; width: 100%;" alt="Third slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-网络分析仪.png">
                                 <div class="carousel-caption">网络分析仪</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-示波器.png" style="height: 300px; width: 100%" alt="First slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-示波器.png">
                                 <div class="carousel-caption">示波器</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-实验室-盐雾实验机.png" style="height: 300px; width: 100%;" alt="Third slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-实验室-盐雾实验机.png">
                                 <div class="carousel-caption">盐雾实验机</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-注塑车间-注塑设备2.png" style="height: 300px; width: 100%;" alt="Third slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-注塑车间-注塑设备2.png">
                                 <div class="carousel-caption">注塑设备</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-组装车间-流水线1.png" style="height: 300px; width: 100%" alt="First slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-组装车间-流水线1.png">
                                 <div class="carousel-caption">生产流水线</div>
                             </div>
                             <div class="item">
-                                <img src="~/img/Service/ProjectPlatform/14-组装车间-生产流水线.jpg" style="height: 300px; width: 100%;" alt="Third slide">
+                                <img class="image-smallsize" src="~/img/Service/ProjectPlatform/14-组装车间-生产流水线.jpg">
                                 <div class="carousel-caption">生产流水线</div>
                             </div>
                         </div>
@@ -595,7 +624,7 @@
                            data-slide="next">&rsaquo;</a>
                     </div>
                 </div>
-                <div class="col-md-5 service-section-halfcolumn wow slideInRight">
+                <div class="col-xs-12 col-is-12 col-sm-5 col-md-5 service-section-halfcolumn wow slideInRight">
                     <h4 class="service-heading">试做试产</h4>
                     <ul>
                         <li><span class="customerFont">提供产品的部件检测、材料检测、可靠性试验、电性能检测</span></li>
@@ -633,7 +662,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">制造平台</h3>
+                    <h3 class="service-heading">制造平台</h3>
                     <span class="customerFont"> 大批量生产：承接已开发产品大批量生产、出货<br />专业化制造：承接已开发产品专业化制造</span>
                 </div>
             </div>
@@ -649,7 +678,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">销售平台</h3>
+                    <h3 class="service-heading">销售平台</h3>
                     <span class="customerFont"> 整合、利用传统渠道、有行业影响力的客户、国内电商、跨境电商、B2B、B2C等进行销售</span>
                 </div>
             </div>
@@ -663,109 +692,101 @@
 
                     <div class="tab-content">
                         <div class="tab-pane" id="sellplatform-ctqd">
-                            <div class="row panel-row">
+                            <div class="row">
                                 <div class="col-md-12">
-                                    <div id="sellplatform-ctqd-img" class="carousel slide">
-                                        <!-- 轮播（Carousel）指标 -->
-                                        <ol class="carousel-indicators">
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="0" class="active"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="1"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="2"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="3"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="4"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="5"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="6"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="7"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="8"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="9"></li>
-                                            <li data-target="#sellplatform-ctqd-img" data-slide-to="10"></li>
-                                        </ol>
-                                        <!-- 轮播（Carousel）项目 -->
-                                        <div class="carousel-inner">
-                                            <div class="item active">
-                                                <img style="height:600px;width:100%;"
-                                                      src="../img/Service/SellPlatform/零号门/IMG_20151227_103915.jpg">
+                                    
+                                    <div class="friend">
+                                        <div class="mr_frbox">
+                                            
+                                            <div class="mr_frUl">
+                                                <img class="mr_frBtn mr_frBtnL prev" src="~/img/logos/mfrl.gif" />
+                                                <img class="mr_frBtn mr_frBtnR next" src="~/img/logos/mfrr.gif" />
+                                                <ul>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/零号门/IMG_20151227_103915.jpg">
 
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/零号门/IMG_20151227_102821.jpg">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/零号门/IMG_20151227_102825.jpg">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/龙翔/IMG_20160421_131623.jpg">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/龙翔/IMG_20160421_131535.jpg">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/龙翔/IMG_20160421_131527.jpg">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/美承/b58f8c5494eef01f3ffba721e6fe9925bd317d62.jpg">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/美承/d439b6003af33a8724e6bffec05c10385243b54f.jpg">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/爪蛙卡卡/爪蛙卡卡.png">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/爪蛙卡卡/242dd42a2834349b825497abceea15ce36d3be4a.png">
+
+                                                    </li>
+                                                    <li>
+                                                        <img class="image-mediumsize"
+                                                             src="../img/Service/SellPlatform/爪蛙卡卡/e824b899a9014c082569d18b0d7b02087bf4f44a.jpg">
+
+                                                    </li>
+                                                </ul>
+                                                
+                                                
                                             </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/零号门/IMG_20151227_102821.jpg">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/零号门/IMG_20151227_102825.jpg">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/龙翔/IMG_20160421_131623.jpg">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/龙翔/IMG_20160421_131535.jpg">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/龙翔/IMG_20160421_131527.jpg">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/美承/b58f8c5494eef01f3ffba721e6fe9925bd317d62.jpg">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/美承/d439b6003af33a8724e6bffec05c10385243b54f.jpg">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/爪蛙卡卡/爪蛙卡卡.png">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/爪蛙卡卡/242dd42a2834349b825497abceea15ce36d3be4a.png">
-
-                                            </div>
-                                            <div class="item">
-                                                <img style="height:600px;width:100%;"
-                                                     src="../img/Service/SellPlatform/爪蛙卡卡/e824b899a9014c082569d18b0d7b02087bf4f44a.jpg">
-
-                                            </div>
-
+                                            
                                         </div>
-                                        <!-- 轮播（Carousel）导航 -->
-                                        <a class="carousel-control left" href="#sellplatform-ctqd-img"
-                                           data-slide="prev">&lsaquo;</a>
-                                        <a class="carousel-control right" href="#sellplatform-ctqd-img"
-                                           data-slide="next">&rsaquo;</a>
                                     </div>
                                 </div>
                             </div>
+
+                            
                         </div>
                         <div class="tab-pane" id="sellplatform-gnds">
                             <div class="row" style="margin-right:30px;">
                                 <div class="row" style="margin-right:30px;">
-                                    <div class="col-md-4 col-sm-4">
+                                    <div class="col-is-6 col-sm-4 col-md-2 col-md-offset-1">
                                         <a href="https://shop149606032.taobao.com/" target="_blank">
-                                            <img class="logoStyle" src="../img/Service/SellPlatform/tb_logo.png">
+                                            <img class="image-smallsize" src="../img/Service/SellPlatform/tb_logo.png">
 
                                         </a>
                                     </div>
-                                    <div class="col-md-4 col-sm-4">
+                                    <div class="col-is-6 col-sm-4 col-md-2 col-md-offset-1">
                                         <a href="https://padmate.tmall.com/" target="_blank">
-                                            <img class="logoStyle" src="../img/Service/SellPlatform/tm_logo.png">
+                                            <img class="image-smallsize" src="../img/Service/SellPlatform/tm_logo.png">
 
                                         </a>
                                     </div>
-                                    <div class="col-md-4 col-sm-4">
+                                    <div class="col-is-6 col-sm-4 col-md-2 col-md-offset-1">
                                         <a href="http://padmate.jd.com/" target="_blank">
-                                            <img class="logoStyle" src="../img/Service/SellPlatform/jd_logo.png">
+                                            <img class="image-smallsize" src="../img/Service/SellPlatform/jd_logo.png">
 
                                         </a>
                                     </div>
@@ -777,61 +798,61 @@
                         </div>
                         <div class="tab-pane active" id="sellplatform-kjds">
                             <div class="row" style="margin-right:30px;">
-                                <div class="col-md-3 col-sm-6">
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
                                     <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/alibaba.jpg" />
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/alibaba.jpg" />
 
                                     </a>
                                 </div>
-                                <div class="col-md-3 col-sm-6">
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
                                     <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/Amazon.png" />
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/Amazon.png" />
 
                                     </a>
                                 </div>
-                                <div class="col-md-3 col-sm-6">
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
                                     <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/CES-Asia-logo.jpg" />
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/CES-Asia-logo.jpg" />
 
                                     </a>
                                 </div>
-                                <div class="col-md-3 col-sm-6">
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
                                     <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/CES-Logo.jpg" />
-
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="row" style="margin-right:30px;">
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/chinasourcingfair_Logo.jpg" />
-
-                                    </a>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/hsn.jpg" />
-
-                                    </a>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/Indiegogo_logo.png" />
-
-                                    </a>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/kickstarter-logo-20010.png" />
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/CES-Logo.jpg" />
 
                                     </a>
                                 </div>
                             </div>
                             <div class="row" style="margin-right:30px;">
-                                <div class="col-md-3 col-sm-6">
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
                                     <a href="javaScript:void(0)">
-                                        <img class="logoStyle" src="../img/Service/SellPlatform/qvc-logo.jpg" />
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/chinasourcingfair_Logo.jpg" />
+
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
+                                    <a href="javaScript:void(0)">
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/hsn.jpg" />
+
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
+                                    <a href="javaScript:void(0)">
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/Indiegogo_logo.png" />
+
+                                    </a>
+                                </div>
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
+                                    <a href="javaScript:void(0)">
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/kickstarter-logo-20010.png" />
+
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="row" style="margin-right:30px;">
+                                <div class="col-xs-6 col-is-4 col-sm-3 col-md-2 col-md-offset-1">
+                                    <a href="javaScript:void(0)">
+                                        <img class="image-smallsize" src="../img/Service/SellPlatform/qvc-logo.jpg" />
 
                                     </a>
                                 </div>
@@ -864,35 +885,31 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">供应链管理</h3>
+                    <h3 class="service-heading">供应链管理</h3>
                     <span class="customerFont"> &nbsp;</span>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3 wow slideInLeft">
-                    <img class="imgSize-300" src="../img/Service/SupplyManagement/ccwl1.jpg" />
-
+                <div class="col-xs-12 col-is-6 col-sm-6 col-md-4 col-lg-3 wow slideInLeft">
+                    <img class="image-smallsize" src="../img/Service/SupplyManagement/ccwl1.jpg" />
                     <h4 class="service-heading">仓储物流</h4>
                     <p class="text-muted">产品仓储、物流</p>
                 </div>
-                <div class="col-md-3 wow slideInLeft">
-                    <img class="imgSize-300" src="../img/Service/SupplyManagement/ffps-bg.png" />
-
+                <div class="col-xs-12 col-is-6 col-sm-6 col-md-4 col-lg-3 wow slideInLeft">
+                    <img class="image-smallsize" src="../img/Service/SupplyManagement/ffps-bg.png" />
                     <h4 class="service-heading">分发配送</h4>
                     <p class="text-muted">产品分发配送</p>
                 </div>
-                <div class="col-md-3 wow slideInRight">
-                    <img class="imgSize-300" src="../img/Service/SupplyManagement/cgwf-bg.jpg" />
-
+                <div class="col-xs-12 col-is-6 col-sm-6 col-md-4 col-lg-3 wow slideInRight">
+                    <img class="image-smallsize" src="../img/Service/SupplyManagement/cgwf-bg.jpg" />
                     <h4 class="service-heading">采购外发</h4>
                     <p class="text-muted">
                         承接开发产品所需物料、器件采购<br />
                         承接开发产品零部件加工制造
                     </p>
                 </div>
-                <div class="col-md-3 wow slideInRight">
-                    <img class="imgSize-300" src="../img/Service/SupplyManagement/jygl-bg.jpg" />
-
+                <div class="col-xs-12 col-is-6 col-sm-6 col-md-4 col-lg-3 wow slideInRight">
+                    <img class ="image-smallsize" src="../img/Service/SupplyManagement/jygl-bg.jpg" />
                     <h4 class="service-heading">精益管理</h4>
                     <p class="text-muted">整合供应链、流程再造、ERP等</p>
                 </div>
@@ -905,25 +922,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">品牌经营</h3>
+                    <h3 class="service-heading">品牌经营</h3>
                     <span class="customerFont"> 进行品牌策划、品牌管理、品牌开发、品牌规划等</span>
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-12 service-section-halfcolumn wow slideInLeft">
-                    <a class="information-box">
-                        <img class="imgSize-500" src="../img/Service/BrandPlatform/partner.png" />
-
-                        <div class="information-box-caption">
-                            <div class="information-box-caption-content">
-
-                                <div class="project-name">
-                                    合作伙伴
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                </div>
+                
                 <div class="col-md-12 col-sm-12 service-section-halfcolumn wow slideInRight">
                  
                     @*<a href="~/img/Service/BrandPlatform/MakerLabelBig.jpg" class="jqzoom" rel='gal1' title="创客">
@@ -931,7 +935,7 @@
                     </a>*@
 
                     <a class="information-box">
-                        <img class="imgHeight-200" src="../img/Service/BrandPlatform/MakerLabel1.jpg" />
+                        <img class="image-bigsize" src="../img/Service/BrandPlatform/MakerLabel.jpg" />
 
                         <div class="information-box-caption">
                             <div class="information-box-caption-content">
@@ -967,12 +971,12 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading">导师平台</h3>
+                    <h3 class="service-heading">导师平台</h3>
                     <span class="customerFont"> &nbsp;</span>
                 </div>
             </div>
             <div class="slider responsive row">
-                <div>
+                <div >
                     <div class="team-member" style="margin:50px 80px;margin-bottom:0px;">
                         <img src="~/img/team/lidawei.jpg" class="img-responsive img-circle" alt="">
                         <h4>李大维</h4>
@@ -1021,11 +1025,11 @@
                         </div>
                         <div id="collapseFive" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <div class="col-md-7 col-sm-7">
-                                    <img class="imgSize-500" src="../img/Service/TutorPlatform/zlgh.jpg" />
+                                <div class="col-is-6 col-sm-7 col-md-7">
+                                    <img class="image-auto" width="580" src="../img/Service/TutorPlatform/zlgh.jpg" />
 
                                 </div>
-                                <div class="col-md-5 col-sm-5">
+                                <div class="col-is-6 col-md-5 col-sm-5">
                                     <span class="customerFont">
                                         创新创业战略规划包括总体战略、使命愿景、战略目标设定、战略计划、组织架构、业务选择、经营范围、资源和能力分析SWOT、商业模式及发展战略、保障机制、可行性方案等
                                     </span>
@@ -1083,17 +1087,17 @@
                         </div>
                         <div id="collapseThree" class="panel-collapse collapse">
                             <div class="panel-body">
-                                <div class="col-md-4 col-sm-4">
-                                  
-                                    <img class="imgSize-300" src="../img/Service/TutorPlatform/厦门市众创空间产业协会.jpg" />
+                                <div class="col-is-6 col-sm-4 col-md-4">
+
+                                    <img class="image-smallsize" src="../img/Service/TutorPlatform/厦门市众创空间产业协会.jpg" />
 
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <img class="imgSize-300" src="../img/Service/TutorPlatform/硅谷高创会.png" />
+                                <div class="col-is-6 col-md-4 col-sm-4">
+                                    <img class="image-smallsize" src="../img/Service/TutorPlatform/硅谷高创会.png" />
 
                                 </div>
-                                <div class="col-md-4 col-sm-4">
-                                    <img class="imgSize-300" src="../img/Service/TutorPlatform/11gy_head.jpg" />
+                                <div class="col-is-6 col-md-4 col-sm-4">
+                                    <img class="image-smallsize" src="../img/Service/TutorPlatform/11gy_head.jpg" />
 
                                 </div>
                             </div>
@@ -1125,20 +1129,20 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
-                    <h3 class="section-heading" style="color:white">资金平台</h3>
+                    <h3 class="service-heading" style="color:white">资金平台</h3>
                     <span class="customerFont"> &nbsp;</span>
 
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-7 service-section-halfcolumn wow slideInLeft">
+                <div class="col-is-12 col-sm-6 col-md-6 service-section-halfcolumn wow slideInLeft">
                     <div class="well well-sm">
-                        <img class="imgSize-300" src="../img/Service/FundPlatform/goldegg.jpg" />
+                        <img class="image-smallsize" src="../img/Service/FundPlatform/goldegg.jpg" />
 
                     </div>
 
                 </div>
-                <div class="col-md-5 service-section-halfcolumn wow slideInRight">
+                <div class="col-is-12 col-sm-6 col-md-6 service-section-halfcolumn wow slideInRight">
                     <span class="customerFont" style="color:white">我们旗下有配套的天使投资基金，与券商、律师事务所、会计师事务所等机构密切合作，为创业团队和小微企业量身定制国内外众筹、财务规划、战略规划和股权结构设计等系列服务,后续提供企业包装、商业计划书撰写、路演辅导、融资协助等对接各类创投基金的投融资服务</span>
 
                 </div>
@@ -1165,15 +1169,15 @@
                 @{
                     for (int i = 0; i < activityForecastArticles.Count; i++)
                     {
-                        var contentHref = "/Article/ShowContent?id="+activityForecastArticles[i].Id+"&returnUrl=/Home";
+                        var contentHref = "/Article/ShowContent?id=" + activityForecastArticles[i].Id + "&returnUrl=/Home/Default&anchor=activity";
                         var aHref = activityForecastArticles[i].IsHref ? activityForecastArticles[i].Href : contentHref;
                         var aTarget = activityForecastArticles[i].IsHref ? "_blank" : "_self";
                         
                         if (i >= 3) { break; };
-                        <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
+                        <div class="col-is-6 col-sm-4 col-md-4 text-center">
                             <div class="service-box">
                                 <a href="@aHref" class="information-box" target="@aTarget">
-                                    <img class="imgSize-250" src="@activityForecastArticles[i].ArticleImage" />
+                                    <img class="image-smallsize" src="@activityForecastArticles[i].ArticleImage" />
                                     <div class="information-box-caption">
                                         <div class="information-box-caption-content">
 
@@ -1202,37 +1206,37 @@
                     精彩活动
                 </h4>
                 @{
-                    for (int i = 0; i < wonderfulActivityArticles.Count; i++)
-                    {
-                        var contentHref = "/Article/ShowContent?id="+wonderfulActivityArticles[i].Id+"&returnUrl=/Home";
-                        var aHref = wonderfulActivityArticles[i].IsHref ? wonderfulActivityArticles[i].Href : contentHref;
-                        var aTarget = wonderfulActivityArticles[i].IsHref ? "_blank" : "_self";
-                        
-                        if (i >= 3) { break; };
-                        <div class="col-lg-4 col-md-6 text-center" style="padding-right:25px;">
-                            <div class="service-box">
-                                <a href="@aHref" class="information-box" target="@aTarget">
-                                    <img class="imgSize-250" src="@wonderfulActivityArticles[i].ArticleImage" />
-                                    <div class="information-box-caption">
-                                        <div class="information-box-caption-content">
+    for (int i = 0; i < wonderfulActivityArticles.Count; i++)
+    {
+        var contentHref = "/Article/ShowContent?id=" + wonderfulActivityArticles[i].Id + "&returnUrl=/Home/Default&anchor=activity";
+        var aHref = wonderfulActivityArticles[i].IsHref ? wonderfulActivityArticles[i].Href : contentHref;
+        var aTarget = wonderfulActivityArticles[i].IsHref ? "_blank" : "_self";
 
-                                            <div class="project-name">
-                                                查看详细
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
+        if (i >= 3) { break; };
+        <div class="col-is-6 col-sm-4 col-md-4 text-center" style="padding-right:25px;">
+            <div class="service-box">
+                <a href="@aHref" class="information-box" target="@aTarget">
+                    <img class="image-smallsize" src="@wonderfulActivityArticles[i].ArticleImage" />
+                    <div class="information-box-caption">
+                        <div class="information-box-caption-content">
 
-                                <h4>
-                                    @wonderfulActivityArticles[i].Title
-                                </h4>
-                                <p style="font-size:medium">
-                                    @wonderfulActivityArticles[i].SubTitle
-                                </p>
+                            <div class="project-name">
+                                查看详细
                             </div>
                         </div>
-                    }
-                }
+                    </div>
+                </a>
+
+                <h4>
+                    @wonderfulActivityArticles[i].Title
+                </h4>
+                <p style="font-size:medium">
+                    @wonderfulActivityArticles[i].SubTitle
+                </p>
+            </div>
+        </div>
+    }
+}
                 
             </div>
             <div class="row" style="padding-top:50px;">
@@ -1259,30 +1263,30 @@
         </div>
         <div class="row no-gutter">
             @{
-                for (int i = 0; i < informationArticles.Count; i++)
-                {
-                    var contentHref = "/Article/ShowContent?id=" + informationArticles[i].Id + "&returnUrl=/Home";
-                    var aHref = informationArticles[i].IsHref ? informationArticles[i].Href : contentHref;
-                    var aTarget = informationArticles[i].IsHref ? "_blank" : "_self";
-                    
-                    if (i >= 6) { break; };
-                    <div class="col-lg-4 col-md-6">
-                        <a href="@aHref" class="information-box" target="@aTarget">
-                            <img class="imgSize-250" src="@informationArticles[i].ArticleImage" />
-                            <div class="information-box-caption">
-                                <div class="information-box-caption-content">
-                                    <div class="project-category text-faded">
-                                        &nbsp;
-                                    </div>
-                                    <div class="project-name">
-                                        了解更多
-                                    </div>
-                                </div>
-                            </div>
-                        </a>
+    for (int i = 0; i < informationArticles.Count; i++)
+    {
+        var contentHref = "/Article/ShowContent?id=" + informationArticles[i].Id + "&returnUrl=/Home/Default&anchor=information";
+        var aHref = informationArticles[i].IsHref ? informationArticles[i].Href : contentHref;
+        var aTarget = informationArticles[i].IsHref ? "_blank" : "_self";
+
+        if (i >= 6) { break; };
+        <div class="col-is-6 col-sm-4 col-md-4 ">
+            <a href="@aHref" class="information-box" target="@aTarget">
+                <img class="image-mediumsize" src="@informationArticles[i].ArticleImage" />
+                <div class="information-box-caption">
+                    <div class="information-box-caption-content">
+                        <div class="project-category text-faded">
+                            &nbsp;
+                        </div>
+                        <div class="project-name">
+                            了解更多
+                        </div>
                     </div>
-                }
-            }
+                </div>
+            </a>
+        </div>
+    }
+}
         </div>
         <div class="row" style="padding-top:50px;">
             <div class="col-md-2 col-md-offset-10">
@@ -1303,10 +1307,10 @@
             <div class="shop">
                 <div class="shop-content">
                     <div class="shop-content-inner">
-                        <h1>We are working on this function</h1>
+                        <h1 class="service-heading">商城暂未开放，了解更多请联系我们。</h1>
                         <hr>
                         <p></p>
-                        <a href="#" class="btn btn-primary btn-xl page-scroll">进入商城</a>
+                        <a href="#contactus" class="btn btn-primary btn-xl page-scroll" data-toggle="tooltip" title="线上未开放">进入商城</a>
                     </div>
                 </div>
             </div>
@@ -1326,7 +1330,7 @@
                     <ul class="timeline">
                         <li>
                             <div class="timeline-image">
-                                <img class="img-circle img-responsive" src="~/img/about/introduce.jpg" alt="">
+                                <img class="img-circle image-auto" src="~/img/about/introduce.jpg" alt="">
                             </div>
                             <div class="timeline-panel">
                                 <div class="timeline-heading">
@@ -1470,9 +1474,9 @@
                     </p>
                 </div>
                 <div class="row">
-                    <div class="col-md-3 wow slideInLeft">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInLeft">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/hotwatch.png" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/hotwatch.png" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1484,9 +1488,9 @@
                         </a>
                         <h4> HOT WATCH</h4>
                     </div>
-                    <div class="col-md-3 wow slideInLeft">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInLeft">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/M6.png" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/M6.png" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1498,9 +1502,9 @@
                         </a>
                         <h4> M6</h4>
                     </div>
-                    <div class="col-md-3 wow slideInRight">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInRight">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/nut.jpg" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/nut.jpg" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1512,9 +1516,9 @@
                         </a>
                         <h4> 坚果健身</h4>
                     </div>
-                    <div class="col-md-3 wow slideInRight">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInRight">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/breath1.png" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/breath1.png" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1527,11 +1531,9 @@
                         <h4> 赛客易呼吸智能呼吸训练器</h4>
                     </div>
 
-                </div>
-                <div class="row">
-                    <div class="col-md-3 wow slideInLeft">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInLeft">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/robot.jpg" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/robot.jpg" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1543,9 +1545,9 @@
                         </a>
                         <h4> 手机机器人</h4>
                     </div>
-                    <div class="col-md-3 wow slideInLeft">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInLeft">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/solidwriter.png" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/solidwriter.png" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1559,9 +1561,9 @@
                         </a>
                         <h4> 书沙台</h4>
                     </div>
-                    <div class="col-md-3 wow slideInRight">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInRight">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/pillow.jpg" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/pillow.jpg" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1573,9 +1575,9 @@
                         </a>
                         <h4> 午睡枕</h4>
                     </div>
-                    <div class="col-md-3 wow slideInRight">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInRight">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/moonlight.png" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/moonlight.png" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1587,12 +1589,9 @@
                         </a>
                         <h4> 悦亮灯</h4>
                     </div>
-
-                </div>
-                <div class="row">
-                    <div class="col-md-3 wow slideInLeft">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInLeft">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/intell-jade.png" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/intell-jade.png" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1604,9 +1603,9 @@
                         </a>
                         <h4> 智能玉Mychi</h4>
                     </div>
-                    <div class="col-md-3 wow slideInLeft">
+                    <div class="col-is-6 col-sm-4 col-md-4 wow slideInLeft">
                         <a class="information-box">
-                            <img src="~/img/Service/ProductPlatform/photorobot.png" class="img-responsive" style="height:300px;width:100%" />
+                            <img class="image-smallsize" src="~/img/Service/ProductPlatform/photorobot.png" />
                             <div class="information-box-caption" style="background-color: rgba(128, 128, 128, 0.75)">
                                 <div class="information-box-caption-content">
 
@@ -1619,7 +1618,6 @@
                         </a>
                         <h4> 自拍机器人</h4>
                     </div>
-
                 </div>
 
                 <div class="row">
@@ -1695,7 +1693,7 @@
                             <!-- Project Details Go Here -->
                             <h2>ID & MD</h2>
                             <div class="col-md-12 wow slideInLeft" >
-                                <img src="~/img/Service/ProductPlatform/idmd-MH315.jpg" class="img-responsive"/>
+                                <img class="image-smallsize" src="~/img/Service/ProductPlatform/idmd-MH315.jpg"/>
                             </div>
                             <div class="col-md-12 wow slideInRight">
                                 <span class="customerFont">
@@ -1749,13 +1747,13 @@
                                 <!-- 轮播（Carousel）项目 -->
                                 <div class="carousel-inner">
                                     <div class="item active">
-                                        <img src="~/img/Service/ProductPlatform/09-喷雾仪 Padmate-MS-01.bmp" style="height:300px; width:100%" alt="Second slide">
+                                        <img class="image-smallsize" src="~/img/Service/ProductPlatform/09-喷雾仪 Padmate-MS-01.bmp">
                                     </div>
                                     <div class="item">
-                                        <img src="~/img/Service/ProductPlatform/09-书沙台 P-M01.bmp" style="height: 300px; width: 100%" alt="First slide">
+                                        <img class="image-smallsize" src="~/img/Service/ProductPlatform/09-书沙台 P-M01.bmp">
                                     </div>
                                     <div class="item">
-                                        <img src="~/img/Service/ProductPlatform/09-智能雨伞 Padmate-SUN-01.bmp" style="height: 300px; width: 100%;" alt="Third slide">
+                                        <img class="image-smallsize" src="~/img/Service/ProductPlatform/09-智能雨伞 Padmate-SUN-01.bmp">
                                     </div>
                                 </div>
                                 
@@ -1783,12 +1781,12 @@
                             <!-- Project Details Go Here -->
                             <h2>软件开发</h2>
 
-                            <div class="col-md-4">
-                                <img src="~/img/Service/ProductPlatform/rjkf.jpg" style="height:300px;width:100%;">
+                            <div class="col-is-12 col-sm-4 col-md-4">
+                                <img class="image-smallsize" src="~/img/Service/ProductPlatform/rjkf.jpg">
                                 <p class="customerFont">
                                 </p>
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-is-12 col-sm-8 col-md-8">
                                 <ul class="text-left">
                                     <li>
                                         <span class="customerFont">
@@ -1938,7 +1936,6 @@
 
         $(function () {
 
-
             //初始化wow动画
             new WOW().init();
             InitSuspendedBtn();
@@ -1947,7 +1944,7 @@
             InitSlick();
             InitTabPanel();
             InitialModal();
-
+            InitSuperSlider();
            
         })
         
@@ -1982,9 +1979,15 @@
                 //获取侧边栏相对于left的大小
                 var leftPosition = $(".suspendedList").position().left;
                 if (leftPosition < 0) {
+                    //展开
                     $(".suspendedList").animate({ left: "0px" }, 500);
+                    $(".suspendedBtn").find("i").removeClass("fa-chevron-right");
+                    $(".suspendedBtn").find("i").addClass("fa-chevron-left");
                 } else {
+                    //收起
                     $(".suspendedList").animate({ left: "-130px" }, 500);
+                    $(".suspendedBtn").find("i").removeClass("fa-chevron-left");
+                    $(".suspendedBtn").find("i").addClass("fa-chevron-right");
                 }
             });
         }
@@ -2013,11 +2016,6 @@
             });
 
 
-            $('#sellplatform-ctqd-img').carousel({
-                interval: 2000,
-                pause: 'cycle'
-            });
-
             //modal
             //产品平台-硬件设计
             $('#product-yjsj-img').carousel({
@@ -2034,6 +2032,31 @@
             $(".slide-three").click(function () {
                 $("#product-yjsj-img").carousel(2);
             });
+        }
+
+        //初始化一行多图轮播
+        function InitSuperSlider()
+        {
+            /* 图片滚动效果 */
+            $(".mr_frbox").slide({
+                titCell: "",
+                mainCell: ".mr_frUl ul",
+                autoPage: true,
+                effect: "leftLoop",
+                autoPlay: true,
+                triggerTime: 100,
+                interTime: 2000,
+                vis: 3
+            });
+
+            //$(".mr_frbox").slide({
+            //    mainCell: ".mr_frUl ul",
+            //    autoPlay: true,
+            //    effect: "leftMarquee",
+            //    vis: 3,
+            //    interTime: 50,
+            //    trigger: "click"
+            //});
         }
 
         //初始化收缩面板
