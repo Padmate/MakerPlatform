@@ -202,15 +202,23 @@
             },
             fileSingleSizeLimit: 1 * 1024 * 1024 // 单个文件最大不能超过1 M 
         });
-
-        uploader.on('startUpload', function () {
+        uploader.on('fileQueued', function () {
 
             //开始上传，添加遮罩
             $("body").showLoading();
         });
 
+        uploader.on('startUpload', function () {
+
+            //开始上传，添加遮罩
+            //$("body").showLoading();
+        });
+
 
         uploader.on('error', function (handler) {
+
+            //隐藏遮罩
+            $("body").hideLoading();
 
             if (handler == "Q_EXCEED_NUM_LIMIT") {
                 alert("超出最大张数");
