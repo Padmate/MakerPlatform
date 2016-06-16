@@ -10,30 +10,29 @@
 }
 <style>
     .search-section {
-        height: 250px;
-        padding-top: 100px;
-        background-color: transparent;
-        background: url("../img/tour-bg.png") no-repeat;
-        background-size:cover;
+        background-color: #fff;
+        border: solid 1px lightgray;
+        -webkit-box-shadow: 0 -1px 10px rgba(0,0,0,.5);
+        -moz-box-shadow: 0 -1px 10px rgba(0,0,0,.5);
+        box-shadow: 0 -1px 10px rgba(0,0,0,.5);
     }
     .searchButton {
-        display: inline-block;
+        width:12%;
+
     }
     .searchInput {
         display: inline-block;
-        width: 95%;
+        width: 87%;
         max-width: none;
+        border:none;
     }
     /* The tags widget */
     .tags {
         list-style: none;
-        margin: 0;
+        margin: 20px auto;
         padding-left: 0;
     }
 
-    .tags li {
-        float: right;
-    }
 
     .tags li a {
         color:white;
@@ -65,98 +64,108 @@
     {
         min-height:400px;
     }
-    .article-row
-    {
-        padding:20px 0px;
+    .article-row {
+        background-color: #fff;
+        border: solid 1px lightgray;
+        -webkit-box-shadow: 0 -1px 10px rgba(0,0,0,.5);
+        -moz-box-shadow: 0 -1px 10px rgba(0,0,0,.5);
+        box-shadow: 0 -1px 10px rgba(0,0,0,.5);
+        margin: 20px 0px;
+        padding: 10px 0px;
     }
     .imgSizeW-280
     {
         height:200px;
         width:280px;
     }
-    .descriptionContent {
-       height:150px;
-       overflow:hidden;
-       font-size:18px;
-    }
     .articleBtn{
         margin:0 10px;
-    }    
-
+    }
+    .article-right {
+        background-color: #fff;
+        border: solid 1px lightgray;
+        
+        margin: 20px 0px;
+    }
+    .articlebg {
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        background-image: url("../img/Activity/activitybg.jpg");
+    }
 </style>
 
-<div class="search-section">
-    <div class="row">
-        <div class="col-md-5 col-md-offset-3" style="padding-right:0px;">
-            <div class="form-group">
+<section class="bg-light-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-is-8 col-sm-8 col-md-8" id="left">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="activityforecast">
+                        <h2 class="customer-h2">活动预告</h2>
+                        @if (isAdmin)
+                        {
+                            <a href="/Article/Add?type=@Common.ActivityForecast&returnUrl=@returnUrl?anchor=activityforecast"
+                               class="btn btn-lg btn-warning">发布预告</a>
+                        }
+                        <div class="articleBody" id="activityforecastBody"></div>
+                        <div class="pageBar">
+                            <ul id="activityforecastPaginator"></ul>
+                        </div>
 
-                <input type="text" class="form-control input-lg searchInput" placeholder="Search Titles">
+                    </div>
+                    <div class="tab-pane" id="wonderfulactivity">
+                        <h2 class="customer-h2">精彩活动</h2>
+
+                        @if (isAdmin)
+                        {
+                            <a href="/Article/Add?type=@Common.WonderfulActivity&returnUrl=@returnUrl?anchor=wonderfulactivity"
+                               class="btn btn-lg btn-warning">发布活动</a>
+                        }
+                        <div class="articleBody" id="wonderfulactivityBody"></div>
+                        <div class="pageBar">
+                            <ul id="wonderfulactivityPaginator"></ul>
+                        </div>
+                    </div>
+                    <div class="tab-pane" id="information">
+                        <h2 class="customer-h2">资 讯</h2>
+
+                        @if (isAdmin)
+                        {
+                            <a href="/Article/Add?type=@Common.Information&returnUrl=@returnUrl?anchor=information"
+                               class="btn btn-lg btn-warning">发布资讯</a>
+                        }
+                        <div class="articleBody" id="informationBody"></div>
+                        <div class="pageBar">
+                            <ul id="informationPaginator"></ul>
+
+                        </div>
+                    </div>
+                </div>
 
             </div>
-        </div>
-        <div class="col-md-4" style="padding-left:0px;">
-            <a class="btn btn-lg btn-success searchButton"><strong>SEARCH</strong></a>
-        </div>
+            <div class="col-is-4 col-sm-4 col-md-4">
+                <fieldset class="search-section">
+                    <input type="text" class="form-control input-lg searchInput" placeholder="Search Titles">
+                    <a href="#javaScript:void(0)" class="searchButton"><i class="fa fa-search fa-2x text-info"></i></a>
 
-    </div>
-</div>
+                </fieldset>
 
-
-<div class="container" style="padding-top:50px;">
-    <div class="row">
-        <div class="col-md-10">
-            <div class="tab-content">
-                <div class="tab-pane active" id="activityforecast">
-                    @if (isAdmin)
-                    {
-                        <a href="/Article/Add?type=@Common.ActivityForecast&returnUrl=@returnUrl?anchor=activityforecast" 
-                           class="btn btn-lg btn-warning" >发布预告</a>
-                    }
-                    <div class="articleBody" id="activityforecastBody"></div>
-                    <div class="pageBar">
-                        <ul id="activityforecastPaginator"></ul>
-                    </div>
+                <div class="article-right" style="padding-left:20px;" id="right">
                     
-                </div>
-                <div class="tab-pane" id="wonderfulactivity">
-                    @if (isAdmin)
-                    {
-                        <a href="/Article/Add?type=@Common.WonderfulActivity&returnUrl=@returnUrl?anchor=wonderfulactivity"
-                           class="btn btn-lg btn-warning">发布活动</a>
-                    }
-                    <div class="articleBody" id="wonderfulactivityBody"></div>
-                    <div class="pageBar">
-                        <ul id="wonderfulactivityPaginator"></ul>
-                    </div>
-                </div>
-                <div class="tab-pane" id="information">
-                    @if (isAdmin)
-                    {
-                        <a href="/Article/Add?type=@Common.Information&returnUrl=@returnUrl?anchor=information"
-                           class="btn btn-lg btn-warning">发布资讯</a>
-                    }
-                    <div class="articleBody" id="informationBody"></div>
-                    <div class="pageBar">
-                        <ul id="informationPaginator"></ul>
 
-                    </div>
+                    <ul class="tags" id="tagTab">
+                        <li class="active"><a class="btn btn-xl" name="activityforecast" href="#activityforecast">活动预告</a></li>
+                        <li><a class="btn btn-lg" name="wonderfulactivity" href="#wonderfulactivity">精彩活动</a></li>
+                        <li><a class="btn btn-lg" name="information" href="#information">资 讯</a></li>
+                    </ul>
                 </div>
-            </div> 
-
-        </div>
-        <div class="col-md-2">
-            <div>
-                <h3></h3>
+                
             </div>
-            <ul class="tags" id="tagTab">
-                <li class="active"><a  class="btn-colorful" name="activityforecast" href="#activityforecast">活动预告</a></li>
-                <li><a class="btn-colorful" name="wonderfulactivity" href="#wonderfulactivity">精彩活动</a></li>
-                <li><a class="btn-colorful" name="information" href="#information">资讯</a></li>
-            </ul> 
         </div>
+
     </div>
-    
-</div>
+</section>
+
 <script>
 
     var anchor = '@Request["anchor"]';
@@ -191,9 +200,16 @@
                 InitPaging();
             }
         });
+        
+        
+        $(window).resize(SetRightHeight);
     })
 
-
+    //设置右边div高度与左边一致
+    function SetRightHeight() {
+        var divHeight = $('#left').height();
+        $('#right').css({ 'height': divHeight/2 });
+    }
 
     function InitPaging()
     {
@@ -208,16 +224,16 @@
         if (firstResult.totalPages > 1) {
             InitPaginator(firstResult.totalPages);
         }
+
+        //重新设置右边div高度
+        SetRightHeight();
     }
-
-
     //重置分页条
     function ResetPaginator()
     {
         $('#' + _tabType + "Paginator").html("");
 
     }
-
     //配置分页属性
     function InitPaginator(totalPages)
     {
@@ -253,8 +269,6 @@
 
         $('#' + _tabType + "Paginator").bootstrapPaginator(options);
     }
-
-
     //获取分页数据
     function GetPageData(currentPage)
     {
@@ -300,7 +314,7 @@
         {
             
             var pubTime = eval('new ' + eval(articles[i].Pubtime).source);
-            var pubTimeStr = pubTime.getFullYear() + "/" + pubTime.getMonth() + "/" + pubTime.getDay() + "/ "+
+            var pubTimeStr = pubTime.getFullYear() + "-" + pubTime.getMonth() + "-" + pubTime.getDay() +" "+
                             pubTime.getHours()+":"+pubTime.getMinutes();
             var contentHref ="/Article/ShowContent?id=" + articles[i].Id + "&returnUrl=@returnUrl?anchor="+ _tabType;
             var editHref = "/Article/Edit?id=" + articles[i].Id + "&returnUrl=@returnUrl?anchor=" + _tabType;
@@ -308,18 +322,18 @@
 
             dynamicHtml += '<div class="row article-row">';
             dynamicHtml += '<div class="col-md-12">';
-            dynamicHtml += '<h3>' + articles[i].SubTitle+ '</h3>';
-            dynamicHtml += '<h4>' + pubTimeStr + '</h4>';
+            dynamicHtml += '<h3 class="customer-h3">' + articles[i].SubTitle + '</h3>';
+            dynamicHtml += '<p class="customer-content-sm text-right">' + pubTimeStr + '</p>';
             dynamicHtml += '</div>';
             dynamicHtml += '<div class="col-md-4">';
             dynamicHtml += '<a href="' + contentHref + '">';
-            dynamicHtml += '<img src="' + articles[i].ArticleImage + '" class="imgSizeW-280" />';
+            dynamicHtml += '<img src="' + articles[i].ArticleImage + '" class="image-smallsize" />';
             dynamicHtml += '</a>';
             dynamicHtml += '</div>';
             dynamicHtml += '<div class="col-md-8">';
-            dynamicHtml += '<div class="descriptionContent">';
+            dynamicHtml += '<p class="customer-content-sm">';
             dynamicHtml += articles[i].Description ==null ?"":articles[i].Description;
-            dynamicHtml += '</div>';
+            dynamicHtml += '</p>';
             dynamicHtml += '<a class="btn-gelatine btn-gelatine-info" href="' + contentHref + '"><strong>了解更多</strong></a>';
             
             var isadmin = '@isAdmin';

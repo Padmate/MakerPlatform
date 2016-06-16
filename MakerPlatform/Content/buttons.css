@@ -58,6 +58,76 @@ a.btn-gelatine-info:hover {
   -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
   box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
 }
+/***绿色***/
+a.btn-gelatine-website {
+  background: #8EC31E;
+  -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #8EC31E;
+  box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #8EC31E;
+}
+a.btn-gelatine-website:hover {
+  -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+  box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+}
+
+a.btn-gelatine-website-lg {
+  border-radius: 300px;
+  padding: .9em 2.3em;
+  font-weight:bolder;
+  background: #8EC31E;
+  -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #8EC31E;
+  box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #8EC31E;
+}
+a.btn-gelatine-website-lg:hover {
+  -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+  box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+}
+
+/***白色***/
+a.btn-gelatine-white {
+  -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fff;
+  box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fff;
+}
+a.btn-gelatine-white:hover {
+  -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+  box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+}
+
+a.btn-gelatine-white-lg {
+  color:black;
+  border-radius: 300px;
+  background: #fff;
+  padding: .9em 2.3em;
+  font-weight:bolder;
+  -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fff;
+  box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #fff;
+}
+a.btn-gelatine-white-lg:hover {
+  -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+  box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+}
+
+/***灰色***/
+a.btn-gelatine-gray {
+  background: #555;
+  -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #555;
+  box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #555;
+}
+a.btn-gelatine-gray:hover {
+  -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+  box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+}
+
+a.btn-gelatine-gray-lg {
+  padding: .9em 2.3em;
+  font-weight:bolder;
+  background: #555;
+  -webkit-box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #555;
+  box-shadow: 0 0 0 -2px #cff09e, 0 0 0 -1px #555;
+}
+a.btn-gelatine-gray-lg:hover {
+  -webkit-box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+  box-shadow: 0 0 0 2px #cff09e, 0 0 0 4px #bebe99;
+}
 
 /**
  * $keyframes \ gelatine 

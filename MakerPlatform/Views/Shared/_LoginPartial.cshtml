@@ -1,16 +1,7 @@
 ﻿@using Microsoft.AspNet.Identity
 
 <style>
-    .login-li-bg {
-        background-color:transparent;
-    }
-    .login-li-font {
-        color: #fed136;
-    }
-    .login-box
-    {
-        margin-left:50px;
-    }
+    
 </style>
 @if (Request.IsAuthenticated)
 {
@@ -20,7 +11,7 @@
 
     <ul class="nav navbar-nav navbar-right login-box">
         <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #8ece1f; background-color: transparent;">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" style="color: #8EC31E; background-color: transparent;">
                 @User.Identity.GetUserName()
                 <b class="caret"></b>
             </a>
@@ -52,6 +43,6 @@
 else
 {
     <ul class="nav navbar-nav navbar-right login-box">
-        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl = Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", @class="nav-title", style = "color: #8ece1f;" })</li>
+        <li>@Html.ActionLink("登录", "Login", "Account", new { ReturnUrl = Request.Url.PathAndQuery }, htmlAttributes: new { id = "loginLink", style = "color: #8EC31E;" })</li>
     </ul>
 }

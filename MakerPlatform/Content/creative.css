@@ -78,7 +78,7 @@
 .shop .shop-content {
     position: relative;
     width: 100%;
-    padding: 100px 15px;
+    padding: 5% 15px;
     text-align: center;
 }
 
@@ -90,7 +90,7 @@
 }
 
 .shop .shop-content .shop-content-inner hr {
-    margin: 30px auto;
+    margin: 2% auto;
 }
 
 shop .shop-content .shop-content-inner p {

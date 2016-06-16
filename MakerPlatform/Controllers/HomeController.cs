@@ -18,6 +18,43 @@ namespace MakerPlatform.Controllers
             return View();
         }
 
+        public ActionResult Default1()
+        {
+            ViewBag.From = "Default";
+            //活动预告
+            List<Article> activityForecastArticles = _dbContext.Atricles
+                .Where(a => a.Type == Common.ActivityForecast)
+                .OrderByDescending(a => a.Pubtime)
+                .Take(3)
+                .ToList();
+            //精彩活动
+            List<Article> wonderfulActivityArticles = _dbContext.Atricles
+                .Where(a => a.Type == Common.WonderfulActivity)
+                .OrderByDescending(a => a.Pubtime)
+                .Take(3)
+                .ToList();
+
+            //资讯
+            List<Article> informationArticles = _dbContext.Atricles
+                .Where(a => a.Type == Common.Information)
+                .OrderByDescending(a => a.Pubtime)
+                .Take(6)
+                .ToList();
+
+            ViewData["activityForecastArticles"] = activityForecastArticles;
+            ViewData["wonderfulActivityArticles"] = wonderfulActivityArticles;
+            ViewData["informationArticles"] = informationArticles;
+
+            //首页图片
+            List<Image> homebgImages = _dbContext.Images
+                .Where(i => i.Type == Common.Image_HomeBG)
+                .OrderBy(i => i.Sequence)
+                .ToList();
+            ViewData["homebgImages"] = homebgImages;
+
+            return View();
+        }
+
         public ActionResult Default()
         {
             ViewBag.From = "Default";
@@ -138,6 +175,9 @@ namespace MakerPlatform.Controllers
         [HttpPost]
         public ActionResult DeleteImage(int Id)
         {
+            Message message = new Message();
+            message.Success = true;
+
             try{
                 var image = _dbContext.Images.Where(i => i.Id == Id).FirstOrDefault();
                 if (image != null)
@@ -154,10 +194,12 @@ namespace MakerPlatform.Controllers
                     _dbContext.SaveChanges();
                 }
 
-            }catch{
-                return Json(false);
+            }catch(Exception e){
+                message.Success = false;
+                message.Content = "图片删除失败。异常："+e.Message;
+               
             }
-            return Json(true);
+            return Json(message);
         }
 
         /// <summary>
@@ -207,7 +249,7 @@ namespace MakerPlatform.Controllers
                     
                 }catch(Exception e){
                     message.Success = false;
-                    message.Content = "上传失败，服务端出现异常";
+                    message.Content = "上传失败。异常："+e.Message+e.InnerException+e;
                 }
 
                 return Json(message);

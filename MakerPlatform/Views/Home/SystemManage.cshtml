@@ -57,52 +57,53 @@
     
 </style>
 
-<div class="container" id="manageTab">
-    <div class="row">
-        <div class="col-md-2">
-            <p class="lead">系统管理</p>
-            <ul class="nav nav-tabs list-nav" id="manageTab">
-                <li class="active">
-                    <a href="#homebg-image">首页图片</a>
-                </li>
-                <li>
-                    <a href="#password">密码管理</a>
-                </li>
-            </ul>
-        </div>
-        <div class="col-md-10">
-            <div class="tab-content">
-                <div class="tab-pane active" id="homebg-image" style="width:100%">
-                    
-                    <div></div>
-                    <!--dom结构部分-->
-                    <div id="uploader-demo">
-                        <!--用来存放item-->
-                        <div id="fileList" class="uploader-list"></div>
-                        <div style="color: #31b0d5; ">图片分辨率大小：1920*1080</div>
-                        
-                        <div id="filePicker">添加图片</div>
-                        <div id="status"></div>
+<section>
+    <div class="container" id="manageTab">
+        <div class="row">
+            <div class="col-md-2">
+                <p class="lead">系统管理</p>
+                <ul class="nav nav-tabs list-nav" id="manageTab">
+                    <li class="active">
+                        <a href="#homebg-image">首页图片</a>
+                    </li>
+                    <li>
+                        <a href="#password">密码管理</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-10">
+                <div class="tab-content">
+                    <div class="tab-pane active" id="homebg-image" style="width:100%">
+
+                        <div></div>
+                        <!--dom结构部分-->
+                        <div id="uploader-demo">
+                            <!--用来存放item-->
+                            <div id="fileList" class="uploader-list"></div>
+                            <div style="color: #31b0d5; ">图片分辨率大小：1920*900</div>
+
+                            <div id="filePicker">添加图片</div>
+                            <div id="status"></div>
+                        </div>
+
+                        <div>
+                            <h3 class="text-center text-primary">拖动图片进行排序，图片顺序即为首页轮播顺序</h3>
+                            <ul id="imageList"></ul>
+                        </div>
+
+
+                    </div>
+                    <div class="tab-pane" id="password" style="width:100%">
+                        密码管理-暂无功能
+
                     </div>
 
-                    <div>
-                        <h3 class="text-center text-primary">拖动图片进行排序，图片顺序即为首页轮播顺序</h3>
-                        <ul id="imageList">
-                           
-                        </ul>
-                    </div>
-                    
-
                 </div>
-                <div class="tab-pane" id="password" style="width:100%"> 
-                密码管理-暂无功能
-                
-                </div>
-
             </div>
         </div>
     </div>
-</div>
+</section>
+
 <script>
 
 
@@ -143,9 +144,15 @@
                 dataType: "json",
                 data: { Id: imageId },
                 async: false,   //同步
-                success: function (status) {
-                    //重新加载图片
-                    LoadHomeBGImage();
+                success: function (message) {
+                    if(message.Success ==false || message.Success =="false")
+                    {
+                        $("#status").html("<lable style='color:red;'>" + message.Content + "</lable>");
+                    } else {
+                        //重新加载图片
+                        LoadHomeBGImage();
+                    }
+                    
                 }
             });
         });
@@ -235,7 +242,7 @@
 
         // 文件上传成功，给item添加成功class, 用样式标记上传成功。
         uploader.on('uploadSuccess', function (file, response) {
-            if (response.Success =="false")
+            if (response.Success == false || response.Success == "false")
             {
                 $("#status").html("<lable style='color:red;'>"+response.Content+"</lable>");
             } else {
