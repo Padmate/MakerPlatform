@@ -453,13 +453,16 @@
                                     </div>
                                 </div>
                             </a>
+                            <div class="service-information-caption">
+                                <h4 class="customer-h4">
+                                    @activityForecastArticles[i].Title
+                                </h4>
+                                <span class="customer-content-sm">
+                                    @activityForecastArticles[i].SubTitle
 
-                            <h4 class="customer-h4">
-                                @activityForecastArticles[i].Title
-                            </h4>
-                            <span class="customer-content-sm">
-                                @activityForecastArticles[i].SubTitle
-                            </span>
+                                </span>
+                            </div>
+                            
                         </div>
                     </div>
                 }
@@ -493,13 +496,15 @@
                                     </div>
                                 </div>
                             </a>
-
-                            <h4 class="customer-h4">
-                                @wonderfulActivityArticles[i].Title
-                            </h4>
-                            <p class="customer-content-sm">
-                                @wonderfulActivityArticles[i].SubTitle
-                            </p>
+                            <div class="service-information-caption">
+                                <h4 class="customer-h4">
+                                    @wonderfulActivityArticles[i].Title
+                                </h4>
+                                <p class="customer-content-sm">
+                                    @wonderfulActivityArticles[i].SubTitle 
+                                </p>
+                            </div>
+                           
                         </div>
                     </div>
                 }
@@ -516,6 +521,27 @@
 
             </div>
         </div>
+        <script>
+             
+            //找出所有service-information-caption中div最高的那个高度
+            var higestCaption = 0;
+            $(".service-information-caption").each(function () {
+                
+                var sectionHight = $(this).height();
+                if(higestCaption < sectionHight)
+                {
+                    higestCaption = sectionHight;
+                }
+            });
+            //将所有service-information-caption的div高度赋值为最高高度
+            $(".service-information-caption").each(function () {
+                var padding = 20;
+                $(this).css({ 'height': higestCaption + padding });
+
+
+            });
+            
+        </script>
     </div>
 </section>
 
@@ -711,9 +737,7 @@
 
 <script>
 
-
     $(function () {
-
         //初始化wow动画
         new WOW().init();
         InitSuspendedBtn();
@@ -736,6 +760,9 @@
         $(window).resize(sliderheight);
     })
     
+    
+    
+
     function ServiceHover()
     {
         $(".service-col").bind('mouseenter', function () {

@@ -385,3 +385,17 @@ header .carousel-indicators li:hover{background-color:gray;}
     color:black;
     background-color:#fff;
 }
+
+.service-box{
+    margin-bottom:20px;
+}
+.service-information-caption{
+   min-height:125px;
+   padding:10px 0px;
+   background-color:#fff;
+}
+
+.service-information-caption .customer-h4{
+    margin:0;
+    padding:10px 0px;
+}
